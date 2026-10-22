@@ -65,8 +65,11 @@ def main(paths):
             if r.get("found"):
                 if r.get("expected") not in ("hike", "hold", "cut"):
                     fail(errs, i, "expected must be hike/hold/cut when found")
-                if not re.fullmatch(r"[+-]?\d+", (r.get("move_bp") or "").strip()):
-                    fail(errs, i, "move_bp like +25 / 0 / -25")
+                mv = (r.get("move_bp") or "").strip()
+                if mv and not re.fullmatch(r"[+-]?\d+", mv):
+                    fail(errs, i, "move_bp like +25 / 0 / -25, or empty when polls give a direction but no size")
+                if mv and r.get("expected") == "hold" and int(mv) != 0:
+                    fail(errs, i, "hold must have move_bp 0")
                 if not r.get("basis") or QUOTES.search(r.get("basis", "")):
                     fail(errs, i, "basis missing or contains quotation marks")
     if errs:

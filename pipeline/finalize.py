@@ -66,10 +66,16 @@ def apply_outbox() -> int:
             if not t:
                 continue
             done_e.add(t["id"])
-            if r.get("found") and re.fullmatch(r"[+-]?\d+", (r.get("move_bp") or "").strip()):
-                mv = int(r["move_bp"])
+            if r.get("found") and r.get("expected") in ("hike", "hold", "cut"):
+                raw = (r.get("move_bp") or "").strip()
+                mv = int(raw) if re.fullmatch(r"[+-]?\d+", raw) else (0 if r["expected"] == "hold" else None)
+                sign = {"hike": 1, "hold": 0, "cut": -1}[r["expected"]]
+                if t["bank"] == "MAS":
+                    label = {"hike": "Tighten", "hold": "Unchanged", "cut": "Ease"}[r["expected"]]
+                else:
+                    label = "Hold" if sign == 0 else (f"{mv:+d}bp" if mv is not None else ("Hike" if sign > 0 else "Cut") + " (size not polled)")
                 past = t["date"] < today_sgt().isoformat()
-                ex[t["id"]] = {"move_bp": mv, "label": "Hold" if mv == 0 else f"{mv:+d}bp", "basis": r.get("basis", ""),
+                ex[t["id"]] = {"move_bp": mv, "dir": sign, "label": label, "basis": r.get("basis", ""),
                                "outlets": (r.get("outlets") or [])[:4], "as_of": t.get("as_of") or today_sgt().isoformat(),
                                "kind": "news", "frozen": past}
             elif t["date"] < today_sgt().isoformat():

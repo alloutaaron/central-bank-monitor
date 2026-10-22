@@ -57,7 +57,7 @@
       }
       let ex = `<span class="exp-tbc">TBC</span>`;
       if (nx && nx.expected) {
-        const k = dirOf(nx.expected_move);
+        const k = dirOf(nx.expected_move ?? nx.expected_dir);
         ex = `<span class="${k}" title="${esc(nx.basis || "")}">${G[k] || ""} ${esc(nx.expected.toUpperCase())}</span>`;
       }
       const rl = rate ? (rate.detail ? `${esc(rate.level)} <span class="sub clip" title="${esc(rate.detail)}">${esc(rate.detail)}</span>` : esc(rate.level)) : `<span class="exp-tbc">TBC</span>`;
@@ -93,7 +93,8 @@
       const txt = e.bank === "MAS" ? (e.decision.move === 0 ? "UNCH" : e.decision.move > 0 ? "TIGHTEN" : "EASE") : k === "hd" ? "HOLD" : `${e.decision.move > 0 ? "+" : ""}${e.decision.move}`;
       return { g: G[k], cls: k, txt };
     }
-    if (e.expected) return { g: "E", cls: "ex", txt: e.expected.move === 0 ? "HOLD" : `${e.expected.move > 0 ? "+" : ""}${e.expected.move}` };
+    if (e.expected) { const mv = e.expected.move, dr = mv ?? e.expected.dir;
+      return { g: "E", cls: "ex", txt: dr === 0 ? "HOLD" : mv != null ? `${mv > 0 ? "+" : ""}${mv}` : dr > 0 ? "HIKE" : "CUT" }; }
     return { g: "E", cls: "ex", txt: e.status === "awaiting" ? "PENDING" : "TBC" };
   }
 

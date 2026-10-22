@@ -64,8 +64,13 @@ Process everything in `pending.json`. Write one or more files
 * Ignore headlines dated after the meeting.
 * `found` = false if the headlines do not establish an expectation; then the
   other fields are "" / [].
-* `move_bp` like "+25", "0", "-25". `basis`: one short paraphrase (at most 20
-  words), e.g. "Reuters poll: most economists expect a hold". `outlets`: names.
+* `move_bp` like "+25", "0", "-25"; "0" for a hold. If the headlines give a
+  direction but no size (e.g. "seen raising rates"), leave `move_bp` "" rather
+  than assuming 25. For MAS, "hike" = tighten, "cut" = ease, "hold" = unchanged.
+* Headlines that report the decision itself (e.g. "holds rates", "cuts rates")
+  are not expectations, even if dated before the meeting.
+* `basis`: one short paraphrase (at most 20 words), e.g. "Reuters poll: most
+  economists expect a hold". `outlets`: names.
 
 ## 3. Rules that override everything
 

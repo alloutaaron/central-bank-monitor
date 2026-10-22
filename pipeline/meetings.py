@@ -224,9 +224,12 @@ def annotate(recs: list[dict], expectations: dict, watch: dict, today: dt.date) 
         rec["expected"] = ex
         rec["status"] = "done" if dec else ("awaiting" if _d(rec["date"]) <= today else "scheduled")
         rec["matched"] = None
-        if dec and ex and ex.get("move_bp") is not None and dec.get("move_bp") is not None:
-            if rec["bank"] == "MAS":
-                rec["matched"] = (int(ex["move_bp"]) == 0) == (dec["move_bp"] == 0)
+        if dec and ex and dec.get("move_bp") is not None:
+            sgn = lambda v: (v > 0) - (v < 0)
+            exp_dir = ex.get("dir", sgn(ex["move_bp"]) if ex.get("move_bp") is not None else None)
+            if rec["bank"] == "MAS" or ex.get("move_bp") is None:
+                # direction only (MAS band moves; polls that give no size)
+                rec["matched"] = None if exp_dir is None else exp_dir == sgn(dec["move_bp"])
             else:
                 rec["matched"] = int(ex["move_bp"]) == int(dec["move_bp"])
     return recs

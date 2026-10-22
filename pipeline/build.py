@@ -46,7 +46,7 @@ def _event(rec: dict) -> dict:
         ev["decision"] = {"label": d["label"], "move": d.get("move_bp"), "src": d.get("source_kind")}
     e = rec.get("expected")
     if e:
-        ev["expected"] = {"label": e["label"], "move": e.get("move_bp"), "basis": e.get("basis")}
+        ev["expected"] = {"label": e["label"], "move": e.get("move_bp"), "dir": e.get("dir"), "basis": e.get("basis")}
     ev["matched"] = rec.get("matched")
     return ev
 
@@ -153,7 +153,7 @@ def write_site(recs, statements, spec, health, today: dt.date, ai: dict):
         if r["type"] in ("meeting", "lpr") and r["date"] >= tday and r["bank"] not in nxt and r["status"] != "done":
             e = r.get("expected") or {}
             nxt[r["bank"]] = {"date": _sgt_date(r), "time": r["time_sgt"][11:16] if r.get("time_sgt") else None,
-                              "title": TITLE.get(r["bank"]), "expected": e.get("label"), "expected_move": e.get("move_bp"),
+                              "title": TITLE.get(r["bank"]), "expected": e.get("label"), "expected_move": e.get("move_bp"), "expected_dir": e.get("dir"),
                               "basis": e.get("basis")}
         if r["type"] in ("meeting", "lpr", "rate-change") and r.get("decision") and r["date"] <= tday:
             last[r["bank"]] = {"date": r["date"], "move": r["decision"].get("move_bp"), "label": r["decision"]["label"],
