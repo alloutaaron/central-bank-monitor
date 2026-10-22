@@ -35,6 +35,19 @@
   Claude Code session. No API key is needed (`pipeline/llm.py` has an optional
   API path that runs only if an `ANTHROPIC_API_KEY` secret is ever set).
 
+## One-time setup: the routine
+
+Needs GitHub connected to your Claude account (claude.ai/code → connect
+GitHub; when GitHub asks, allow the Claude app on
+`alloutaaron/central-bank-monitor` only). Then create it from Claude Code with
+`/schedule`, or at claude.ai/code/routines:
+
+* Name *Central Bank Monitor - daily language step*; repository
+  `alloutaaron/central-bank-monitor`; environment *Default*; model Sonnet 5.5.
+* Schedule daily 06:10 SGT (cron `10 22 * * *` in UTC).
+* Prompt: follow `ROUTINE.md`, run the checker until it prints OK, push the new
+  outbox files to `main` (not a `claude/` branch), end with a one-line summary.
+
 ## Checking that it ran
 
 * The page header shows **UPD <date, time> SGT**: the last full collection
