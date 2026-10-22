@@ -56,7 +56,7 @@ main { max-width: 1440px; margin: 0 auto; padding: 10px 12px 4px; display: grid;
 .board { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
 .board th { text-align: left; color: var(--amber); font-weight: 500; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; padding: 5px 10px; border-bottom: 1px solid var(--line-2); white-space: nowrap; }
 .board td { padding: 4px 10px; border-bottom: 1px solid var(--line); white-space: nowrap; }
-.board tr.row { cursor: pointer; } .board tr.row:hover td { background: #0e0e0e; }
+.board tr.brow { cursor: pointer; } .board tr.brow:hover td { background: #0e0e0e; }
 .board .code { color: var(--amber); font-weight: 600; } .board .nm { color: var(--ink-3); font-size: 11px; margin-left: 6px; }
 .board .rate { color: #fff; font-weight: 500; } .board .sub { color: var(--ink-3); font-size: 11px; }
 .board .in { color: var(--ink-2); }

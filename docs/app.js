@@ -59,13 +59,13 @@
         ex = `<span class="${k}" title="${esc(nx.basis || "")}">${G[k] || ""} ${esc(nx.expected.toUpperCase())}</span>`;
       }
       const rl = rate ? (rate.detail ? `${esc(rate.level)} <span class="sub">${esc(rate.detail)}</span>` : esc(rate.level)) : `<span class="exp-tbc">TBC</span>`;
-      return `<tr class="row" data-c="${c}"><td><span class="code">${esc(b.short.toUpperCase())}</span><span class="nm">${esc(b.name)}</span></td>
+      return `<tr class="brow" data-c="${c}"><td><span class="code">${esc(b.short.toUpperCase())}</span><span class="nm">${esc(b.name)}</span></td>
         <td><span class="rate">${rl}</span> <span class="sub opt">${esc(b.rate_label)}</span></td><td>${lastCell}</td>
         <td>${nextCell}</td><td class="in">${inCell}</td><td>${ex}</td></tr>`;
     }).join("");
     $("#boardTbl").innerHTML = `<thead><tr><th>Bank</th><th>Policy rate</th><th>Last move</th><th>Next decision</th><th>In</th><th>Expected</th></tr></thead><tbody>${rows}</tbody>`;
     $("#boardTbl").onclick = e => {
-      const tr = e.target.closest("tr.row"); if (!tr) return;
+      const tr = e.target.closest("tr.brow"); if (!tr) return;
       const c = tr.dataset.c, nx = S.banks[c].next;
       S.calBank = c; pref("calBank", c); selectKey($("#calBanks"), c);
       if (nx) { S.month = nx.date.slice(0, 7); S.sel = nx.date; }
