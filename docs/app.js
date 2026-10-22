@@ -185,7 +185,7 @@
         const g = x.stance === "hawkish" ? "▲" : x.stance === "dovish" ? "▼" : "●";
         const who = x.speaker ? `${esc(x.speaker)}${x.role ? ` <span class="role">· ${esc(x.role)}</span>` : ""}` : (x.kind === "decision" ? "Policy decision" : esc(S.banks[x.bank]?.name || ""));
         h += `<li class="it ${esc(x.stance)}"><span class="tm">${x.date_only ? "—" : x.ts.slice(11, 16)}</span><span class="bk bkcol">${esc(short(x.bank).toUpperCase())}</span>
-          <div><div class="who"><i aria-label="${esc(x.stance)}">${g}</i> ${who}</div><p>${esc(x.text)}</p></div>
+          <div><div class="who"><i aria-label="${esc(x.stance)}">${g}</i> <span class="bk bk-inline">${esc(short(x.bank).toUpperCase())}</span>${who}</div><p>${esc(x.text)}</p></div>
           <span class="sr">${x.url ? ext(x.url, (x.src || "Source").toUpperCase()) : esc((x.src || "").toUpperCase())}</span></li>`;
       }
       list.innerHTML = h;
