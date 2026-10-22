@@ -28,11 +28,17 @@ Process everything in `pending.json`. Write one or more files
 "kind": "remark"|"decision"|"other", "paraphrase", "stance": "hawkish"|"dovish"|"neutral",
 "score": -2..2, "reason", "decision_bp", "decision_level"}`
 
-* `relevant` = true only if the headline reports what a **named official** of
-  one of the banks in `config/banks.json` said, or an official policy decision
-  by one of them. Analysts, economists, markets, politicians and other central
-  banks (SNB, BoC, Banxico, Riksbank, etc.) are not relevant. Former officials
-  are not relevant.
+* `relevant` = true only if the headline reports (a) what a **named official**
+  of one of the banks in `config/banks.json` said, (b) an official statement by
+  the bank as an institution (e.g. "BOK: price pressures likely to persist";
+  then `speaker` is "" and `role` is "" or the document, e.g. "MPC minutes"), or
+  (c) an official policy decision. Only monetary policy, the economy,
+  inflation, FX or financial stability count: remarks on climate, payments,
+  supervision or personnel are not relevant. Analysts, economists, markets,
+  politicians (including finance ministers), media reports citing unnamed
+  sources, former officials and other central banks (SNB, BoC, Banxico,
+  Riksbank, etc.) are not relevant. Routine market operations (daily repo
+  injections, yuan fixings, bill auctions) are not relevant.
 * `kind` = "decision" for an announced policy decision; then `decision_bp` like
   "+25", "0", "-50" and `decision_level` like "3.75-4.00" or "5.50". Otherwise
   both are "".

@@ -182,9 +182,11 @@ def _classify_spec():
                 "paraphrase": {"type": "string"}, "stance": STANCE, "score": SCORE,
                 "reason": {"type": "string"},
                 "decision_bp": {"type": "string"}, "decision_level": {"type": "string"}}}}}}
-    task = ("Classify each headline. relevant=true only if it reports what a NAMED official of one of the 17 banks below said, "
-            "or an official policy decision by one of them. Analysts, economists, markets, politicians and other central banks "
-            "(SNB, BoC, Banxico, Riksbank, etc.) are not relevant. kind='decision' for announced policy decisions (fill decision_bp "
+    task = ("Classify each headline. relevant=true only if it reports what a NAMED official of one of the banks below said, an "
+            "official statement by the bank as an institution (speaker empty), or an official policy decision. Only monetary policy, "
+            "the economy, inflation, FX or financial stability count. Analysts, economists, markets, politicians, unnamed sources, "
+            "former officials, routine market operations and other central banks (SNB, BoC, Banxico, Riksbank, etc.) are not "
+            "relevant. kind='decision' for announced policy decisions (fill decision_bp "
             "like '+25', '0', '-50' and decision_level like '3.75-4.00' or '5.50'; else empty strings). speaker = full name as in the "
             "roster when identifiable, else as written; role = their title. reason = at most 15 words on why that score. For "
             "irrelevant items return relevant=false, bank NONE, empty strings, stance neutral, score 0.")
