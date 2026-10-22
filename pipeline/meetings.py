@@ -150,10 +150,10 @@ def mas_record(entry: dict) -> dict:
     parts = []
     for k, name in (("slope", "slope"), ("width", "width"), ("centre", "centre")):
         if entry.get(k):
-            parts.append(f"{entry[k].lower()} {name}" if k != "centre" else entry[k])
-    move = "Unchanged" if not parts else "; ".join(p[0].upper() + p[1:] for p in parts)
+            parts.append(f"{name}: {entry[k][0].lower()}{entry[k][1:]}" if k != "centre" else entry[k])
+    move = "Unchanged" if not parts else "; ".join(parts)
     sign = 0 if not parts else (1 if any("increase" in p.lower() or "upward" in p.lower() for p in parts) else -1)
-    return {"move_bp": sign, "label": move + (" (S$NEER band)" if parts else " S$NEER policy band"),
+    return {"move_bp": sign, "label": ("S$NEER " + move) if parts else "Unchanged S$NEER policy band",
             "source": entry["src"], "source_kind": "official"}
 
 

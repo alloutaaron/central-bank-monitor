@@ -105,8 +105,12 @@ def current_rates(recs: list[dict], today: str) -> dict:
     if mas:
         last = max(mas, key=lambda r: r["date"])
         moved = [r for r in mas if r["decision"]["move_bp"] != 0]
-        lab = moved[-1]["decision"]["label"].split(" (")[0].lower() if moved else ""
-        detail = (f"{lab} ({moved[-1]['date'][8:10]}/{moved[-1]['date'][5:7]}/{moved[-1]['date'][2:4]})" if moved else "No recent change")
+        if moved:
+            d = dt.date.fromisoformat(moved[-1]["date"])
+            lab = moved[-1]["decision"]["label"].removeprefix("S$NEER ")
+            detail = f"{lab[0].upper()}{lab[1:]} ({d.day} {d.strftime('%b %y')})"
+        else:
+            detail = "No recent change"
         cur["MAS"] = {"level": "S$NEER band", "detail": detail, "as_of": last["date"], "src": "official"}
     return cur
 

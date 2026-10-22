@@ -61,6 +61,8 @@ main { max-width: 1440px; margin: 0 auto; padding: 10px 12px 4px; display: grid;
 .board .rate { color: #fff; font-weight: 500; } .board .sub { color: var(--ink-3); font-size: 11px; }
 .board .clip { display: inline-block; max-width: 230px; overflow: hidden; text-overflow: ellipsis; vertical-align: bottom; }
 .board .in { color: var(--ink-2); }
+.board .lbl, .board .in-inline { display: none; }
+.board .lbl { color: var(--ink-3); font-size: 10px; letter-spacing: .08em; margin-right: 6px; }
 .up { color: var(--hawk); } .dn { color: var(--dove); } .hd { color: var(--ink-3); }
 .mv { display: inline-block; min-width: 54px; }
 .exp-tbc { color: var(--ink-3); }
@@ -156,7 +158,26 @@ main { max-width: 1440px; margin: 0 auto; padding: 10px 12px 4px; display: grid;
 .tip { position: fixed; z-index: 50; pointer-events: none; max-width: 300px; background: #111; border: 1px solid var(--amber); color: var(--ink); font-size: 11.5px; padding: 6px 8px; }
 .foot { max-width: 1440px; margin: 0 auto; padding: 6px 12px 22px; color: var(--ink-3); font-size: 11px; }
 
-@media (max-width: 1080px) { .cal-body { grid-template-columns: 1fr; } .cal-left { border-right: 0; border-bottom: 1px solid var(--line-2); } }
+@media (max-width: 1080px) { .cal-body { grid-template-columns: 1fr; } .cal-left { border-right: 0; border-bottom: 1px solid var(--line-2); }
+  .keys { flex-wrap: wrap; overflow: visible; } }
+/* Narrow screens: each bank becomes two lines (rate + last move, then next decision + expected). */
+@media (max-width: 1000px) {
+  .board thead { display: none; }
+  .board, .board tbody { display: block; }
+  .board tr.brow { display: grid; grid-template-columns: 52px minmax(0, 1fr) auto; column-gap: 10px; row-gap: 2px; padding: 5px 10px; border-bottom: 1px solid var(--line); }
+  .board tr.brow:hover { background: #0e0e0e; }
+  .board td { padding: 0; border: 0; white-space: normal; }
+  .board td.c-bank { grid-column: 1; grid-row: 1 / span 2; }
+  .board td.c-rate { grid-column: 2; grid-row: 1; }
+  .board td.c-last { grid-column: 3; grid-row: 1; text-align: right; white-space: nowrap; }
+  .board td.c-next { grid-column: 2; grid-row: 2; white-space: nowrap; }
+  .board td.c-in { display: none; }
+  .board td.c-exp { grid-column: 3; grid-row: 2; text-align: right; }
+  .board .lbl, .board .in-inline { display: inline; }
+  .board .nm, .board .opt { display: none; }
+  .board .clip { display: block; max-width: none; white-space: normal; }
+  .board .c-exp .sub { display: block; }
+}
 .day .dots { display: none; }
 @media (max-width: 720px) {
   .cmd { padding: 6px 12px; } .ttl { display: none; }

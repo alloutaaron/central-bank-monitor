@@ -124,7 +124,7 @@ def collect(processed: set[str], since: str, max_docs_per_source: int = 25) -> l
     import time as _time
     out = []
     for src in SOURCES:
-        started, fetched = _time.time(), 0
+        fetched = 0
         try:
             items = list_items(src)
         except FetchError:
@@ -132,6 +132,7 @@ def collect(processed: set[str], since: str, max_docs_per_source: int = 25) -> l
         except Exception as e:
             LOG.fail(f"{src['bank']}:official-{src['kind']}", f"parser error: {type(e).__name__}: {e}")
             continue
+        started = _time.time()
         for it in items:
             if it["id"] in processed:
                 continue
@@ -139,7 +140,10 @@ def collect(processed: set[str], since: str, max_docs_per_source: int = 25) -> l
                 processed.add(it["id"])
                 continue
             if fetched >= max_docs_per_source or _time.time() - started > 240:
-                LOG.fail(f"{src['bank']}:official-doc", "time/size budget reached; remaining documents next run")
+                if fetched:   # reachable, just a backlog: progress, not a failure
+                    LOG.ok(f"{src['bank']}:official-doc", "backlog: remaining documents next run")
+                else:
+                    LOG.fail(f"{src['bank']}:official-doc", "no document downloaded within the time budget")
                 break
             fetched += 1
             try:

@@ -54,16 +54,17 @@
         nextCell = `${dm(nx.date)}${nx.time ? " " + nx.time : ""}`;
         const d = daysBetween(today, nx.date);
         inCell = d <= 0 ? "TODAY" : `${d}D`;
+        nextCell += `<span class="in-inline"> · ${inCell}</span>`;
       }
       let ex = `<span class="exp-tbc">TBC</span>`;
       if (nx && nx.expected) {
-        const k = dirOf(nx.expected_move ?? nx.expected_dir);
-        ex = `<span class="${k}" title="${esc(nx.basis || "")}">${G[k] || ""} ${esc(nx.expected.toUpperCase())}</span>`;
+        const k = dirOf(nx.expected_move ?? nx.expected_dir), dirOnly = nx.expected_move == null && c !== "MAS";
+        ex = `<span class="${k}" title="${esc(nx.basis || "")}">${G[k] || ""} ${esc(nx.expected.replace(/\s*\(size not polled\)/i, "").toUpperCase())}</span>${dirOnly ? `<span class="sub"> size not polled</span>` : ""}`;
       }
       const rl = rate ? (rate.detail ? `${esc(rate.level)} <span class="sub clip" title="${esc(rate.detail)}">${esc(rate.detail)}</span>` : esc(rate.level)) : `<span class="exp-tbc">TBC</span>`;
-      return `<tr class="brow" data-c="${c}"><td><span class="code">${esc(b.short.toUpperCase())}</span><span class="nm">${esc(b.name)}</span></td>
-        <td><span class="rate">${rl}</span> <span class="sub opt">${esc(b.rate_label)}</span></td><td>${lastCell}</td>
-        <td>${nextCell}</td><td class="in">${inCell}</td><td>${ex}</td></tr>`;
+      return `<tr class="brow" data-c="${c}"><td class="c-bank"><span class="code">${esc(b.short.toUpperCase())}</span><span class="nm">${esc(b.name)}</span></td>
+        <td class="c-rate"><span class="rate">${rl}</span>${rate && rate.detail ? "" : ` <span class="sub opt">${esc(b.rate_label)}</span>`}</td><td class="c-last"><span class="lbl">LAST</span>${lastCell}</td>
+        <td class="c-next"><span class="lbl">NEXT</span>${nextCell}</td><td class="in c-in">${inCell}</td><td class="c-exp"><span class="lbl">EXP</span>${ex}</td></tr>`;
     }).join("");
     $("#boardTbl").innerHTML = `<thead><tr><th>Bank</th><th>Policy rate</th><th>Last move</th><th>Next decision</th><th>In</th><th>Expected</th></tr></thead><tbody>${rows}</tbody>`;
     $("#boardTbl").onclick = e => {
@@ -86,7 +87,10 @@
   const rank = e => ({ meeting: 0, lpr: 0, "rate-change": 0, release: 1, speech: 2 }[e.type] ?? 3);
 
   function line(e) {
-    if (e.type === "speech") return { g: "◦", cls: "sp", txt: e.title.replace(/^(\w+ )?(\w+\.? )?/, ""), minor: true };
+    if (e.type === "speech") {
+      const m = e.title.match(/([A-Z][\w'’-]+)\s+(Speaks|Testifies)\b/);
+      return { g: "◦", cls: "sp", txt: m ? `${m[1]} ${m[2].toLowerCase()}` : e.title.replace(new RegExp(`^${short(e.bank)}\\s+`, "i"), ""), minor: true };
+    }
     if (e.type === "release") return { g: "◇", cls: "rl", txt: e.title.toUpperCase(), minor: true };
     if (e.decision) {
       const k = dirOf(e.decision.move);
@@ -145,7 +149,9 @@
     const exp = e.expected ? `${esc(e.expected.label)}${e.expected.basis ? `<span class="basis">${esc(e.expected.basis)}</span>` : ""}` : (e.type === "meeting" ? (past ? "Unavailable" : "TBC") : "—");
     let dec = past ? (e.status === "awaiting" ? "Awaiting confirmation" : "Unavailable") : "Pending";
     if (e.decision) { const k = dirOf(e.decision.move); dec = `<span class="${k}">${G[k] || ""}</span> ${esc(e.decision.label)}${srcPill(e.decision.src)}`; }
-    const out = e.matched === true ? `<span class="pill">✓ AS EXPECTED</span>` : e.matched === false ? `<span class="pill miss">! SURPRISE</span>` : "";
+    const dirOnly = e.bank !== "MAS" && e.expected && e.expected.move == null;
+    const out = e.matched === true ? `<span class="pill">✓ ${dirOnly ? "DIRECTION AS EXPECTED" : "AS EXPECTED"}</span>`
+      : e.matched === false ? `<span class="pill miss">! ${dirOnly ? "DIRECTION SURPRISE" : "SURPRISE"}</span>` : "";
     const rateRow = e.bank === "MAS" ? "" : `<dt>Rate in</dt><dd>${esc(e.rate_before || "Unavailable")}</dd>`;
     return `<div class="card"><div class="r1"><span><span class="bk">${esc(short(e.bank).toUpperCase())}</span> <span class="nm">${esc(e.title)}</span>${flags}</span><span class="when">${esc(when)}</span></div>
       <dl class="kv">${rateRow}<dt>Expected</dt><dd>${exp}</dd><dt>Decision</dt><dd>${dec}${out}</dd>${e.note ? `<dt>Note</dt><dd>${esc(e.note)}</dd>` : ""}</dl>${linksRow(e.links)}</div>`;
