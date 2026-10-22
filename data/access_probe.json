@@ -1,9 +1,9 @@
 {
- "checked": "2026-10-22T16:48+08:00",
+ "checked": "2026-10-22T16:50+08:00",
  "sites": {
   "BNM": {
-   "bytes": 5707,
-   "status": 403
+   "bytes": 293422,
+   "status": 200
   },
   "BSP": {
    "bytes": 153755,
@@ -18,8 +18,8 @@
    "status": 403
   },
   "SBV": {
-   "bytes": 730,
-   "status": 403
+   "bytes": 431834,
+   "status": 200
   }
  }
 }
