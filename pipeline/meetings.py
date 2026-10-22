@@ -69,6 +69,8 @@ def build_paths() -> dict[str, Path_]:
         except Exception as e:
             LOG.fail(f"{bank}:rate-parser", f"{type(e).__name__}: {e}")
     for bank in ("RBA", "RBNZ", "BSP", "RBI"):
+        if bank in paths:      # official table read successfully (e.g. RBA): seeds not needed
+            continue
         seed = [dict(x, mid=float(x["level"]), kind="decision") for x in rates.seeded(bank)]
         try:
             bis, last = rates.bis_changes(bank)

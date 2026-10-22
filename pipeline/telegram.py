@@ -74,14 +74,14 @@ def fetch_channel(channel: str, after_id: int | None, not_before: dt.datetime, m
                   key=lambda p: p["id"])
 
 
-def collect(state: dict, lookback_hours: int = 36) -> list[dict]:
+def collect(state: dict, lookback_hours: int = 36, max_pages: int = 120) -> list[dict]:
     """New central-bank-related posts from all channels since the last run."""
     rx = _matcher()
     not_before = dt.datetime.now(SGT) - dt.timedelta(hours=lookback_hours)
     seen = state.setdefault("telegram_last_id", {})
     out = []
     for ch, label in CHANNELS.items():
-        posts = fetch_channel(ch, seen.get(ch), not_before)
+        posts = fetch_channel(ch, seen.get(ch), not_before, max_pages=max_pages)
         if posts:
             seen[ch] = max(p["id"] for p in posts)
         for p in posts:

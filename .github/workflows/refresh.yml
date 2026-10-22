@@ -66,6 +66,7 @@ jobs:
           git add -A docs/data data
           if git diff --cached --quiet; then echo "No data changes."; else
             git commit -m "Daily refresh $(TZ=Asia/Singapore date '+%Y-%m-%d %H:%M') SGT"
+            git pull --rebase origin main   # in case code was pushed while the job ran
             git push
           fi
 

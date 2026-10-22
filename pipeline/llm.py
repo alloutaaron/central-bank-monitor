@@ -126,13 +126,52 @@ def _call(task: str, user: str, schema: dict, max_tokens: int = 16000, effort: s
     return out
 
 
+def batch(requests: list[tuple[str, str, str, dict, int]], poll_s: int = 30, max_wait_s: int = 7200) -> dict:
+    """Message Batches API (half price, results usually within the hour) for the
+    one-off backfill. requests: (custom_id, task, user, schema, max_tokens)."""
+    if not available() or not requests:
+        return {}
+    from anthropic.types.message_create_params import MessageCreateParamsNonStreaming
+    from anthropic.types.messages.batch_create_params import Request
+    reqs = [Request(custom_id=cid, params=MessageCreateParamsNonStreaming(
+                model=MODEL, max_tokens=mt, system=_system(task), messages=[{"role": "user", "content": user}],
+                output_config={"effort": "low", "format": {"type": "json_schema", "schema": schema}}))
+            for cid, task, user, schema, mt in requests]
+    b = client().messages.batches.create(requests=reqs)
+    waited = 0
+    while waited < max_wait_s:
+        b = client().messages.batches.retrieve(b.id)
+        if b.processing_status == "ended":
+            break
+        time.sleep(poll_s); waited += poll_s
+    else:
+        LOG.fail("AI:claude-batch", f"batch {b.id} not finished after {max_wait_s}s")
+        return {}
+    out = {}
+    for r in client().messages.batches.results(b.id):
+        if r.result.type != "succeeded":
+            USAGE["failures"] += 1
+            continue
+        msg = r.result.message
+        u = msg.usage
+        USAGE["calls"] += 1
+        USAGE["input"] += ((u.input_tokens or 0) + (getattr(u, "cache_creation_input_tokens", 0) or 0)) / 2  # batch = 50%
+        USAGE["output"] += (u.output_tokens or 0) / 2
+        text = next((blk.text for blk in msg.content if blk.type == "text"), None)
+        try:
+            out[r.custom_id] = json.loads(text) if text else None
+        except json.JSONDecodeError:
+            USAGE["failures"] += 1
+    LOG.ok("AI:claude-batch")
+    return out
+
+
 SCORE = {"type": "integer", "enum": [-2, -1, 0, 1, 2]}
 STANCE = {"type": "string", "enum": ["hawkish", "dovish", "neutral"]}
 BANK = {"type": "string", "enum": BANK_CODES + ["NONE"]}
 
 
-def classify_headlines(items: list[dict]) -> list[dict] | None:
-    """items: [{id, ts, text}] from Telegram or news headlines."""
+def _classify_spec():
     schema = {"type": "object", "additionalProperties": False, "required": ["items"], "properties": {"items": {
         "type": "array", "items": {"type": "object", "additionalProperties": False,
             "required": ["id", "relevant", "bank", "speaker", "role", "kind", "paraphrase", "stance", "score", "reason", "decision_bp", "decision_level"],
@@ -149,11 +188,23 @@ def classify_headlines(items: list[dict]) -> list[dict] | None:
             "like '+25', '0', '-50' and decision_level like '3.75-4.00' or '5.50'; else empty strings). speaker = full name as in the "
             "roster when identifiable, else as written; role = their title. reason = at most 15 words on why that score. For "
             "irrelevant items return relevant=false, bank NONE, empty strings, stance neutral, score 0.")
+    return task, schema
+
+
+def _headline_user(chunk: list[dict]) -> str:
+    return "Headlines (id | time SGT | text):\n" + "\n".join(f"{x['id']} | {x['ts']} | {x['text']}" for x in chunk)
+
+
+def classify_headlines(items: list[dict], use_batch: bool = False) -> list[dict] | None:
+    """items: [{id, ts, text}] from Telegram or news headlines."""
+    task, schema = _classify_spec()
+    chunks = [items[i:i + 40] for i in range(0, len(items), 40)]
+    if use_batch:
+        res = batch([(f"c{i}", task, _headline_user(c), schema, 16000) for i, c in enumerate(chunks)])
+        return [it for i in range(len(chunks)) for it in ((res.get(f"c{i}") or {}).get("items", []))]
     out = []
-    for i in range(0, len(items), 40):
-        chunk = items[i:i + 40]
-        user = "Headlines (id | time SGT | text):\n" + "\n".join(f"{x['id']} | {x['ts']} | {x['text']}" for x in chunk)
-        res = _call(task, user, schema)
+    for chunk in chunks:
+        res = _call(task, _headline_user(chunk), schema)
         if res is None:
             return None if not out else out
         out.extend(res.get("items", []))

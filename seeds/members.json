@@ -1,219 +1,799 @@
 {
  "_about": "Policy-committee membership verified on each bank's official page (src) on the 'verified' date. 'from'/'until' let scheduled changes take effect automatically. The daily job re-checks that every name still appears on the official page and flags the bank for review if not.",
- "FED": {"committee": "FOMC", "src": "https://www.federalreserve.gov/monetarypolicy/fomc.htm", "src2": "https://www.federalreserve.gov/monetarypolicy/fomcminutes20260916.htm", "verified": "2026-10-22",
+ "FED": {
+  "committee": "FOMC",
+  "src": "https://www.federalreserve.gov/monetarypolicy/fomc.htm",
+  "src2": "https://www.federalreserve.gov/monetarypolicy/fomcminutes20260916.htm",
+  "verified": "2026-10-22",
   "note": "All 19 participants shown; 2026 voters marked.",
   "members": [
-   {"name": "Kevin Warsh", "role": "Chair", "voter": true, "chair": true},
-   {"name": "John C. Williams", "role": "NY Fed President, Vice Chair", "voter": true},
-   {"name": "Philip N. Jefferson", "role": "Vice Chair, Board", "voter": true},
-   {"name": "Michelle W. Bowman", "role": "Governor", "voter": true},
-   {"name": "Michael S. Barr", "role": "Governor", "voter": true},
-   {"name": "Lisa D. Cook", "role": "Governor", "voter": true},
-   {"name": "Jerome H. Powell", "role": "Governor", "voter": true},
-   {"name": "Christopher J. Waller", "role": "Governor", "voter": true},
-   {"name": "Beth M. Hammack", "role": "Cleveland", "voter": true},
-   {"name": "Neel Kashkari", "role": "Minneapolis", "voter": true},
-   {"name": "Lorie K. Logan", "role": "Dallas", "voter": true},
-   {"name": "Anna Paulson", "role": "Philadelphia", "voter": true},
-   {"name": "Thomas I. Barkin", "role": "Richmond", "voter": false},
-   {"name": "Mary C. Daly", "role": "San Francisco", "voter": false},
-   {"name": "Austan D. Goolsbee", "role": "Chicago", "voter": false},
-   {"name": "Cheryl L. Venable", "role": "Atlanta (interim)", "voter": false},
-   {"name": "Susan M. Collins", "role": "Boston", "voter": false},
-   {"name": "Alberto G. Musalem", "role": "St. Louis", "voter": false},
-   {"name": "Jeffrey R. Schmid", "role": "Kansas City", "voter": false}
-  ]},
- "ECB": {"committee": "Governing Council", "src": "https://www.ecb.europa.eu/ecb/decisions/govc/html/index.en.html", "verified": "2026-10-22",
+   {
+    "name": "Kevin Warsh",
+    "role": "Chair",
+    "voter": true,
+    "chair": true
+   },
+   {
+    "name": "John C. Williams",
+    "role": "NY Fed President, Vice Chair",
+    "voter": true
+   },
+   {
+    "name": "Philip N. Jefferson",
+    "role": "Vice Chair, Board",
+    "voter": true
+   },
+   {
+    "name": "Michelle W. Bowman",
+    "role": "Governor",
+    "voter": true
+   },
+   {
+    "name": "Michael S. Barr",
+    "role": "Governor",
+    "voter": true
+   },
+   {
+    "name": "Lisa D. Cook",
+    "role": "Governor",
+    "voter": true
+   },
+   {
+    "name": "Jerome H. Powell",
+    "role": "Governor",
+    "voter": true
+   },
+   {
+    "name": "Christopher J. Waller",
+    "role": "Governor",
+    "voter": true
+   },
+   {
+    "name": "Beth M. Hammack",
+    "role": "Cleveland",
+    "voter": true
+   },
+   {
+    "name": "Neel Kashkari",
+    "role": "Minneapolis",
+    "voter": true
+   },
+   {
+    "name": "Lorie K. Logan",
+    "role": "Dallas",
+    "voter": true
+   },
+   {
+    "name": "Anna Paulson",
+    "role": "Philadelphia",
+    "voter": true
+   },
+   {
+    "name": "Thomas I. Barkin",
+    "role": "Richmond",
+    "voter": false
+   },
+   {
+    "name": "Mary C. Daly",
+    "role": "San Francisco",
+    "voter": false
+   },
+   {
+    "name": "Austan D. Goolsbee",
+    "role": "Chicago",
+    "voter": false
+   },
+   {
+    "name": "Cheryl L. Venable",
+    "role": "Atlanta (interim)",
+    "voter": false
+   },
+   {
+    "name": "Susan M. Collins",
+    "role": "Boston",
+    "voter": false
+   },
+   {
+    "name": "Alberto G. Musalem",
+    "role": "St. Louis",
+    "voter": false
+   },
+   {
+    "name": "Jeffrey R. Schmid",
+    "role": "Kansas City",
+    "voter": false
+   }
+  ]
+ },
+ "ECB": {
+  "committee": "Governing Council",
+  "src": "https://www.ecb.europa.eu/ecb/decisions/govc/html/index.en.html",
+  "verified": "2026-10-22",
   "note": "Governors' voting rights rotate monthly; all 27 members shown.",
   "members": [
-   {"name": "Christine Lagarde", "role": "President", "chair": true},
-   {"name": "Boris Vujčić", "role": "Vice-President"},
-   {"name": "Piero Cipollone", "role": "Executive Board"},
-   {"name": "Frank Elderson", "role": "Executive Board"},
-   {"name": "Philip R. Lane", "role": "Executive Board, Chief Economist"},
-   {"name": "Isabel Schnabel", "role": "Executive Board"},
-   {"name": "Pierre Wunsch", "role": "Belgium"},
-   {"name": "Dimitar Radev", "role": "Bulgaria"},
-   {"name": "Joachim Nagel", "role": "Germany"},
-   {"name": "Ülo Kaasik", "role": "Estonia"},
-   {"name": "Gabriel Makhlouf", "role": "Ireland"},
-   {"name": "Yannis Stournaras", "role": "Greece"},
-   {"name": "José Luis Escrivá", "role": "Spain"},
-   {"name": "Emmanuel Moulin", "role": "France"},
-   {"name": "Ante Žigman", "role": "Croatia"},
-   {"name": "Fabio Panetta", "role": "Italy"},
-   {"name": "Christodoulos Patsalides", "role": "Cyprus"},
-   {"name": "Mārtiņš Kazāks", "role": "Latvia"},
-   {"name": "Gediminas Šimkus", "role": "Lithuania"},
-   {"name": "Gaston Reinesch", "role": "Luxembourg"},
-   {"name": "Alexander Demarco", "role": "Malta"},
-   {"name": "Olaf Sleijpen", "role": "Netherlands"},
-   {"name": "Martin Kocher", "role": "Austria"},
-   {"name": "Álvaro Santos Pereira", "role": "Portugal"},
-   {"name": "Primož Dolenc", "role": "Slovenia"},
-   {"name": "Peter Kažimír", "role": "Slovakia"},
-   {"name": "Olli Rehn", "role": "Finland"}
-  ]},
- "BOE": {"committee": "Monetary Policy Committee", "src": "https://www.bankofengland.co.uk/about/people/monetary-policy-committee", "verified": "2026-10-22",
+   {
+    "name": "Christine Lagarde",
+    "role": "President",
+    "chair": true
+   },
+   {
+    "name": "Boris Vujčić",
+    "role": "Vice-President"
+   },
+   {
+    "name": "Piero Cipollone",
+    "role": "Executive Board"
+   },
+   {
+    "name": "Frank Elderson",
+    "role": "Executive Board"
+   },
+   {
+    "name": "Philip R. Lane",
+    "role": "Executive Board, Chief Economist"
+   },
+   {
+    "name": "Isabel Schnabel",
+    "role": "Executive Board"
+   },
+   {
+    "name": "Pierre Wunsch",
+    "role": "Belgium"
+   },
+   {
+    "name": "Dimitar Radev",
+    "role": "Bulgaria"
+   },
+   {
+    "name": "Joachim Nagel",
+    "role": "Germany"
+   },
+   {
+    "name": "Ülo Kaasik",
+    "role": "Estonia"
+   },
+   {
+    "name": "Gabriel Makhlouf",
+    "role": "Ireland"
+   },
+   {
+    "name": "Yannis Stournaras",
+    "role": "Greece"
+   },
+   {
+    "name": "José Luis Escrivá",
+    "role": "Spain"
+   },
+   {
+    "name": "Emmanuel Moulin",
+    "role": "France"
+   },
+   {
+    "name": "Ante Žigman",
+    "role": "Croatia"
+   },
+   {
+    "name": "Fabio Panetta",
+    "role": "Italy"
+   },
+   {
+    "name": "Christodoulos Patsalides",
+    "role": "Cyprus"
+   },
+   {
+    "name": "Mārtiņš Kazāks",
+    "role": "Latvia"
+   },
+   {
+    "name": "Gediminas Šimkus",
+    "role": "Lithuania"
+   },
+   {
+    "name": "Gaston Reinesch",
+    "role": "Luxembourg"
+   },
+   {
+    "name": "Alexander Demarco",
+    "role": "Malta"
+   },
+   {
+    "name": "Olaf Sleijpen",
+    "role": "Netherlands"
+   },
+   {
+    "name": "Martin Kocher",
+    "role": "Austria"
+   },
+   {
+    "name": "Álvaro Santos Pereira",
+    "role": "Portugal"
+   },
+   {
+    "name": "Primož Dolenc",
+    "role": "Slovenia"
+   },
+   {
+    "name": "Peter Kažimír",
+    "role": "Slovakia"
+   },
+   {
+    "name": "Olli Rehn",
+    "role": "Finland"
+   }
+  ]
+ },
+ "BOE": {
+  "committee": "Monetary Policy Committee",
+  "src": "https://www.bankofengland.co.uk/about/people/monetary-policy-committee",
+  "verified": "2026-10-22",
   "members": [
-   {"name": "Andrew Bailey", "role": "Governor", "chair": true},
-   {"name": "Sarah Breeden", "role": "Deputy Governor"},
-   {"name": "Clare Lombardelli", "role": "Deputy Governor"},
-   {"name": "Dave Ramsden", "role": "Deputy Governor"},
-   {"name": "Huw Pill", "role": "Chief Economist"},
-   {"name": "Swati Dhingra", "role": "External"},
-   {"name": "Megan Greene", "role": "External"},
-   {"name": "Catherine L. Mann", "role": "External"},
-   {"name": "Alan Taylor", "role": "External"}
-  ]},
- "BOJ": {"committee": "Policy Board", "src": "https://www.boj.or.jp/en/about/organization/policyboard/index.htm", "verified": "2026-10-22",
+   {
+    "name": "Andrew Bailey",
+    "role": "Governor",
+    "chair": true
+   },
+   {
+    "name": "Sarah Breeden",
+    "role": "Deputy Governor"
+   },
+   {
+    "name": "Clare Lombardelli",
+    "role": "Deputy Governor"
+   },
+   {
+    "name": "Dave Ramsden",
+    "role": "Deputy Governor"
+   },
+   {
+    "name": "Huw Pill",
+    "role": "Chief Economist"
+   },
+   {
+    "name": "Swati Dhingra",
+    "role": "External"
+   },
+   {
+    "name": "Megan Greene",
+    "role": "External"
+   },
+   {
+    "name": "Catherine L. Mann",
+    "role": "External"
+   },
+   {
+    "name": "Alan Taylor",
+    "role": "External"
+   }
+  ]
+ },
+ "BOJ": {
+  "committee": "Policy Board",
+  "src": "https://www.boj.or.jp/en/about/organization/policyboard/index.htm",
+  "verified": "2026-10-22",
   "members": [
-   {"name": "Kazuo Ueda", "role": "Governor", "chair": true},
-   {"name": "Shinichi Uchida", "role": "Deputy Governor"},
-   {"name": "Ryozo Himino", "role": "Deputy Governor"},
-   {"name": "Hajime Takata", "role": "Board Member"},
-   {"name": "Naoki Tamura", "role": "Board Member"},
-   {"name": "Junko Koeda", "role": "Board Member"},
-   {"name": "Kazuyuki Masu", "role": "Board Member"},
-   {"name": "Toichiro Asada", "role": "Board Member"},
-   {"name": "Ayano Sato", "role": "Board Member"}
-  ]},
- "BOK": {"committee": "Monetary Policy Board", "src": "https://www.bok.or.kr/eng/main/contents.do?menuNo=400242", "verified": "2026-10-22",
+   {
+    "name": "Kazuo Ueda",
+    "role": "Governor",
+    "chair": true
+   },
+   {
+    "name": "Shinichi Uchida",
+    "role": "Deputy Governor"
+   },
+   {
+    "name": "Ryozo Himino",
+    "role": "Deputy Governor"
+   },
+   {
+    "name": "Hajime Takata",
+    "role": "Board Member"
+   },
+   {
+    "name": "Naoki Tamura",
+    "role": "Board Member"
+   },
+   {
+    "name": "Junko Koeda",
+    "role": "Board Member"
+   },
+   {
+    "name": "Kazuyuki Masu",
+    "role": "Board Member"
+   },
+   {
+    "name": "Toichiro Asada",
+    "role": "Board Member"
+   },
+   {
+    "name": "Ayano Sato",
+    "role": "Board Member"
+   }
+  ]
+ },
+ "BOK": {
+  "committee": "Monetary Policy Board",
+  "src": "https://www.bok.or.kr/eng/main/contents.do?menuNo=400242",
+  "verified": "2026-10-22",
   "note": "Minutes publish members' views without names; dissents are named only in the decision statement.",
   "members": [
-   {"name": "Shin Hyun Song", "role": "Governor", "chair": true},
-   {"name": "Kwon Min Soo", "role": "Member"},
-   {"name": "Chang Yongsung", "role": "Member"},
-   {"name": "Hwang Kunil", "role": "Member"},
-   {"name": "Kim Jong Hwa", "role": "Member"},
-   {"name": "Lee Soohyung", "role": "Member"},
-   {"name": "Kim Jinill", "role": "Member"}
-  ]},
- "PBOC": {"committee": "Monetary Policy Committee", "src": "https://www.pbc.gov.cn/en/3688229/3688311/3688317/index.html", "verified": "2026-10-22",
+   {
+    "name": "Shin Hyun Song",
+    "role": "Governor",
+    "chair": true
+   },
+   {
+    "name": "Kwon Min Soo",
+    "role": "Member"
+   },
+   {
+    "name": "Chang Yongsung",
+    "role": "Member"
+   },
+   {
+    "name": "Hwang Kunil",
+    "role": "Member"
+   },
+   {
+    "name": "Kim Jong Hwa",
+    "role": "Member"
+   },
+   {
+    "name": "Lee Soohyung",
+    "role": "Member"
+   },
+   {
+    "name": "Kim Jinill",
+    "role": "Member"
+   }
+  ]
+ },
+ "PBOC": {
+  "committee": "Monetary Policy Committee",
+  "src": "https://www.pbc.gov.cn/en/3688229/3688311/3688317/index.html",
+  "verified": "2026-10-22",
   "note": "Consultative committee; most members are ministry officials who rarely comment on policy.",
   "members": [
-   {"name": "Pan Gongsheng", "role": "Governor", "chair": true},
-   {"name": "Xuan Changneng", "role": "Deputy Governor"},
-   {"name": "Zou Lan", "role": "Deputy Governor"},
-   {"name": "Zhu Hexin", "role": "SAFE Administrator"},
-   {"name": "Xu Shouben", "role": "State Council"},
-   {"name": "Li Chunlin", "role": "NDRC"},
-   {"name": "Liao Min", "role": "Ministry of Finance"},
-   {"name": "Ding Xiangqun", "role": "NFRA"},
-   {"name": "Wu Qing", "role": "CSRC"},
-   {"name": "Kang Yi", "role": "NBS"},
-   {"name": "Gu Shu", "role": "China Banking Association"},
-   {"name": "Wang Yiming", "role": "Expert member"},
-   {"name": "Huang Yiping", "role": "Expert member"},
-   {"name": "Huang Haizhou", "role": "Expert member"}
-  ]},
- "RBI": {"committee": "Monetary Policy Committee", "src": "https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=63839", "verified": "2026-10-22",
+   {
+    "name": "Pan Gongsheng",
+    "role": "Governor",
+    "chair": true
+   },
+   {
+    "name": "Xuan Changneng",
+    "role": "Deputy Governor"
+   },
+   {
+    "name": "Zou Lan",
+    "role": "Deputy Governor"
+   },
+   {
+    "name": "Zhu Hexin",
+    "role": "SAFE Administrator"
+   },
+   {
+    "name": "Xu Shouben",
+    "role": "State Council"
+   },
+   {
+    "name": "Li Chunlin",
+    "role": "NDRC"
+   },
+   {
+    "name": "Liao Min",
+    "role": "Ministry of Finance"
+   },
+   {
+    "name": "Ding Xiangqun",
+    "role": "NFRA"
+   },
+   {
+    "name": "Wu Qing",
+    "role": "CSRC"
+   },
+   {
+    "name": "Kang Yi",
+    "role": "NBS"
+   },
+   {
+    "name": "Gu Shu",
+    "role": "China Banking Association"
+   },
+   {
+    "name": "Wang Yiming",
+    "role": "Expert member"
+   },
+   {
+    "name": "Huang Yiping",
+    "role": "Expert member"
+   },
+   {
+    "name": "Huang Haizhou",
+    "role": "Expert member"
+   }
+  ]
+ },
+ "RBI": {
+  "committee": "Monetary Policy Committee",
+  "src": "https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=63839",
+  "verified": "2026-10-22",
   "note": "Membership as recorded in the minutes of the 5-7 October 2026 meeting.",
   "members": [
-   {"name": "Sanjay Malhotra", "role": "Governor", "chair": true},
-   {"name": "Poonam Gupta", "role": "Deputy Governor"},
-   {"name": "Indranil Bhattacharyya", "role": "Executive Director"},
-   {"name": "Nagesh Kumar", "role": "External"},
-   {"name": "Saugata Bhattacharya", "role": "External"},
-   {"name": "Ram Singh", "role": "External"}
-  ]},
- "BNM": {"committee": "Monetary Policy Committee", "src": "https://www.bnm.gov.my/-/mpc-mbr-reappt-dyk", "verified": "2026-10-22",
+   {
+    "name": "Sanjay Malhotra",
+    "role": "Governor",
+    "chair": true
+   },
+   {
+    "name": "Poonam Gupta",
+    "role": "Deputy Governor"
+   },
+   {
+    "name": "Indranil Bhattacharyya",
+    "role": "Executive Director"
+   },
+   {
+    "name": "Nagesh Kumar",
+    "role": "External"
+   },
+   {
+    "name": "Saugata Bhattacharya",
+    "role": "External"
+   },
+   {
+    "name": "Ram Singh",
+    "role": "External"
+   }
+  ]
+ },
+ "BNM": {
+  "committee": "Monetary Policy Committee",
+  "src": "https://www.bnm.gov.my/-/mpc-mbr-reappt-dyk",
+  "verified": "2026-10-22",
   "members": [
-   {"name": "Abdul Rasheed Ghaffour", "role": "Governor", "chair": true},
-   {"name": "Marzunisham Omar", "role": "Deputy Governor"},
-   {"name": "Adnan Zaylani Mohamad Zahid", "role": "Deputy Governor"},
-   {"name": "Aznan Abdul Aziz", "role": "Deputy Governor"},
-   {"name": "Fraziali Ismail", "role": "Assistant Governor"},
-   {"name": "Norhana Endut", "role": "Assistant Governor"},
-   {"name": "Mohamad Ali Iqbal Abdul Khalid", "role": "Assistant Governor"},
-   {"name": "Nor Zahidi Alias", "role": "External"},
-   {"name": "Lim Chee Sing", "role": "External"},
-   {"name": "Yogeesvaran Kumaraguru", "role": "External"}
-  ]},
- "BI": {"committee": "Board of Governors", "src": "https://www.bi.go.id/id/tentang-bi/profil/default.aspx", "verified": "2026-10-22",
+   {
+    "name": "Abdul Rasheed Ghaffour",
+    "role": "Governor",
+    "chair": true
+   },
+   {
+    "name": "Marzunisham Omar",
+    "role": "Deputy Governor"
+   },
+   {
+    "name": "Adnan Zaylani Mohamad Zahid",
+    "role": "Deputy Governor"
+   },
+   {
+    "name": "Aznan Abdul Aziz",
+    "role": "Deputy Governor"
+   },
+   {
+    "name": "Fraziali Ismail",
+    "role": "Assistant Governor"
+   },
+   {
+    "name": "Norhana Endut",
+    "role": "Assistant Governor"
+   },
+   {
+    "name": "Mohamad Ali Iqbal Abdul Khalid",
+    "role": "Assistant Governor"
+   },
+   {
+    "name": "Nor Zahidi Alias",
+    "role": "External"
+   },
+   {
+    "name": "Lim Chee Sing",
+    "role": "External"
+   },
+   {
+    "name": "Yogeesvaran Kumaraguru",
+    "role": "External"
+   }
+  ]
+ },
+ "BI": {
+  "committee": "Board of Governors",
+  "src": "https://www.bi.go.id/id/tentang-bi/profil/default.aspx",
+  "verified": "2026-10-22",
   "members": [
-   {"name": "Destry Damayanti", "role": "Governor", "chair": true},
-   {"name": "Aida S. Budiman", "role": "Senior Deputy Governor"},
-   {"name": "Filianingsih Hendarta", "role": "Deputy Governor"},
-   {"name": "Ricky P. Gozali", "role": "Deputy Governor"},
-   {"name": "Thomas A.M. Djiwandono", "role": "Deputy Governor"},
-   {"name": "Solikin M. Juhro", "role": "Deputy Governor"}
-  ]},
- "BOT": {"committee": "Monetary Policy Committee", "src": "https://www.bot.or.th/en/about-us/committee/committee-mpc.html", "src2": "https://www.bot.or.th/en/news-and-media/news/news-20260827.html", "verified": "2026-10-22",
+   {
+    "name": "Destry Damayanti",
+    "role": "Governor",
+    "chair": true
+   },
+   {
+    "name": "Aida S. Budiman",
+    "role": "Senior Deputy Governor"
+   },
+   {
+    "name": "Filianingsih Hendarta",
+    "role": "Deputy Governor"
+   },
+   {
+    "name": "Ricky P. Gozali",
+    "role": "Deputy Governor"
+   },
+   {
+    "name": "Thomas A.M. Djiwandono",
+    "role": "Deputy Governor"
+   },
+   {
+    "name": "Solikin M. Juhro",
+    "role": "Deputy Governor"
+   }
+  ]
+ },
+ "BOT": {
+  "committee": "Monetary Policy Committee",
+  "src": "https://www.bot.or.th/en/about-us/committee/committee-mpc.html",
+  "src2": "https://www.bot.or.th/en/news-and-media/news/news-20260827.html",
+  "verified": "2026-10-22",
   "note": "BoT publishes vote counts, not names.",
   "members": [
-   {"name": "Piti Disyatat", "role": "Governor (Chairman)", "chair": true},
-   {"name": "Suwannee Jatsadasak", "role": "Vice Chairman"},
-   {"name": "Don Nakornthab", "role": "Member"},
-   {"name": "Paiboon Kittisrikangwan", "role": "External", "until": "2026-10-31"},
-   {"name": "Mathee Supapongse", "role": "External", "from": "2026-11-01"},
-   {"name": "Charl Kengchon", "role": "External"},
-   {"name": "Sauwanee Thairungroj", "role": "External"},
-   {"name": "Somchai Harnhirun", "role": "External"}
-  ]},
- "SBV": {"committee": null, "src": "https://en.baochinhphu.vn/ (8 Apr 2026: legislature confirms cabinet appointments); https://theinvestor.vn/vietnam-appoints-pham-duc-an-as-central-bank-governor-d18811.html", "verified": "2026-10-22",
-  "note": "SBV has no monetary policy committee; policy is set by the Governor. sbv.gov.vn was unreachable, so the Governor is confirmed from Vietnamese government news only.",
+   {
+    "name": "Piti Disyatat",
+    "role": "Governor (Chairman)",
+    "chair": true
+   },
+   {
+    "name": "Suwannee Jatsadasak",
+    "role": "Vice Chairman"
+   },
+   {
+    "name": "Don Nakornthab",
+    "role": "Member"
+   },
+   {
+    "name": "Paiboon Kittisrikangwan",
+    "role": "External",
+    "until": "2026-10-31"
+   },
+   {
+    "name": "Mathee Supapongse",
+    "role": "External",
+    "from": "2026-11-01"
+   },
+   {
+    "name": "Charl Kengchon",
+    "role": "External"
+   },
+   {
+    "name": "Sauwanee Thairungroj",
+    "role": "External"
+   },
+   {
+    "name": "Somchai Harnhirun",
+    "role": "External"
+   }
+  ]
+ },
+ "SBV": {
+  "committee": null,
+  "src": "https://www.sbv.gov.vn/ (news items naming the Governor and Deputy Governors)",
+  "verified": "2026-10-22",
+  "note": "SBV has no monetary policy committee; policy is set by the Governor. Deputy Governors listed only where named on sbv.gov.vn.",
   "members": [
-   {"name": "Pham Duc An", "role": "Governor", "chair": true, "secondary": true}
-  ]},
- "HKMA": {"committee": null, "src": "https://www.hkma.gov.hk/", "verified": "2026-10-22",
+   {
+    "name": "Pham Duc An",
+    "role": "Governor",
+    "chair": true
+   },
+   {
+    "name": "Pham Tien Dung",
+    "role": "Deputy Governor"
+   },
+   {
+    "name": "Pham Quang Dung",
+    "role": "Deputy Governor"
+   }
+  ]
+ },
+ "HKMA": {
+  "committee": null,
+  "src": "https://www.hkma.gov.hk/",
+  "verified": "2026-10-22",
   "note": "No policy committee: under the Linked Exchange Rate System the Base Rate is set by formula from the US federal funds rate.",
-  "members": []},
- "MAS": {"committee": null, "src": "https://www.mas.gov.sg/who-we-are/board-of-directors", "verified": "2026-10-22",
+  "members": []
+ },
+ "MAS": {
+  "committee": null,
+  "src": "https://www.mas.gov.sg/who-we-are/board-of-directors",
+  "verified": "2026-10-22",
   "note": "MAS does not publish a monetary policy committee; statements are issued by MAS as an institution.",
   "members": [
-   {"name": "Chia Der Jiun", "role": "Managing Director", "chair": true}
-  ]},
- "BSP": {"committee": "Monetary Board", "src": "https://www.bsp.gov.ph/Pages/AboutTheBank/WhoWeAre/OrganizationAndGovernance/TheMonetaryBoard/TheMonetaryBoard.aspx", "verified": "2026-10-22",
+   {
+    "name": "Chia Der Jiun",
+    "role": "Managing Director",
+    "chair": true
+   }
+  ]
+ },
+ "BSP": {
+  "committee": "Monetary Board",
+  "src": "https://www.bsp.gov.ph/Pages/AboutTheBank/WhoWeAre/OrganizationAndGovernance/TheMonetaryBoard/TheMonetaryBoard.aspx",
+  "verified": "2026-10-22",
   "members": [
-   {"name": "Eli M. Remolona Jr.", "role": "Governor", "chair": true},
-   {"name": "Frederick D. Go", "role": "Finance Secretary"},
-   {"name": "Benjamin E. Diokno", "role": "Member"},
-   {"name": "Romeo L. Bernardo", "role": "Member"},
-   {"name": "Rosalia V. De Leon", "role": "Member"},
-   {"name": "Walter C. Wassmer", "role": "Member"},
-   {"name": "Jose L. Querubin", "role": "Member"}
-  ]},
- "CBC": {"committee": "Board of Directors", "src": "https://www.cbc.gov.tw/tw/cp-328-181059-0f484-1.html", "verified": "2026-10-22",
+   {
+    "name": "Eli M. Remolona Jr.",
+    "role": "Governor",
+    "chair": true
+   },
+   {
+    "name": "Frederick D. Go",
+    "role": "Finance Secretary"
+   },
+   {
+    "name": "Benjamin E. Diokno",
+    "role": "Member"
+   },
+   {
+    "name": "Romeo L. Bernardo",
+    "role": "Member"
+   },
+   {
+    "name": "Rosalia V. De Leon",
+    "role": "Member"
+   },
+   {
+    "name": "Walter C. Wassmer",
+    "role": "Member"
+   },
+   {
+    "name": "Jose L. Querubin",
+    "role": "Member"
+   }
+  ]
+ },
+ "CBC": {
+  "committee": "Board of Directors",
+  "src": "https://www.cbc.gov.tw/tw/cp-328-181059-0f484-1.html",
+  "verified": "2026-10-22",
   "note": "Directors' views are published without names; only attributable public remarks can be placed.",
   "members": [
-   {"name": "Yang Chin-long", "role": "Governor", "chair": true},
-   {"name": "Chu Mei-lie", "role": "Deputy Governor"},
-   {"name": "嚴宗大", "role": "Deputy Governor"},
-   {"name": "莊翠雲", "role": "Standing Director (Minister of Finance)"},
-   {"name": "龔明鑫", "role": "Standing Director (Minister of Economic Affairs)"},
-   {"name": "董瑞斌", "role": "Standing Director"},
-   {"name": "陳駿季", "role": "Director"},
-   {"name": "洪福聲", "role": "Director"},
-   {"name": "李怡庭", "role": "Director"},
-   {"name": "陳思寬", "role": "Director"},
-   {"name": "張建一", "role": "Director"},
-   {"name": "陳旭昇", "role": "Director"},
-   {"name": "吳明昌", "role": "Director"},
-   {"name": "林常青", "role": "Director"},
-   {"name": "蕭明福", "role": "Director"}
-  ]},
- "RBA": {"committee": "Monetary Policy Board", "src": "https://www.rba.gov.au/about-rba/boards/monetary-policy-board.html", "verified": "2026-10-22",
+   {
+    "name": "Yang Chin-long",
+    "role": "Governor",
+    "chair": true
+   },
+   {
+    "name": "Chu Mei-lie",
+    "role": "Deputy Governor"
+   },
+   {
+    "name": "嚴宗大",
+    "role": "Deputy Governor"
+   },
+   {
+    "name": "莊翠雲",
+    "role": "Standing Director (Minister of Finance)"
+   },
+   {
+    "name": "龔明鑫",
+    "role": "Standing Director (Minister of Economic Affairs)"
+   },
+   {
+    "name": "董瑞斌",
+    "role": "Standing Director"
+   },
+   {
+    "name": "陳駿季",
+    "role": "Director"
+   },
+   {
+    "name": "洪福聲",
+    "role": "Director"
+   },
+   {
+    "name": "李怡庭",
+    "role": "Director"
+   },
+   {
+    "name": "陳思寬",
+    "role": "Director"
+   },
+   {
+    "name": "張建一",
+    "role": "Director"
+   },
+   {
+    "name": "陳旭昇",
+    "role": "Director"
+   },
+   {
+    "name": "吳明昌",
+    "role": "Director"
+   },
+   {
+    "name": "林常青",
+    "role": "Director"
+   },
+   {
+    "name": "蕭明福",
+    "role": "Director"
+   }
+  ]
+ },
+ "RBA": {
+  "committee": "Monetary Policy Board",
+  "src": "https://www.rba.gov.au/about-rba/boards/monetary-policy-board.html",
+  "verified": "2026-10-22",
   "note": "RBA publishes unattributed votes.",
   "members": [
-   {"name": "Michele Bullock", "role": "Governor", "chair": true},
-   {"name": "Andrew Hauser", "role": "Deputy Governor"},
-   {"name": "Jenny Wilkinson", "role": "Treasury Secretary"},
-   {"name": "Marnie Baker", "role": "Non-executive"},
-   {"name": "Melinda Cilento", "role": "Non-executive"},
-   {"name": "Renée Fry-McKibbin", "role": "Non-executive"},
-   {"name": "Carolyn Hewson", "role": "Non-executive"},
-   {"name": "Bruce Preston", "role": "Non-executive"},
-   {"name": "Iain Ross", "role": "Non-executive"}
-  ]},
- "RBNZ": {"committee": "Monetary Policy Committee", "src": "https://www.rbnz.govt.nz/about-us/our-people/monetary-policy-committee", "verified": "2026-10-22",
+   {
+    "name": "Michele Bullock",
+    "role": "Governor",
+    "chair": true
+   },
+   {
+    "name": "Andrew Hauser",
+    "role": "Deputy Governor"
+   },
+   {
+    "name": "Jenny Wilkinson",
+    "role": "Treasury Secretary"
+   },
+   {
+    "name": "Marnie Baker",
+    "role": "Non-executive"
+   },
+   {
+    "name": "Melinda Cilento",
+    "role": "Non-executive"
+   },
+   {
+    "name": "Renée Fry-McKibbin",
+    "role": "Non-executive"
+   },
+   {
+    "name": "Carolyn Hewson",
+    "role": "Non-executive"
+   },
+   {
+    "name": "Bruce Preston",
+    "role": "Non-executive"
+   },
+   {
+    "name": "Iain Ross",
+    "role": "Non-executive"
+   }
+  ]
+ },
+ "RBNZ": {
+  "committee": "Monetary Policy Committee",
+  "src": "https://www.rbnz.govt.nz/about-us/our-people/monetary-policy-committee",
+  "verified": "2026-10-22",
   "members": [
-   {"name": "Anna Breman", "role": "Governor", "chair": true},
-   {"name": "Karen Silk", "role": "Assistant Governor"},
-   {"name": "Paul Conway", "role": "Chief Economist"},
-   {"name": "Rebecca Williams", "role": "Senior Manager Economics"},
-   {"name": "Carl Hansen", "role": "External"},
-   {"name": "Prasanna Gai", "role": "External"},
-   {"name": "Hayley Gourley", "role": "External"}
-  ]}
+   {
+    "name": "Anna Breman",
+    "role": "Governor",
+    "chair": true
+   },
+   {
+    "name": "Karen Silk",
+    "role": "Assistant Governor"
+   },
+   {
+    "name": "Paul Conway",
+    "role": "Chief Economist"
+   },
+   {
+    "name": "Rebecca Williams",
+    "role": "Senior Manager Economics"
+   },
+   {
+    "name": "Carl Hansen",
+    "role": "External"
+   },
+   {
+    "name": "Prasanna Gai",
+    "role": "External"
+   },
+   {
+    "name": "Hayley Gourley",
+    "role": "External"
+   }
+  ]
+ }
 }

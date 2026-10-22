@@ -33,10 +33,11 @@ def _statement_rows(items: list[dict], results: list[dict]) -> list[dict]:
     return rows
 
 
-def classify(items: list[dict]) -> list[dict]:
+def classify(items: list[dict], use_batch: bool = False) -> list[dict]:
     if not items or not llm.available():
         return []
-    res = llm.classify_headlines([{"id": x["id"], "ts": x["ts"][:16].replace("T", " "), "text": x["text"]} for x in items])
+    res = llm.classify_headlines([{"id": x["id"], "ts": x["ts"][:16].replace("T", " "), "text": x["text"]} for x in items],
+                                 use_batch=use_batch)
     return _statement_rows(items, res or [])
 
 
@@ -63,9 +64,11 @@ def decision_watch(rows: list[dict], recs: list[dict], today: dt.date) -> dict:
     for row in rows:
         if row.get("type") != "decision" or not row.get("relevant"):
             continue
-        mid = f"{row['bank']}-{row['ts'][:10]}"
+        # Reported in SGT, which can be a day after the bank's local meeting date (e.g. the Fed).
+        day = dt.date.fromisoformat(row["ts"][:10])
+        mid = next((f"{row['bank']}-{d}" for d in (day, day - dt.timedelta(days=1)) if f"{row['bank']}-{d}" in pending), None)
         m = re.search(r"[-+]?\d+", row.get("decision_bp") or "")
-        if mid in pending and m:
+        if mid and m:
             mv = int(m.group(0))
             lvl = (row.get("decision_level") or "").strip()
             lvl = (lvl + "%") if lvl and not lvl.endswith("%") else lvl
@@ -137,7 +140,7 @@ def backfill(since: str, telegram_days: int = 21):
     today = today_sgt()
     state = store.load_state()
     start = dt.date.fromisoformat(since)
-    items = telegram.collect(state, lookback_hours=24 * telegram_days)
+    items = telegram.collect(state, lookback_hours=24 * telegram_days, max_pages=30 * telegram_days)
     d = start
     while d < today:
         w = (d.isoformat(), min(today, d + dt.timedelta(days=14)).isoformat())
@@ -146,8 +149,8 @@ def backfill(since: str, telegram_days: int = 21):
         d += dt.timedelta(days=14)
     uniq = {x["id"]: x for x in items}
     items = list(uniq.values())
-    print(f"backfill: {len(items)} headlines to classify", flush=True)
-    rows = classify(items)
+    print(f"backfill: {len(items)} headlines to classify (batch)", flush=True)
+    rows = classify(items, use_batch=True)
     processed = set(state.get("processed_docs", []))
     docs = official_docs.collect(processed, since)
     print(f"backfill: {len(docs)} official documents", flush=True)

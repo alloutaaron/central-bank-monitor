@@ -17,11 +17,11 @@ TITLE = {"FED": "FOMC", "ECB": "Governing Council", "BOE": "MPC", "BOJ": "Policy
 # Sources whose official sites refuse automated access: data comes from the
 # fallbacks named here, and the page says so.
 ACCESS_NOTES = {
-    "RBA": "rba.gov.au blocks automated access: decisions from BIS and wire reports; schedule verified by hand",
-    "RBNZ": "rbnz.govt.nz blocks automated access: decisions from BIS and wire reports; schedule verified by hand",
-    "BSP": "bsp.gov.ph blocks automated access: decisions from BIS and wire reports; schedule verified by hand",
-    "SBV": "sbv.gov.vn unreachable: no meeting schedule; items from Vietnamese government news and wires only",
-    "BNM": "bnm.gov.my speech pages intermittently block automated access: remarks from news headlines",
+    "RBNZ": "rbnz.govt.nz blocks automated access: decisions verified by hand, then BIS and wire reports; schedule verified by hand",
+    "BSP": "Decisions verified by hand from BSP press releases; new decisions from wire reports and BIS until confirmed; schedule verified by hand",
+    "SBV": "No published meeting schedule; sbv.gov.vn is intermittently unreachable and its rate page does not respond, so policy rates are TBC",
+    "BNM": "bnm.gov.my speech pages block automated access: remarks from news headlines; decisions from BNM's official API",
+    "RBA": "Schedule verified by hand; rates from rba.gov.au when readable, otherwise hand-verified records and BIS",
 }
 
 

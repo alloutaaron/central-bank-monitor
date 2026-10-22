@@ -200,7 +200,22 @@ def cbc(meetings: list[dict]) -> list[dict]:
     return out
 
 
-OFFICIAL = {"FED": fed, "ECB": ecb, "BOE": boe, "BOK": bok, "BNM": bnm, "BI": bi, "BOT": bot}
+def rba() -> list[dict]:
+    """Cash rate target after every Board meeting (holds included). The table
+    lists the effective date, the day after the decision."""
+    url = "https://www.rba.gov.au/statistics/cash-rate/"
+    t = html_to_text(fetch(url, "RBA:cash-rate"))
+    out = []
+    for m in re.finditer(r"(?m)^\s*(\d{1,2}) (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) (20\d\d)\s*\n\s*([+-]?[\d.]+)\s*\n\s*([\d.]+)\s*$", t):
+        d, mon, y, chg, lvl = m.groups()
+        eff = dt.date(int(y), month_num(mon), int(d))
+        if eff.isoformat() >= "2024-06-01":
+            out.append({"date": (eff - dt.timedelta(days=1)).isoformat(), "effective": eff.isoformat(),
+                        "level": f"{float(lvl):.2f}", "mid": float(lvl), "kind": "decision", "src": url})
+    return sorted(out, key=lambda x: x["date"])
+
+
+OFFICIAL = {"FED": fed, "ECB": ecb, "BOE": boe, "BOK": bok, "BNM": bnm, "BI": bi, "BOT": bot, "RBA": rba}
 
 
 def seeded(bank: str) -> list[dict]:

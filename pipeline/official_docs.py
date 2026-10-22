@@ -20,6 +20,10 @@ SOURCES = [
      "keep": r"/press/(key|inter|press_conference)/"},
     {"bank": "BOE", "kind": "rss", "url": "https://www.bankofengland.co.uk/rss/speeches", "lang": "en"},
     {"bank": "HKMA", "kind": "rss", "url": "https://www.hkma.gov.hk/eng/other-information/rss/rss_speeches.xml", "lang": "en"},
+    {"bank": "RBA", "kind": "rss", "url": "https://www.rba.gov.au/rss/rss-cb-speeches.xml", "lang": "en"},
+    {"bank": "SBV", "kind": "list", "url": "https://www.sbv.gov.vn/", "lang": "vi", "base": "https://www.sbv.gov.vn",
+     "link": r"^/w/[^\"]+", "title_keep": r"(?i)lãi suất|tín dụng|tỷ giá|điều hành|chính sách tiền tệ|thống đốc|thị trường vàng|thanh khoản",
+     "date_in_title": r"\(?(\d{2})/(\d{2})/(\d{4})\)?"},
     {"bank": "BOJ", "kind": "list", "url": "https://www.boj.or.jp/about/press/index.htm", "lang": "ja", "base": "https://www.boj.or.jp",
      "link": r"/about/press/(?:koen|kaiken)_\d{4}/k[ok](?P<date>\d{6})[a-z]\.(?:htm|pdf)"},
     {"bank": "PBOC", "kind": "list", "url": "https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/index.html", "lang": "zh",
@@ -43,7 +47,14 @@ def _date_from_token(tok: str) -> str | None:
     return None
 
 
-def _date_from_text(text: str) -> str | None:
+def _date_from_text(text: str, day_first: bool = False) -> str | None:
+    if day_first:   # Vietnamese pages: 21/10/2026
+        m = re.search(r"\b(\d{1,2})/(\d{1,2})/(20\d\d)\b", text)
+        if m:
+            try:
+                return dt.date(int(m.group(3)), int(m.group(2)), int(m.group(1))).isoformat()
+            except ValueError:
+                pass
     m = re.search(r"(\d{1,2}) (January|February|March|April|May|June|July|August|September|October|November|December) (20\d\d)", text)
     if m:
         return dt.datetime.strptime(" ".join(m.groups()), "%d %B %Y").date().isoformat()
@@ -65,14 +76,15 @@ def list_items(src: dict) -> list[dict]:
             title = re.search(r"<title>(.*?)</title>", blk, re.S)
             link = re.search(r"<link>(.*?)</link>", blk, re.S)
             pub = re.search(r"<pubDate>(.*?)</pubDate>", blk, re.S)
+            dcd = re.search(r"<dc:date>(\d{4}-\d{2}-\d{2})", blk)
             if not (title and link):
                 continue
             url = htmllib.unescape(re.sub(r"<!\[CDATA\[|\]\]>", "", link.group(1))).strip()
             if src.get("keep") and not re.search(src["keep"], url):
                 continue
             t = htmllib.unescape(re.sub(r"<!\[CDATA\[|\]\]>|<[^>]+>", "", title.group(1))).strip()
-            date = None
-            if pub:
+            date = dcd.group(1) if dcd else None
+            if pub and not date:
                 p = email.utils.parsedate(pub.group(1))
                 date = dt.date(*p[:3]).isoformat() if p else None
             out.append({"bank": src["bank"], "title": t, "url": url, "date": date, "lang": src["lang"]})
@@ -86,6 +98,11 @@ def list_items(src: dict) -> list[dict]:
                 continue
             url = href if href.startswith("http") else src["base"] + href
             date = _date_from_token(m.group("date")) if "date" in m.groupdict() and m.group("date") else None
+            if not date and src.get("date_in_title"):
+                dm = re.search(src["date_in_title"], t)       # e.g. SBV "(19/10/2026)" = day/month/year
+                if dm:
+                    date = dt.date(int(dm.group(3)), int(dm.group(2)), int(dm.group(1))).isoformat()
+                    t = t[:dm.start()].strip()
             out.append({"bank": src["bank"], "title": t, "url": url, "date": date, "lang": src["lang"]})
     seen, res = set(), []
     for x in out:
@@ -98,16 +115,19 @@ def document_text(item: dict) -> str:
     sid = f"{item['bank']}:official-doc"
     if item["url"].lower().endswith(".pdf"):
         from pypdf import PdfReader
-        data = fetch(item["url"], sid, binary=True)
+        data = fetch(item["url"], sid, binary=True, timeout=25)
         reader = PdfReader(io.BytesIO(data))
         return "\n".join((p.extract_text() or "") for p in reader.pages[:25])
-    return html_to_text(fetch(item["url"], sid))
+    return html_to_text(fetch(item["url"], sid, timeout=25))
 
 
-def collect(processed: set[str], since: str) -> list[dict]:
-    """New official documents dated on/after `since`, with text attached."""
+def collect(processed: set[str], since: str, max_docs_per_source: int = 25) -> list[dict]:
+    """New official documents dated on/after `since`, with text attached.
+    Per-source cap and short timeouts keep one slow site from stalling the run."""
+    import time as _time
     out = []
     for src in SOURCES:
+        started, fetched = _time.time(), 0
         try:
             items = list_items(src)
         except FetchError:
@@ -118,6 +138,13 @@ def collect(processed: set[str], since: str) -> list[dict]:
         for it in items:
             if it["id"] in processed:
                 continue
+            if it["date"] and it["date"] < since:   # dated from the feed/link: skip without downloading
+                processed.add(it["id"])
+                continue
+            if fetched >= max_docs_per_source or _time.time() - started > 240:
+                LOG.fail(f"{src['bank']}:official-doc", "time/size budget reached; remaining documents next run")
+                break
+            fetched += 1
             try:
                 text = document_text(it)
             except FetchError:
@@ -125,7 +152,7 @@ def collect(processed: set[str], since: str) -> list[dict]:
             except Exception as e:
                 LOG.fail(f"{it['bank']}:official-doc", f"{type(e).__name__}: {e}")
                 continue
-            it["date"] = it["date"] or _date_from_text(text[:3000])
+            it["date"] = it["date"] or _date_from_text(text[:3000], day_first=it["lang"] == "vi")
             if not it["date"] or it["date"] < since:
                 processed.add(it["id"])
                 continue
