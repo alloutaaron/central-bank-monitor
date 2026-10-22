@@ -1,0 +1,327 @@
+{
+ "headlines": [],
+ "documents": [
+  {
+   "id": "doc-67a20e8a6f75b31b",
+   "relevant": false,
+   "speaker": "",
+   "role": "",
+   "points": [],
+   "stance": "neutral",
+   "score": 0,
+   "reason": ""
+  },
+  {
+   "id": "doc-8651cb6b1c9c0286",
+   "relevant": false,
+   "speaker": "",
+   "role": "",
+   "points": [],
+   "stance": "neutral",
+   "score": 0,
+   "reason": ""
+  },
+  {
+   "id": "doc-424e5488c61308d5",
+   "relevant": true,
+   "speaker": "Christopher J. Waller",
+   "role": "Governor",
+   "points": [
+    "The FOMC raised its policy rate 25 basis points to 3.75-4.00 percent in September after nine months on hold.",
+    "Waller says the shift reflects a stabilised labour market and stalled inflation progress, partly from Middle East energy prices, after last year's insurance cuts."
+   ],
+   "stance": "hawkish",
+   "score": 1,
+   "reason": "Explains the September hike as justified by stalled disinflation."
+  },
+  {
+   "id": "doc-69f37d867634f068",
+   "relevant": false,
+   "speaker": "",
+   "role": "",
+   "points": [],
+   "stance": "neutral",
+   "score": 0,
+   "reason": ""
+  },
+  {
+   "id": "doc-ffe2cd2862788cce",
+   "relevant": true,
+   "speaker": "Andrew Bailey",
+   "role": "Governor",
+   "points": [
+    "Bailey says a negative supply shock can be looked through only if inflation expectations stay well anchored; otherwise a temporary shock can become persistent.",
+    "He stresses an unwavering commitment to returning inflation to target and clear communication of how policy would respond."
+   ],
+   "stance": "hawkish",
+   "score": 1,
+   "reason": "Stresses expectations risk and commitment to the inflation target."
+  },
+  {
+   "id": "doc-cbb82b9a230aee56",
+   "relevant": false,
+   "speaker": "",
+   "role": "",
+   "points": [],
+   "stance": "neutral",
+   "score": 0,
+   "reason": ""
+  },
+  {
+   "id": "doc-1635258ae4276070",
+   "relevant": false,
+   "speaker": "",
+   "role": "",
+   "points": [],
+   "stance": "neutral",
+   "score": 0,
+   "reason": ""
+  },
+  {
+   "id": "doc-fade4f1a8557873b",
+   "relevant": false,
+   "speaker": "",
+   "role": "",
+   "points": [],
+   "stance": "neutral",
+   "score": 0,
+   "reason": ""
+  },
+  {
+   "id": "doc-2c9018217f537673",
+   "relevant": false,
+   "speaker": "",
+   "role": "",
+   "points": [],
+   "stance": "neutral",
+   "score": 0,
+   "reason": ""
+  },
+  {
+   "id": "doc-f734f266192f8ad4",
+   "relevant": false,
+   "speaker": "",
+   "role": "",
+   "points": [],
+   "stance": "neutral",
+   "score": 0,
+   "reason": ""
+  },
+  {
+   "id": "doc-9b6e93b48f207022",
+   "relevant": false,
+   "speaker": "",
+   "role": "",
+   "points": [],
+   "stance": "neutral",
+   "score": 0,
+   "reason": ""
+  },
+  {
+   "id": "doc-9c2e70ef035e5c91",
+   "relevant": false,
+   "speaker": "",
+   "role": "",
+   "points": [],
+   "stance": "neutral",
+   "score": 0,
+   "reason": ""
+  },
+  {
+   "id": "doc-348f1a5e8290114b",
+   "relevant": false,
+   "speaker": "",
+   "role": "",
+   "points": [],
+   "stance": "neutral",
+   "score": 0,
+   "reason": ""
+  },
+  {
+   "id": "doc-6a8f33101e05069f",
+   "relevant": false,
+   "speaker": "",
+   "role": "",
+   "points": [],
+   "stance": "neutral",
+   "score": 0,
+   "reason": ""
+  },
+  {
+   "id": "doc-3238c4c5474ba810",
+   "relevant": false,
+   "speaker": "",
+   "role": "",
+   "points": [],
+   "stance": "neutral",
+   "score": 0,
+   "reason": ""
+  },
+  {
+   "id": "doc-02e51bcdb43d0f99",
+   "relevant": false,
+   "speaker": "",
+   "role": "",
+   "points": [],
+   "stance": "neutral",
+   "score": 0,
+   "reason": ""
+  },
+  {
+   "id": "doc-b4a71762ba26025e",
+   "relevant": false,
+   "speaker": "",
+   "role": "",
+   "points": [],
+   "stance": "neutral",
+   "score": 0,
+   "reason": ""
+  },
+  {
+   "id": "doc-e17265c407beb2b1",
+   "relevant": true,
+   "speaker": "Junko Koeda",
+   "role": "Board member",
+   "points": [
+    "Koeda sees underlying inflation settling at around 2 percent with upside price risks, and says there is no need to be overly cautious about rate hikes.",
+    "She puts the neutral rate range well above 1 percent, with the 1.25 percent policy rate near its lower end, and sets no specific pace."
+   ],
+   "stance": "hawkish",
+   "score": 1,
+   "reason": "Open to further hikes; neutral rate well above current policy rate."
+  },
+  {
+   "id": "doc-06f5c3b3308e77d0",
+   "relevant": false,
+   "speaker": "",
+   "role": "",
+   "points": [],
+   "stance": "neutral",
+   "score": 0,
+   "reason": ""
+  },
+  {
+   "id": "doc-6dad08c6a40d3fde",
+   "relevant": false,
+   "speaker": "",
+   "role": "",
+   "points": [],
+   "stance": "neutral",
+   "score": 0,
+   "reason": ""
+  },
+  {
+   "id": "doc-46be3eb6c99526fc",
+   "relevant": true,
+   "speaker": "Pan Gongsheng",
+   "role": "Governor",
+   "points": [
+    "The PBOC plans to shift its main operation to overnight repo, making that rate the key policy rate, and to retire the benchmark deposit and loan rates.",
+    "Pan says China has no need or intention to weaken the yuan for a trade edge and acts to prevent depreciation overshooting."
+   ],
+   "stance": "neutral",
+   "score": 0,
+   "reason": "Framework reform and FX stance, no change in rate direction."
+  },
+  {
+   "id": "doc-47ede1689ec3d11b",
+   "relevant": true,
+   "speaker": "",
+   "role": "Central bank statement",
+   "points": [
+    "The Taiwan dollar fell 1.37 percent against the US dollar between 12 and 16 October, reflecting foreign equity selling and dividend outflows.",
+    "The central bank will watch capital flows and adjust FX supply and demand when needed to keep the exchange rate dynamically stable."
+   ],
+   "stance": "hawkish",
+   "score": 1,
+   "reason": "Commits to stabilising a weakening currency."
+  },
+  {
+   "id": "doc-0de9b4c1021a7c35",
+   "relevant": false,
+   "speaker": "",
+   "role": "",
+   "points": [],
+   "stance": "neutral",
+   "score": 0,
+   "reason": ""
+  },
+  {
+   "id": "doc-6f0c21a9a23be7f2",
+   "relevant": true,
+   "speaker": "Megan Greene",
+   "role": "External MPC member",
+   "points": [
+    "Greene argues the UK economy has proved resilient, so labour market slack is smaller than indicators suggest and second-round effects through wages are a greater risk.",
+    "She says waiting for evidence before leaning against these effects with tighter policy would be too late given policy lags."
+   ],
+   "stance": "hawkish",
+   "score": 2,
+   "reason": "Argues for tighter policy now against second-round wage effects."
+  },
+  {
+   "id": "doc-d7784d41f554863d",
+   "relevant": true,
+   "speaker": "Kazuo Ueda",
+   "role": "Governor",
+   "points": [
+    "Ueda says the BOJ will keep raising the policy rate to adjust accommodation, since underlying inflation is near 2 percent while financial conditions stay easy.",
+    "He says rises in underlying inflation can no longer be tolerated; timing and pace depend on the Middle East, AI demand and the exchange rate."
+   ],
+   "stance": "hawkish",
+   "score": 1,
+   "reason": "Reaffirms further hikes and zero tolerance for overshoot."
+  },
+  {
+   "id": "doc-e807ed00641326ed",
+   "relevant": false,
+   "speaker": "",
+   "role": "",
+   "points": [],
+   "stance": "neutral",
+   "score": 0,
+   "reason": ""
+  },
+  {
+   "id": "doc-072d53504945317d",
+   "relevant": false,
+   "speaker": "",
+   "role": "",
+   "points": [],
+   "stance": "neutral",
+   "score": 0,
+   "reason": ""
+  },
+  {
+   "id": "doc-9d0c3f7fb6db288c",
+   "relevant": false,
+   "speaker": "",
+   "role": "",
+   "points": [],
+   "stance": "neutral",
+   "score": 0,
+   "reason": ""
+  },
+  {
+   "id": "doc-f27ef8c91e0238af",
+   "relevant": false,
+   "speaker": "",
+   "role": "",
+   "points": [],
+   "stance": "neutral",
+   "score": 0,
+   "reason": ""
+  },
+  {
+   "id": "doc-9ed9b614f4f12759",
+   "relevant": false,
+   "speaker": "",
+   "role": "",
+   "points": [],
+   "stance": "neutral",
+   "score": 0,
+   "reason": ""
+  }
+ ],
+ "expectations": []
+}
