@@ -90,21 +90,22 @@ def apply_outbox() -> int:
     pend["headlines"] = [x for x in pend["headlines"] if x["id"] not in done_h]
     pend["documents"] = [x for x in pend["documents"] if x["id"] not in done_d]
     pend["expectations"] = [x for x in pend["expectations"] if x["id"] not in done_e]
-    inbox.save(pend)
+    if files:   # leave the inbox (and its 'generated' stamp) untouched when nothing was applied
+        inbox.save(pend)
     return len(files)
 
 
-def rebuild():
+def rebuild(language_step: bool = True):
     from .run import decision_watch, finish
     today = today_sgt()
     recs = read_json(SNAPSHOT, []) or []
     ex = store.load_expectations()
     watch = decision_watch(store.all_statements((today - dt.timedelta(days=4)).isoformat()[:7]), recs, today)
     meetings.annotate(recs, ex, watch, today)
-    finish(recs, today, language_step=True)
+    finish(recs, today, language_step=language_step)
 
 
 if __name__ == "__main__":
     n = apply_outbox()
     print(f"applied {n} outbox file(s)")
-    rebuild()
+    rebuild(language_step=n > 0)

@@ -48,7 +48,8 @@ jobs:
         id: gate
         run: |
           today=$(TZ=Asia/Singapore date +%F)
-          last=$(python -c "import json;print(json.load(open('docs/data/meta.json')).get('updated','')[:10])" 2>/dev/null || true)
+          # "refreshed" is stamped only by a full source refresh (not by the language-step rebuild)
+          last=$(python -c "import json;print((json.load(open('docs/data/meta.json')).get('refreshed') or '')[:10])" 2>/dev/null || true)
           if [ "${{ github.event.schedule }}" = "53 22 * * *" ] && [ "$last" = "$today" ]; then
             echo "Already refreshed today ($last); nothing to do."
             echo "skip=true" >> "$GITHUB_OUTPUT"

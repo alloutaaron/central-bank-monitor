@@ -152,20 +152,22 @@ def daily(lookback_hours: int = 36, backlog: int = 25, since: str | None = None)
         apply_outbox()
     watch = decision_watch(store.all_statements((today - dt.timedelta(days=4)).isoformat()[:7]), recs, today)
     meetings.annotate(recs, store.load_expectations(), watch, today)
-    return finish(recs, today)
+    return finish(recs, today, refreshed=True)
 
 
-def finish(recs: list[dict], today: dt.date, language_step: bool = False):
+def finish(recs: list[dict], today: dt.date, language_step: bool = False, refreshed: bool = False):
     statements = store.all_statements()
     spec = spectrum.build(statements, today)
     health = store.update_health(LOG.as_dict())
     state = store.load_state()
     if language_step or llm.available():
         state["language_last_run"] = now_sgt().isoformat(timespec="minutes")
-        store.save_state(state)
+    if refreshed:   # the full source refresh, as opposed to a page rebuild after the language step
+        state["last_refresh"] = now_sgt().isoformat(timespec="minutes")
+    store.save_state(state)
     pend = inbox.load()
     lang = {"last_run": state.get("language_last_run"), "pending": len(pend["headlines"]) + len(pend["documents"]) + len(pend["expectations"])}
-    build.write_site(recs, statements, spec, health, today, ai=lang)
+    build.write_site(recs, statements, spec, health, today, ai=lang, refreshed=state.get("last_refresh"))
     print(f"done: {len(recs)} calendar items, {sum(1 for s in statements if s.get('relevant'))} feed items, "
           f"pending for language step: {lang['pending']}, failed sources: "
           f"{sorted(k for k, v in LOG.as_dict().items() if not v['ok'])}", flush=True)

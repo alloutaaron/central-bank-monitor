@@ -26,7 +26,7 @@
 
   /* ---------- command bar ---------- */
   function renderHeader() {
-    const m = S.meta, u = m.updated, ageH = (Date.now() - Date.parse(u)) / 36e5;
+    const m = S.meta, u = m.refreshed || m.updated, ageH = (Date.now() - Date.parse(u)) / 36e5;   // time of the last full source refresh
     $("#updated").textContent = `UPD ${dm(u.slice(0, 10))} ${u.slice(11, 16)} SGT` + (ageH > 30 ? " · OVERDUE" : "");
     const stale = m.stale || [], notes = S.order.map(c => S.banks[c]).filter(b => b.access_note);
     const btn = $("#staleBtn"), pop = $("#stalePanel");
@@ -86,6 +86,8 @@
   const shiftMonth = (key, n) => { let [y, m] = key.split("-").map(Number); m += n; while (m > 12) { m -= 12; y++; } while (m < 1) { m += 12; y--; } return `${y}-${String(m).padStart(2, "0")}`; };
   const rank = e => ({ meeting: 0, lpr: 0, "rate-change": 0, release: 1, speech: 2 }[e.type] ?? 3);
 
+  const spanText = () => { const c = S.meta.coverage_from;
+    return c && daysBetween(c, S.meta.today) < 365 ? `since ${dmy(c)} (start of coverage)` : "in the last 12 months"; };
   function line(e) {
     if (e.type === "speech") {
       const m = e.title.match(/([A-Z][\w'’-]+)\s+(Speaks|Testifies)\b/);
@@ -214,7 +216,7 @@
     const chart = $("#specChart"), list = $("#specList");
     chart.hidden = S.listView; list.hidden = !S.listView;
     list.innerHTML = placed.map(m => `<li>${esc(m.name)} <span class="lean">· ${esc(m.role || "")} · ${lean(m.position)} · latest ${dmy(m.last)}</span></li>`).join("");
-    if (!placed.length) { chart.style.height = "auto"; chart.innerHTML = `<p class="empty" style="padding:14px 0 6px">${d.committee === null && !(d.unplaced || []).length ? esc(d.note || "No policy committee.") : "No attributable remarks in the last 12 months."}</p>`; }
+    if (!placed.length) { chart.style.height = "auto"; chart.innerHTML = `<p class="empty" style="padding:14px 0 6px">${d.committee === null && !(d.unplaced || []).length ? esc(d.note || "No policy committee.") : `No attributable remarks ${spanText()}.`}</p>`; }
     else {
       const maxAbs = Math.max(...placed.map(m => Math.abs(m.position)), 0.5), R = Math.min(2, Math.ceil(maxAbs * 2) / 2 + 0.25);
       if ((chart.clientWidth || 800) < 600) {
@@ -258,7 +260,7 @@
       }
     }
     const un = d.unplaced || [];
-    $("#specFoot").innerHTML = (un.length ? `<div><b>No recent attributable remarks:</b> ${un.map(m => esc(m.name)).join(", ")}</div>` : "") + (d.note && (placed.length || un.length) ? `<div style="margin-top:3px">${esc(d.note)}</div>` : "");
+    $("#specFoot").innerHTML = (un.length ? `<div><b>No attributable remarks ${spanText()}:</b> ${un.map(m => esc(m.name)).join(", ")}</div>` : "") + (d.note && (placed.length || un.length) ? `<div style="margin-top:3px">${esc(d.note)}</div>` : "");
   }
 
   /* ---------- boot ---------- */
