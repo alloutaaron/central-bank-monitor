@@ -74,9 +74,28 @@ def decision_watch(rows: list[dict], recs: list[dict], today: dt.date) -> dict:
     return out
 
 
+BLOCKED = {"RBA": "https://www.rba.gov.au/", "RBNZ": "https://www.rbnz.govt.nz/", "BSP": "https://www.bsp.gov.ph/",
+           "SBV": "https://www.sbv.gov.vn/", "BNM": "https://www.bnm.gov.my/speeches-interviews"}
+
+
+def access_probe():
+    """Records whether sites that refuse automated access have become reachable
+    (kept separate from the stale-source list, since they fail by design)."""
+    from .common import session, write_json
+    out = {}
+    for bank, url in BLOCKED.items():
+        try:
+            r = session().get(url, timeout=20)
+            out[bank] = {"status": r.status_code, "bytes": len(r.content)}
+        except Exception as e:
+            out[bank] = {"error": type(e).__name__}
+    write_json(ROOT / "data" / "access_probe.json", {"checked": now_sgt().isoformat(timespec="minutes"), "sites": out})
+
+
 def daily(lookback_hours: int = 36):
     today = today_sgt()
     state = store.load_state()
+    access_probe()
     rows = []
     # 1. Speech feed: Telegram + reputable-news headlines, classified by Claude.
     items = []
