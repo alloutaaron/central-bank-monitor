@@ -120,20 +120,32 @@ def backfill(expectations: dict, meetings: list[dict], today: dt.date) -> dict:
     return expectations
 
 
+_ECB_NAMES = (r"ECB|Lagarde|Lane|Schnabel|Cipollone|Elderson|Vujčić|Vujcic|Buba|Nagel|Moulin|Panetta|Rehn|Sleijpen|Kazaks|"
+              r"Kazāks|Wunsch|Escrivá|Escriva|Stournaras|Makhlouf|Kocher|Kažimír|Kazimir|Šimkus|Simkus|Kaasik|Reinesch|Radev|"
+              r"Demarco|Patsalides|Dolenc|Pereira|Žigman|Zigman")
+
+
+def _is_cb_speech(bank: str, title: str) -> bool:
+    """Speeches/testimony/press conferences by central-bank officials only
+    (drops e.g. China's statistics bureau 'NBS Press Conference')."""
+    if not re.search(r"Speaks|Testifies|Press Conference|Testimony", title):
+        return False
+    if not re.search(r"\b(Fed|FOMC|ECB|Buba|BOE|MPC|BOJ|RBA|RBNZ|PBOC|PBoC|Gov|Governor|President|Chair|Lagarde|Bailey|Ueda|Bullock)\b", title):
+        return False
+    return bank != "ECB" or bool(re.search(_ECB_NAMES, title))
+
+
 def archive_speeches(ff: list[dict]) -> list[dict]:
     """Scheduled G10/China central-bank speeches from the weekly calendar,
     archived so past weeks stay on the calendar."""
     arch = read_json(SPEECH_ARCHIVE, []) or []
     seen = {(x["bank"], x["ts"], x["title"]) for x in arch}
+    arch = [x for x in arch if _is_cb_speech(x["bank"], x["title"])]
+    seen = {(x["bank"], x["ts"], x["title"]) for x in arch}
     for e in ff:
         bank = CCY_BANK.get(e.get("country"))
         t = e.get("title", "")
-        if not bank or not re.search(r"Speaks|Testifies|Press Conference|Testimony", t):
-            continue
-        if bank == "ECB" and not re.search(r"ECB|Lagarde|Lane|Schnabel|Cipollone|Elderson|Vujčić|Vujcic|Buba|Nagel|Villeroy|Moulin|"
-                                           r"Panetta|Rehn|Knot|Sleijpen|Kazaks|Kazāks|Wunsch|Escrivá|Escriva|Stournaras|Makhlouf|"
-                                           r"Kocher|Holzmann|Kažimír|Kazimir|Šimkus|Simkus|Muller|Kaasik|Reinesch|Radev|Demarco|"
-                                           r"Patsalides|Dolenc|Pereira|Žigman|Zigman", t):
+        if not bank or not _is_cb_speech(bank, t):
             continue
         ts = dt.datetime.fromisoformat(e["date"]).astimezone(SGT).isoformat(timespec="minutes")
         key = (bank, ts, t)

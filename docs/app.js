@@ -27,7 +27,9 @@
   function renderHeader() {
     const m = S.meta, u = m.updated;
     const ageH = (Date.now() - Date.parse(u)) / 36e5;
-    $("#updated").textContent = `Updated ${fmtDate(u.slice(0, 10))}, ${u.slice(11, 16)} SGT` + (ageH > 30 ? " · refresh overdue" : "");
+    const [, um, ud] = u.slice(0, 10).split("-").map(Number);
+    $("#updated").textContent = `Updated ${ud} ${MON[um - 1]} ${u.slice(11, 16)} SGT` + (ageH > 30 ? " · overdue" : "");
+    $("#updated").title = `Last refresh ${fmtDate(u.slice(0, 10))} ${u.slice(11, 16)} SGT`;
     const stale = m.stale || [];
     const notes = S.order.map(c => S.banks[c]).filter(b => b.access_note);
     const btn = $("#staleBtn"), panel = $("#stalePanel");
@@ -195,6 +197,20 @@
       chart.style.height = "auto";
       chart.innerHTML = `<p class="empty" style="padding:18px 0 8px">${d.committee === null && !(d.unplaced || []).length ? esc(d.note || "No policy committee.") : "No attributable remarks in the last 12 months."}</p>`;
       list.innerHTML = "";
+    } else if ((chart.clientWidth || 800) < 600) {
+      /* Phones: one row per member (name | track with dot), dovish at top. */
+      const maxAbs = Math.max(...placed.map(m => Math.abs(m.position)), 0.5);
+      const R = Math.min(2, Math.ceil(maxAbs * 2) / 2 + 0.25);
+      const pct = p => 4 + (p + R) / (2 * R) * 92;
+      chart.style.height = "auto";
+      chart.innerHTML = `<div class="rows"><div class="rows-axis"><span></span><span class="ax"><b>Dovish</b><b>Neutral</b><b>Hawkish</b></span></div>` +
+        placed.map(m => {
+          const col = colorAt(m.position, R), nonvoter = code === "FED" && m.voter === false;
+          return `<div class="row"><span class="nm${m.chair ? " chair" : ""}">${esc(m.name)}<small>${esc(m.role || "")}</small></span>` +
+            `<span class="tr"><i class="ln"></i><i class="md"></i><i class="pt${m.chair ? " chair" : ""}${nonvoter ? " nonvoter" : ""}" style="left:${pct(m.position)}%;background:${nonvoter ? "var(--panel)" : col};border-color:${col}"></i></span></div>`;
+        }).join("") + `</div>`;
+      chart.onmousemove = null;
+      list.innerHTML = placed.map(m => `<li>${esc(m.name)} <span class="lean">· ${esc(m.role || "")} · ${lean(m.position)} · latest ${fmtDate(m.last)}</span></li>`).join("");
     } else {
       const W = chart.clientWidth || 800, maxAbs = Math.max(...placed.map(m => Math.abs(m.position)), 0.5);
       const R = Math.min(2, Math.ceil(maxAbs * 2) / 2 + 0.25);
