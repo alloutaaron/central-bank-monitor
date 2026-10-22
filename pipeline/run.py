@@ -78,7 +78,7 @@ def decision_watch(rows: list[dict], recs: list[dict], today: dt.date) -> dict:
 
 
 BLOCKED = {"RBA": "https://www.rba.gov.au/", "RBNZ": "https://www.rbnz.govt.nz/", "BSP": "https://www.bsp.gov.ph/",
-           "SBV": "https://www.sbv.gov.vn/", "BNM": "https://www.bnm.gov.my/speeches-interviews"}
+           "BNM": "https://www.bnm.gov.my/speeches-interviews"}
 
 
 def access_probe():

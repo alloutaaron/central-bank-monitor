@@ -219,7 +219,31 @@ def build(today: dt.date | None = None, expectations: dict | None = None, watch:
             recs.append(rec)
     recs += lpr_events(start, end, today)
     recs += hkma_events(paths.get("HKMA"), start)
+    attach_releases(recs, sched)
     return recs
+
+
+def attach_releases(recs: list[dict], sched: dict):
+    """Link each meeting to its statement, press conference, minutes and reports,
+    and list releases that come out on a later day as their own calendar items."""
+    from . import releases
+    rel = releases.collect(sched)
+    by_meeting: dict[tuple, list] = {}
+    for r in rel:
+        if r.get("meeting"):
+            by_meeting.setdefault((r["bank"], r["meeting"]), []).append(r)
+    for rec in recs:
+        if rec["type"] == "meeting":
+            rec["links"] = sorted(by_meeting.get((rec["bank"], rec["date"]), []), key=lambda r: (r.get("date") or "9", r["kind"]))
+        elif rec["type"] == "rate-change" and rec["bank"] == "HKMA":
+            rec["links"] = [r for r in rel if r["bank"] == "HKMA" and r.get("date") == rec["date"]]
+    later = [r for r in rel if r["kind"] in ("minutes", "account", "sop", "report", "highlights", "record")
+             and r.get("date") and r.get("meeting") and r["date"] != r["meeting"]]
+    for r in later:
+        recs.append({"id": f"{r['bank']}-{r['kind']}-{r['date']}", "bank": r["bank"], "type": "release", "date": r["date"],
+                     "status": "done" if r["status"] == "published" else "scheduled", "title": r["title"],
+                     "meeting": r["meeting"], "url": r.get("url"), "basis": r.get("basis"), "decision": None,
+                     "expected": None, "matched": None, "time_sgt": None})
 
 
 def lpr_events(start: str, end: str, today: dt.date) -> list[dict]:

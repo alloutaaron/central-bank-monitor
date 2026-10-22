@@ -33,7 +33,7 @@ def _feed(query: str, source_id: str) -> list[dict]:
            + "&hl=en-SG&gl=SG&ceid=SG:en")
     raw = fetch(url, source_id, pause=1.0)
     out = []
-    for title, pub, src in re.findall(r"<item>.*?<title>(.*?)</title>.*?<pubDate>(.*?)</pubDate>.*?<source[^>]*>(.*?)</source>", raw, re.S):
+    for title, link, pub, src in re.findall(r"<item>.*?<title>(.*?)</title>.*?<link>(.*?)</link>.*?<pubDate>(.*?)</pubDate>.*?<source[^>]*>(.*?)</source>", raw, re.S):
         outlet = htmllib.unescape(src).strip()
         if outlet.lower() not in ALLOW:
             continue
@@ -41,7 +41,7 @@ def _feed(query: str, source_id: str) -> list[dict]:
         t = re.sub(r"\s+-\s+" + re.escape(outlet) + r"\s*$", "", t).strip()
         when = dt.datetime(*email.utils.parsedate(pub)[:6], tzinfo=dt.timezone.utc).astimezone(SGT)
         out.append({"id": "nw-" + sha(outlet + t), "ts": when.isoformat(timespec="minutes"), "text": t,
-                    "source": outlet, "kind": "news"})
+                    "source": outlet, "kind": "news", "url": htmllib.unescape(link).strip()})
     return out
 
 

@@ -87,5 +87,6 @@ def collect(state: dict, lookback_hours: int = 36, max_pages: int = 120) -> list
         for p in posts:
             if rx.search(p["text"]):
                 out.append({"id": f"tg-{ch}-{p['id']}", "ts": p["dt"].isoformat(timespec="minutes"),
-                            "text": p["text"][:400], "source": label, "kind": "telegram"})
+                            "text": p["text"][:400], "source": label, "kind": "telegram",
+                            "url": f"https://t.me/{ch}/{p['id']}"})
     return out

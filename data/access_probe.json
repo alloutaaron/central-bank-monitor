@@ -1,9 +1,9 @@
 {
- "checked": "2026-10-22T16:50+08:00",
+ "checked": "2026-10-22T21:34+08:00",
  "sites": {
   "BNM": {
-   "bytes": 293422,
-   "status": 200
+   "bytes": 5707,
+   "status": 403
   },
   "BSP": {
    "bytes": 153755,
@@ -16,10 +16,6 @@
   "RBNZ": {
    "bytes": 31346,
    "status": 403
-  },
-  "SBV": {
-   "bytes": 431834,
-   "status": 200
   }
  }
 }

@@ -1,5 +1,6 @@
-"""Writes the public data files the page reads (docs/data). The page never
-sees URLs, scores or rubric text: only what it displays."""
+"""Writes the public data files the page reads (docs/data): only what the page
+displays (no scores or rubric text). Official links and source links are
+included so items can be opened."""
 from __future__ import annotations
 
 import datetime as dt
@@ -19,7 +20,6 @@ TITLE = {"FED": "FOMC", "ECB": "Governing Council", "BOE": "MPC", "BOJ": "Policy
 ACCESS_NOTES = {
     "RBNZ": "rbnz.govt.nz blocks automated access: decisions verified by hand, then BIS and wire reports; schedule verified by hand",
     "BSP": "Decisions verified by hand from BSP press releases; new decisions from wire reports and BIS until confirmed; schedule verified by hand",
-    "SBV": "No published meeting schedule; sbv.gov.vn is intermittently unreachable and its rate page does not respond, so policy rates are TBC",
     "BNM": "bnm.gov.my speech pages block automated access: remarks from news headlines; decisions from BNM's official API",
     "RBA": "Schedule verified by hand; rates from rba.gov.au when readable, otherwise hand-verified records and BIS",
 }
@@ -36,6 +36,11 @@ def _event(rec: dict) -> dict:
           "note": rec.get("note") or rec.get("date_note") or rec.get("time_note"), "days": rec.get("days")}
     if rec["type"] == "rate-change":
         ev["title"] = "Base Rate change"
+    if rec["type"] == "release":
+        ev.update(title=rec["title"], url=rec.get("url"), meeting=rec.get("meeting"), basis=rec.get("basis"))
+    if rec.get("links"):
+        ev["links"] = [{"title": r["title"], "url": r.get("url"), "date": r.get("date"), "status": r["status"],
+                        "basis": r.get("basis")} for r in rec["links"]]
     d = rec.get("decision")
     if d:
         ev["decision"] = {"label": d["label"], "move": d.get("move_bp"), "src": d.get("source_kind")}
@@ -69,9 +74,10 @@ def feed_items(statements: list[dict]) -> list[dict]:
     out = []
     for s in kept:
         ts = dt.datetime.fromisoformat(s["ts"]).astimezone(SGT)
+        src = "Official" if s.get("kind") == "official" else s.get("source") or ""
         out.append({"id": s["id"], "ts": ts.isoformat(timespec="minutes"), "date_only": bool(s.get("date_only")),
                     "bank": s["bank"], "speaker": s.get("speaker") or "", "role": s.get("role") or "",
-                    "text": s["text"], "stance": s.get("stance") or "neutral",
+                    "text": s["text"], "stance": s.get("stance") or "neutral", "url": s.get("url"), "src": src,
                     "kind": "decision" if s.get("type") == "decision" else ("official" if s.get("kind") == "official" else "remark")})
     out.sort(key=lambda x: x["ts"], reverse=True)
     return out
@@ -142,16 +148,23 @@ def write_site(recs, statements, spec, health, today: dt.date, ai: dict):
         write_json(OUT / "feed" / f"{mth}.json", {"month": mth, "items": items}, compact=True)
     # Banks.
     cur = current_rates(recs, tday)
-    nxt = {}
+    nxt, last = {}, {}
     for r in sorted(recs, key=lambda r: r["date"]):
         if r["type"] in ("meeting", "lpr") and r["date"] >= tday and r["bank"] not in nxt and r["status"] != "done":
-            nxt[r["bank"]] = {"date": _sgt_date(r), "time": r["time_sgt"][11:16] if r.get("time_sgt") else None, "title": TITLE.get(r["bank"])}
+            e = r.get("expected") or {}
+            nxt[r["bank"]] = {"date": _sgt_date(r), "time": r["time_sgt"][11:16] if r.get("time_sgt") else None,
+                              "title": TITLE.get(r["bank"]), "expected": e.get("label"), "expected_move": e.get("move_bp"),
+                              "basis": e.get("basis")}
+        if r["type"] in ("meeting", "lpr", "rate-change") and r.get("decision") and r["date"] <= tday:
+            last[r["bank"]] = {"date": r["date"], "move": r["decision"].get("move_bp"), "label": r["decision"]["label"],
+                               "src": r["decision"].get("source_kind")}
     tbc = (read_json(ROOT / "seeds" / "meetings.json", {}) or {}).get("_tbc", {})
     banks = []
     for code in order:
         b = CFG["banks"][code]
         banks.append({"code": code, "name": b["name"], "short": b["short"], "country": b["country"], "rate_label": b["rate_label"],
-                      "rate": cur.get(code), "next": nxt.get(code), "next_note": tbc.get(code), "access_note": ACCESS_NOTES.get(code)})
+                      "rate": cur.get(code), "last": last.get(code), "next": nxt.get(code), "next_note": tbc.get(code),
+                      "access_note": ACCESS_NOTES.get(code)})
     # Spectrum: positions only (no scores, no reasons).
     spec_out = {}
     for code, s in spec.items():
