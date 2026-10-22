@@ -1,0 +1,134 @@
+"""Official speeches, press conferences and statements, read from each bank's
+own feed or listing page in the original language. Returns new documents with
+their text; llm.process_document paraphrases (and translates) them."""
+from __future__ import annotations
+
+import datetime as dt
+import email.utils
+import html as htmllib
+import io
+import re
+
+from .common import fetch, html_to_text, sha, FetchError, LOG
+
+# kind=rss: RSS feed. kind=list: listing page + link regex; date from the link
+# (group 'date', formats below) or from the document page.
+SOURCES = [
+    {"bank": "FED", "kind": "rss", "url": "https://www.federalreserve.gov/feeds/speeches.xml", "lang": "en"},
+    {"bank": "FED", "kind": "rss", "url": "https://www.federalreserve.gov/feeds/testimony.xml", "lang": "en"},
+    {"bank": "ECB", "kind": "rss", "url": "https://www.ecb.europa.eu/rss/press.html", "lang": "en",
+     "keep": r"/press/(key|inter|press_conference)/"},
+    {"bank": "BOE", "kind": "rss", "url": "https://www.bankofengland.co.uk/rss/speeches", "lang": "en"},
+    {"bank": "HKMA", "kind": "rss", "url": "https://www.hkma.gov.hk/eng/other-information/rss/rss_speeches.xml", "lang": "en"},
+    {"bank": "BOJ", "kind": "list", "url": "https://www.boj.or.jp/about/press/index.htm", "lang": "ja", "base": "https://www.boj.or.jp",
+     "link": r"/about/press/(?:koen|kaiken)_\d{4}/k[ok](?P<date>\d{6})[a-z]\.(?:htm|pdf)"},
+    {"bank": "PBOC", "kind": "list", "url": "https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/index.html", "lang": "zh",
+     "base": "https://www.pbc.gov.cn", "link": r"/goutongjiaoliu/113456/113469/(?P<date>\d{8})\d+/index\.html",
+     "title_keep": r"讲话|演讲|发言|致辞|答记者问|采访|货币政策委员会|例会"},
+    {"bank": "BNM", "kind": "list", "url": "https://www.bnm.gov.my/speeches-interviews", "lang": "en", "base": "",
+     "link": r"https://www\.bnm\.gov\.my/-/[a-z0-9-]+", "title_keep": r"(?i)speech|address|remarks|keynote|interview|statement"},
+    {"bank": "CBC", "kind": "list", "url": "https://www.cbc.gov.tw/tw/lp-302-1.html", "lang": "zh", "base": "https://www.cbc.gov.tw",
+     "link": r"/tw/cp-302-\d+-[0-9a-f]+-1\.html", "title_keep": r"總裁|理監事|匯率|利率|貨幣政策|說明|新台幣"},
+]
+
+
+def _date_from_token(tok: str) -> str | None:
+    try:
+        if len(tok) == 6:   # YYMMDD
+            return dt.date(2000 + int(tok[:2]), int(tok[2:4]), int(tok[4:])).isoformat()
+        if len(tok) == 8:   # YYYYMMDD
+            return dt.date(int(tok[:4]), int(tok[4:6]), int(tok[6:])).isoformat()
+    except ValueError:
+        return None
+    return None
+
+
+def _date_from_text(text: str) -> str | None:
+    m = re.search(r"(\d{1,2}) (January|February|March|April|May|June|July|August|September|October|November|December) (20\d\d)", text)
+    if m:
+        return dt.datetime.strptime(" ".join(m.groups()), "%d %B %Y").date().isoformat()
+    m = re.search(r"(20\d\d)[-./年](\d{1,2})[-./月](\d{1,2})", text)
+    if m:
+        return dt.date(*map(int, m.groups())).isoformat()
+    m = re.search(r"(1\d\d)[年/.](\d{1,2})[月/.](\d{1,2})", text)  # ROC calendar (Taiwan): 115 = 2026
+    if m:
+        return dt.date(int(m.group(1)) + 1911, int(m.group(2)), int(m.group(3))).isoformat()
+    return None
+
+
+def list_items(src: dict) -> list[dict]:
+    sid = f"{src['bank']}:official-{src['kind']}"
+    raw = fetch(src["url"], sid)
+    out = []
+    if src["kind"] == "rss":
+        for blk in re.findall(r"<item\b.*?</item>", raw, re.S):
+            title = re.search(r"<title>(.*?)</title>", blk, re.S)
+            link = re.search(r"<link>(.*?)</link>", blk, re.S)
+            pub = re.search(r"<pubDate>(.*?)</pubDate>", blk, re.S)
+            if not (title and link):
+                continue
+            url = htmllib.unescape(re.sub(r"<!\[CDATA\[|\]\]>", "", link.group(1))).strip()
+            if src.get("keep") and not re.search(src["keep"], url):
+                continue
+            t = htmllib.unescape(re.sub(r"<!\[CDATA\[|\]\]>|<[^>]+>", "", title.group(1))).strip()
+            date = None
+            if pub:
+                p = email.utils.parsedate(pub.group(1))
+                date = dt.date(*p[:3]).isoformat() if p else None
+            out.append({"bank": src["bank"], "title": t, "url": url, "date": date, "lang": src["lang"]})
+    else:
+        for href, inner in re.findall(r'<a[^>]+href="([^"]+)"[^>]*>(.*?)</a>', raw, re.S):
+            m = re.search(src["link"], href)
+            if not m:
+                continue
+            t = re.sub(r"\s+", " ", htmllib.unescape(re.sub(r"<[^>]+>", "", inner))).strip()
+            if len(t) < 6 or (src.get("title_keep") and not re.search(src["title_keep"], t)):
+                continue
+            url = href if href.startswith("http") else src["base"] + href
+            date = _date_from_token(m.group("date")) if "date" in m.groupdict() and m.group("date") else None
+            out.append({"bank": src["bank"], "title": t, "url": url, "date": date, "lang": src["lang"]})
+    seen, res = set(), []
+    for x in out:
+        if x["url"] not in seen:
+            seen.add(x["url"]); x["id"] = "doc-" + sha(x["url"]); res.append(x)
+    return res
+
+
+def document_text(item: dict) -> str:
+    sid = f"{item['bank']}:official-doc"
+    if item["url"].lower().endswith(".pdf"):
+        from pypdf import PdfReader
+        data = fetch(item["url"], sid, binary=True)
+        reader = PdfReader(io.BytesIO(data))
+        return "\n".join((p.extract_text() or "") for p in reader.pages[:25])
+    return html_to_text(fetch(item["url"], sid))
+
+
+def collect(processed: set[str], since: str) -> list[dict]:
+    """New official documents dated on/after `since`, with text attached."""
+    out = []
+    for src in SOURCES:
+        try:
+            items = list_items(src)
+        except FetchError:
+            continue
+        except Exception as e:
+            LOG.fail(f"{src['bank']}:official-{src['kind']}", f"parser error: {type(e).__name__}: {e}")
+            continue
+        for it in items:
+            if it["id"] in processed:
+                continue
+            try:
+                text = document_text(it)
+            except FetchError:
+                continue
+            except Exception as e:
+                LOG.fail(f"{it['bank']}:official-doc", f"{type(e).__name__}: {e}")
+                continue
+            it["date"] = it["date"] or _date_from_text(text[:3000])
+            if not it["date"] or it["date"] < since:
+                processed.add(it["id"])
+                continue
+            it["text"] = text
+            out.append(it)
+    return out

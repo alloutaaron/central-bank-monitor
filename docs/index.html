@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Central Bank Monitor</title>
+<meta name="description" content="Central bank meetings, decisions, speeches and committee stances for 17 central banks, refreshed daily. Times in SGT.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23131519'/%3E%3Cpath d='M7 21h18M9 21V12m5 9V9m5 12v-7m5 7v-4' stroke='%23cc7a3a' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E">
+<script>try{const t=localStorage.getItem('cbm-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">Central Bank Monitor</div>
+  <div class="status">
+    <span id="updated" class="updated">Loading…</span>
+    <button id="staleBtn" class="stale" hidden aria-expanded="false" aria-controls="stalePanel"></button>
+    <button id="themeBtn" class="icon-btn" aria-label="Switch light or dark theme" title="Theme">
+      <svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><path d="M10 3.2a6.8 6.8 0 1 0 6.8 6.8A5.2 5.2 0 0 1 10 3.2Z" fill="currentColor"/></svg>
+    </button>
+  </div>
+  <div id="stalePanel" class="stale-panel" hidden></div>
+</header>
+
+<main>
+  <section class="panel" id="calendar" aria-labelledby="calTitle">
+    <div class="panel-head">
+      <h2 id="calTitle">Calendar</h2>
+      <div class="seg-wrap"><div class="seg" id="calBanks" role="tablist" aria-label="Central bank"></div></div>
+      <div class="month-nav">
+        <button class="icon-btn" id="prevMonth" aria-label="Previous month">‹</button>
+        <span id="monthLabel" class="month-label"></span>
+        <button class="icon-btn" id="nextMonth" aria-label="Next month">›</button>
+        <button class="text-btn" id="todayBtn">Today</button>
+      </div>
+    </div>
+    <div class="cal-body">
+      <div class="cal-grid-wrap">
+        <div class="cal-dow" aria-hidden="true"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span></div>
+        <div class="cal-grid" id="calGrid"></div>
+        <div class="cal-legend" aria-hidden="true">
+          <span><i class="g hike">▲</i>Hike</span><span><i class="g cut">▼</i>Cut</span><span><i class="g hold">■</i>Hold</span>
+          <span><i class="g exp">E</i>Expected</span><span><i class="g spk">◦</i>Speech</span><span class="tz">All times SGT</span>
+        </div>
+      </div>
+      <aside class="cal-detail" id="calDetail" aria-live="polite"></aside>
+    </div>
+  </section>
+
+  <section class="panel" id="feed" aria-labelledby="feedTitle">
+    <div class="panel-head">
+      <h2 id="feedTitle">Central bank speak</h2>
+      <div class="seg-wrap"><div class="seg" id="feedBanks" role="tablist" aria-label="Central bank"></div></div>
+      <div class="feed-key" aria-hidden="true"><span class="k hawkish">▲ Hawkish</span><span class="k neutral">● Neutral</span><span class="k dovish">▼ Dovish</span></div>
+    </div>
+    <ol class="feed-list" id="feedList"></ol>
+    <div class="feed-more"><button class="text-btn" id="feedMore" hidden>Show earlier</button></div>
+  </section>
+
+  <section class="panel" id="spectrum" aria-labelledby="specTitle">
+    <div class="panel-head">
+      <h2 id="specTitle">Hawk–dove spectrum</h2>
+      <div class="seg-wrap"><div class="seg" id="specBanks" role="tablist" aria-label="Central bank"></div></div>
+      <button class="text-btn" id="specView" aria-pressed="false">List</button>
+    </div>
+    <div class="spec-meta" id="specMeta"></div>
+    <div class="spec-chart" id="specChart"></div>
+    <ol class="spec-list" id="specList" hidden></ol>
+    <div class="spec-foot" id="specFoot"></div>
+  </section>
+</main>
+
+<footer class="foot">
+  <span>Official central bank sources, BIS, Telegram (First Squawk, Walter Bloomberg) and reputable wires. Paraphrased; not investment advice.</span>
+</footer>
+<div class="tip" id="tip" role="tooltip" hidden></div>
+<script src="app.js" defer></script>
+</body>
+</html>
