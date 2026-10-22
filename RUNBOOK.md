@@ -52,7 +52,7 @@ gh workflow run refresh.yml --repo alloutaaron/central-bank-monitor -f backfill=
 
 | Symptom | Likely cause | Fix |
 |---|---|---|
-| Header says *refresh overdue*, Actions shows no run that day | GitHub skipped the schedule, or disabled it: public repos' scheduled workflows are switched off after 60 days without repository activity (the daily data commit normally counts as activity) | Actions tab → *Daily refresh* → **Enable workflow** if shown, then run it by hand (command above) |
+| Header says *refresh overdue*, Actions shows no run that day | GitHub skipped the schedule, or disabled it: public repos' scheduled workflows are switched off after 60 days without repository activity (the daily data commit should count as activity, but this is not verified) | Actions tab → *Daily refresh* → **Enable workflow** if shown, then run it by hand (command above) |
 | Run failed (red cross) | A bug or a source changed its page layout badly enough to crash | Open the run log, copy the last 30 lines, and ask Claude Code in this folder to fix it |
 | One bank shows *stale* | That source's page changed layout, or it blocked the job | Usually transient. If it lasts more than 2–3 days, ask Claude Code to update that parser in `pipeline/` |
 | Feed and spectrum stop changing; *AI step not run* in the Sources panel | API key missing, expired or out of credit | platform.claude.com → check credit / create a new key, then `gh secret set ANTHROPIC_API_KEY --repo alloutaaron/central-bank-monitor` |
