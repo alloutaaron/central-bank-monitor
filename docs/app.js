@@ -30,12 +30,14 @@
     $("#updated").textContent = `UPD ${dm(u.slice(0, 10))} ${u.slice(11, 16)} SGT` + (ageH > 30 ? " · OVERDUE" : "");
     const stale = m.stale || [], notes = S.order.map(c => S.banks[c]).filter(b => b.access_note);
     const btn = $("#staleBtn"), pop = $("#stalePanel");
-    btn.hidden = false; btn.classList.toggle("bad", stale.length > 0);
-    btn.textContent = stale.length ? `${stale.length} STALE` : "SOURCES";
+    const L = m.language || {}, langLate = !L.last_run || (Date.now() - Date.parse(L.last_run)) / 36e5 > 30;
+    btn.hidden = false; btn.classList.toggle("bad", stale.length > 0 || langLate);
+    btn.textContent = stale.length ? `${stale.length} STALE` : langLate ? "LANGUAGE STEP LATE" : "SOURCES";
     const label = sid => { const [b, ...rest] = sid.split(":"); return (S.banks[b] ? short(b) : b) + " · " + rest.join(":").replace(/-/g, " "); };
     pop.innerHTML = (stale.length ? `<h3>Failed on the latest run</h3><ul>${stale.map(s => `<li><b>${esc(label(s.source))}</b> · last OK ${s.last_ok ? esc(s.last_ok.slice(0, 16).replace("T", " ")) : "never"}</li>`).join("")}</ul>`
                                   : `<h3>Latest run</h3><ul><li>All sources refreshed.</li></ul>`) +
-      (m.ai && m.ai.enabled === false ? `<h3>Language step</h3><ul><li>Not run on the latest refresh: paraphrases, stances and expectations may be out of date.</li></ul>` : "") +
+      (() => { const L = m.language || {}; const age = L.last_run ? (Date.now() - Date.parse(L.last_run)) / 36e5 : null;
+        return `<h3>Language step (paraphrase, translation, stance, expectations)</h3><ul><li>${L.last_run ? "Last run " + esc(L.last_run.slice(0, 16).replace("T", " ")) + " SGT" + (age > 30 ? " · OVERDUE" : "") : "Not run yet"} · ${L.pending || 0} items waiting</li></ul>`; })() +
       `<h3>Known access limits</h3><ul>${notes.map(b => `<li><b>${esc(b.short)}</b> · ${esc(b.access_note)}</li>`).join("")}</ul>`;
     btn.onclick = e => { e.stopPropagation(); pop.hidden = !pop.hidden; btn.setAttribute("aria-expanded", !pop.hidden); };
     document.addEventListener("click", e => { if (!pop.hidden && !pop.contains(e.target)) { pop.hidden = true; btn.setAttribute("aria-expanded", "false"); } });
@@ -47,7 +49,7 @@
     const rows = S.order.map(c => {
       const b = S.banks[c], rate = b.rate, last = b.last, nx = b.next;
       const lastCell = last ? `<span class="mv ${dirOf(last.move)}">${G[dirOf(last.move)] || ""} ${last.move === 0 ? "HOLD" : (last.move > 0 ? "+" : "") + last.move}</span><span class="sub">${dm(last.date)}</span>` : `<span class="exp-tbc">—</span>`;
-      let nextCell = `<span class="exp-tbc">${esc((b.next_note || "TBC").toUpperCase().slice(0, 34))}</span>`, inCell = "";
+      let nextCell = `<span class="exp-tbc">${esc((b.next_note || "TBC").toUpperCase())}</span>`, inCell = "";
       if (nx) {
         nextCell = `${dm(nx.date)}${nx.time ? " " + nx.time : ""}`;
         const d = daysBetween(today, nx.date);
@@ -58,7 +60,7 @@
         const k = dirOf(nx.expected_move);
         ex = `<span class="${k}" title="${esc(nx.basis || "")}">${G[k] || ""} ${esc(nx.expected.toUpperCase())}</span>`;
       }
-      const rl = rate ? (rate.detail ? `${esc(rate.level)} <span class="sub">${esc(rate.detail)}</span>` : esc(rate.level)) : `<span class="exp-tbc">TBC</span>`;
+      const rl = rate ? (rate.detail ? `${esc(rate.level)} <span class="sub clip" title="${esc(rate.detail)}">${esc(rate.detail)}</span>` : esc(rate.level)) : `<span class="exp-tbc">TBC</span>`;
       return `<tr class="brow" data-c="${c}"><td><span class="code">${esc(b.short.toUpperCase())}</span><span class="nm">${esc(b.name)}</span></td>
         <td><span class="rate">${rl}</span> <span class="sub opt">${esc(b.rate_label)}</span></td><td>${lastCell}</td>
         <td>${nextCell}</td><td class="in">${inCell}</td><td>${ex}</td></tr>`;

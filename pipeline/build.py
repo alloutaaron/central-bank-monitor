@@ -105,8 +105,8 @@ def current_rates(recs: list[dict], today: str) -> dict:
     if mas:
         last = max(mas, key=lambda r: r["date"])
         moved = [r for r in mas if r["decision"]["move_bp"] != 0]
-        detail = (f"Last change {moved[-1]['date']}: {moved[-1]['decision']['label'].split(' (')[0].lower()}"
-                  if moved else "No recent change")
+        lab = moved[-1]["decision"]["label"].split(" (")[0].lower() if moved else ""
+        detail = (f"{lab} ({moved[-1]['date'][8:10]}/{moved[-1]['date'][5:7]}/{moved[-1]['date'][2:4]})" if moved else "No recent change")
         cur["MAS"] = {"level": "S$NEER band", "detail": detail, "as_of": last["date"], "src": "official"}
     return cur
 
@@ -177,5 +177,5 @@ def write_site(recs, statements, spec, health, today: dt.date, ai: dict):
     write_json(OUT / "meta.json", {
         "updated": now_sgt().isoformat(timespec="minutes"), "today": tday,
         "months": {"calendar": months_cal, "feed": sorted(by_m)},
-        "stale": stale_list(health), "ai": {"enabled": ai.get("enabled"), "calls": ai.get("calls"), "cost_usd": ai.get("cost_usd")},
+        "stale": stale_list(health), "language": {"last_run": ai.get("last_run"), "pending": ai.get("pending")},
     }, compact=True)

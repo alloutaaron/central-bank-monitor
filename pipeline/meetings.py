@@ -203,23 +203,32 @@ def build(today: dt.date | None = None, expectations: dict | None = None, watch:
                 before, dec = decision_for(bank, m["date"], paths.get(bank), {})
                 rec["rate_before"] = _fmt_level(bank, before)
                 rec["decision"] = dec
-            # A same-day or very recent decision reported by wires before the official data updates.
-            if not rec.get("decision") and mid in watch:
-                rec["decision"] = watch[mid]
-            ex = expectations.get(mid)
-            rec["expected"] = ex
-            dec = rec.get("decision")
-            rec["status"] = "done" if dec else ("awaiting" if _d(m["date"]) <= today else "scheduled")
-            if dec and ex and ex.get("move_bp") is not None and dec.get("move_bp") is not None and bank != "MAS":
-                rec["matched"] = int(ex["move_bp"]) == int(dec["move_bp"])
-            elif dec and ex and bank == "MAS":
-                rec["matched"] = (ex.get("move_bp") in (0, "0")) == (dec["move_bp"] == 0)
-            else:
-                rec["matched"] = None
+            rec["decision_official"] = rec.get("decision")
             recs.append(rec)
     recs += lpr_events(start, end, today)
     recs += hkma_events(paths.get("HKMA"), start)
     attach_releases(recs, sched)
+    return annotate(recs, expectations, watch, today)
+
+
+def annotate(recs: list[dict], expectations: dict, watch: dict, today: dt.date) -> list[dict]:
+    """Apply expectations and wire-reported decisions (when official data has not
+    caught up), then status and whether the outcome matched expectations. Run
+    again after the language step without re-fetching anything."""
+    for rec in recs:
+        if rec["type"] != "meeting":
+            continue
+        dec = rec.get("decision_official") or watch.get(rec["id"])
+        rec["decision"] = dec
+        ex = expectations.get(rec["id"])
+        rec["expected"] = ex
+        rec["status"] = "done" if dec else ("awaiting" if _d(rec["date"]) <= today else "scheduled")
+        rec["matched"] = None
+        if dec and ex and ex.get("move_bp") is not None and dec.get("move_bp") is not None:
+            if rec["bank"] == "MAS":
+                rec["matched"] = (int(ex["move_bp"]) == 0) == (dec["move_bp"] == 0)
+            else:
+                rec["matched"] = int(ex["move_bp"]) == int(dec["move_bp"])
     return recs
 
 

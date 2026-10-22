@@ -59,6 +59,7 @@ main { max-width: 1440px; margin: 0 auto; padding: 10px 12px 4px; display: grid;
 .board tr.brow { cursor: pointer; } .board tr.brow:hover td { background: #0e0e0e; }
 .board .code { color: var(--amber); font-weight: 600; } .board .nm { color: var(--ink-3); font-size: 11px; margin-left: 6px; }
 .board .rate { color: #fff; font-weight: 500; } .board .sub { color: var(--ink-3); font-size: 11px; }
+.board .clip { display: inline-block; max-width: 230px; overflow: hidden; text-overflow: ellipsis; vertical-align: bottom; }
 .board .in { color: var(--ink-2); }
 .up { color: var(--hawk); } .dn { color: var(--dove); } .hd { color: var(--ink-3); }
 .mv { display: inline-block; min-width: 54px; }

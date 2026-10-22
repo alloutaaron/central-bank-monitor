@@ -10,9 +10,13 @@ on:
   workflow_dispatch:
     inputs:
       backfill:
-        description: "Backfill from this date (YYYY-MM-DD). Leave empty for a normal daily run."
+        description: "Also queue headlines since this date (YYYY-MM-DD). Leave empty for a normal daily run."
         required: false
         default: ""
+      expect_backlog:
+        description: "How many past meetings to queue for expectation research this run"
+        required: false
+        default: "25"
 
 permissions:
   contents: write
@@ -55,8 +59,9 @@ jobs:
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           BACKFILL: ${{ inputs.backfill }}
+          BACKLOG: ${{ inputs.expect_backlog || '25' }}
         run: |
-          if [ -n "$BACKFILL" ]; then python -m pipeline.run --backfill "$BACKFILL"; else python -m pipeline.run; fi
+          if [ -n "$BACKFILL" ]; then python -m pipeline.run --backfill "$BACKFILL" --expect-backlog "$BACKLOG"; else python -m pipeline.run --expect-backlog "$BACKLOG"; fi
 
       - name: Commit refreshed data (the git history is the rolling archive)
         if: steps.gate.outputs.skip != 'true'
