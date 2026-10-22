@@ -1,1 +1,1484 @@
-{}
+{
+ "BI-2025-07-16": {
+  "as_of": "2025-07-16",
+  "basis": "Reuters poll: a bare majority of economists expect a cut",
+  "dir": -1,
+  "frozen": true,
+  "kind": "news",
+  "label": "Cut (size not polled)",
+  "move_bp": null,
+  "outlets": [
+   "Reuters"
+  ]
+ },
+ "BI-2025-10-22": {
+  "as_of": "2025-10-22",
+  "basis": "Reuters: BI set to cut rates again",
+  "dir": -1,
+  "frozen": true,
+  "kind": "news",
+  "label": "Cut (size not polled)",
+  "move_bp": null,
+  "outlets": [
+   "Reuters"
+  ]
+ },
+ "BI-2025-11-19": {
+  "as_of": "2025-11-19",
+  "basis": "Reuters poll: BI to hold at 4.75%, cut next month",
+  "dir": 0,
+  "frozen": true,
+  "kind": "news",
+  "label": "Hold",
+  "move_bp": 0,
+  "outlets": [
+   "Reuters"
+  ]
+ },
+ "BI-2026-01-21": {
+  "as_of": "2026-01-21",
+  "basis": "Reuters poll: BI to hold as the rupiah stays weak",
+  "dir": 0,
+  "frozen": true,
+  "kind": "news",
+  "label": "Hold",
+  "move_bp": 0,
+  "outlets": [
+   "Reuters"
+  ]
+ },
+ "BI-2026-03-17": {
+  "as_of": "2026-03-17",
+  "basis": "Reuters poll: BI to hold at 4.75%",
+  "dir": 0,
+  "frozen": true,
+  "kind": "news",
+  "label": "Hold",
+  "move_bp": 0,
+  "outlets": [
+   "Reuters"
+  ]
+ },
+ "BI-2026-04-22": {
+  "as_of": "2026-04-22",
+  "basis": "Reuters poll: BI to hold at 4.75%",
+  "dir": 0,
+  "frozen": true,
+  "kind": "news",
+  "label": "Hold",
+  "move_bp": 0,
+  "outlets": [
+   "Reuters",
+   "Jakarta Globe"
+  ]
+ },
+ "BI-2026-05-20": {
+  "as_of": "2026-05-20",
+  "basis": "Reuters poll: slim majority expect BI to hike",
+  "dir": 1,
+  "frozen": true,
+  "kind": "news",
+  "label": "Hike (size not polled)",
+  "move_bp": null,
+  "outlets": [
+   "Reuters"
+  ]
+ },
+ "BI-2026-07-22": {
+  "as_of": "2026-07-22",
+  "basis": "Bloomberg: BI seen hiking in a close call",
+  "dir": 1,
+  "frozen": true,
+  "kind": "news",
+  "label": "Hike (size not polled)",
+  "move_bp": null,
+  "outlets": [
+   "Bloomberg.com"
+  ]
+ },
+ "BI-2026-08-19": {
+  "as_of": "2026-08-19",
+  "basis": "Bloomberg: BI seen holding at the new governor's first decision",
+  "dir": 0,
+  "frozen": true,
+  "kind": "news",
+  "label": "Hold",
+  "move_bp": 0,
+  "outlets": [
+   "Bloomberg.com"
+  ]
+ },
+ "BI-2026-09-23": {
+  "as_of": "2026-09-23",
+  "basis": "Bloomberg: BI set to hold its key rate",
+  "dir": 0,
+  "frozen": true,
+  "kind": "news",
+  "label": "Hold",
+  "move_bp": 0,
+  "outlets": [
+   "Bloomberg.com"
+  ]
+ },
+ "BI-2026-10-21": {
+  "as_of": "2026-10-21",
+  "basis": "Reuters poll: BI narrowly expected to hold",
+  "dir": 0,
+  "frozen": true,
+  "kind": "news",
+  "label": "Hold",
+  "move_bp": 0,
+  "outlets": [
+   "Reuters"
+  ]
+ },
+ "BNM-2025-09-04": {
+  "as_of": "2025-09-04",
+  "basis": "Reuters poll and economists: BNM to hold at 2.75%",
+  "dir": 0,
+  "frozen": true,
+  "kind": "news",
+  "label": "Hold",
+  "move_bp": 0,
+  "outlets": [
+   "Reuters",
+   "The Edge Malaysia"
+  ]
+ },
+ "BNM-2026-01-22": {
+  "as_of": "2026-01-22",
+  "basis": "The Star: rates expected to remain unchanged",
+  "dir": 0,
+  "frozen": true,
+  "kind": "news",
+  "label": "Hold",
+  "move_bp": 0,
+  "outlets": [
+   "The Star"
+  ]
+ },
+ "BNM-2026-03-05": {
+  "as_of": "2026-03-05",
+  "basis": "Bloomberg and Standard Chartered: BNM to hold at 2.75%",
+  "dir": 0,
+  "frozen": true,
+  "kind": "news",
+  "label": "Hold",
+  "move_bp": 0,
+  "outlets": [
+   "Bloomberg.com",
+   "The Edge Malaysia"
+  ]
+ },
+ "BNM-2026-05-07": {
+  "as_of": "2026-05-07",
+  "basis": "Reuters poll and Bloomberg: BNM to hold at 2.75%",
+  "dir": 0,
+  "frozen": true,
+  "kind": "news",
+  "label": "Hold",
+  "move_bp": 0,
+  "outlets": [
+   "Reuters",
+   "Bloomberg"
+  ]
+ },
+ "BNM-2026-07-09": {
+  "as_of": "2026-07-09",
+  "basis": "Economists (Kenanga, HSBC): BNM to keep the OPR at 2.75%",
+  "dir": 0,
+  "frozen": true,
+  "kind": "news",
+  "label": "Hold",
+  "move_bp": 0,
+  "outlets": [
+   "NST Online",
+   "Malay Mail",
+   "The Star"
+  ]
+ },
+ "BNM-2026-09-03": {
+  "as_of": "2026-09-03",
+  "basis": "Bloomberg and NST: BNM seen holding the OPR",
+  "dir": 0,
+  "frozen": true,
+  "kind": "news",
+  "label": "Hold",
+  "move_bp": 0,
+  "outlets": [
+   "Bloomberg.com",
+   "NST Online"
+  ]
+ },
+ "BNM-2026-11-05": {
+  "as_of": "2026-10-22",
+  "basis": "Economists mostly see the OPR on hold; UOB alone sees an early hike",
+  "dir": 0,
+  "frozen": false,
+  "kind": "news",
+  "label": "Hold",
+  "move_bp": 0,
+  "outlets": [
+   "The Edge Malaysia",
+   "NST Online",
+   "The Malaysian Reserve"
+  ]
+ },
+ "BOE-2025-02-06": {
+  "as_of": "2025-02-06",
+  "basis": "Bloomberg and Reuters: BoE set to cut rates",
+  "dir": -1,
+  "frozen": true,
+  "kind": "news",
+  "label": "Cut (size not polled)",
+  "move_bp": null,
+  "outlets": [
+   "Bloomberg.com",
+   "Reuters"
+  ]
+ },
+ "BOE-2025-03-20": {
+  "as_of": "2025-03-20",
+  "basis": "Reuters and CNBC: BoE expected to keep rates on hold",
+  "dir": 0,
+  "frozen": true,
+  "kind": "news",
+  "label": "Hold",
+  "move_bp": 0,
+  "outlets": [
+   "Reuters",
+   "CNBC"
+  ]
+ },
+ "BOE-2025-06-19": {
+  "as_of": "2025-06-19",
+  "basis": "Reuters: BoE expected to keep rates on hold",
+  "dir": 0,
+  "frozen": true,
+  "kind": "news",
+  "label": "Hold",
+  "move_bp": 0,
+  "outlets": [
+   "Reuters"
+  ]
+ },
+ "BOE-2025-08-07": {
+  "as_of": "2025-08-07",
+  "basis": "Bloomberg and Reuters: BoE set to cut rates",
+  "dir": -1,
+  "frozen": true,
+  "kind": "news",
+  "label": "Cut (size not polled)",
+  "move_bp": null,
+  "outlets": [
+   "Bloomberg.com",
+   "Reuters"
+  ]
+ },
+ "BOE-2025-09-18": {
+  "as_of": "2025-09-18",
+  "basis": "Reuters poll: BoE to hold rates on September 18",
+  "dir": 0,
+  "frozen": true,
+  "kind": "news",
+  "label": "Hold",
+  "move_bp": 0,
+  "outlets": [
+   "Reuters"
+  ]
+ },
+ "BOE-2025-11-06": {
+  "as_of": "2025-11-06",
+  "basis": "Bloomberg decision guide: BoE set to hold at 4%",
+  "dir": 0,
+  "frozen": true,
+  "kind": "news",
+  "label": "Hold",
+  "move_bp": 0,
+  "outlets": [
+   "Bloomberg.com"
+  ]
+ },
+ "BOE-2025-12-18": {
+  "as_of": "2025-12-18",
+  "basis": "Reuters: BoE set to cut rates",
+  "dir": -1,
+  "frozen": true,
+  "kind": "news",
+  "label": "Cut (size not polled)",
+  "move_bp": null,
+  "outlets": [
+   "Reuters"
+  ]
+ },
+ "BOE-2026-02-05": {
+  "as_of": "2026-02-05",
+  "basis": "Bloomberg and Reuters: BoE set to hold",
+  "dir": 0,
+  "frozen": true,
+  "kind": "news",
+  "label": "Hold",
+  "move_bp": 0,
+  "outlets": [
+   "Bloomberg.com",
+   "Reuters"
+  ]
+ },
+ "BOE-2026-03-19": {
+  "as_of": "2026-03-19",
+  "basis": "Reuters poll: BoE set to hold rates",
+  "dir": 0,
+  "frozen": true,
+  "kind": "news",
+  "label": "Hold",
+  "move_bp": 0,
+  "outlets": [
+   "Reuters"
+  ]
+ },
+ "BOE-2026-04-30": {
+  "as_of": "2026-04-30",
+  "basis": "Reuters: BoE set to hold rates",
+  "dir": 0,
+  "frozen": true,
+  "kind": "news",
+  "label": "Hold",
+  "move_bp": 0,
+  "outlets": [
+   "Reuters"
+  ]
+ },
+ "BOE-2026-06-18": {
+  "as_of": "2026-06-18",
+  "basis": "Bloomberg decision guide: BoE set to hold",
+  "dir": 0,
+  "frozen": true,
+  "kind": "news",
+  "label": "Hold",
+  "move_bp": 0,
+  "outlets": [
+   "Bloomberg.com"
+  ]
+ },
+ "BOE-2026-07-30": {
+  "as_of": "2026-07-30",
+  "basis": "Reuters: BoE to keep rates steady",
+  "dir": 0,
+  "frozen": true,
+  "kind": "news",
+  "label": "Hold",
+  "move_bp": 0,
+  "outlets": [
+   "Reuters",
+   "WSJ"
+  ]
+ },
+ "BOE-2026-09-17": {
+  "as_of": "2026-09-17",
+  "basis": "Bloomberg: BoE set to hold with an inflation warning",
+  "dir": 0,
+  "frozen": true,
+  "kind": "news",
+  "label": "Hold",
+  "move_bp": 0,
+  "outlets": [
+   "Bloomberg.com"
+  ]
+ },
+ "BOE-2026-11-05": {
+  "as_of": "2026-10-22",
+  "basis": "Reuters poll: BoE seen raising Bank Rate to 4% in November",
+  "dir": 1,
+  "frozen": false,
+  "kind": "news",
+  "label": "+25bp",
+  "move_bp": 25,
+  "outlets": [
+   "Reuters"
+  ]
+ },
+ "BOJ-2025-01-24": {
+  "as_of": "2025-01-24",
+  "basis": "Bloomberg and CNBC surveys: BoJ expected to raise rates",
+  "dir": 1,
+  "frozen": true,
+  "kind": "news",
+  "label": "Hike (size not polled)",
+  "move_bp": null,
+  "outlets": [
+   "Bloomberg.com",
+   "CNBC"
+  ]
+ },
+ "BOJ-2025-05-01": {
+  "as_of": "2025-05-01",
+  "basis": "Bloomberg: BoJ expected to pause its rate-hike path",
+  "dir": 0,
+  "frozen": true,
+  "kind": "news",
+  "label": "Hold",
+  "move_bp": 0,
+  "outlets": [
+   "Bloomberg.com"
+  ]
+ },
+ "BOJ-2025-07-31": {
+  "as_of": "2025-07-31",
+  "basis": "Bloomberg: BoJ expected to hold rates steady",
+  "dir": 0,
+  "frozen": true,
+  "kind": "news",
+  "label": "Hold",
+  "move_bp": 0,
+  "outlets": [
+   "Bloomberg.com"
+  ]
+ },
+ "BOJ-2025-10-30": {
+  "as_of": "2025-10-30",
+  "basis": "Nikkei: market bets on an early BoJ hike receded",
+  "dir": 0,
+  "frozen": true,
+  "kind": "news",
+  "label": "Hold",
+  "move_bp": 0,
+  "outlets": [
+   "Nikkei Asia"
+  ]
+ },
+ "BOJ-2025-12-19": {
+  "as_of": "2025-12-19",
+  "basis": "CNBC: BoJ poised to raise rates to a 30-year high",
+  "dir": 1,
+  "frozen": true,
+  "kind": "news",
+  "label": "Hike (size not polled)",
+  "move_bp": null,
+  "outlets": [
+   "CNBC"
+  ]
+ },
+ "BOJ-2026-03-19": {
+  "as_of": "2026-03-19",
+  "basis": "Asia calendar previews: BoJ expected on hold",
+  "dir": 0,
+  "frozen": true,
+  "kind": "news",
+  "label": "Hold",
+  "move_bp": 0,
+  "outlets": [
+   "investingLive"
+  ]
+ },
+ "BOJ-2026-04-28": {
+  "as_of": "2026-04-28",
+  "basis": "Guardian preview: G7 central banks including the BoJ poised to hold",
+  "dir": 0,
+  "frozen": true,
+  "kind": "news",
+  "label": "Hold",
+  "move_bp": 0,
+  "outlets": [
+   "The Guardian"
+  ]
+ },
+ "BOJ-2026-06-16": {
+  "as_of": "2026-06-16",
+  "basis": "Bloomberg and investingLive: BoJ set to raise its rate to 1%",
+  "dir": 1,
+  "frozen": true,
+  "kind": "news",
+  "label": "+25bp",
+  "move_bp": 25,
+  "outlets": [
+   "Bloomberg",
+   "investingLive"
+  ]
+ },
+ "BOJ-2026-07-31": {
+  "as_of": "2026-07-31",
+  "basis": "Nikkei sources and WSJ: BoJ set to hold",
+  "dir": 0,
+  "frozen": true,
+  "kind": "news",
+  "label": "Hold",
+  "move_bp": 0,
+  "outlets": [
+   "Nikkei Asia",
+   "WSJ"
+  ]
+ },
+ "BOJ-2026-09-18": {
+  "as_of": "2026-09-18",
+  "basis": "BoJ hike to 1.25% widely expected",
+  "dir": 1,
+  "frozen": true,
+  "kind": "news",
+  "label": "+25bp",
+  "move_bp": 25,
+  "outlets": [
+   "Bloomberg.com",
+   "FXStreet"
+  ]
+ },
+ "BOJ-2026-10-30": {
+  "as_of": "2026-10-22",
+  "basis": "Bloomberg survey: no BoJ watchers expect an October move; most see December",
+  "dir": 0,
+  "frozen": false,
+  "kind": "news",
+  "label": "Hold",
+  "move_bp": 0,
+  "outlets": [
+   "Bloomberg.com",
+   "investingLive"
+  ]
+ },
+ "BOK-2025-01-16": {
+  "as_of": "2025-01-16",
+  "basis": "Bloomberg: BoK expected to cut on political turmoil",
+  "dir": -1,
+  "frozen": true,
+  "kind": "news",
+  "label": "Cut (size not polled)",
+  "move_bp": null,
+  "outlets": [
+   "Bloomberg.com"
+  ]
+ },
+ "BOK-2025-04-17": {
+  "as_of": "2025-04-17",
+  "basis": "Bloomberg decision guide: BoK likely to hold to stabilise the won",
+  "dir": 0,
+  "frozen": true,
+  "kind": "news",
+  "label": "Hold",
+  "move_bp": 0,
+  "outlets": [
+   "Bloomberg.com"
+  ]
+ },
+ "BOK-2025-11-27": {
+  "as_of": "2025-11-27",
+  "basis": "Reuters poll: BoK to hold at 2.50%",
+  "dir": 0,
+  "frozen": true,
+  "kind": "news",
+  "label": "Hold",
+  "move_bp": 0,
+  "outlets": [
+   "Reuters"
+  ]
+ },
+ "BOK-2026-01-15": {
+  "as_of": "2026-01-15",
+  "basis": "Reuters poll: BoK to hold at 2.50%",
+  "dir": 0,
+  "frozen": true,
+  "kind": "news",
+  "label": "Hold",
+  "move_bp": 0,
+  "outlets": [
+   "Reuters"
+  ]
+ },
+ "BOK-2026-02-26": {
+  "as_of": "2026-02-26",
+  "basis": "Reuters poll and Bloomberg: BoK to hold at 2.50%",
+  "dir": 0,
+  "frozen": true,
+  "kind": "news",
+  "label": "Hold",
+  "move_bp": 0,
+  "outlets": [
+   "Reuters",
+   "Bloomberg.com"
+  ]
+ },
+ "BOK-2026-04-10": {
+  "as_of": "2026-04-10",
+  "basis": "Reuters poll: BoK to hold at 2.50%",
+  "dir": 0,
+  "frozen": true,
+  "kind": "news",
+  "label": "Hold",
+  "move_bp": 0,
+  "outlets": [
+   "Reuters"
+  ]
+ },
+ "BOK-2026-05-28": {
+  "as_of": "2026-05-28",
+  "basis": "Reuters poll: BoK to hold, hikes expected from Q3",
+  "dir": 0,
+  "frozen": true,
+  "kind": "news",
+  "label": "Hold",
+  "move_bp": 0,
+  "outlets": [
+   "Reuters"
+  ]
+ },
+ "BOK-2026-07-16": {
+  "as_of": "2026-07-16",
+  "basis": "Reuters: BoK to raise rates for the first time in over three years",
+  "dir": 1,
+  "frozen": true,
+  "kind": "news",
+  "label": "Hike (size not polled)",
+  "move_bp": null,
+  "outlets": [
+   "Reuters",
+   "The Korea Times"
+  ]
+ },
+ "BOK-2026-10-22": {
+  "as_of": "2026-10-22",
+  "basis": "Reuters and Yonhap polls: most expect a hold, with a hike seen in November",
+  "dir": 0,
+  "frozen": false,
+  "kind": "news",
+  "label": "Hold",
+  "move_bp": 0,
+  "outlets": [
+   "Reuters",
+   "Yonhap News Agency",
+   "The Korea Times"
+  ]
+ },
+ "BOT-2025-06-25": {
+  "as_of": "2025-06-25",
+  "basis": "Reuters: BoT expected to keep rates steady, cut in Q3",
+  "dir": 0,
+  "frozen": true,
+  "kind": "news",
+  "label": "Hold",
+  "move_bp": 0,
+  "outlets": [
+   "Reuters"
+  ]
+ },
+ "BOT-2025-08-13": {
+  "as_of": "2025-08-13",
+  "basis": "Reuters poll: BoT set to cut rates",
+  "dir": -1,
+  "frozen": true,
+  "kind": "news",
+  "label": "Cut (size not polled)",
+  "move_bp": null,
+  "outlets": [
+   "Reuters",
+   "Bloomberg.com"
+  ]
+ },
+ "BOT-2025-10-08": {
+  "as_of": "2025-10-08",
+  "basis": "Reuters: BoT likely to cut by 25 bp",
+  "dir": -1,
+  "frozen": true,
+  "kind": "news",
+  "label": "-25bp",
+  "move_bp": -25,
+  "outlets": [
+   "Reuters"
+  ]
+ },
+ "BOT-2026-06-24": {
+  "as_of": "2026-06-24",
+  "basis": "Bloomberg and Bangkok Post: BoT seen holding at 1%",
+  "dir": 0,
+  "frozen": true,
+  "kind": "news",
+  "label": "Hold",
+  "move_bp": 0,
+  "outlets": [
+   "Bloomberg.com",
+   "Bangkok Post"
+  ]
+ },
+ "BOT-2026-08-26": {
+  "as_of": "2026-08-26",
+  "basis": "Bloomberg and Bangkok Post: BoT expected to keep 1%",
+  "dir": 0,
+  "frozen": true,
+  "kind": "news",
+  "label": "Hold",
+  "move_bp": 0,
+  "outlets": [
+   "Bloomberg.com",
+   "Bangkok Post"
+  ]
+ },
+ "BSP-2025-08-28": {
+  "as_of": "2025-08-28",
+  "basis": "Reuters poll: BSP to cut by 25 bp",
+  "dir": -1,
+  "frozen": true,
+  "kind": "news",
+  "label": "-25bp",
+  "move_bp": -25,
+  "outlets": [
+   "Reuters"
+  ]
+ },
+ "BSP-2025-12-11": {
+  "as_of": "2025-12-11",
+  "basis": "Inquirer: BSP seen delivering another rate cut",
+  "dir": -1,
+  "frozen": true,
+  "kind": "news",
+  "label": "Cut (size not polled)",
+  "move_bp": null,
+  "outlets": [
+   "Inquirer.net"
+  ]
+ },
+ "BSP-2026-02-19": {
+  "as_of": "2026-02-19",
+  "basis": "Reuters poll: BSP set for a final 25 bp cut to 4.25%",
+  "dir": -1,
+  "frozen": true,
+  "kind": "news",
+  "label": "-25bp",
+  "move_bp": -25,
+  "outlets": [
+   "Reuters",
+   "Inquirer.net"
+  ]
+ },
+ "BSP-2026-04-23": {
+  "as_of": "2026-04-23",
+  "basis": "Polls: BSP expected to start a tightening cycle",
+  "dir": 1,
+  "frozen": true,
+  "kind": "news",
+  "label": "Hike (size not polled)",
+  "move_bp": null,
+  "outlets": [
+   "Inquirer.net",
+   "Philstar.com"
+  ]
+ },
+ "BSP-2026-06-18": {
+  "as_of": "2026-06-18",
+  "basis": "BusinessWorld poll: BSP poised for a 25 bp hike",
+  "dir": 1,
+  "frozen": true,
+  "kind": "news",
+  "label": "+25bp",
+  "move_bp": 25,
+  "outlets": [
+   "BusinessWorld",
+   "Inquirer.net"
+  ]
+ },
+ "BSP-2026-08-27": {
+  "as_of": "2026-08-27",
+  "basis": "Polls: BSP widely expected to hike by 25 bp",
+  "dir": 1,
+  "frozen": true,
+  "kind": "news",
+  "label": "+25bp",
+  "move_bp": 25,
+  "outlets": [
+   "Philstar.com",
+   "BusinessMirror",
+   "Inquirer.net"
+  ]
+ },
+ "BSP-2026-10-22": {
+  "as_of": "2026-10-22",
+  "basis": "Polls: BSP seen raising rates again; size not given",
+  "dir": 1,
+  "frozen": false,
+  "kind": "news",
+  "label": "Hike (size not polled)",
+  "move_bp": null,
+  "outlets": [
+   "Inquirer.net",
+   "Philstar.com"
+  ]
+ },
+ "CBC-2026-03-19": {
+  "as_of": "2026-03-19",
+  "basis": "Reuters poll: Taiwan likely to hold rates steady",
+  "dir": 0,
+  "frozen": true,
+  "kind": "news",
+  "label": "Hold",
+  "move_bp": 0,
+  "outlets": [
+   "Reuters"
+  ]
+ },
+ "CBC-2026-06-18": {
+  "as_of": "2026-06-18",
+  "basis": "Reuters: Taiwan likely to hold rates steady",
+  "dir": 0,
+  "frozen": true,
+  "kind": "news",
+  "label": "Hold",
+  "move_bp": 0,
+  "outlets": [
+   "Reuters"
+  ]
+ },
+ "CBC-2026-09-17": {
+  "as_of": "2026-09-17",
+  "basis": "Reuters poll: Taiwan likely to keep rates unchanged",
+  "dir": 0,
+  "frozen": true,
+  "kind": "news",
+  "label": "Hold",
+  "move_bp": 0,
+  "outlets": [
+   "Reuters"
+  ]
+ },
+ "ECB-2025-06-05": {
+  "as_of": "2025-06-05",
+  "basis": "Bloomberg: ECB set to cut rates",
+  "dir": -1,
+  "frozen": true,
+  "kind": "news",
+  "label": "Cut (size not polled)",
+  "move_bp": null,
+  "outlets": [
+   "Bloomberg.com"
+  ]
+ },
+ "ECB-2025-07-24": {
+  "as_of": "2025-07-24",
+  "basis": "Reuters: ECB expected to pause its rate cuts",
+  "dir": 0,
+  "frozen": true,
+  "kind": "news",
+  "label": "Hold",
+  "move_bp": 0,
+  "outlets": [
+   "Reuters"
+  ]
+ },
+ "ECB-2025-12-18": {
+  "as_of": "2025-12-18",
+  "basis": "Reuters poll: ECB to stay on hold through 2026",
+  "dir": 0,
+  "frozen": true,
+  "kind": "news",
+  "label": "Hold",
+  "move_bp": 0,
+  "outlets": [
+   "Reuters"
+  ]
+ },
+ "ECB-2026-02-05": {
+  "as_of": "2026-02-05",
+  "basis": "Bloomberg poll: ECB locked on hold",
+  "dir": 0,
+  "frozen": true,
+  "kind": "news",
+  "label": "Hold",
+  "move_bp": 0,
+  "outlets": [
+   "Bloomberg.com"
+  ]
+ },
+ "ECB-2026-06-11": {
+  "as_of": "2026-06-11",
+  "basis": "Bloomberg and Reuters polls: June ECB hike seen as a done deal",
+  "dir": 1,
+  "frozen": true,
+  "kind": "news",
+  "label": "Hike (size not polled)",
+  "move_bp": null,
+  "outlets": [
+   "Bloomberg.com",
+   "Reuters"
+  ]
+ },
+ "ECB-2026-07-23": {
+  "as_of": "2026-07-23",
+  "basis": "WSJ and MarketWatch: ECB expected to hold rates",
+  "dir": 0,
+  "frozen": true,
+  "kind": "news",
+  "label": "Hold",
+  "move_bp": 0,
+  "outlets": [
+   "WSJ",
+   "MarketWatch"
+  ]
+ },
+ "ECB-2026-09-10": {
+  "as_of": "2026-09-10",
+  "basis": "WSJ: ECB set to raise its key rate again",
+  "dir": 1,
+  "frozen": true,
+  "kind": "news",
+  "label": "Hike (size not polled)",
+  "move_bp": null,
+  "outlets": [
+   "WSJ"
+  ]
+ },
+ "FED-2025-05-07": {
+  "as_of": "2025-05-07",
+  "basis": "Reuters: Fed policymakers expected to keep rates steady",
+  "dir": 0,
+  "frozen": true,
+  "kind": "news",
+  "label": "Hold",
+  "move_bp": 0,
+  "outlets": [
+   "Reuters"
+  ]
+ },
+ "FED-2025-06-18": {
+  "as_of": "2025-06-18",
+  "basis": "Reuters and CNBC: Fed expected to keep rates steady",
+  "dir": 0,
+  "frozen": true,
+  "kind": "news",
+  "label": "Hold",
+  "move_bp": 0,
+  "outlets": [
+   "Reuters",
+   "CNBC"
+  ]
+ },
+ "FED-2025-07-30": {
+  "as_of": "2025-07-30",
+  "basis": "Reuters poll: no economists expect a July cut",
+  "dir": 0,
+  "frozen": true,
+  "kind": "news",
+  "label": "Hold",
+  "move_bp": 0,
+  "outlets": [
+   "Reuters",
+   "CNBC"
+  ]
+ },
+ "FED-2025-09-17": {
+  "as_of": "2025-09-17",
+  "basis": "CNBC and Bloomberg: Fed set to cut rates",
+  "dir": -1,
+  "frozen": true,
+  "kind": "news",
+  "label": "Cut (size not polled)",
+  "move_bp": null,
+  "outlets": [
+   "CNBC",
+   "Bloomberg.com"
+  ]
+ },
+ "FED-2025-10-29": {
+  "as_of": "2025-10-29",
+  "basis": "CNBC and Bloomberg: Fed expected to cut rates",
+  "dir": -1,
+  "frozen": true,
+  "kind": "news",
+  "label": "Cut (size not polled)",
+  "move_bp": null,
+  "outlets": [
+   "CNBC",
+   "Bloomberg.com"
+  ]
+ },
+ "FED-2025-12-10": {
+  "as_of": "2025-12-10",
+  "basis": "BBC: Fed expected to cut rates",
+  "dir": -1,
+  "frozen": true,
+  "kind": "news",
+  "label": "Cut (size not polled)",
+  "move_bp": null,
+  "outlets": [
+   "BBC"
+  ]
+ },
+ "FED-2026-01-28": {
+  "as_of": "2026-01-28",
+  "basis": "Bloomberg: Fed expected to hold rates steady",
+  "dir": 0,
+  "frozen": true,
+  "kind": "news",
+  "label": "Hold",
+  "move_bp": 0,
+  "outlets": [
+   "Bloomberg.com"
+  ]
+ },
+ "FED-2026-03-18": {
+  "as_of": "2026-03-18",
+  "basis": "Bloomberg: Fed to hold rates steady",
+  "dir": 0,
+  "frozen": true,
+  "kind": "news",
+  "label": "Hold",
+  "move_bp": 0,
+  "outlets": [
+   "Bloomberg.com"
+  ]
+ },
+ "FED-2026-04-29": {
+  "as_of": "2026-04-29",
+  "basis": "Reuters and Bloomberg: Fed likely to hold rates steady",
+  "dir": 0,
+  "frozen": true,
+  "kind": "news",
+  "label": "Hold",
+  "move_bp": 0,
+  "outlets": [
+   "Reuters",
+   "Bloomberg.com"
+  ]
+ },
+ "FED-2026-06-17": {
+  "as_of": "2026-06-17",
+  "basis": "CNBC Fed Survey: no rate change expected for a while",
+  "dir": 0,
+  "frozen": true,
+  "kind": "news",
+  "label": "Hold",
+  "move_bp": 0,
+  "outlets": [
+   "CNBC"
+  ]
+ },
+ "FED-2026-07-29": {
+  "as_of": "2026-07-29",
+  "basis": "Reuters: the bar to a July hike remains high",
+  "dir": 0,
+  "frozen": true,
+  "kind": "news",
+  "label": "Hold",
+  "move_bp": 0,
+  "outlets": [
+   "Reuters"
+  ]
+ },
+ "FED-2026-09-16": {
+  "as_of": "2026-09-16",
+  "basis": "AP and Bloomberg: Fed expected to raise rates",
+  "dir": 1,
+  "frozen": true,
+  "kind": "news",
+  "label": "Hike (size not polled)",
+  "move_bp": null,
+  "outlets": [
+   "AP News",
+   "Bloomberg.com"
+  ]
+ },
+ "FED-2026-10-28": {
+  "as_of": "2026-10-22",
+  "basis": "Reuters poll: nearly all economists see the Fed skipping October and hiking in December",
+  "dir": 0,
+  "frozen": false,
+  "kind": "news",
+  "label": "Hold",
+  "move_bp": 0,
+  "outlets": [
+   "Reuters"
+  ]
+ },
+ "MAS-2025-01-24": {
+  "as_of": "2025-01-24",
+  "basis": "Markets positioned for an MAS easing pivot",
+  "dir": -1,
+  "frozen": true,
+  "kind": "news",
+  "label": "Ease",
+  "move_bp": null,
+  "outlets": [
+   "The Business Times"
+  ]
+ },
+ "MAS-2025-10-14": {
+  "as_of": "2025-10-14",
+  "basis": "Reuters and Straits Times: MAS expected to keep policy unchanged",
+  "dir": 0,
+  "frozen": true,
+  "kind": "news",
+  "label": "Unchanged",
+  "move_bp": 0,
+  "outlets": [
+   "Reuters",
+   "The Straits Times"
+  ]
+ },
+ "MAS-2026-01-29": {
+  "as_of": "2026-01-29",
+  "basis": "Reuters: MAS expected to keep policy unchanged",
+  "dir": 0,
+  "frozen": true,
+  "kind": "news",
+  "label": "Unchanged",
+  "move_bp": 0,
+  "outlets": [
+   "Reuters"
+  ]
+ },
+ "MAS-2026-04-14": {
+  "as_of": "2026-04-14",
+  "basis": "Reuters: MAS expected to tighten as energy crisis fans inflation",
+  "dir": 1,
+  "frozen": true,
+  "kind": "news",
+  "label": "Tighten",
+  "move_bp": null,
+  "outlets": [
+   "Reuters"
+  ]
+ },
+ "MAS-2026-07-27": {
+  "as_of": "2026-07-27",
+  "basis": "Reuters: MAS set to keep policy steady",
+  "dir": 0,
+  "frozen": true,
+  "kind": "news",
+  "label": "Unchanged",
+  "move_bp": 0,
+  "outlets": [
+   "Reuters",
+   "The Edge Malaysia"
+  ]
+ },
+ "MAS-2026-10-14": {
+  "as_of": "2026-10-14",
+  "basis": "Economists expected MAS to tighten again",
+  "dir": 1,
+  "frozen": true,
+  "kind": "news",
+  "label": "Tighten",
+  "move_bp": null,
+  "outlets": [
+   "The Business Times",
+   "The Economic Times"
+  ]
+ },
+ "RBA-2025-02-18": {
+  "as_of": "2025-02-18",
+  "basis": "RBA widely expected to cut on Tuesday",
+  "dir": -1,
+  "frozen": true,
+  "kind": "news",
+  "label": "Cut (size not polled)",
+  "move_bp": null,
+  "outlets": [
+   "The Guardian"
+  ]
+ },
+ "RBA-2025-05-20": {
+  "as_of": "2025-05-20",
+  "basis": "RBA tipped to cut; Bloomberg flags a hawkish cut",
+  "dir": -1,
+  "frozen": true,
+  "kind": "news",
+  "label": "Cut (size not polled)",
+  "move_bp": null,
+  "outlets": [
+   "The Guardian",
+   "Bloomberg.com"
+  ]
+ },
+ "RBA-2025-07-08": {
+  "as_of": "2025-07-08",
+  "basis": "Reuters poll: RBA expected to cut for a third time",
+  "dir": -1,
+  "frozen": true,
+  "kind": "news",
+  "label": "Cut (size not polled)",
+  "move_bp": null,
+  "outlets": [
+   "Reuters"
+  ]
+ },
+ "RBA-2025-08-12": {
+  "as_of": "2025-08-12",
+  "basis": "Reuters poll: RBA set to cut 25 bp to 3.60%",
+  "dir": -1,
+  "frozen": true,
+  "kind": "news",
+  "label": "-25bp",
+  "move_bp": -25,
+  "outlets": [
+   "Reuters"
+  ]
+ },
+ "RBA-2025-09-30": {
+  "as_of": "2025-09-30",
+  "basis": "Reuters poll: RBA to hold rates on September 30",
+  "dir": 0,
+  "frozen": true,
+  "kind": "news",
+  "label": "Hold",
+  "move_bp": 0,
+  "outlets": [
+   "Reuters"
+  ]
+ },
+ "RBA-2025-11-04": {
+  "as_of": "2025-11-04",
+  "basis": "Bloomberg: RBA set to keep the cash rate unchanged",
+  "dir": 0,
+  "frozen": true,
+  "kind": "news",
+  "label": "Hold",
+  "move_bp": 0,
+  "outlets": [
+   "Bloomberg.com"
+  ]
+ },
+ "RBA-2026-02-03": {
+  "as_of": "2026-02-03",
+  "basis": "Bloomberg: markets brace for RBA tightening",
+  "dir": 1,
+  "frozen": true,
+  "kind": "news",
+  "label": "Hike (size not polled)",
+  "move_bp": null,
+  "outlets": [
+   "Bloomberg.com",
+   "The Guardian"
+  ]
+ },
+ "RBA-2026-03-17": {
+  "as_of": "2026-03-17",
+  "basis": "Reuters: three of the Big Four banks forecast a hike",
+  "dir": 1,
+  "frozen": true,
+  "kind": "news",
+  "label": "Hike (size not polled)",
+  "move_bp": null,
+  "outlets": [
+   "Reuters"
+  ]
+ },
+ "RBA-2026-05-05": {
+  "as_of": "2026-05-05",
+  "basis": "Reuters poll: RBA to raise the cash rate to 4.35%",
+  "dir": 1,
+  "frozen": true,
+  "kind": "news",
+  "label": "+25bp",
+  "move_bp": 25,
+  "outlets": [
+   "Reuters"
+  ]
+ },
+ "RBA-2026-06-16": {
+  "as_of": "2026-06-16",
+  "basis": "Reuters poll: RBA to pause on June 16",
+  "dir": 0,
+  "frozen": true,
+  "kind": "news",
+  "label": "Hold",
+  "move_bp": 0,
+  "outlets": [
+   "Reuters"
+  ]
+ },
+ "RBA-2026-09-29": {
+  "as_of": "2026-09-29",
+  "basis": "Previews: 25 bp hike to 4.60% widely expected",
+  "dir": 1,
+  "frozen": true,
+  "kind": "news",
+  "label": "+25bp",
+  "move_bp": 25,
+  "outlets": [
+   "investingLive",
+   "The Guardian"
+  ]
+ },
+ "RBI-2025-04-09": {
+  "as_of": "2025-04-09",
+  "basis": "Reuters poll: RBI to cut rates again on April 9",
+  "dir": -1,
+  "frozen": true,
+  "kind": "news",
+  "label": "Cut (size not polled)",
+  "move_bp": null,
+  "outlets": [
+   "Reuters"
+  ]
+ },
+ "RBI-2025-06-06": {
+  "as_of": "2025-06-06",
+  "basis": "Reuters: RBI may deliver a third straight rate cut",
+  "dir": -1,
+  "frozen": true,
+  "kind": "news",
+  "label": "Cut (size not polled)",
+  "move_bp": null,
+  "outlets": [
+   "Reuters"
+  ]
+ },
+ "RBI-2025-10-01": {
+  "as_of": "2025-10-01",
+  "basis": "Reuters and ET polls: RBI to hold the repo rate at 5.50%",
+  "dir": 0,
+  "frozen": true,
+  "kind": "news",
+  "label": "Hold",
+  "move_bp": 0,
+  "outlets": [
+   "Reuters",
+   "The Economic Times"
+  ]
+ },
+ "RBI-2026-02-06": {
+  "as_of": "2026-02-06",
+  "basis": "Economic Times preview: RBI to keep the repo rate unchanged",
+  "dir": 0,
+  "frozen": true,
+  "kind": "news",
+  "label": "Hold",
+  "move_bp": 0,
+  "outlets": [
+   "The Economic Times"
+  ]
+ },
+ "RBI-2026-04-08": {
+  "as_of": "2026-04-08",
+  "basis": "Reuters and Mint: RBI seen holding rates",
+  "dir": 0,
+  "frozen": true,
+  "kind": "news",
+  "label": "Hold",
+  "move_bp": 0,
+  "outlets": [
+   "Reuters",
+   "Livemint"
+  ]
+ },
+ "RBI-2026-08-05": {
+  "as_of": "2026-08-05",
+  "basis": "Bloomberg and Business Standard: RBI seen holding",
+  "dir": 0,
+  "frozen": true,
+  "kind": "news",
+  "label": "Hold",
+  "move_bp": 0,
+  "outlets": [
+   "Bloomberg.com",
+   "Business Standard"
+  ]
+ },
+ "RBI-2026-10-07": {
+  "as_of": "2026-10-07",
+  "basis": "ET and Hindu polls: RBI likely to hike 25 bp to 5.50%",
+  "dir": 1,
+  "frozen": true,
+  "kind": "news",
+  "label": "+25bp",
+  "move_bp": 25,
+  "outlets": [
+   "The Economic Times",
+   "The Hindu"
+  ]
+ },
+ "RBNZ-2025-07-09": {
+  "as_of": "2025-07-09",
+  "basis": "Bloomberg: RBNZ seen holding rates",
+  "dir": 0,
+  "frozen": true,
+  "kind": "news",
+  "label": "Hold",
+  "move_bp": 0,
+  "outlets": [
+   "Bloomberg.com"
+  ]
+ },
+ "RBNZ-2025-08-20": {
+  "as_of": "2025-08-20",
+  "basis": "Reuters poll: RBNZ to cut 25 bp to 3%",
+  "dir": -1,
+  "frozen": true,
+  "kind": "news",
+  "label": "-25bp",
+  "move_bp": -25,
+  "outlets": [
+   "Reuters"
+  ]
+ },
+ "RBNZ-2025-11-26": {
+  "as_of": "2025-11-26",
+  "basis": "Bloomberg: RBNZ seen cutting rates",
+  "dir": -1,
+  "frozen": true,
+  "kind": "news",
+  "label": "Cut (size not polled)",
+  "move_bp": null,
+  "outlets": [
+   "Bloomberg.com"
+  ]
+ },
+ "RBNZ-2026-02-18": {
+  "as_of": "2026-02-18",
+  "basis": "Bloomberg: RBNZ set to hold at Breman's first meeting",
+  "dir": 0,
+  "frozen": true,
+  "kind": "news",
+  "label": "Hold",
+  "move_bp": 0,
+  "outlets": [
+   "Bloomberg.com"
+  ]
+ },
+ "RBNZ-2026-05-27": {
+  "as_of": "2026-05-27",
+  "basis": "Reuters poll: RBNZ to hold at 2.25%",
+  "dir": 0,
+  "frozen": true,
+  "kind": "news",
+  "label": "Hold",
+  "move_bp": 0,
+  "outlets": [
+   "Reuters",
+   "RNZ"
+  ]
+ },
+ "RBNZ-2026-07-08": {
+  "as_of": "2026-07-08",
+  "basis": "Bloomberg: RBNZ set to raise rates; hike widely tipped",
+  "dir": 1,
+  "frozen": true,
+  "kind": "news",
+  "label": "Hike (size not polled)",
+  "move_bp": null,
+  "outlets": [
+   "Bloomberg.com",
+   "Stuff"
+  ]
+ },
+ "RBNZ-2026-09-02": {
+  "as_of": "2026-09-02",
+  "basis": "NZ Herald and UOB: RBNZ tipped to hike",
+  "dir": 1,
+  "frozen": true,
+  "kind": "news",
+  "label": "Hike (size not polled)",
+  "move_bp": null,
+  "outlets": [
+   "NZ Herald",
+   "FXStreet"
+  ]
+ },
+ "RBNZ-2026-10-28": {
+  "as_of": "2026-10-22",
+  "basis": "Reuters: expectations remain for a hike next week; markets price further hikes",
+  "dir": 1,
+  "frozen": false,
+  "kind": "news",
+  "label": "Hike (size not polled)",
+  "move_bp": null,
+  "outlets": [
+   "Reuters",
+   "FXStreet"
+  ]
+ }
+}
