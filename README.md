@@ -2,19 +2,25 @@
 
 Live page: https://alloutaaron.github.io/central-bank-monitor/
 
-One page for 17 central banks (Fed, ECB, BoE, BoJ, BoK, PBoC, RBI, BNM, BI, BoT,
-SBV, HKMA, MAS, BSP, Taiwan CBC, RBA, RBNZ):
+One page for 16 central banks (Fed, ECB, BoE, BoJ, BoK, PBoC, RBI, BNM, BI, BoT,
+HKMA, MAS, BSP, Taiwan CBC, RBA, RBNZ). Vietnam's SBV was dropped: its rate and
+speech pages could not be read reliably.
 
-1. **Calendar**: policy meetings and official speeches by month, with the rate
-   going in, the expected decision (and its basis), the actual decision, and
-   whether it matched. Times in SGT.
-2. **Central bank speak**: newest first, close paraphrases (no quotes, no
-   links), coloured by stance: muted orange hawkish, muted blue dovish, grey
-   neutral.
-3. **Hawk–dove spectrum**: each verified committee member placed from what
+1. **Policy rates**: each bank's current rate, last move, next decision (SGT)
+   and the expected decision with its basis.
+2. **Calendar**: policy meetings, minutes, accounts and other releases, and
+   speeches by month, with the rate going in, the expected decision, the actual
+   decision and whether it matched. Each meeting links to its official
+   statement, minutes or PDF once published. Times in SGT.
+3. **Central bank speak**: newest first, close paraphrases (no quotes), each
+   linked to its source, coloured by stance: muted orange hawkish, muted blue
+   dovish, grey neutral.
+4. **Hawk–dove spectrum**: each verified committee member placed from what
    they have said and how they voted, weighted toward recent remarks.
 
-Refreshed automatically every morning before 08:00 SGT; see `RUNBOOK.md`.
+Refreshed automatically every morning before 08:00 SGT: a GitHub Actions job
+collects the data, a Claude routine on your plan does the reading and
+paraphrasing, and a second job publishes the result. See `RUNBOOK.md`.
 Scoring method: `methodology/hawk_dove_rubric.md`.
 
 ## Sources

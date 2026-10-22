@@ -30,7 +30,7 @@
     $("#updated").textContent = `UPD ${dm(u.slice(0, 10))} ${u.slice(11, 16)} SGT` + (ageH > 30 ? " · OVERDUE" : "");
     const stale = m.stale || [], notes = S.order.map(c => S.banks[c]).filter(b => b.access_note);
     const btn = $("#staleBtn"), pop = $("#stalePanel");
-    const L = m.language || {}, langLate = !L.last_run || (Date.now() - Date.parse(L.last_run)) / 36e5 > 30;
+    const L = m.language || {}, langLate = (L.pending || 0) > 0 && (!L.last_run || (Date.now() - Date.parse(L.last_run)) / 36e5 > 30);
     btn.hidden = false; btn.classList.toggle("bad", stale.length > 0 || langLate);
     btn.textContent = stale.length ? `${stale.length} STALE` : langLate ? "LANGUAGE STEP LATE" : "SOURCES";
     const label = sid => { const [b, ...rest] = sid.split(":"); return (S.banks[b] ? short(b) : b) + " · " + rest.join(":").replace(/-/g, " "); };
