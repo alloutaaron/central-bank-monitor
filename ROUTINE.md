@@ -14,6 +14,17 @@ results, check them, and push them. Do not change any other file.
 
 If all three lists are empty, stop: nothing to do, no commit.
 
+**Work in batches.** `pending.json` can hold hundreds of headlines and long
+documents, so never read it whole. Print slices with Python, for example:
+
+```bash
+python3 -c "import json;p=json.load(open('data/inbox/pending.json'));[print(json.dumps(h,ensure_ascii=False)) for h in p['headlines'][0:100]]"
+```
+
+Print documents one at a time (`p['documents'][i]`). Write each batch's results
+to its own outbox file as soon as the batch is done (at most 120 headlines or 5
+documents per file), so finished work is saved if the session is interrupted.
+
 ## 2. Write results
 
 Process everything in `pending.json`. Write one or more files
