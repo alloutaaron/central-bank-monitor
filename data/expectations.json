@@ -386,8 +386,8 @@
   ]
  },
  "BOE-2026-11-05": {
-  "as_of": "2026-10-22",
-  "basis": "Reuters poll: BoE seen raising Bank Rate to 4% in November",
+  "as_of": "2026-10-23",
+  "basis": "Reuters poll: BoE to raise rates to 4% in November.",
   "dir": 1,
   "frozen": false,
   "kind": "news",
@@ -522,16 +522,16 @@
   ]
  },
  "BOJ-2026-10-30": {
-  "as_of": "2026-10-22",
-  "basis": "Bloomberg survey: no BoJ watchers expect an October move; most see December",
+  "as_of": "2026-10-23",
+  "basis": "Reuters and Bloomberg surveys: analysts expect no October move, next hike in December.",
   "dir": 0,
   "frozen": false,
   "kind": "news",
   "label": "Hold",
   "move_bp": 0,
   "outlets": [
-   "Bloomberg.com",
-   "investingLive"
+   "Reuters",
+   "Bloomberg"
   ]
  },
  "BOK-2025-01-16": {
@@ -1072,15 +1072,16 @@
   ]
  },
  "FED-2026-10-28": {
-  "as_of": "2026-10-22",
-  "basis": "Reuters poll: nearly all economists see the Fed skipping October and hiking in December",
+  "as_of": "2026-10-23",
+  "basis": "Reuters poll: nearly all economists expect the Fed to skip an October hike.",
   "dir": 0,
   "frozen": false,
   "kind": "news",
   "label": "Hold",
   "move_bp": 0,
   "outlets": [
-   "Reuters"
+   "Reuters",
+   "Investing.com"
   ]
  },
  "MAS-2025-01-24": {
@@ -1469,8 +1470,8 @@
   ]
  },
  "RBNZ-2026-10-28": {
-  "as_of": "2026-10-22",
-  "basis": "Reuters: expectations remain for a hike next week; markets price further hikes",
+  "as_of": "2026-10-23",
+  "basis": "Reuters: expectations remain of a rate hike at next week's meeting; size not stated.",
   "dir": 1,
   "frozen": false,
   "kind": "news",
@@ -1478,7 +1479,7 @@
   "move_bp": null,
   "outlets": [
    "Reuters",
-   "FXStreet"
+   "investingLive"
   ]
  }
 }
