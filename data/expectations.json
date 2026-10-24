@@ -386,7 +386,7 @@
   ]
  },
  "BOE-2026-11-05": {
-  "as_of": "2026-10-23",
+  "as_of": "2026-10-24",
   "basis": "Reuters poll: BoE to raise rates to 4% in November.",
   "dir": 1,
   "frozen": false,
@@ -522,8 +522,8 @@
   ]
  },
  "BOJ-2026-10-30": {
-  "as_of": "2026-10-23",
-  "basis": "Reuters and Bloomberg surveys: analysts expect no October move, next hike in December.",
+  "as_of": "2026-10-24",
+  "basis": "Reuters poll and Bloomberg: BOJ expected to hold in October and hike in December.",
   "dir": 0,
   "frozen": false,
   "kind": "news",
@@ -531,7 +531,8 @@
   "move_bp": 0,
   "outlets": [
    "Reuters",
-   "Bloomberg"
+   "Bloomberg",
+   "Nikkei Asia"
   ]
  },
  "BOK-2025-01-16": {
@@ -921,6 +922,18 @@
    "WSJ"
   ]
  },
+ "ECB-2026-10-29": {
+  "as_of": "2026-10-24",
+  "basis": "Economists expect the ECB to pause now and raise rates in December.",
+  "dir": 0,
+  "frozen": false,
+  "kind": "news",
+  "label": "Hold",
+  "move_bp": 0,
+  "outlets": [
+   "Bloomberg"
+  ]
+ },
  "FED-2025-05-07": {
   "as_of": "2025-05-07",
   "basis": "Reuters: Fed policymakers expected to keep rates steady",
@@ -1072,16 +1085,15 @@
   ]
  },
  "FED-2026-10-28": {
-  "as_of": "2026-10-23",
-  "basis": "Reuters poll: nearly all economists expect the Fed to skip an October hike.",
+  "as_of": "2026-10-24",
+  "basis": "Reuters poll: Fed seen skipping an October hike, with nearly all economists expecting a hold.",
   "dir": 0,
   "frozen": false,
   "kind": "news",
   "label": "Hold",
   "move_bp": 0,
   "outlets": [
-   "Reuters",
-   "Investing.com"
+   "Reuters"
   ]
  },
  "MAS-2025-01-24": {
@@ -1470,14 +1482,15 @@
   ]
  },
  "RBNZ-2026-10-28": {
-  "as_of": "2026-10-23",
-  "basis": "Reuters: expectations remain of a rate hike at next week's meeting; size not stated.",
+  "as_of": "2026-10-24",
+  "basis": "Economists and Reuters report expect an RBNZ rate hike at the meeting next week.",
   "dir": 1,
   "frozen": false,
   "kind": "news",
   "label": "Hike (size not polled)",
   "move_bp": null,
   "outlets": [
+   "Bloomberg",
    "Reuters",
    "investingLive"
   ]
