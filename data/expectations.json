@@ -386,15 +386,16 @@
   ]
  },
  "BOE-2026-11-05": {
-  "as_of": "2026-10-24",
-  "basis": "Reuters poll: BoE to raise rates to 4% in November.",
+  "as_of": "2026-10-25",
+  "basis": "Reuters poll: BoE expected to raise rates to 4% in November",
   "dir": 1,
   "frozen": false,
   "kind": "news",
   "label": "+25bp",
   "move_bp": 25,
   "outlets": [
-   "Reuters"
+   "Reuters",
+   "Bloomberg"
   ]
  },
  "BOJ-2025-01-24": {
@@ -522,8 +523,8 @@
   ]
  },
  "BOJ-2026-10-30": {
-  "as_of": "2026-10-24",
-  "basis": "Reuters poll and Bloomberg: BOJ expected to hold in October and hike in December.",
+  "as_of": "2026-10-25",
+  "basis": "Reuters poll and Bloomberg survey: BOJ expected to hold in October, hike in December",
   "dir": 0,
   "frozen": false,
   "kind": "news",
@@ -923,8 +924,8 @@
   ]
  },
  "ECB-2026-10-29": {
-  "as_of": "2026-10-24",
-  "basis": "Economists expect the ECB to pause now and raise rates in December.",
+  "as_of": "2026-10-25",
+  "basis": "Bloomberg economists expect an ECB pause now and a hike in December",
   "dir": 0,
   "frozen": false,
   "kind": "news",
@@ -1085,15 +1086,16 @@
   ]
  },
  "FED-2026-10-28": {
-  "as_of": "2026-10-24",
-  "basis": "Reuters poll: Fed seen skipping an October hike, with nearly all economists expecting a hold.",
+  "as_of": "2026-10-25",
+  "basis": "Reuters poll: Fed seen skipping an October hike, nearly all economists expect a hold",
   "dir": 0,
   "frozen": false,
   "kind": "news",
   "label": "Hold",
   "move_bp": 0,
   "outlets": [
-   "Reuters"
+   "Reuters",
+   "Financial Times"
   ]
  },
  "MAS-2025-01-24": {
@@ -1482,8 +1484,8 @@
   ]
  },
  "RBNZ-2026-10-28": {
-  "as_of": "2026-10-24",
-  "basis": "Economists and Reuters report expect an RBNZ rate hike at the meeting next week.",
+  "as_of": "2026-10-25",
+  "basis": "Economists and Reuters report expect an RBNZ rate hike at the October meeting",
   "dir": 1,
   "frozen": false,
   "kind": "news",
@@ -1491,8 +1493,7 @@
   "move_bp": null,
   "outlets": [
    "Bloomberg",
-   "Reuters",
-   "investingLive"
+   "Reuters"
   ]
  }
 }
