@@ -386,8 +386,8 @@
   ]
  },
  "BOE-2026-11-05": {
-  "as_of": "2026-10-25",
-  "basis": "Reuters poll: BoE expected to raise rates to 4% in November",
+  "as_of": "2026-10-26",
+  "basis": "Reuters poll: economists expect BoE to raise rates to 4% in November.",
   "dir": 1,
   "frozen": false,
   "kind": "news",
@@ -524,12 +524,15 @@
  },
  "BOJ-2026-10-30": {
   "as_of": "2026-10-26",
-  "basis": "Consensus forecast <1.25% (previous <1.25%)",
-  "kind": "consensus",
+  "basis": "Reuters poll: BOJ expected to hold in October and hike in December.",
+  "dir": 0,
+  "frozen": false,
+  "kind": "news",
   "label": "Hold",
   "move_bp": 0,
   "outlets": [
-   "Forex Factory calendar"
+   "Reuters",
+   "Nikkei Asia"
   ]
  },
  "BOK-2025-01-16": {
@@ -920,8 +923,8 @@
   ]
  },
  "ECB-2026-10-29": {
-  "as_of": "2026-10-25",
-  "basis": "Bloomberg economists expect an ECB pause now and a hike in December",
+  "as_of": "2026-10-26",
+  "basis": "Economists polled see the ECB pausing now and raising rates in December.",
   "dir": 0,
   "frozen": false,
   "kind": "news",
@@ -1083,12 +1086,14 @@
  },
  "FED-2026-10-28": {
   "as_of": "2026-10-26",
-  "basis": "Consensus forecast 4.00% (previous 4.00%)",
-  "kind": "consensus",
+  "basis": "Reuters poll: nearly all economists expect the Fed to skip an October hike.",
+  "dir": 0,
+  "frozen": false,
+  "kind": "news",
   "label": "Hold",
   "move_bp": 0,
   "outlets": [
-   "Forex Factory calendar"
+   "Reuters"
   ]
  },
  "MAS-2025-01-24": {
@@ -1478,12 +1483,15 @@
  },
  "RBNZ-2026-10-28": {
   "as_of": "2026-10-26",
-  "basis": "Consensus forecast 3.00% (previous 2.75%)",
-  "kind": "consensus",
-  "label": "+25bp",
-  "move_bp": 25,
+  "basis": "Economists and Reuters report expectations of an RBNZ hike at the October meeting.",
+  "dir": 1,
+  "frozen": false,
+  "kind": "news",
+  "label": "Hike (size not polled)",
+  "move_bp": null,
   "outlets": [
-   "Forex Factory calendar"
+   "Bloomberg",
+   "Reuters"
   ]
  }
 }
