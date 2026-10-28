@@ -523,16 +523,13 @@
   ]
  },
  "BOJ-2026-10-30": {
-  "as_of": "2026-10-27",
-  "basis": "CNBC survey and Nikkei report expect BOJ to hold at 1.25%.",
-  "dir": 0,
-  "frozen": false,
-  "kind": "news",
+  "as_of": "2026-10-28",
+  "basis": "Consensus forecast <1.25% (previous <1.25%)",
+  "kind": "consensus",
   "label": "Hold",
   "move_bp": 0,
   "outlets": [
-   "CNBC",
-   "Nikkei Asia"
+   "Forex Factory calendar"
   ]
  },
  "BOK-2025-01-16": {
@@ -1087,18 +1084,14 @@
   ]
  },
  "FED-2026-10-28": {
-  "as_of": "2026-10-27",
-  "basis": "Reuters poll and other reports: Fed expected to hold in October, hike seen in December.",
-  "dir": 0,
-  "frozen": false,
-  "kind": "news",
+  "as_of": "2026-10-28",
+  "basis": "Consensus forecast 4.00% (previous 4.00%)",
+  "frozen": true,
+  "kind": "consensus",
   "label": "Hold",
   "move_bp": 0,
   "outlets": [
-   "Reuters",
-   "WSJ",
-   "CNBC",
-   "FXStreet"
+   "Forex Factory calendar"
   ]
  },
  "MAS-2025-01-24": {
@@ -1487,18 +1480,14 @@
   ]
  },
  "RBNZ-2026-10-28": {
-  "as_of": "2026-10-27",
-  "basis": "Economists and previews expect RBNZ to lift the OCR to 3% this week.",
-  "dir": 1,
-  "frozen": false,
-  "kind": "news",
+  "as_of": "2026-10-28",
+  "basis": "Consensus forecast 3.00% (previous 2.75%)",
+  "frozen": true,
+  "kind": "consensus",
   "label": "+25bp",
   "move_bp": 25,
   "outlets": [
-   "Bloomberg",
-   "investingLive",
-   "FXStreet",
-   "Reuters"
+   "Forex Factory calendar"
   ]
  }
 }
