@@ -386,8 +386,8 @@
   ]
  },
  "BOE-2026-11-05": {
-  "as_of": "2026-10-26",
-  "basis": "Reuters poll: economists expect BoE to raise rates to 4% in November.",
+  "as_of": "2026-10-28",
+  "basis": "Reuters poll expects the BoE to raise rates to 4% in November; Danske Bank also added a November hike.",
   "dir": 1,
   "frozen": false,
   "kind": "news",
@@ -395,7 +395,7 @@
   "move_bp": 25,
   "outlets": [
    "Reuters",
-   "Bloomberg"
+   "Danske Bank"
   ]
  },
  "BOJ-2025-01-24": {
@@ -524,12 +524,16 @@
  },
  "BOJ-2026-10-30": {
   "as_of": "2026-10-28",
-  "basis": "Consensus forecast <1.25% (previous <1.25%)",
-  "kind": "consensus",
+  "basis": "CNBC survey and Nikkei Asia expect a hold at 1.25%, with a hike expected in December.",
+  "dir": 0,
+  "frozen": false,
+  "kind": "news",
   "label": "Hold",
   "move_bp": 0,
   "outlets": [
-   "Forex Factory calendar"
+   "CNBC",
+   "Nikkei Asia",
+   "Reuters"
   ]
  },
  "BOK-2025-01-16": {
@@ -920,8 +924,8 @@
   ]
  },
  "ECB-2026-10-29": {
-  "as_of": "2026-10-27",
-  "basis": "Reports expect ECB to leave key rate unchanged, with a hike seen in December.",
+  "as_of": "2026-10-28",
+  "basis": "WSJ and Bloomberg report the ECB is expected to leave rates unchanged now, with a hike seen in December.",
   "dir": 0,
   "frozen": false,
   "kind": "news",
@@ -929,7 +933,6 @@
   "move_bp": 0,
   "outlets": [
    "WSJ",
-   "Morningstar",
    "Bloomberg"
   ]
  },
