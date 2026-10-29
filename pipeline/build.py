@@ -84,22 +84,26 @@ def feed_items(statements: list[dict]) -> list[dict]:
 
 
 def current_rates(recs: list[dict], today: str) -> dict:
-    cur = {}
+    cur, lpr = {}, None
     for r in sorted(recs, key=lambda r: r["date"]):
         if r["date"] > today:
             continue
         d = r.get("decision")
+        if r["type"] == "lpr":   # the LPRs are quoted off the 7-day rate: shown beside it, not as the policy rate
+            if d:
+                lpr = d["label"].split(": ", 1)[-1]
+            continue
         if d and r["bank"] != "MAS":
             lvl = d.get("level") or re.search(r"(?:to|at) (.+)$", d["label"]) and re.search(r"(?:to|at) (.+)$", d["label"]).group(1)
-            if r["type"] == "lpr":
-                lvl = d["label"].split(": ", 1)[-1]
             if lvl:
                 cur[r["bank"]] = {"level": lvl, "as_of": r["date"], "src": d.get("source_kind")}
         elif r.get("rate_before") and r["bank"] not in cur and r["bank"] != "MAS":
             cur[r["bank"]] = {"level": r["rate_before"], "as_of": r["date"], "src": "official"}
     for r in recs:  # banks with no decision yet in range: use the rate going into the next meeting
-        if r["bank"] not in cur and r.get("rate_before") and r["bank"] != "MAS":
+        if r["bank"] not in cur and r.get("rate_before") and r["bank"] not in ("MAS", "PBOC"):
             cur[r["bank"]] = {"level": r["rate_before"], "as_of": r["date"], "src": "official"}
+    if "PBOC" in cur and lpr:
+        cur["PBOC"]["detail"] = f"7-day reverse repo · LPR {lpr.replace(', ', ' / ')}"
     # MAS targets the S$NEER band: describe the latest change and the latest decision.
     mas = [r for r in recs if r["bank"] == "MAS" and r.get("decision") and r["date"] <= today]
     if mas:
@@ -113,6 +117,30 @@ def current_rates(recs: list[dict], today: str) -> dict:
             detail = "No recent change"
         cur["MAS"] = {"level": "S$NEER band", "detail": detail, "as_of": last["date"], "src": "official"}
     return cur
+
+
+def members_out(feed: list[dict], today: str) -> dict:
+    """Committee rosters for the page: every active member in roster order,
+    a short background where one is verified (bio/bio_src in seeds/members.json),
+    and their three latest remarks from the feed (matched by name, as the
+    spectrum does)."""
+    from .spectrum import active, match_member
+    roster = read_json(ROOT / "seeds" / "members.json", {})
+    out = {}
+    for code in CFG["order"]:
+        info = roster.get(code, {})
+        members = [m for m in info.get("members", []) if active(m, today)]
+        said = defaultdict(list)
+        for f in feed:   # feed is newest first
+            if f["bank"] == code and f.get("speaker"):
+                m = match_member(f["speaker"], members)
+                if m and len(said[m["name"]]) < 3:
+                    said[m["name"]].append({k: f.get(k) for k in ("ts", "date_only", "text", "stance", "url", "src")})
+        out[code] = {"committee": info.get("committee"), "note": info.get("note"), "verified": info.get("verified"), "src": info.get("src"),
+                     "members": [{"name": m["name"], "role": m.get("role"), "chair": bool(m.get("chair")), "voter": m.get("voter"),
+                                  "bio": m.get("bio"), "bio_src": m.get("bio_src"), "comments": said.get(m["name"], [])}
+                                 for m in members]}
+    return out
 
 
 def stale_list(health: dict) -> list[dict]:
@@ -159,7 +187,7 @@ def write_site(recs, statements, spec, health, today: dt.date, ai: dict, refresh
             nxt[r["bank"]] = {"date": _sgt_date(r), "time": r["time_sgt"][11:16] if r.get("time_sgt") else None,
                               "title": TITLE.get(r["bank"]), "expected": e.get("label"), "expected_move": e.get("move_bp"), "expected_dir": e.get("dir"),
                               "basis": e.get("basis")}
-        if r["type"] in ("meeting", "lpr", "rate-change") and r.get("decision") and r["date"] <= tday:
+        if r["type"] in ("meeting", "rate-change") and r.get("decision") and r["date"] <= tday:
             last[r["bank"]] = {"date": r["date"], "move": r["decision"].get("move_bp"), "label": r["decision"]["label"],
                                "src": r["decision"].get("source_kind")}
     tbc = (read_json(ROOT / "seeds" / "meetings.json", {}) or {}).get("_tbc", {})
@@ -177,6 +205,7 @@ def write_site(recs, statements, spec, health, today: dt.date, ai: dict, refresh
                                      for m in s["placed"]],
                           "unplaced": [{k: v for k, v in m.items() if k in ("name", "role", "chair", "voter", "secondary")} for m in s["unplaced"]]}
     write_json(OUT / "spectrum.json", spec_out, compact=True)
+    write_json(OUT / "members.json", members_out(feed, tday), compact=True)
     write_json(OUT / "banks.json", {"order": order, "banks": banks}, compact=True)
     write_json(OUT / "meta.json", {
         "updated": now_sgt().isoformat(timespec="minutes"), "refreshed": refreshed, "today": tday,
