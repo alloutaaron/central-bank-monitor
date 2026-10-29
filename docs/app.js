@@ -4,7 +4,7 @@
   "use strict";
   const $ = (s, el = document) => el.querySelector(s);
   const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
-  const MON = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+  const MON = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
   const S = { meta: null, banks: {}, order: [], members: {}, cal: {}, feed: {}, feedMonths: [], calBank: "ALL", feedBank: "ALL",
               memBank: "FED", memOpen: null, month: null, sel: null, feedShown: 60 };
   const pref = (k, v) => { try { if (v === undefined) return localStorage.getItem("cbm-" + k); localStorage.setItem("cbm-" + k, v); } catch (e) { return null; } };
@@ -19,7 +19,7 @@
 
   function keys(el, withAll, current, onPick) {
     const codes = (withAll ? ["ALL"] : []).concat(S.order);
-    el.innerHTML = codes.map(c => `<button role="tab" data-c="${c}" aria-selected="${c === current}">${c === "ALL" ? "ALL" : esc(short(c))}</button>`).join("");
+    el.innerHTML = codes.map(c => `<button role="tab" data-c="${c}" aria-selected="${c === current}">${c === "ALL" ? "All" : esc(short(c))}</button>`).join("");
     el.onclick = e => { const b = e.target.closest("button"); if (!b) return; el.querySelectorAll("button").forEach(x => x.setAttribute("aria-selected", x === b)); onPick(b.dataset.c); };
   }
   function selectKey(el, code) { el.querySelectorAll("button").forEach(x => x.setAttribute("aria-selected", x.dataset.c === code)); }
@@ -27,17 +27,17 @@
   /* ---------- command bar ---------- */
   function renderHeader() {
     const m = S.meta, u = m.refreshed || m.updated, ageH = (Date.now() - Date.parse(u)) / 36e5;   // time of the last full source refresh
-    $("#updated").textContent = `UPD ${dm(u.slice(0, 10))} ${u.slice(11, 16)} SGT` + (ageH > 30 ? " · OVERDUE" : "");
+    $("#updated").textContent = `Updated ${dm(u.slice(0, 10))} ${u.slice(11, 16)} SGT` + (ageH > 30 ? " · overdue" : "");
     const stale = m.stale || [], notes = S.order.map(c => S.banks[c]).filter(b => b.access_note);
     const btn = $("#staleBtn"), pop = $("#stalePanel");
     const L = m.language || {}, langLate = (L.pending || 0) > 0 && (!L.last_run || (Date.now() - Date.parse(L.last_run)) / 36e5 > 30);
     btn.hidden = false; btn.classList.toggle("bad", stale.length > 0 || langLate);
-    btn.textContent = stale.length ? `${stale.length} STALE` : langLate ? "LANGUAGE STEP LATE" : "SOURCES";
+    btn.textContent = stale.length ? `${stale.length} stale` : langLate ? "Language step late" : "Sources";
     const label = sid => { const [b, ...rest] = sid.split(":"); return (S.banks[b] ? short(b) : b) + " · " + rest.join(":").replace(/-/g, " "); };
     pop.innerHTML = (stale.length ? `<h3>Failed on the latest run</h3><ul>${stale.map(s => `<li><b>${esc(label(s.source))}</b> · last OK ${s.last_ok ? esc(s.last_ok.slice(0, 16).replace("T", " ")) : "never"}</li>`).join("")}</ul>`
                                   : `<h3>Latest run</h3><ul><li>All sources refreshed.</li></ul>`) +
       (() => { const L = m.language || {}; const age = L.last_run ? (Date.now() - Date.parse(L.last_run)) / 36e5 : null;
-        return `<h3>Language step (paraphrase, translation, stance, expectations)</h3><ul><li>${L.last_run ? "Last run " + esc(L.last_run.slice(0, 16).replace("T", " ")) + " SGT" + (age > 30 ? " · OVERDUE" : "") : "Not run yet"} · ${L.pending || 0} items waiting</li></ul>`; })() +
+        return `<h3>Language step (paraphrase, translation, stance, expectations)</h3><ul><li>${L.last_run ? "Last run " + esc(L.last_run.slice(0, 16).replace("T", " ")) + " SGT" + (age > 30 ? " · overdue" : "") : "Not run yet"} · ${L.pending || 0} items waiting</li></ul>`; })() +
       `<h3>Known access limits</h3><ul>${notes.map(b => `<li><b>${esc(b.short)}</b> · ${esc(b.access_note)}</li>`).join("")}</ul>`;
     btn.onclick = e => { e.stopPropagation(); pop.hidden = !pop.hidden; btn.setAttribute("aria-expanded", !pop.hidden); };
     document.addEventListener("click", e => { if (!pop.hidden && !pop.contains(e.target)) { pop.hidden = true; btn.setAttribute("aria-expanded", "false"); } });
@@ -48,23 +48,23 @@
     const today = S.meta.today;
     const rows = S.order.map(c => {
       const b = S.banks[c], rate = b.rate, last = b.last, nx = b.next;
-      const lastCell = last ? `<span class="mv ${dirOf(last.move)}">${G[dirOf(last.move)] || ""} ${last.move === 0 ? "HOLD" : (last.move > 0 ? "+" : "") + last.move}</span><span class="sub">${dm(last.date)}</span>` : `<span class="exp-tbc">—</span>`;
-      let nextCell = `<span class="exp-tbc">${esc((b.next_note || "TBC").toUpperCase())}</span>`, inCell = "";
+      const lastCell = last ? `<span class="mv ${dirOf(last.move)}">${G[dirOf(last.move)] || ""} ${last.move === 0 ? "Hold" : (last.move > 0 ? "+" : "") + last.move}</span><span class="sub">${dm(last.date)}</span>` : `<span class="exp-tbc">—</span>`;
+      let nextCell = `<span class="exp-tbc">${esc((b.next_note || "TBC"))}</span>`, inCell = "";
       if (nx) {
         nextCell = `${dm(nx.date)}${nx.time ? " " + nx.time : ""}`;
         const d = daysBetween(today, nx.date);
-        inCell = d <= 0 ? "TODAY" : `${d}D`;
+        inCell = d <= 0 ? "Today" : `${d}d`;
         nextCell += `<span class="in-inline"> · ${inCell}</span>`;
       }
       let ex = `<span class="exp-tbc">TBC</span>`;
       if (nx && nx.expected) {
         const k = dirOf(nx.expected_move ?? nx.expected_dir), dirOnly = nx.expected_move == null && c !== "MAS";
-        ex = `<span class="${k}" title="${esc(nx.basis || "")}">${G[k] || ""} ${esc(nx.expected.replace(/\s*\(size not polled\)/i, "").toUpperCase())}</span>${dirOnly ? `<span class="sub"> size not polled</span>` : ""}`;
+        ex = `<span class="${k}" title="${esc(nx.basis || "")}">${G[k] || ""} ${esc(nx.expected.replace(/\s*\(size not polled\)/i, ""))}</span>${dirOnly ? `<span class="sub"> size not polled</span>` : ""}`;
       }
       const rl = rate ? (rate.detail ? `${esc(rate.level)} <span class="sub clip" title="${esc(rate.detail)}">${esc(rate.detail)}</span>` : esc(rate.level)) : `<span class="exp-tbc">TBC</span>`;
-      return `<tr class="brow" data-c="${c}"><td class="c-bank"><span class="code">${esc(b.short.toUpperCase())}</span><span class="nm">${esc(b.name)}</span></td>
-        <td class="c-rate"><span class="rate">${rl}</span>${rate && rate.detail ? "" : ` <span class="sub opt">${esc(b.rate_label)}</span>`}</td><td class="c-last"><span class="lbl">LAST</span>${lastCell}</td>
-        <td class="c-next"><span class="lbl">NEXT</span>${nextCell}</td><td class="in c-in">${inCell}</td><td class="c-exp"><span class="lbl">EXP</span>${ex}</td></tr>`;
+      return `<tr class="brow" data-c="${c}"><td class="c-bank"><span class="code">${esc(b.short)}</span><span class="nm">${esc(b.name)}</span></td>
+        <td class="c-rate"><span class="rate">${rl}</span>${rate && rate.detail ? "" : ` <span class="sub opt">${esc(b.rate_label)}</span>`}</td><td class="c-last"><span class="lbl">Last</span>${lastCell}</td>
+        <td class="c-next"><span class="lbl">Next</span>${nextCell}</td><td class="in c-in">${inCell}</td><td class="c-exp"><span class="lbl">Exp</span>${ex}</td></tr>`;
     }).join("");
     $("#boardTbl").innerHTML = `<thead><tr><th>Bank</th><th>Policy rate</th><th>Last move</th><th>Next decision</th><th>In</th><th>Expected</th></tr></thead><tbody>${rows}</tbody>`;
     $("#boardTbl").onclick = e => {
@@ -134,7 +134,7 @@
     renderDetail(byDay, !S.meta.months.calendar.includes(key));
   }
 
-  const srcPill = k => k ? `<span class="pill">${k === "official" ? "OFFICIAL" : k === "BIS" ? "BIS DATA" : k === "wire" ? "WIRE REPORT" : esc(k)}</span>` : "";
+  const srcPill = k => k ? `<span class="pill">${k === "official" ? "Official" : k === "BIS" ? "BIS data" : k === "wire" ? "Wire report" : esc(k)}</span>` : "";
   function linksRow(links) {
     if (!links || !links.length) return "";
     return `<div class="lnk">${links.map(l => l.status === "published" && l.url ? ext(l.url, l.title + (l.date ? " " + dm(l.date) : ""))
@@ -142,10 +142,10 @@
   }
 
   function card(e) {
-    const when = e.time ? `${e.time} SGT` + (e.local_date && e.local_date !== e.date ? ` · ${dm(e.local_date)} LOCAL` : "") : (e.type === "meeting" ? "TIME TBC" : "");
-    if (e.type === "speech") return `<div class="card"><div class="r1"><span><span class="bk">${esc(short(e.bank).toUpperCase())}</span> <span class="nm">${esc(e.title)}</span></span><span class="when">${esc(when)}</span></div></div>`;
+    const when = e.time ? `${e.time} SGT` + (e.local_date && e.local_date !== e.date ? ` · ${dm(e.local_date)} local` : "") : (e.type === "meeting" ? "Time TBC" : "");
+    if (e.type === "speech") return `<div class="card"><div class="r1"><span><span class="bk">${esc(short(e.bank))}</span> <span class="nm">${esc(e.title)}</span></span><span class="when">${esc(when)}</span></div></div>`;
     if (e.type === "release") {
-      return `<div class="card"><div class="r1"><span><span class="bk">${esc(short(e.bank).toUpperCase())}</span> <span class="nm">${e.url && e.status === "done" ? ext(e.url, e.title) : esc(e.title)}</span></span><span class="when">${e.status === "done" ? "PUBLISHED" : "SCHEDULED"}</span></div>
+      return `<div class="card"><div class="r1"><span><span class="bk">${esc(short(e.bank))}</span> <span class="nm">${e.url && e.status === "done" ? ext(e.url, e.title) : esc(e.title)}</span></span><span class="when">${e.status === "done" ? "Published" : "Scheduled"}</span></div>
         <dl class="kv">${e.meeting ? `<dt>Meeting</dt><dd>${dmy(e.meeting)}</dd>` : ""}${e.basis && e.status !== "done" ? `<dt>Date from</dt><dd><span class="basis" style="margin:0">${esc(e.basis)}</span></dd>` : ""}</dl></div>`;
     }
     const past = e.status !== "scheduled";
@@ -154,21 +154,21 @@
     let dec = past ? (e.status === "awaiting" ? "Awaiting confirmation" : "Unavailable") : "Pending";
     if (e.decision) { const k = dirOf(e.decision.move); dec = `<span class="${k}">${G[k] || ""}</span> ${esc(e.decision.label)}${srcPill(e.decision.src)}`; }
     const dirOnly = e.bank !== "MAS" && e.expected && e.expected.move == null;
-    const out = e.matched === true ? `<span class="pill">✓ ${dirOnly ? "DIRECTION AS EXPECTED" : "AS EXPECTED"}</span>`
-      : e.matched === false ? `<span class="pill miss">! ${dirOnly ? "DIRECTION SURPRISE" : "SURPRISE"}</span>` : "";
+    const out = e.matched === true ? `<span class="pill">✓ ${dirOnly ? "Direction as expected" : "As expected"}</span>`
+      : e.matched === false ? `<span class="pill miss">! ${dirOnly ? "Direction surprise" : "Surprise"}</span>` : "";
     const rateRow = e.bank === "MAS" ? "" : `<dt>Rate in</dt><dd>${esc(e.rate_before || "Unavailable")}</dd>`;
-    return `<div class="card"><div class="r1"><span><span class="bk">${esc(short(e.bank).toUpperCase())}</span> <span class="nm">${esc(e.title)}</span>${flags}</span><span class="when">${esc(when)}</span></div>
+    return `<div class="card"><div class="r1"><span><span class="bk">${esc(short(e.bank))}</span> <span class="nm">${esc(e.title)}</span>${flags}</span><span class="when">${esc(when)}</span></div>
       <dl class="kv">${rateRow}<dt>Expected</dt><dd>${exp}</dd><dt>Decision</dt><dd>${dec}${out}</dd>${e.note ? `<dt>Note</dt><dd>${esc(e.note)}</dd>` : ""}</dl>${linksRow(e.links)}</div>`;
   }
 
   function renderDetail(byDay, noData) {
     const d = S.sel, list = byDay[d] || [];
-    let html = `<h3><span>${dmy(d)}</span><span>${["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"][new Date(d + "T00:00:00Z").getUTCDay()]}</span></h3>`;
+    let html = `<h3><span>${dmy(d)}</span><span>${["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"][new Date(d + "T00:00:00Z").getUTCDay()]}</span></h3>`;
     html += list.length ? list.map(card).join("") : `<p class="empty">${noData ? "No data for this month." : "No meetings, releases or speeches."}</p>`;
     if (S.calBank !== "ALL") {
       const b = S.banks[S.calBank];
       const nx = b.next ? `${b.next.title} ${dmy(b.next.date)}${b.next.time ? " " + b.next.time + " SGT" : ""}` : (b.next_note || "TBC");
-      html += `<div class="card"><div class="r1"><span><span class="bk">${esc(b.short.toUpperCase())}</span> <span class="nm">${esc(b.rate_label)}</span></span></div>
+      html += `<div class="card"><div class="r1"><span><span class="bk">${esc(b.short)}</span> <span class="nm">${esc(b.rate_label)}</span></span></div>
         <dl class="kv"><dt>Current</dt><dd>${esc(b.rate ? b.rate.level : "TBC")}${b.rate && b.rate.detail ? `<span class="basis">${esc(b.rate.detail)}</span>` : ""}</dd>
         <dt>Next</dt><dd>${esc(nx)}${b.next && b.next_note ? `<span class="basis">${esc(b.next_note)}</span>` : ""}</dd>${b.access_note ? `<dt>Source</dt><dd><span class="basis" style="margin:0">${esc(b.access_note)}</span></dd>` : ""}</dl></div>`;
     }
@@ -188,9 +188,9 @@
         if (day !== last) { h += `<li class="dsep">${dmy(day)}</li>`; last = day; }
         const g = x.stance === "hawkish" ? "▲" : x.stance === "dovish" ? "▼" : "●";
         const who = x.speaker ? `${esc(x.speaker)}${x.role ? ` <span class="role">· ${esc(x.role)}</span>` : ""}` : (x.kind === "decision" ? "Policy decision" : esc(S.banks[x.bank]?.name || ""));
-        h += `<li class="it ${esc(x.stance)}"><span class="tm">${x.date_only ? "—" : x.ts.slice(11, 16)}</span><span class="bk bkcol">${esc(short(x.bank).toUpperCase())}</span>
-          <div><div class="who"><i aria-label="${esc(x.stance)}">${g}</i> <span class="bk bk-inline">${esc(short(x.bank).toUpperCase())}</span>${who}</div><p>${esc(x.text)}</p></div>
-          <span class="sr">${x.url ? ext(x.url, (x.src || "Source").toUpperCase()) : esc((x.src || "").toUpperCase())}</span></li>`;
+        h += `<li class="it ${esc(x.stance)}"><span class="tm">${x.date_only ? "—" : x.ts.slice(11, 16)}</span><span class="bk bkcol">${esc(short(x.bank))}</span>
+          <div><div class="who"><i aria-label="${esc(x.stance)}">${g}</i> <span class="bk bk-inline">${esc(short(x.bank))}</span>${who}</div><p>${esc(x.text)}</p></div>
+          <span class="sr">${x.url ? ext(x.url, (x.src || "Source")) : esc((x.src || ""))}</span></li>`;
       }
       list.innerHTML = h;
     }
@@ -229,7 +229,7 @@
     try {
       const [meta, banks, members] = await Promise.all([getJSON("data/meta.json"), getJSON("data/banks.json"), getJSON("data/members.json")]);
       S.meta = meta; S.order = banks.order; banks.banks.forEach(b => (S.banks[b.code] = b)); S.members = members;
-    } catch (e) { $("#updated").textContent = "DATA UNAVAILABLE"; return; }
+    } catch (e) { $("#updated").textContent = "Data unavailable"; return; }
     const ok = c => c === "ALL" || S.banks[c];
     S.calBank = ok(pref("calBank")) && pref("calBank") ? pref("calBank") : "ALL";
     S.feedBank = ok(pref("feedBank")) && pref("feedBank") ? pref("feedBank") : "ALL";
