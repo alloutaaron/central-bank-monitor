@@ -1,0 +1,76 @@
+{
+ "headlines": [],
+ "documents": [
+  {
+   "id": "doc-526c4c13602c1a88",
+   "relevant": false,
+   "speaker": "",
+   "role": "",
+   "points": [],
+   "stance": "neutral",
+   "score": 0,
+   "reason": ""
+  },
+  {
+   "id": "doc-07a87092e479f104",
+   "relevant": false,
+   "speaker": "",
+   "role": "",
+   "points": [],
+   "stance": "neutral",
+   "score": 0,
+   "reason": ""
+  }
+ ],
+ "expectations": [
+  {
+   "id": "BOJ-2026-10-30",
+   "found": true,
+   "expected": "hold",
+   "move_bp": "0",
+   "basis": "Surveys and reports: most analysts and a CNBC survey expect the BOJ to hold, with a hike seen in December.",
+   "outlets": [
+    "CNBC",
+    "WSJ",
+    "Nikkei Asia",
+    "Bloomberg",
+    "Reuters"
+   ]
+  },
+  {
+   "id": "RBA-2026-11-03",
+   "found": true,
+   "expected": "hike",
+   "move_bp": "",
+   "basis": "Traders brace for more RBA hikes and the RBA has primed markets for a rise after hot inflation data.",
+   "outlets": [
+    "Bloomberg",
+    "The Guardian"
+   ]
+  },
+  {
+   "id": "BOE-2026-11-05",
+   "found": false,
+   "expected": "",
+   "move_bp": "",
+   "basis": "",
+   "outlets": []
+  },
+  {
+   "id": "BNM-2026-11-05",
+   "found": false,
+   "expected": "",
+   "move_bp": "",
+   "basis": "",
+   "outlets": []
+  },
+  {
+   "id": "BI-2026-11-18",
+   "found": false,
+   "expected": "",
+   "move_bp": "",
+   "basis": "",
+   "outlets": []
+  }
+ ]
+}
