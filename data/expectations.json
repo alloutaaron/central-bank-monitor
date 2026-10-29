@@ -523,17 +523,13 @@
   ]
  },
  "BOJ-2026-10-30": {
-  "as_of": "2026-10-28",
-  "basis": "CNBC survey and Nikkei Asia expect a hold at 1.25%, with a hike expected in December.",
-  "dir": 0,
-  "frozen": false,
-  "kind": "news",
+  "as_of": "2026-10-29",
+  "basis": "Consensus forecast <1.25% (previous <1.25%)",
+  "kind": "consensus",
   "label": "Hold",
   "move_bp": 0,
   "outlets": [
-   "CNBC",
-   "Nikkei Asia",
-   "Reuters"
+   "Forex Factory calendar"
   ]
  },
  "BOK-2025-01-16": {
@@ -927,7 +923,7 @@
   "as_of": "2026-10-28",
   "basis": "WSJ and Bloomberg report the ECB is expected to leave rates unchanged now, with a hike seen in December.",
   "dir": 0,
-  "frozen": false,
+  "frozen": true,
   "kind": "news",
   "label": "Hold",
   "move_bp": 0,
