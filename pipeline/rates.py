@@ -14,7 +14,8 @@ from functools import lru_cache
 
 from .common import ROOT, fetch, html_to_text, month_num, read_json, FetchError, LOG
 
-BIS_AREAS = {"FED": "US", "ECB": "XM", "BOE": "GB", "BOJ": "JP", "BOK": "KR", "PBOC": "CN",
+# China is left out: BIS reports the 1Y LPR, not the 7-day reverse repo policy rate.
+BIS_AREAS = {"FED": "US", "ECB": "XM", "BOE": "GB", "BOJ": "JP", "BOK": "KR",
              "RBI": "IN", "BNM": "MY", "BI": "ID", "BOT": "TH", "HKMA": "HK", "BSP": "PH",
              "RBA": "AU", "RBNZ": "NZ"}
 
@@ -213,6 +214,38 @@ def rba() -> list[dict]:
             out.append({"date": (eff - dt.timedelta(days=1)).isoformat(), "effective": eff.isoformat(),
                         "level": f"{float(lvl):.2f}", "mid": float(lvl), "kind": "decision", "src": url})
     return sorted(out, key=lambda x: x["date"])
+
+
+def pboc_7d() -> tuple[list[dict], str | None]:
+    """7-day reverse repo rate, the PBoC's main policy rate since mid-2024 (the
+    LPRs are now quoted off it). History from seeds (PBOC_7D); the current
+    level from the latest open market operations announcement on pbc.gov.cn.
+    A level different from the last seed is recorded as a change on that
+    announcement's date. Returns (changes, date of the latest announcement read)."""
+    last = None
+    out = [{"date": x["date"], "level": x["level"], "mid": float(x["level"]), "kind": "effective", "src": x["src"]}
+           for x in seeded("PBOC_7D")]
+    base = "https://www.pbc.gov.cn"
+    try:
+        raw = fetch(base + "/en/3688110/3688181/index.html", "PBOC:omo-list")
+    except FetchError:
+        return out, None   # seeds only; the failure is logged as a stale source
+    links = re.findall(r'href="(/en/3688110/3688181/[^"]+/index\.html)"[^>]*>[^<]*Open Market Operations', raw)
+    for href in links[:5]:   # the latest announcement normally has the 7-day operation; skip any that do not
+        try:
+            t = html_to_text(fetch(base + href, "PBOC:omo"))
+        except FetchError:
+            continue
+        rate = re.search(r"Details of the 7-Day Reverse Repo Operations.*?7 days\s+([\d.]+)%", t, re.S)
+        day = re.search(r"Open Market Operations Office, (\w+) (\d{1,2}), (20\d\d)", t)
+        if rate and day:
+            iso = dt.date(int(day[3]), month_num(day[1][:3]), int(day[2])).isoformat()
+            lvl = float(rate[1])
+            if not out or abs(out[-1]["mid"] - lvl) > 1e-9:
+                out.append({"date": iso, "level": _fmt(lvl), "mid": lvl, "kind": "effective", "src": base + href})
+            last = iso
+            break
+    return sorted(out, key=lambda x: x["date"]), last
 
 
 OFFICIAL = {"FED": fed, "ECB": ecb, "BOE": boe, "BOK": bok, "BNM": bnm, "BI": bi, "BOT": bot, "RBA": rba}

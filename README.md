@@ -15,8 +15,9 @@ speech pages could not be read reliably.
 3. **Central bank speak**: newest first, close paraphrases (no quotes), each
    linked to its source, coloured by stance: muted orange hawkish, muted blue
    dovish, grey neutral.
-4. **Hawk–dove spectrum**: each verified committee member placed from what
-   they have said and how they voted, weighted toward recent remarks.
+4. **Policy committees**: each bank's full verified committee; click a member
+   for a short background (where verified on an official page) and their
+   three latest remarks from the central bank speak feed.
 
 Refreshed automatically every morning before 08:00 SGT: a GitHub Actions job
 collects the data, a Claude routine on your plan does the reading and

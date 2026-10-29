@@ -94,7 +94,7 @@
    "short": "PBoC",
    "country": "China",
    "tz": "Asia/Shanghai",
-   "rate_label": "1Y / 5Y LPR",
+   "rate_label": "7-day reverse repo rate",
    "decision_time": "09:00",
    "time_src": "https://www.chinamoney.com.cn/r/cms/www/chinamoney/data/currency/bk-lpr.json",
    "aliases": [
@@ -149,7 +149,7 @@
    "short": "BoT",
    "country": "Thailand",
    "tz": "Asia/Bangkok",
-   "rate_label": "Policy rate",
+   "rate_label": "1-day repo rate",
    "decision_time": null,
    "aliases": [
     "BOT",

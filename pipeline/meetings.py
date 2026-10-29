@@ -84,7 +84,7 @@ def build_paths() -> dict[str, Path_]:
             merged[x["date"]] = x
         if merged:
             paths[bank] = Path_(list(merged.values()), max(last or "", max(merged)))
-    for bank in ("BOJ", "HKMA", "PBOC"):
+    for bank in ("BOJ", "HKMA"):
         try:
             bis, last = rates.bis_changes(bank)
             first = rates.bis_series().get(rates.BIS_AREAS[bank], [])
@@ -93,6 +93,10 @@ def build_paths() -> dict[str, Path_]:
             paths[bank] = Path_(bis, last)
         except FetchError:
             pass
+    # PBoC: 7-day reverse repo rate (BIS still reports the 1Y LPR for China).
+    ch, last = rates.pboc_7d()
+    if ch:
+        paths["PBOC"] = Path_(ch, last)
     # BI's official page lists only the last ten meetings: extend with BIS.
     if "BI" in paths:
         try:
@@ -206,7 +210,8 @@ def build(today: dt.date | None = None, expectations: dict | None = None, watch:
             rec["decision_official"] = rec.get("decision")
             recs.append(rec)
     recs += lpr_events(start, end, today)
-    recs += hkma_events(paths.get("HKMA"), start)
+    recs += rate_change_events("HKMA", paths.get("HKMA"), start)
+    recs += rate_change_events("PBOC", paths.get("PBOC"), start)
     attach_releases(recs, sched)
     return annotate(recs, expectations, watch, today)
 
@@ -288,17 +293,23 @@ def lpr_events(start: str, end: str, today: dt.date) -> list[dict]:
     return out
 
 
-def hkma_events(path: Path_ | None, start: str) -> list[dict]:
-    """HKMA has no meetings: show each Base Rate change on the day it applied."""
+RATE_CHANGE_NAME = {"HKMA": "Base Rate", "PBOC": "7-day reverse repo"}
+
+
+def rate_change_events(bank: str, path: Path_ | None, start: str) -> list[dict]:
+    """Banks that move their rate without scheduled meetings (HKMA, and the
+    PBoC's 7-day reverse repo): show each change on the day it applied."""
     if not path:
         return []
     out, prev = [], None
     for x in path.c:
         if prev and x["date"] >= start:
             mv = int(round((x["mid"] - prev["mid"]) * 100))
-            out.append({"id": f"HKMA-{x['date']}", "bank": "HKMA", "date": x["date"], "type": "rate-change",
+            kind = "BIS" if "BIS" in str(x["src"]) else "official" if "pbc.gov.cn" in str(x["src"]) else "wire"
+            out.append({"id": f"{bank}-{x['date']}", "bank": bank, "date": x["date"], "type": "rate-change",
                         "status": "done", "rate_before": f"{prev['level']}%", "time_sgt": None,
-                        "decision": {"move_bp": mv, "label": f"Base Rate {mv:+d}bp to {x['level']}%",
-                                     "source": x["src"], "source_kind": "BIS"}, "expected": None, "matched": None})
+                        "decision": {"move_bp": mv, "label": f"{RATE_CHANGE_NAME[bank]} {mv:+d}bp to {x['level']}%",
+                                     "level": f"{x['level']}%", "source": x["src"], "source_kind": kind},
+                        "expected": None, "matched": None})
         prev = x
     return out

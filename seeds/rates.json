@@ -301,5 +301,23 @@
    "src": "https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=63839",
    "verified": "2026-10-22"
   }
+ ],
+ "PBOC_7D": [
+  {
+   "date": "2024-09-27",
+   "level": "1.50",
+   "change_bp": -20,
+   "src": "https://www.spglobal.com/market-intelligence/en/news-insights/articles/2025/5/china-cuts-policy-rate-bank-reserve-requirement-ahead-of-us-trade-talks-88862982",
+   "note": "Level going into the coverage window. PBoC's own announcement for this date not located; wire report.",
+   "verified": "2026-10-28"
+  },
+  {
+   "date": "2025-05-08",
+   "level": "1.40",
+   "change_bp": -10,
+   "src": "https://www.spglobal.com/market-intelligence/en/news-insights/articles/2025/5/china-cuts-policy-rate-bank-reserve-requirement-ahead-of-us-trade-talks-88862982",
+   "note": "Announced 7 May 2025, first operation at 1.40% on 8 May. PBoC's own announcement for this date not located; wire report. Current level is read daily from pbc.gov.cn.",
+   "verified": "2026-10-28"
+  }
  ]
 }

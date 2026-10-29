@@ -3,20 +3,20 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#000000">
+<meta name="theme-color" content="#0f141a">
 <title>Central Bank Monitor</title>
-<meta name="description" content="Central bank meetings, decisions, releases, speeches and committee stances for 16 central banks, refreshed daily. Times in SGT.">
+<meta name="description" content="Central bank meetings, decisions, releases, speeches and committee members for 16 central banks, refreshed daily. Times in SGT.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=8">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=10">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23000'/%3E%3Cpath d='M6 22h20M8 22V13m5 9V9m5 13v-7m5 7v-4' stroke='%23ffb81c' stroke-width='2.4'/%3E%3C/svg%3E">
 </head>
 <body>
 <header class="cmd">
-  <div class="cmd-l"><span class="go">CBM&lt;GO&gt;</span><span class="ttl">Central Bank Monitor</span></div>
+  <div class="cmd-l"><span class="ttl">Central Bank Monitor</span></div>
   <div class="cmd-r">
-    <span id="updated" class="upd">LOADING…</span>
+    <span id="updated" class="upd">Loading…</span>
     <button id="staleBtn" class="src-btn" hidden aria-expanded="false" aria-controls="stalePanel"></button>
   </div>
   <div id="stalePanel" class="pop" hidden></div>
@@ -36,16 +36,16 @@
         <button class="key" id="prevMonth" aria-label="Previous month">◀</button>
         <span id="monthLabel" class="mlab"></span>
         <button class="key" id="nextMonth" aria-label="Next month">▶</button>
-        <button class="key" id="todayBtn">TODAY</button>
+        <button class="key" id="todayBtn">Today</button>
       </div>
     </div>
     <div class="cal-body">
       <div class="cal-left">
-        <div class="dow" aria-hidden="true"><span>MON</span><span>TUE</span><span>WED</span><span>THU</span><span>FRI</span><span>SAT</span><span>SUN</span></div>
+        <div class="dow" aria-hidden="true"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span></div>
         <div class="grid" id="calGrid"></div>
         <div class="legend" aria-hidden="true">
-          <span><i class="g up">▲</i>HIKE</span><span><i class="g dn">▼</i>CUT</span><span><i class="g hd">■</i>HOLD</span>
-          <span><i class="g ex">E</i>EXPECTED</span><span><i class="g rl">◇</i>MINUTES / REPORT</span><span><i class="g sp">◦</i>SPEECH</span>
+          <span><i class="chip up">+25</i>Hike</span><span><i class="chip dn">−25</i>Cut</span><span><i class="chip hd">Hold</i>Hold</span>
+          <span><i class="chip ex">Exp</i>Decision due, expected outcome</span><span class="lg-minor">Grey text: minutes, reports, speeches</span>
         </div>
       </div>
       <aside class="detail" id="calDetail" aria-live="polite"></aside>
@@ -56,27 +56,25 @@
     <div class="pnl-h">
       <h2 id="feedTitle"><span class="fk">3</span>Central bank speak</h2>
       <div class="keys" id="feedBanks" role="tablist" aria-label="Central bank"></div>
-      <div class="fkey" aria-hidden="true"><span class="hk">▲ HAWKISH</span><span class="nk">● NEUTRAL</span><span class="dk">▼ DOVISH</span></div>
+      <div class="fkey" aria-hidden="true"><span class="hk">▲ Hawkish</span><span class="nk">● Neutral</span><span class="dk">▼ Dovish</span></div>
     </div>
     <ol class="feed" id="feedList"></ol>
-    <div class="more"><button class="key" id="feedMore" hidden>SHOW EARLIER</button></div>
+    <div class="more"><button class="key" id="feedMore" hidden>Show earlier</button></div>
   </section>
 
-  <section class="pnl" id="spectrum" aria-labelledby="specTitle">
+  <section class="pnl" id="committees" aria-labelledby="memTitle">
     <div class="pnl-h">
-      <h2 id="specTitle"><span class="fk">4</span>Hawk–dove spectrum</h2>
-      <div class="keys" id="specBanks" role="tablist" aria-label="Central bank"></div>
-      <button class="key" id="specView" aria-pressed="false">LIST</button>
+      <h2 id="memTitle"><span class="fk">4</span>Policy committees</h2>
+      <div class="keys" id="memBanks" role="tablist" aria-label="Central bank"></div>
+      <span class="hint">Click a member for background and latest remarks</span>
     </div>
-    <div class="spec-meta" id="specMeta"></div>
-    <div class="spec-chart" id="specChart"></div>
-    <ol class="spec-list" id="specList" hidden></ol>
-    <div class="spec-foot" id="specFoot"></div>
+    <div class="mem-meta" id="memMeta"></div>
+    <ol class="mem-list" id="memList"></ol>
   </section>
 </main>
 
 <footer class="foot">Official central bank sources · BIS · Telegram (First Squawk, Walter Bloomberg) · reputable wires. Paraphrased; not investment advice.</footer>
 <div class="tip" id="tip" role="tooltip" hidden></div>
-<script src="app.js?v=11" defer></script>
+<script src="app.js?v=13" defer></script>
 </body>
 </html>
