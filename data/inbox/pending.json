@@ -25,18 +25,20 @@
    "bank": "BOJ",
    "date": "2026-10-30",
    "headlines": [
+    "2026-10-29 | FXStreet | AUD/JPY Price Forecast: Softens below 111.50, retaining bearish bias under the 100-day SMA",
+    "2026-10-29 | Bloomberg.com | Why Does Japan’s Underlying Inflation Guide BOJ Rate Decisions?",
     "2026-10-29 | The Straits Times | Bank of Japan set to hold rate as inflation reaches long-awaited milestone",
     "2026-10-29 | The Korea Times | US Fed keeps rates unchanged despite elevated inflation, gives little signal of next move",
     "2026-10-29 | The Korea Times | Federal Reserve likely to skip rate hike despite elevated inflation",
-    "2026-10-28 | FXStreet | The Japanese Yen's Friday hinges on one press conference",
     "2026-10-28 | WSJ | BOJ Rate Hold Seen as Done Deal, Putting Focus on Guidance",
+    "2026-10-28 | CNBC | Dollar falls after Fed holds rates steady",
+    "2026-10-28 | Reuters | Dollar rises as markets eye central bank meetings",
     "2026-10-27 | The Business Times | Greenback firms ahead of central bank meetings, steadier stocks stall safe haven play",
     "2026-10-27 | CNBC | Bank of Japan is expected to hold rates this week — but stay hawkish: CNBC survey",
-    "2026-10-27 | Bloomberg.com | BOJ’s Price Trend Indicator Jumps to Above 3%, Backing Hike Case",
+    "2026-10-27 | Bloomberg | BOJ’s Price Trend Indicator Jumps to Above 3%, Backing Hike Case",
     "2026-10-27 | NST Online | Ex-BoJ chief Kuroda backs more rate hikes, his former deputy urges caution",
     "2026-10-27 | The Straits Times | Asian stocks surge as Anthropic IPO lifts sentiment ahead of earnings, central banks",
     "2026-10-27 | Reuters | Ex-BOJ chief Kuroda backs more rate hikes, his former deputy urges caution",
-    "2026-10-27 | Reuters | Dollar rises as markets eye central bank meetings",
     "2026-10-27 | investingLive | Japan September services PPI holds at 3.7% y/y, in line with forecast, before BoJ",
     "2026-10-27 | CNBC | Bank of Japan is expected to hold rates this week — but stay hawkish: CNBC survey",
     "2026-10-26 | NST Online | Australia's central bank set to weigh if rate hikes are enough to curb inflation",
@@ -47,8 +49,6 @@
     "2026-10-23 | CNBC | Japan core inflation in September surges to its highest this year at 2.1%",
     "2026-10-22 | Nikkei Asia | BOJ to hold rate at 1.25% at meeting next week",
     "2026-10-22 | investingLive | Most analysts now expect the next BOJ rate hike in December, none see October move: Bloomberg",
-    "2026-10-22 | Bloomberg.com | Most BOJ Watchers Expect Next Interest Rate Hike in December",
-    "2026-10-21 | investingLive | BOJ seen lifting rates to 1.50% in December as 69% of economists expect a Q4 hike",
     "2026-10-19 | Reuters | Bank of Japan may raise inflation forecast, stand pat on rates, sources say"
    ],
    "id": "BOJ-2026-10-30",
@@ -59,18 +59,26 @@
    "bank": "RBA",
    "date": "2026-11-03",
    "headlines": [
+    "2026-10-29 | FXStreet | AUD/JPY Price Forecast: Softens below 111.50, retaining bearish bias under the 100-day SMA",
     "2026-10-29 | Bloomberg | Traders Brace for More RBA Rate Hikes",
+    "2026-10-29 | The Guardian | The RBA has primed the market for an interest rate rise. But what will it mean for unemployment? | Greg Jericho",
     "2026-10-28 | FXStreet | AUD/USD Price Forecast: Trims hot Aussie CPI-led gains; holds above 0.7000 ahead of Fed",
     "2026-10-28 | Investing.com | Australia Q3 inflation quickens, bolstering RBA rate hike case",
-    "2026-10-28 | CNBC | Dollar steady ahead of Fed decision, kiwi slumps after RBNZ holds",
-    "2026-10-28 | Bloomberg | Australian Inflation Exceeds Estimate Ahead of RBA Meeting",
     "2026-10-28 | FXStreet | Australia’s CPI inflation rises to 4.3% YoY in September, vs. 4.2% expected",
     "2026-10-28 | The Guardian | Australia’s inflation rate rises to 4.3%, fuelling fears of fifth interest rate hike this year",
     "2026-10-28 | investingLive | Economic and event calendar in Asia Wednesday, October 28, 2026. AUD CPI, RBA and RBNZ",
+    "2026-10-27 | FXStreet | AUD/USD Price Forecast: Holds above 0.7000 as bulls await breakout above 100-SMA hurdle",
+    "2026-10-26 | FXStreet | AUD/JPY Price Forecast: Declines below 110.50 as bearish bias persists below 100-day SMA",
+    "2026-10-24 | WSJ | Week Ahead for FX, Bonds: Decisions From Fed, Other Central Banks in Focus",
+    "2026-10-23 | Bloomberg | Australian Growth Likely Slower Than Expected, Chalmers Says",
+    "2026-10-23 | The Guardian | Economy set to worsen, with higher unemployment and weaker growth on the way, Jim Chalmers reveals",
+    "2026-10-22 | The Economic Times | Dip in the dollar takes a breather with Fed in focus",
+    "2026-10-21 | FXStreet | RBA's Hauser: Inflation outlook appears worse than forecast, slightly above expectations",
     "2026-10-20 | Reuters | Australian central banker says inflation outlook worse, unsure about November rate hike",
     "2026-10-20 | The Guardian | Odds of fifth interest rate hike this year shorten as RBA deputy warns inflation outlook ‘worsening’",
-    "2026-10-14 | Reuters | Australian employment falls in September, quashing rate hike risk",
-    "2026-10-11 | Bloomberg.com | A Higher-Rate World Is in Store as Central Banks Approach 2027"
+    "2026-10-20 | FXStreet | AUD/USD Price Forecast: Double bottom takes shape as RSI approaches 50",
+    "2026-10-18 | Bloomberg.com | RBA’s Kent Says Labor Market Loosening Faster than Predicted",
+    "2026-10-16 | investingLive | How have interest rate expectations changed after this week's events?"
    ],
    "id": "RBA-2026-11-03",
    "rate_before": "4.60%"
@@ -81,22 +89,30 @@
    "date": "2026-11-05",
    "headlines": [
     "2026-10-29 | BBC | What we now know about the UK economy in four charts",
+    "2026-10-29 | Financial Times | Fed holds interest rates as expected and upgrades view on economy",
     "2026-10-29 | Financial Times | Bank of England able to take UK Budget in its stride despite slippage in deficit reduction",
-    "2026-10-29 | Bloomberg | UK Budget Does Little to Ease Pressure on BOE for Rate Hikes",
+    "2026-10-29 | Bloomberg.com | UK Budget Does Little to Ease Pressure on BOE for Rate Hikes",
     "2026-10-28 | Financial Times | BoE to kick off short and precautionary tightening cycle in November",
     "2026-10-25 | The Guardian | Interest rates unlikely to reach 4.75% by next summer, say City economists",
     "2026-10-24 | Reuters | Bank of Canada to raise rates to 2.50% on October 28 and once again by end-March: Reuters poll",
+    "2026-10-23 | Morningstar | Where Fed and ECB Rates Could Go Next, According to Bank of America’s Preusser",
+    "2026-10-22 | FXStreet | The Bank of England just got its clearest reason to hike. Here's what it's really watching",
+    "2026-10-22 | FXStreet | Bank of England: November hike added as UK inflation stays firm – Danske Bank",
+    "2026-10-22 | Financial Times | UK inflation and borrowing top forecasts in blow to John Healey",
+    "2026-10-21 | FXStreet | Bank of England: Rate path shaped by energy shock – ING",
+    "2026-10-21 | Fortune | UK Treasury chief vows to give families 'some breathing space' as inflation runs hot, highest in a year",
+    "2026-10-21 | Reuters | Pound gains against dollar, euro as inflation data cements future rate hike bets",
     "2026-10-21 | Morningstar | UK Inflation Rises to 3.5% Ahead of the Autumn Budget",
-    "2026-10-21 | BBC | UK inflation: What is the rate and why are prices still rising?",
-    "2026-10-16 | Reuters | Bank of England's Bailey sees 'quite subdued' second-round price pressures so far",
-    "2026-10-15 | Reuters | POLL BoE to raise rates to 4% in November, but economists narrowly expect hold from there",
-    "2026-10-15 | Financial Times | UK economy defies contraction fears to grow 0.1% in August",
-    "2026-10-15 | BBC | What is GDP and how fast is the UK economy growing?",
-    "2026-10-13 | BBC | UK growth forecast upgraded but higher energy prices to hit economy next year",
-    "2026-10-11 | Bloomberg.com | A Higher-Rate World Is in Store as Central Banks Approach 2027",
-    "2026-10-09 | Morningstar | ‘Disastrous News for Borrowers’: What 6% Mortgage Rates Mean for You",
-    "2026-10-08 | The Business Times | Rate hike fears seen weighing on UK housing market",
-    "2026-10-08 | The Guardian | Bank governor urges John Healey to use budget to allay market fears amid bond turmoil"
+    "2026-10-21 | The Economic Times | Global Market: UK inflation rises to 3.5% in September, boosting rate hike bets",
+    "2026-10-21 | Reuters | UK inflation and borrowing climb before Healey’s first budget",
+    "2026-10-21 | Bloomberg | UK Inflation Jumps to 11-Month High as BOE Considers a Hike",
+    "2026-10-21 | CNBC | UK inflation jumps to 3.5% — cementing rate hike expectations",
+    "2026-10-20 | WSJ | U.K. Wage Growth Picks Up, Jobless Rate Falls Ahead of Bank of England Meeting",
+    "2026-10-20 | Reuters | UK jobs market shows some recovery signs as BoE mulls rate hike",
+    "2026-10-20 | The Guardian | Surprise drop in UK unemployment to 4.7% as John Healey’s first budget looms",
+    "2026-10-20 | Morningstar | Autumn Budget 2026: What Andy Burnham Means for Your Mortgage",
+    "2026-10-19 | Bloomberg | UK Jobs Data, Wage Growth Strengthens Case for Bank of England Rate Hikes",
+    "2026-10-19 | Morningstar | Will UK Inflation Rise to 3.5% This Week?"
    ],
    "id": "BOE-2026-11-05",
    "rate_before": "3.75%"
@@ -121,24 +137,24 @@
    "bank": "BI",
    "date": "2026-11-18",
    "headlines": [
-    "2026-10-27 | Bloomberg | Indonesia’s Rupiah Defense Seen Needing a Rate-Hike Turbocharge",
-    "2026-10-26 | NST Online | Bank Indonesia to deliver policy rates decision as capital market reels from chaos",
+    "2026-10-27 | Bloomberg.com | Indonesia’s Rupiah Defense Seen Needing a Rate-Hike Turbocharge",
     "2026-10-23 | The Economic Times | Global Market: Bank Indonesia defends policy mix after market confusion",
     "2026-10-21 | Bloomberg.com | Indonesia Holds Rates in ‘Policy Mix’ to Support FX and Growth",
     "2026-10-21 | Jakarta Globe | Bank Indonesia Holds Key Rate at 5.75%, Raises Deposit Facility Rate",
     "2026-10-21 | The Star | Indonesia's central bank keeps main rate unchanged, hikes deposit facility rate",
     "2026-10-21 | The Business Times | Indonesia's central bank keeps main rate unchanged but hikes deposit facility rate, to cut RRR",
     "2026-10-20 | The Edge Malaysia | Indonesia rate hike bets jump as MSCI threat hits rupiah",
+    "2026-10-20 | NST Online | Bank Indonesia to deliver policy rates decision as capital market reels from chaos",
     "2026-10-19 | Reuters | POLL Bank Indonesia narrowly expected to hold interest rates despite market turmoil",
     "2026-10-19 | CNBC | Bank Indonesia faces mounting pressure to hike after MSCI threat fuels market rout",
     "2026-10-16 | Bloomberg | Indonesia Rate-Hike Bets Grow as MSCI Alarm Pressures Rupiah",
-    "2026-10-11 | Bloomberg.com | A Higher-Rate World Is in Store as Central Banks Approach 2027"
+    "2026-10-11 | Bloomberg | A Higher-Rate World Is in Store as Central Banks Approach 2027"
    ],
    "id": "BI-2026-11-18",
    "rate_before": "5.75%"
   }
  ],
- "generated": "2026-10-29T09:06+08:00",
+ "generated": "2026-10-29T14:20+08:00",
  "headlines": [
   {
    "bank_hint": "BNM",
@@ -214,6 +230,15 @@
   },
   {
    "bank_hint": "RBI",
+   "id": "nw-510b1a6e97ae8cd3",
+   "kind": "news",
+   "source": "BusinessLine",
+   "text": "India should not deplete reserves to defend rupee, former RBI chief Rajan says",
+   "ts": "2026-10-27T16:40+08:00",
+   "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxQMjM1SkdPalJ1TDN6WWpjcVA5S0Itd1pyUjJ5bUp3dHYwUHRTelFYdVJVRkJwZUoyR01teFJMaEQ0YjFGMnFFUFVEcDNLTlhCWDZWbng3aU1ZTm5jSlU4Uk1OZ25EV2g1WFBkVi1adHRfdThTRGg4YWV0b19WdU9kbExTVmhPQi1RVHp2OUNXRWV3WXdXcF96eVQ3VFVVUG9nV2JwVThtMEJ1MkVadVpNWkdocEdIaGdaQ0E0blg4Nk1NVWhBem1qTjZiV0xtS0UzdGdVYmZnRTdaeFMxWFRXbTd30gHoAUFVX3lxTFBXS0lTNGkzN3lGN3d6WURpMEw4cTRqb3VOV0s4M1VjeTlZM0hXbFJVSkxhcFZRN0N1ZjVkTHBiS3E5R0lyYkpURVZrcWh0enB3Rm5XZWRabG9RbEpZWXJXaWtpRm05VHBWb1IzM0RRNld6WVBKTnpBZnNRWkt4T1V1SkM1OW1wZnJJcTdNMjNsNlA5QlZ3WEUwVDAyVmoyZFBMdlFBWGd6SFNheDUzYzhGYkhQYlZPVnR2YmlMSzZvbDAyUy1DVTBGWER1MGdsMFNaVDF3dlc3QTJ4VXR4SEJiQzJYd2FtWFU?oc=5"
+  },
+  {
+   "bank_hint": "RBI",
    "id": "nw-1ab6e8ec3e851e2a",
    "kind": "news",
    "source": "Livemint",
@@ -232,12 +257,39 @@
   },
   {
    "bank_hint": "RBI",
+   "id": "nw-9c8fc9ebb68b6ad9",
+   "kind": "news",
+   "source": "Livemint",
+   "text": "RBI may hike repo rate to 6.25% by H1 2027, warns Deutsche Bank as inflation risks persist",
+   "ts": "2026-10-27T20:01+08:00",
+   "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxNUFNvVV9ZcVdISk1qdm8tOWMyWWJwUFB1eVpfVEd4czFrSTlaS0h6TUQtX0d0S1BoY3hEUlAxM3Atb3JxXzVBTnBJdzBrb0pQOHBXY2k2M2NFaTN4UE5HVldBVEd4VDBlaGRFX0FXVF9ZTjBwMnhrcEpmeUV0N3EzdVpjNGI4LXhIdmkwV3NlbkJNeWliOHpIYnh4SjZvNHFWU1RteGpfSWxHYzRjYTNxdWRlVm9SREswVnZUYjd4ZFhpVUtLVDVDb1JsSGxxQ3l0RE0xOHZZNXnSAd4BQVVfeXFMTXlaV1hRTWJ4MjBfTWFqelFyOWpNNlNkOEloem5DenFuSEY0bHE2MGlScGw5bmE0Vlh6VG1HX19vQ0ZlNVF6elkyYTYtNlpFWFFiVG1hd0VpT0Q1MkVtb3NDZEl4SnZzV2xrNUY0VmJuZlNnd1dCTXpxTEt6T3Flc0FkbmswTVlQLU5Xc01ac01DVFQ5UGd4NHZuYmQyeXNOVGhqUlJueVIwNUcxQmVkSGstcEs4QlZTd181ZTBhV3BzVXl4aGxXUVZfX3hnWnRNWHhVbHFndlpOaV8xQ1Rn?oc=5"
+  },
+  {
+   "bank_hint": "RBI",
+   "id": "nw-d24bd719d8bb2454",
+   "kind": "news",
+   "source": "Livemint",
+   "text": "‘We don’t need to panic today’: Uday Kotak says India must prepare for $170 billion FCNR(B) repayment",
+   "ts": "2026-10-27T20:50+08:00",
+   "url": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxNWjRIcXlQX0doUC1DWnEyNVo4dENDOVoySW1ZeFBNVThSR056X1puTkdLTjh5NU1UcHF6TFUtTFZiNEtMN05OM3EwRzRTVW9Yd1RVYzB0VzBidnhhRkNDWGtVSk1mUTllN1oyNXU3U0tWZkI5X295UUMtVFp1ZFVGTzhDNlcyNzk4UGNXV1NqNzYxN3cwLVo5ZzlydHFhWXNtcmVxT0lWSGtiWjZseGNsN0RRRTBJZnJhanNHR2dXaG00THFxN1JwRHlaRjNGYkx1MGFveGd2NXFWTUtPc2ZSSVFHWFNTekthbGVKUWpKTdIB9AFBVV95cUxNVjRSTmdfbGU5MjNPLWpLY3NZdXUxVjhYeG1nM3ZDR2liX0NDc3VyY0RrTGNNMHNpSjl0d3lnRGFzblYxd3RUV292SkwxU0tqOERMbDRodVh5WkNfXzhPTjhBV3BKYmhha0lIV2lrLWlTSGd4cXJ5WHJWUHVubUoyLXZKc0pCZ0lpVDIxaTdQMkl3Mm1fX2RVS1ZBdlZUM192Z0pzcWxTazNDX0x5SXRtNXJ5ZC0zcXpkM0dwc3lma1g0cm5rT3Axd0RGSUVkRk5hUldGakNvS2owb0djMmdSVFJ2Wk84Zzd1elE2UF91cjBENDRF?oc=5"
+  },
+  {
+   "bank_hint": "RBI",
    "id": "nw-2eaf0d67d484c0ce",
    "kind": "news",
    "source": "Livemint",
    "text": "Industrial credit growth nears 20%, signals private capex revival; Shaktikanta Das urges banks to fund strategic sectors",
    "ts": "2026-10-27T20:56+08:00",
    "url": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxNTHVSSjBkdy10X2JQVjFTOHc2SnpvT0pqUTdpaXJkbmgyR2tHUUJKOFNrdzdqc0pLNVlPWEQ5bUh0b0NEY19xOWhvdjlpb2pQU0xhWENWaDdBcjJZYTQxbEc3eGdOSjZNeS1xS1JiNWtNS211Vm0xZnlqZFA3T3RYTTQyR3RlWmQwcWM3Y3A3czZNTi1nTFlQdGZJME9NRVRnNHFIendjaVptUzdheUotbjd5VmRlSEMtYVUtRk80cG1XMEc5bzdadFlneXRncHE5YTJKMzV1bWc4NkwwZjlnbFp1bXJvbTVlNFBIWGQ4aTBVUGZ6dy11dDYxTWxPT0XSAYQCQVVfeXFMUElWOGY5anFISnFzRC1NdmlHcmVtM0xLUVBoWW5PbDZvelZGWDZuS3FKdTdTNUU2MEw3b19SeEoxU3Bqa1NDMHp5N3doTkI4WEdsUWNKVEozcEdzLVQ4Nm1iSHEzWTNERnlnU2dETEpHX1psTFc5Tkoza2lsZ3BPcVluLUktYl9nQzUtWl9WMHZtUXV3Z3UzQjVMWm8xVU1JWjljeWY3TE5DUjJOVFBJMXlVZG52MWRZTFpNcnVQNTlEZlVQa2Vabkx2VzdrUDFyWWdfQ2R0WWM0NU9TUEJMUVExTWo5OGxGY3I2Rl9UMk5kZkpqV1VWbGRCX1VGM0loREpGZ0M?oc=5"
+  },
+  {
+   "bank_hint": "RBI",
+   "id": "nw-d023c4c1f1e2d3fe",
+   "kind": "news",
+   "source": "Business Standard",
+   "text": "Crypto industry leaders flag tax hurdles, seek regulatory clarity in India",
+   "ts": "2026-10-27T22:28+08:00",
+   "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxOMUEyZDhfOGkxWVE4c0VSTUtUUFY2YkJ6Y3hMcVZEdVRURjRueW9IS0hYX2FSV3JRTTVDLTF0TndpMlhzdG56T3VVSDV5c0N2RVVQNFhNYUN3MnI0dF8yeWZBSVVNQUl4NFduaEs2YkIxYlVxUXZCX3RQeGwzbkVSV3BRTUx5NUxNanBZZWdGOHVSRWN5TlVkaHZwLVcyeWs5OVhna3ZjN01XY0NCb0VpQjFxZEx6c3c1S2ZqWWoxbGpUbVJHWjl6bWdDRjFkeUhBTVgwWmdJVVY0SzR20gHcAUFVX3lxTE4xQTJkOF84aTFZUThzRVJNS1RQVjZiQnpjeExxVkR1VFRGNG55b0hLSFhfYVJXclFNNUMtMXROd2kyWHN0bnpPdVVINXlzQ3ZFVVA0WE1hQ3cycjR0XzJ5ZkFJVU1BSXg0V25oSzZiQjFiVXFRdkJfdFB4bDNuRVJXcFFNTHk1TE1qcFllZ0Y4dVJFY3lOVWRodnAtVzJ5azk5WGdrdmM3TVdjQ0JvRWlCMXFkTHpzdzVLZmpZajFsalRtUkdaOXptZ0NGMWR5SEFNWDBaZ0lVVjRLNHY?oc=5"
   },
   {
    "bank_hint": "RBI",
@@ -276,6 +328,15 @@
    "url": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxORExENWg1S05XNEVvNW5FRG85b1h3VW9XcFRPWFhxNDZyTTBjNmt2UFFIc0hQeXA0M0t6eURZbmRxWDAtWThiTmlHeVlpWC1zbFVNeUNpUVpKcktoOVBuS0lxTmdOZEh6TnB6R1I2MThXTFd4UkhNU01CVWFxdlRtOWpIbG56dFVLQmQ3TXdURkhMLUVFMlY5dWlFWkhyMTZBYnRCcUZtSEV3ZzdqOHpqeEthQlNpVVZ2cThzNG04MUdrbHpiRXZERVB5V2huZ056cHp2bFQwTXlIT0V4dUJXby0xRFh3dkp4RXBNZUw1NNIB9AFBVV95cUxQWkZBN0hjcjlPSWI5Vi1jVzFjZXJVZ3g2V0RoeXNDVndwOV96RHY5V3ZCcGQ3QnRvUEJmb3h3M0dhR3dJNmFwVmdkeTlhMG5zWkNtT2RSMW5rbk02cmlGT0JSbWxYakVMbWd6b2U5OTlPNWhyMGZUUlZsbktxR2tHeW85YmRhZmpJclFXVjZXdjB4UDFlY3Q1QW5yWXdiNUdHb2pOX1hJTksycFFjNklGaW5LZXMydVFnM1VfTV9YeHVXb2hKd05VZmJaZGNWcndVTFZYYjdqWHprWGF0Y0NVc3RnVTE1alp6RVFMRTR5MjUxcEdP?oc=5"
   },
   {
+   "bank_hint": "RBNZ",
+   "id": "nw-b7a321c0cda38499",
+   "kind": "news",
+   "source": "NZ Herald",
+   "text": "Big call today: Will RBNZ hike interest rates on the eve of the election?",
+   "ts": "2026-10-28T04:57+08:00",
+   "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxQb204LXdfdmFPY3JlN2hYUnlQeUdCTVcza2lWMm9heTE3bllhNG14S2t1R0lwRjkwTUNCbm4wR0VWX3BpYnpUUW5CenBDZUhHUWljQllFaE10aGlKaE93X0RZRUF2SEZPSEduUzFJV3NZOGltblZWcTg4MHFJWnZMNkl5NXM3eTBQSFNzNzE3SzVkeUlrZzBMRHdtcjRqcVRuUmhfaHYyb2ZIQUZlYnpEWU5fNF93dUYzTDNrT3NKbFdVZ1lfSU9veg?oc=5"
+  },
+  {
    "bank_hint": "HKMA",
    "id": "nw-385b29909d027f74",
    "kind": "news",
@@ -294,6 +355,15 @@
    "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQNUx0dGRVUFVPS3BxdDhJSDFsNVA0b3RSY0FSNDRNODJQRGhRYU1jb1RldjRqTGVyRUdGOU1sSXRuc3dKYmtvWlZNUmk2cmdrdVB4NEg4MUdCZEpSZ0dzenlUY3BKdm9QM1FWZUdxWWxmVUxBT1lCYXBSdTlMMVRJMmNHSzZ6cWtJaF9JSmF6cHJVd3RGeHo0UTFNRHdDdlBUUjd0UW92Q0h2ODdMU2J1RUNNSzR4N0JVUU51aUNmTkRoQQ?oc=5"
   },
   {
+   "bank_hint": "RBI",
+   "id": "nw-9af7b6923526a1c5",
+   "kind": "news",
+   "source": "The Economic Times",
+   "text": "Rupee edges up to 95.11 against dollar on likely RBI intervention",
+   "ts": "2026-10-28T08:18+08:00",
+   "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxPMFUyR3I0bUhjWWEzMzI4NkJQRno4ZUZ6NGREUTJ2Yy1MTmJCUE9NZDdGSExEWl8zNlFjMUp0cjBKWmtrSS1td1BaZVN0Nk1xcmkwNlp3VXhUYzlxSUpFTkVyUGZtZWNhX0dxWnc3S3lMTk5UQTMtbGhhaXFOcldwaUJoVm55OENJdlA4cW4zU1FwOVg3NGd6ZUVqUW5WR3c5WGRwNDBhR0Nwdl9zYmFWM3dSYTJnNUthMjJOR1p5RldpX1JyWmJKMXJDTVgzd9IB0wFBVV95cUxQaVpFaUUzN1BvbURlOVNrRi1wVnVoSG80ZVY3WW5lczV6QVVIUmFLc2FVekFhVkdXZnUxV1ZKcVZyVzFWWm9fTHBkVmFUQW1zNTEtV3doTXhjOVc0VzZoc2p0ZG9pWGhEaDUxZ1BMQktGQ0stNVBBZHRnWmJLdU9lb29sYVFaZkh1S1B4WVI4SGp1aDVXQ3ZzbnlYcjBSZnJKeTZpTUhDM1lTMVBBS0V5WTIxYzMteDdreHB5T0VGdFNvX0JfQjJmdEc3T21wV1BaQmpZ?oc=5"
+  },
+  {
    "bank_hint": "RBA",
    "id": "nw-c753f860fba65492",
    "kind": "news",
@@ -307,6 +377,15 @@
    "id": "nw-5a4236ac2c0d495f",
    "kind": "news",
    "source": "Bloomberg",
+   "text": "RBA’s Bullock Says Upside Inflation Risks Are Materializing",
+   "ts": "2026-10-28T08:36+08:00",
+   "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNRkJGOTdQV0lORENZdWJHRlExak9Idkloc0RpMEI5Y3h3SzlKMWZhdHlHTXgzcHdlc1hkaDdDUW9VaWtLVTJJS3FvcGZVWjJQdE9ZUEh4R1B0RGZoeTM2cnRKLVI3QWJaN3JxZnZfQWdTVlFwQ1NfbURNcHdzNElwRXVoaHRkVGlrTmVab2lvRXYxcW11cDE2RXp1RmVvWEtpaC15dWhFZXdxc2JadmZZ?oc=5"
+  },
+  {
+   "bank_hint": "RBA",
+   "id": "nw-59e140c966c5ce34",
+   "kind": "news",
+   "source": "Bloomberg.com",
    "text": "RBA’s Bullock Says Upside Inflation Risks Are Materializing",
    "ts": "2026-10-28T08:36+08:00",
    "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNRkJGOTdQV0lORENZdWJHRlExak9Idkloc0RpMEI5Y3h3SzlKMWZhdHlHTXgzcHdlc1hkaDdDUW9VaWtLVTJJS3FvcGZVWjJQdE9ZUEh4R1B0RGZoeTM2cnRKLVI3QWJaN3JxZnZfQWdTVlFwQ1NfbURNcHdzNElwRXVoaHRkVGlrTmVab2lvRXYxcW11cDE2RXp1RmVvWEtpaC15dWhFZXdxc2JadmZZ?oc=5"
@@ -346,6 +425,15 @@
    "text": "RBA Governor Bullock: Consumer Price Data Reinforces Upside Inflation Risks",
    "ts": "2026-10-28T08:53+08:00",
    "url": "https://t.me/firstsquaw/188034"
+  },
+  {
+   "bank_hint": "RBA",
+   "id": "nw-46de526b9075c2e2",
+   "kind": "news",
+   "source": "NST Online",
+   "text": "Australia's central bank set to weigh if rate hikes are enough to curb inflation",
+   "ts": "2026-10-28T08:54+08:00",
+   "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNbVhydHJvT25oamhLTnE4clFsV2ViNkZlUkd6N29SeVh0eDhJa1g0cDNzSFpGc1hqaTNxZXRmc0NlQnllUnNod1JFbUt0X3hQd3dEOWFoWnVfdHhaYTY2WmlaWWFqNDY4QzFQTlNaTUlPYU5pbW1zTU9raEg1NUpRUV9zR0pjUHVQZGdDRldjbEpkeS1XUUJETU92REZ5UVpqVHktRUs3dm5abW0ybVdHYzkwZWhSUkxPNFVKckhwMl_SAcABQVVfeXFMTW1YcnRyb09uaGpoS05xOHJRbFdlYjZGZVJHejdvUnlYdHg4SWtYNHAzc0haRnNYamkzcWV0ZnNDZUJ5ZVJzaHdSRW1LdF94UHd3RDlhaFp1X3R4WmE2NlppWllhajQ2OEMxUE5TWk1JT2FOaW1tc01Pa2hINTVKUVFfc0dKY1B1UGRnQ0ZXY2xKZHktV1FCRE1PdkRGeVFaalR5LUVLN3ZuWm1tMm1XR2M5MGVoUlJMTzRVSnJIcDJf?oc=5"
   },
   {
    "bank_hint": null,
@@ -565,6 +653,15 @@
   },
   {
    "bank_hint": "RBNZ",
+   "id": "nw-2021864b7b1678ef",
+   "kind": "news",
+   "source": "Reuters",
+   "text": "Global stocks hold gains after Fed decision, oil prices rise",
+   "ts": "2026-10-28T09:40+08:00",
+   "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQZl9HX1lrU1RCazV4ZHJxc1o3YkwyUXcyWmtXUVZwUjE1X2ZWQ0tCY3hkckptWlRUbVJ5RVB4ZUd3bUtxdktMVXpsSnU2MDlzVmQ0TDhWU0ZyeE1FN1dDSzBFckpNbm1OZVJjWHRZeE1mN1RPOUJXME1UcFNpQVhmSkVRbw?oc=5"
+  },
+  {
+   "bank_hint": "RBNZ",
    "id": "nw-c246360b386674a0",
    "kind": "news",
    "source": "FXStreet",
@@ -735,6 +832,15 @@
    "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxPMHFHN0NJNy1lS1FyQzZNRkxmZWNuZEFfNDgxdlp2SWhtY25WUkRMQ1ZNVTJWanZfTmZSaFY2eWlQZUNFTkpfMEVZbDZLWWlLbGc4N1ZTQ3FuNVZsR3JPRTJvQVpxVHYxellrbjhyTUhHVHR3WTdWXzdoX2ZJVVp1QU5pSkhLOTJSb21ZTGs3Z0VNQ3pyaThIbDZlLTZYaUltY01xSVNWbzBZbjdtZVkzNmFaS0t4SGQ1NEw1cWVOelNKVm5vNzYtbmN1MA?oc=5"
   },
   {
+   "bank_hint": "RBI",
+   "id": "nw-fa2a1f0d1e9e308b",
+   "kind": "news",
+   "source": "The Economic Times",
+   "text": "India’s record bank cash surplus fades as RBI curbs rupee bets",
+   "ts": "2026-10-28T10:26+08:00",
+   "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxQMjRwOXhNaXlFdHVaUklBLWhsOW52WG96X1Y5dkF1d2xidHVvMjhQaGl3cTZfajJndnlYV2txQi13dVpGWWVFTWpWRHdZNFRlME1RS29YT25Sb1BRLV9PWjBERmJMNUhWU09LSUFIRlFacjJ4YUZISjhjSE9FMXRFQzZRQXdmVmFTWl9VUFdWUXktdmNOZmMtZTQwcV83RVZMMVZZczlhZG9PeUMycHkzZ1RfMXpMLW0tSFU1UXFKY0lNLVdMWlJWbXB1WUJRenVyOGfSAdcBQVVfeXFMT2tqRl9KZVlERlBtNnpuSzVyYzFOQWtJZnhCb1dvLTFUNVdQZ29ZbWVjNW56RjV6NENrRDhwQkE4QjdmbWJZS0tlQ3lNangtU1Q0cVBGdEpoOVJ3ZUpKeklRbTVYai1vTE5JVzBPUGVVNTcwQVk3ay1pQ2tHd1JuT250MGFqQzVXZWx1WnlpRWFOWFdudkJISTVFWEo1RkRvRkJ2Q3VsVXVZaGdhUTR1MzBpeUpGcjZ1ekN3Umk5U2YwSWwtTWMtSDZnNGZmcnFHMmQ3TjZiY3c?oc=5"
+  },
+  {
    "bank_hint": null,
    "id": "tg-firstsquaw-188086",
    "kind": "telegram",
@@ -879,6 +985,15 @@
    "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQMG42YVUwbDN3TnNQSF94WURmYU00T0xlTU12T0dodTluM2xYa1NzY0FFMGRfcW5YaHpmS1N2NVlHZmZUcWRqQ29OTEttVlpHeTFOVTlONHlLQ1I5MnB5ck9JZDFuenRBSE5FT2xrQnEwYi1abXpQWU9nNm11RHYyNG1XVHVQRUI2WDJzeFZGNWZXVnZYYm8zVGhfZFZlUjdiMXNaUDJNVDVMUXFHQ1BRRDNOWm04ZG8tQWdtQm50SVczOWJm0gHEAUFVX3lxTFAwbjZhVTBsM3dOc1BIX3hZRGZhTTRPTGVNTXZPR2h1OW4zbFhrU3NjQUUwZF9xblhoemZLU3Y1WUdmZlRxZGpDb05MS21WWkd5MU5VOU40eUtDUjkycHlyT0lkMW56dEFITkVPbGtCcTBiLVptelBZT2c2bXVEdjI0bVdUdVBFQjZYMnN4VkY1ZldWdlhibzNUaF9kVmVSN2Ixc1pQMk1UNUxRcUdDUFFEM05abThkby1BZ21CbnRJVzM5YmY?oc=5"
   },
   {
+   "bank_hint": "RBI",
+   "id": "nw-c10db9ba50ea12ee",
+   "kind": "news",
+   "source": "The Economic Times",
+   "text": "India bonds sink on oil spike before Fed decision",
+   "ts": "2026-10-28T13:35+08:00",
+   "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQeG1ybzFyTU14YnRjOUMzcnpvb0JBRDNOWkVLVFZNNDJ5OWEzVzBpTDUwNXpOM1J2MVpwdGhfUjc5c1YxN0NTbWFmZEVmMEEtNVNBQVdfckFINlUwa1gySXBqUnA3ZFliXzdaWWFlVllLYzRhNVpUWjRWVmVHVGJ0eWtxYkUxdHlmTV96VmIxUUFLMUtMZ2w3T3ZPV0dtdHBpVVNwOEhNYVJ0ZWVNdGZVSC0ycU5YLUJN0gG-AUFVX3lxTFBOaXNfMlhscHI5eWdMUWhBV25BdlN4YXQ0QWVDTXdCandQSjBlRmtGUEN3eEU0REV0Y0N6ZjhWSlFQSHNtX1RvcTNWdklEeUFYWHRGZkp1ZlllRV9vWXV1WGJSRGlzMi1CWmRBVTAtYzZyQUxyQ2Y0YWtMVXNRNmF3MkZ5anV2MnZOSUw3cG9TYXBEQ1RwWlVaLUwzUnVLVlF0NFhDV3BWTlc3N0RxWWRBNjBWVjZSRUR1N0xRcGc?oc=5"
+  },
+  {
    "bank_hint": null,
    "id": "tg-firstsquaw-188114",
    "kind": "telegram",
@@ -892,6 +1007,15 @@
    "id": "nw-696cfbb9dfba613a",
    "kind": "news",
    "source": "Bloomberg",
+   "text": "Asia Rate Calls Are Blindsiding Markets and There’s More to Come",
+   "ts": "2026-10-28T14:15+08:00",
+   "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNMWpRTTd5V3Z4NXFRX25JWVBwOFdEWF9JODZHSjRoQ3I1WkFfUm9vUV91Y1drQ2JxRmdXd3V6aGRVdmtnczhWZXlwdzIxMjV4Yy1ZUk9qTkQ5dldicnRXQ1lNVnNHbzFmNVctaWxQTVFOQnNuRndDOXNzMmRqWHR5MC1mbXRXZzNJLUxRUzhBeTdJNkFXMWJEVFlCS056V1dYOUVKLS1XZjAycU9JcFY3bERuYUhuUQ?oc=5"
+  },
+  {
+   "bank_hint": "RBNZ",
+   "id": "nw-b1b9256aae7d9797",
+   "kind": "news",
+   "source": "Bloomberg.com",
    "text": "Asia Rate Calls Are Blindsiding Markets and There’s More to Come",
    "ts": "2026-10-28T14:15+08:00",
    "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNMWpRTTd5V3Z4NXFRX25JWVBwOFdEWF9JODZHSjRoQ3I1WkFfUm9vUV91Y1drQ2JxRmdXd3V6aGRVdmtnczhWZXlwdzIxMjV4Yy1ZUk9qTkQ5dldicnRXQ1lNVnNHbzFmNVctaWxQTVFOQnNuRndDOXNzMmRqWHR5MC1mbXRXZzNJLUxRUzhBeTdJNkFXMWJEVFlCS056V1dYOUVKLS1XZjAycU9JcFY3bERuYUhuUQ?oc=5"
@@ -949,6 +1073,15 @@
    "text": "Intesa Sanpaolo Gets European Central Bank Approval to Take Over Monte Dei Paschi",
    "ts": "2026-10-28T15:35+08:00",
    "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOVWZEaTA5Qnc5NDd2WXh1VWgyTUpTcFBvVExBOHg2TnV3b09vWnpNSVNrWWVHZDZLNWx0MDNGUU93cm5qdHJVQmMtekg1SjZrZEtfTVpCeHQ4VlRxRHRXSHNnbmZXdFNHaEM2alpHTlNQeGZRY09zVU9iWkZicEJWTFppNUcxd185c3VFLWxGcjNYUjVWc1hrNlZtRk9IbTZtQWdQVkQ1aldfU1hXSkFRQkw1bUQwSVB5bW9V?oc=5"
+  },
+  {
+   "bank_hint": "MAS",
+   "id": "nw-71b96eb3dfedc659",
+   "kind": "news",
+   "source": "The Straits Times",
+   "text": "Derek Chan named as CEO of new entity governing Singapore’s payment schemes",
+   "ts": "2026-10-28T15:44+08:00",
+   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQNlptQms4eVVBTFVSUW1rT3Blemw0TnN1SEpsSDVuR0lzOHVjbUMzWmZmcU9SdVU0VFNwV2sxU25vZnJHaUIyQjl0OHFVanR5dE92TlN1RkhlR2oxZkhjb1BhWk1tSHk1cEJQQlkzM1FYd1U0VzZkbkpPTUlvNmtrV21MeHZWRDU1OG1wdXYtb09zanJ0MzV0Wkw0ZmpCYTlSMVBQNDlOa19PeUxpX2U5TGR6Zw?oc=5"
   },
   {
    "bank_hint": "MAS",
@@ -1033,6 +1166,15 @@
   },
   {
    "bank_hint": "BOT",
+   "id": "nw-b0eac5e8dac6f346",
+   "kind": "news",
+   "source": "Bloomberg.com",
+   "text": "Thailand Holds Key Rate, Lifts Growth Outlook on AI Exports",
+   "ts": "2026-10-28T17:01+08:00",
+   "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOM0plOWNoX3ZHblNxakRTcUt4Nm5UakVQY0hEc2YzTDJ3XzJ2Zjc3bXJ2REdndmQ5ZlZMNjZTNkVXN0Q4dHNFLW1jRGZkZVlpWlJ4UVZ3a3I5bkY5dDR4aktzZ29Hak5oQ2NBTXdoYUpyNUFabk9sSWctM0l4cGs3eWNLQm1QVkFObXZpdXNRR2lYeHhzbG1SWU9Bdm5VNXZsWHdiemR4bWdLQi0zbk9JRTBR?oc=5"
+  },
+  {
+   "bank_hint": "BOT",
    "id": "nw-f3e09b6ac1cfe640",
    "kind": "news",
    "source": "The Business Times",
@@ -1066,6 +1208,15 @@
    "text": "Fed holds interest rates steady in last decision before midterms",
    "ts": "2026-10-28T18:00+08:00",
    "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQbXpNWFREek1pS2Etd19yTGZPODI1YktUbHdXRVBub0lWS1NLZ0xGRGRMNzZDV3lzUVdvVWU5cVEzWERhcUJielk5OERUYzFXVGpJTUk1WWxMaG9wUU9qeF9HdkhfQ2EtYkN1RE9lbmo1US1tWW50T3FLdjJhZVB5a0F3?oc=5"
+  },
+  {
+   "bank_hint": "FED",
+   "id": "nw-0a23464509ec924a",
+   "kind": "news",
+   "source": "Bloomberg.com",
+   "text": "The AI Fed Votes to Hold Interest Rates Steady",
+   "ts": "2026-10-28T18:00+08:00",
+   "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQV241MEpCNTlLNk5kMkloSEc0SHl4YXo2bTFHc2YxV3RqeXVjUzI2bDV6S3V6MHZQVW1hbFU5TmMyb3RUWnV6LUtYdHdjeENfa1BhamdBNTY2dXBqX2ZIb1pRV0dEc3hnLWtkWDhXOFdZMjFJMTlKOUlCUURWY3AzS1hud3lRZHVSdzFBNTE0OHM2UUJyakNXU0lkR0FMM0RmTVo4dmpIdXk0RUNnaGpiY0dR?oc=5"
   },
   {
    "bank_hint": "MAS",
@@ -1113,6 +1264,15 @@
    "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOeXVDNWF5OS1GbGdpcmoybFQxV2NzNXdiaENsVkdpd1BMTnk2dG1YQ2tGTzR6b3VfLU9rdXdjV29ZWE0tRmpHaHZjckQ5ZXE0WDV0ckVickZtMmZNNHNIMTFxcVc0YlE1SUdGRm5UczdCUU5TVXRreUQ1aURsMkRIT3ZGZEpKaVpweEtFdmFiSUNDcVNMMkE?oc=5"
   },
   {
+   "bank_hint": "RBI",
+   "id": "nw-b7dfb0ff439137aa",
+   "kind": "news",
+   "source": "The Hindu",
+   "text": "Rupee falls 21 paise to close at 95.28 against U.S. dollar",
+   "ts": "2026-10-28T19:19+08:00",
+   "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPNU12YWxsMUlLaXJBYmhtZXhvSFFobjRSNnhpaWM5SzZJRkZoZmIxczA5Z1ZSTnpBTzRSLTFzNm1jY09scGUxTXlWYTBoZXg5bXdqODVhMWRvLWJnZkJPWnlETlFpVTRxUmNmLVF2cktaSGlQRWFuWmJuYzd3dnJqbVBKS1VKTTNDN1JvU3dEOUVyZHBIX2lvQXF2Z2VfemsxaTVtQ2oybktSWXRFaVVlYXdXbW14WUs1NHVRQ2tjZUPSAcABQVVfeXFMTzVNdmFsbDFJS2lyQWJobWV4b0hRaG40UjZ4aWljOUs2SUZGaGZiMXMwOWdWUk56QU80Ui0xczZtY2NPbHBlMU15VmEwaGV4OW13ajg1YTFkby1iZ2ZCT1p5RE5RaVU0cVJjZi1RdnJLWkhpUEVhblpibmM3d3Zyam1QSktVSk0zQzdSb1N3RDlFcmRwSF9pb0FxdmdlX3prMWk1bUNqMm5LUll0RWlVZWF3V21teFlLNTR1UUNrY2VD?oc=5"
+  },
+  {
    "bank_hint": "MAS",
    "id": "nw-827c303b2b42fffd",
    "kind": "news",
@@ -1138,6 +1298,15 @@
    "text": "Focus on FOMC and Bank of Canada, after Reserve Bank of New Zealand disappointed",
    "ts": "2026-10-28T20:28+08:00",
    "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxObG9vUGtFSlNFSXpJcmNYRWpwQjRfX0VkQWhBWDVRTmdILTlxMlo1Q1FVS2hXem5OTW8yV1RTNlBTbW81alJzdF9sR0Z3bERiclNSR2p6U2xUbVE5RFg4djVTR1RjMng4NmZxNTkzLWtNNnpyYTZFSndVTVdDMVhYX2pfdE4wSFhDRWRJM3plcThMeW1XR1AtSXpRQnBHTUZwTlBiVHJEY0pzdTNFV0ZXVmxDVThaTDByYVMwc3NVbk1TYVBr?oc=5"
+  },
+  {
+   "bank_hint": "RBI",
+   "id": "nw-f144890e2da136e5",
+   "kind": "news",
+   "source": "The Economic Times",
+   "text": "India bonds end flat as oil woes come up against short covering",
+   "ts": "2026-10-28T20:34+08:00",
+   "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxPTGt4bFpjN0tZb01rNDNqcFdYaDdYN19SQW9nblM1YVVsdUloQUZ1dmNYb2FXUnE4WTlrZkNGYm81Vmg3ejZCVHdJZ2sxNEdyY05jdm5IQkJSQ0l0MXBCR0Q0bm5MU0xjZEhxdGViYTlReTdsX2dmc3N2Q3B0LXllMGtXX1JHa1NDUURkc2l4OC1ac1V3Rm0tb1ZDTE9vVjBST0xqVEh1YVdFZ3Y0d3p6Qkx1SXdJcGlzVThpQi1zSGVUNFN2ZVZLZXp2c9IB0AFBVV95cUxPUlJXMWkzS3kzOWN5bXI1N24tZERpYTJQYlBKbDY3OU1fSERvUGYwVXlHUFVFdVY1aW1WaWFnbjNNZ2ZrUS01TGw3aWlKTUU2d2ZSWGtxc3NYSkxhZl90cWRnSTRKaFNrRFFBd2x0VUtEMUJlOXNoVzJkcHo3eGlYdFJjTEZKV2ZMRHB0cG5mcUlqV1JlTlc3ZEF6Q1MxUVBEeGdFMjhwckVBbk11NmJ2MkxlMkMwSFJlaENFM3FjTHNqbGdnd2c0ell1U3ZfQWlh?oc=5"
   },
   {
    "bank_hint": "MAS",
@@ -1239,6 +1408,15 @@
    "url": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxNRXBFNDkydnJKbmwyeEEzZUZWQjRlbi14THRoTG82VjZvLUNHZ0djUjhoWWpMOUJLYlBZQ1labGlBaW1IQVdob1V6dUJ3eDk5UG1BRTZCX2w3TmNETE1Xdjgxd3BseGVBTU5PZ1VyaUgySl9IWmlHWUhlNkhOa0F1NzhadGhPWVlMaTFhZlN4QzIzN3pqNGFTbGJ6TElzaFB0cFJySGt4Vy05SFFoWl9JUi02aGpHWEk3R2p2NmhNR3Y0ekRpWklRVGxoZGdhRUVhSV92dmQ0cVlnTklJR2hINGpFWUFiTklT?oc=5"
   },
   {
+   "bank_hint": "RBI",
+   "id": "nw-391aacc51ef0bd29",
+   "kind": "news",
+   "source": "The Economic Times",
+   "text": "India only major emerging economy set to reduce debt ratio by 2031: RBI Deputy Governor",
+   "ts": "2026-10-28T22:59+08:00",
+   "url": "https://news.google.com/rss/articles/CBMi9wFBVV95cUxPSFg3a0p4ZXRzaC1IWDZIejJZcGMzTzNLTmpjMGdmYnRuRkRPcG4yUjVmNGZkQjBfdjFUZ3FlbkVRb045bnViY3dOdTJVbGlQNno4a3Y2QUZyam5id0tpcUlUTzhzMnh6YW13NGhZTEIyUW5CUjJpUkxQQ2tVaHVTcXB6VENEY1ZlRHVrWWVhbmVRMHZxREF0NXBKZWFESnUyRF9iN2djdXZaYzVRcVZncDBVUVBhTEU3SzZTSFQxb0tvTkJvSnZkeE9kMDF4dHllc3VudlpwSlgwTzNScUZBQ3RfT3NCVk45UFBvNzk0c1kycnlRTUc00gH8AUFVX3lxTFBrcjVWQVdJenBKMnlTUnFxMXExVURfR0VFRGVvdG5HYVhXeGhjeWVzNkxPbUpYcWtReEV6dTFpUTg4a1pRTUUzNDJFLU5PRkpRbkFBREJyLS1IVEJ5aGc4SDh2VXhLalBHeDV0TEw1M3ZyT1NpQzlrWlhpbGZNaEdGcEl5YjVBTXljQXdjc0ZZbE9wdVJYYjdobDJfQ2UyUlJwRVBIRlUxMXNoY21rTElGY25aR2RNOThqZ3RZeGt5NjZDa0RKS0tFZ1ZsWVIzWnZfQ1BzdThqYnNaUnh1ZUIycGEtSWZRV2JhcHN6Znptb2hBVzUtT2c5WHBKMQ?oc=5"
+  },
+  {
    "bank_hint": "BSP",
    "id": "nw-3ead26343bd42c47",
    "kind": "news",
@@ -1261,6 +1439,15 @@
    "id": "nw-89bb8822dd07cd8d",
    "kind": "news",
    "source": "Bloomberg",
+   "text": "UK Budget Does Little to Ease Pressure on BOE for Rate Hikes",
+   "ts": "2026-10-29T00:17+08:00",
+   "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNb2pDODBKNEpMenJucHo4dkczQW5oV3RMSjMzZm9mX1NzbDAyNUxBX3JuZnpfdGs1T0lIUWJyY0JER083NnBvakR2T1ZFd2N4Tldua3AwMjhrcWszd1ptU0xpQ3dUWXl3V05mcFVmTUV5QmhESng4SDhwbmp1NExmajJNdmRRTzNZN3BTQzNadGw4aDdiTDUyRVJGMTY3NEoySjE3V0hYNmF2RXdwbVNQVw?oc=5"
+  },
+  {
+   "bank_hint": "BOE",
+   "id": "nw-7631d4bedfeece68",
+   "kind": "news",
+   "source": "Bloomberg.com",
    "text": "UK Budget Does Little to Ease Pressure on BOE for Rate Hikes",
    "ts": "2026-10-29T00:17+08:00",
    "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNb2pDODBKNEpMenJucHo4dkczQW5oV3RMSjMzZm9mX1NzbDAyNUxBX3JuZnpfdGs1T0lIUWJyY0JER083NnBvakR2T1ZFd2N4Tldua3AwMjhrcWszd1ptU0xpQ3dUWXl3V05mcFVmTUV5QmhESng4SDhwbmp1NExmajJNdmRRTzNZN3BTQzNadGw4aDdiTDUyRVJGMTY3NEoySjE3V0hYNmF2RXdwbVNQVw?oc=5"
@@ -1336,6 +1523,24 @@
    "text": "FED: INFLATION REMAINS ELEVATED",
    "ts": "2026-10-29T02:00+08:00",
    "url": "https://t.me/WalterBloomberg/37512"
+  },
+  {
+   "bank_hint": "FED",
+   "id": "nw-5e435e42abd2d1c0",
+   "kind": "news",
+   "source": "CNBC",
+   "text": "Fed holds rates steady despite concerns over inflation",
+   "ts": "2026-10-29T02:00+08:00",
+   "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPVjFqcXcxNFVDRGhYVGxJWGRJMTlJQmxGSDB5WUtrVzVKTGdOeHJuRFlCclpaVmFYQWtuQUx5QkliT0hCY05xN2oxTEs5eFFpa1dfMHBOTkY1Q2FMa3RRYlJhdU5tc2pJQk9KRkp2c1l6bVZFak5FYzUwelRWRnlJX29B0gGHAUFVX3lxTE9YSTVNRm1qMmE1eUZDQUlLdW51bmtLeWxka1JqTDFTMG9rUnNDR21QNFJRTTIxQjZyRlliVzZoYzd2MVVRTmFuQk13bE5qVFJsazZ6S1Jyd2h0RUl5VzM0TlphMFBhU21oUFpkOGRyQjFKVEkyZjVObmVBMVl2S3FTZ0RUVTFiWQ?oc=5"
+  },
+  {
+   "bank_hint": "FED",
+   "id": "nw-2e841ea29ea38c3d",
+   "kind": "news",
+   "source": "Bloomberg",
+   "text": "Key Takeaways From Fed Decision to Hold Rates Steady",
+   "ts": "2026-10-29T02:00+08:00",
+   "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNazA1c1dQMFJxcHlvOVpqYk1iUTk0ejhkRlVYc09KVm4yR1NqVjBvTU04MlE2U095QzBNTWZsbVlCcVpNRHNfb3pUSGJYM3QwZ3ZyeUlMS2V6UU1VUUtkdlVEcFI5aVAtSjNhWUhMTVE3UWg5dnRpXzNoZGt6S0trcXZnOW5NaDZkSVNob0N6WmczeUFEeEFWbjFfLWxxbi1janRWQ2ln?oc=5"
   },
   {
    "bank_hint": null,
@@ -1480,6 +1685,15 @@
    "text": "US Fed keeps rates unchanged despite elevated inflation, gives little signal of next move",
    "ts": "2026-10-29T02:20+08:00",
    "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxPak42azdUcEt1MmdxaENnZTBPMC1EeDV4Tk5mbG5HcUJmXzI3N2JRckhYdTBybG01XzBmWXQ0Nm5vUDdqTVlwR2s4enBoNVNTTTd6TzJGWUNhbVFLaEk5M2JCcTNWeGtFdzkyTkFQMFlCUG50bDBZSlRtV2FqM2NSZC1mZzcyblc3VGdIRklDWVJzajE1R19Oay1PSHI4TDV6d2NKMTB0SDJUZWxfOUtWdVliTFJER0l4bUlodF81a0NVYUIwR013dWRQanUxdXhuTGfSAdIBQVVfeXFMT2pONms3VHBLdTJncWhDZ2UwTzAtRHg1eE5OZmxuR3FCZl8yNzdiUXJIWHUwcmxtNV8wZll0NDZub1A3ak1ZcEdrOHpwaDVTU003ek8yRllDYW1RS2hJOTNiQnEzVnhrRXc5Mk5BUDBZQlBudGwwWUpUbVdhajNjUmQtZmc3Mm5XN1RnSEZJQ1lSc2oxNUdfTmstT0hyOEw1endjSjEwdEgyVGVsXzlLVnVZYkxSREdJeG1JaHRfNWtDVWFCMEdNd3VkUGp1MXV4bkxn?oc=5"
+  },
+  {
+   "bank_hint": "ECB",
+   "id": "nw-e3578743c9198e7f",
+   "kind": "news",
+   "source": "Financial Times",
+   "text": "Fed holds interest rates as expected and upgrades view on economy",
+   "ts": "2026-10-29T02:20+08:00",
+   "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1BVTloVEJXOGt6WDQ0dFVMV3JFS2VvNm5oMW1VM1lmeUw3NlRiWWYtSkt0Y0pJYmpfUTRiWFNtS0xDVW9HbGNCRnpaMDlSOXlLNnExSU5lN2lHeWZuNDZaUG1ueVIzdG1rRTBxMXk2Tm8?oc=5"
   },
   {
    "bank_hint": null,
@@ -2058,6 +2272,15 @@
    "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNYTNINnF3d0YzSWhxXzBuRUxDc2RycVdyV1FFVGFMcFMtdUZxVmx4RGQ5NDdJRmpRdlhMRlN4d1NTV1BFYVFXekxSQUhjRjBKWlNxTzNrb04xTmx5THJ1OVBZem1HWldlb2EzaWFsbmVNYUIxVWtqano5ZFJZanllZVJTYWNuYXVqRzFxMjRRSjVqaXBvWFQ5cTJiSElpWldqbjA5bXl6eEM?oc=5"
   },
   {
+   "bank_hint": "FED",
+   "id": "nw-2ce3200001a238d2",
+   "kind": "news",
+   "source": "Bloomberg.com",
+   "text": "Fed Says More Data Will Help Next Rate Decision as It Stands Pat",
+   "ts": "2026-10-29T04:16+08:00",
+   "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNYTNINnF3d0YzSWhxXzBuRUxDc2RycVdyV1FFVGFMcFMtdUZxVmx4RGQ5NDdJRmpRdlhMRlN4d1NTV1BFYVFXekxSQUhjRjBKWlNxTzNrb04xTmx5THJ1OVBZem1HWldlb2EzaWFsbmVNYUIxVWtqano5ZFJZanllZVJTYWNuYXVqRzFxMjRRSjVqaXBvWFQ5cTJiSElpWldqbjA5bXl6eEM?oc=5"
+  },
+  {
    "bank_hint": "BOE",
    "id": "nw-63ff7bbeb4798f07",
    "kind": "news",
@@ -2065,6 +2288,24 @@
    "text": "UK’s Healey Says Bank Capital Rules Must Be Globally Competitive",
    "ts": "2026-10-29T04:34+08:00",
    "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOTVYwSUMtbjM3VEdUVmhDbmpnWHYtV1lYUnlBd3dSQ0ZSamgyR0daV3FRS01IUWR5dnBKMkFvRlN3cmJFV2pxcXBDRmdMNHl3T2w3bmY0aDZKYzdaVmg2WUZzTGdUMTdMQWRzZlAwbjFhZ0RtYURwdU1qVGgyQ2ZHMVVrYWFjZWtqQ0RBVVlkUlpBNGxoSGo5V2ktMVF1eFAxNGd6eTJjaWoxdUtiLUo0c2FyOGFrUQ?oc=5"
+  },
+  {
+   "bank_hint": "BOE",
+   "id": "nw-4a9a46f6b887145d",
+   "kind": "news",
+   "source": "Bloomberg",
+   "text": "UK’s Healey Says Bank Capital Rules Must Be Globally Competitive",
+   "ts": "2026-10-29T04:34+08:00",
+   "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOTVYwSUMtbjM3VEdUVmhDbmpnWHYtV1lYUnlBd3dSQ0ZSamgyR0daV3FRS01IUWR5dnBKMkFvRlN3cmJFV2pxcXBDRmdMNHl3T2w3bmY0aDZKYzdaVmg2WUZzTGdUMTdMQWRzZlAwbjFhZ0RtYURwdU1qVGgyQ2ZHMVVrYWFjZWtqQ0RBVVlkUlpBNGxoSGo5V2ktMVF1eFAxNGd6eTJjaWoxdUtiLUo0c2FyOGFrUQ?oc=5"
+  },
+  {
+   "bank_hint": "FED",
+   "id": "nw-760d85b397e41bde",
+   "kind": "news",
+   "source": "Xinhua",
+   "text": "U.S. Fed holds interest rate steady ahead of midterm elections",
+   "ts": "2026-10-29T04:55+08:00",
+   "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE84WUNFUGJjdVJpbHpsRDljYV93TXIzeTRObGFLTVByZXVGUkl0ODVrT1Zldy1ONGZGcUxybGt6RGxEVWhQTzZZWHI4LWJRQUlFODVMVVdvLWZOWThMRGhseURMYzNGVzFoeGkwa0xJMFJoWFAxOFZxSkVpa0w?oc=5"
   },
   {
    "bank_hint": "FED",
@@ -2101,6 +2342,15 @@
    "text": "‘Don’t panic,’ Marcos says after peso’s historic lows",
    "ts": "2026-10-29T05:30+08:00",
    "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNLW9HMDR4eDNrU2N6RGVkQ2xIcHNXbjhabTJfSDc4RDhhVV9hRWQzdzR6RTZWNENDdnRhV2ZLTTgtXzlIbmdBTVBPQUg2UHBTMDFfRkZHOVN1aWJhQ2JIZ1ZtLWVxZXc1SFhHRk1TdHgtQTFiTXhDcDUtVnVXMFZOQ2FqSE1rQ0ZGYW1aZWFGd9IBlAFBVV95cUxOWUlKS25pY1pxZ0tMdWFGS01OZDhPT2o2MnFqdzZSa3h3dlZ3NVhvXzZlTllhZEFUdWoybWZKV2NyYXRWM2lCYUx5MkVGOHUwR1NNUzlBM3BNdGxMQml4RHhLZEwtaEFvQmpDOG5XWjlVeDB6WnAtUkplQ2w1ZWpJczBKcjBkM2s2YTRvTWNIeXE0X05i?oc=5"
+  },
+  {
+   "bank_hint": "FED",
+   "id": "nw-db0c59e22b6bdeb3",
+   "kind": "news",
+   "source": "CNBC",
+   "text": "Here are five key takeaways from the Fed rate decision and Warsh news conference",
+   "ts": "2026-10-29T05:31+08:00",
+   "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE5HTy1FRHJET2ZsWjdodm1pYU11UnkxQnJwU09YdjVUQV9xaEJfc2V6blhkdHJNV3ZLTGtaZ3lYZ2pYTElPQXVLMFl5T2IwVkhaWUo4Y2hrZGxfMXJ3d1NaYXhTSHBXM3RnS2NJMzA1cUppWGxRelEta1pR0gF_QVVfeXFMTXBjUk5HbWZHZHBtbFdrTDU0c2FpdUxrQmtCakJZTUxQUWdCYXcydWFfVmFDdnViazVkRmxhOHNuR1ZNdmdpSUFZUEt4OXphUlR2bjNqejg4UkpZZ3VNWU9DZ0RTMnUzd1lPUEphVTZXV2ktV3BUYXBJNDZrVVRZaw?oc=5"
   },
   {
    "bank_hint": "FED",
@@ -2248,6 +2498,15 @@
   },
   {
    "bank_hint": "RBNZ",
+   "id": "nw-550d959bed3fd5c2",
+   "kind": "news",
+   "source": "NST Online",
+   "text": "Dollar falls after Fed holds rates steady",
+   "ts": "2026-10-29T08:16+08:00",
+   "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQYmZESGhwMHpCU0w5ZGExdEFRS2RGTzNucE1hTl9jZ3UtWFo1cUY3b1Y2LTlNbjdsRWJYcWxKbjJCQ0JUQmx5TVNtZjNKOG5idkZJd2s3cS1NNGk0S1llczVJb0FyaXlLdTNhMklBckl6dVh4MjFDN2pmM2lrZ0t3aGg1aXpkeXljT3oyNF9iVngwVkt3OUlRMUszT2pOQdIBowFBVV95cUxQbWlSRE1xWVF5SXo1S0otaDNTUUZURzdPejg5WmhLN2w5NlQ1TlJZdTNFamdVZG9INWlHNS0xSWRPejBaYjBkblhOSl93eFlPS3BIV3daY1lneUhYM1BwS1E3T1dVYnI4VFhTNjFJX25HMnBzUkF3akozcXJkLURYdVVZd1B1cGxjeHhRWE4xMUJGamxmVkFuNVBELUFfQnBwbmdJ?oc=5"
+  },
+  {
+   "bank_hint": "RBNZ",
    "id": "nw-a30201fff1c5bcd2",
    "kind": "news",
    "source": "Reuters",
@@ -2263,6 +2522,15 @@
    "text": "ASIAN EQUITIES EDGE HIGHER AT THE OPEN AS TRADERS DIGEST THE LATEST FED DECISION AND EARNINGS FROM MAJOR TECH FIRMS",
    "ts": "2026-10-29T08:25+08:00",
    "url": "https://t.me/firstsquaw/188392"
+  },
+  {
+   "bank_hint": "RBNZ",
+   "id": "nw-e17557685d51d3ee",
+   "kind": "news",
+   "source": "Investing.com",
+   "text": "New Zealand central bank governor says chances of December hike are ’high’ By Reuters",
+   "ts": "2026-10-29T08:28+08:00",
+   "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNMG9MRk9FWlN1dXUxUFhtdF9na3AyWWtrSUEzeVZEbkxFUTFYV3BncnY3dW4xYjY3UnY1ZnJJdHpmeExZc0wwcDgtYlhSNmxGd2RrUmozVWRJVS1xVHdVOUNYalRZRU9TTVVmUU1tLWxhcXpsdGpwTmFCb2NUTm1JZTFHNUxGVzR1TjU4Rk5IS2d1cFJiOFBkVHNmQnFVaTJ2VjhadF9KdmJPTEhGbFhkZkpRTzgxSVVRSnZackVqMUxyZw?oc=5"
   },
   {
    "bank_hint": "RBI",
@@ -2281,6 +2549,222 @@
    "text": "Bank of Japan set to hold rate as inflation reaches long-awaited milestone",
    "ts": "2026-10-29T08:40+08:00",
    "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOVGFvcm1rdTc3T3pWY2k0TnlOMndLQmRid2Y4RXRrSFFrVHkxR0cwNW8zaGNwLTYyVjk5QXhQakZrMUpRZlZQRzk4MHFwNVQ4Q3lrd2stcUJIS2hBWC1iTnVqNDFNSUpkMmE5QnpZTmRRN3Y3SC01eHJGZXlpRjFrRWxyVll1RllhSVBFS292aVFzRDNMbXNBYmQ4M2ZEMXdTWlZFLXBQTDFMMG5FQ0ZDVG53?oc=5"
+  },
+  {
+   "bank_hint": "BNM",
+   "id": "nw-e75be58d73899a71",
+   "kind": "news",
+   "source": "NST Online",
+   "text": "Ringgit opens higher against US dollar on expectations of OPR normalisation",
+   "ts": "2026-10-29T08:43+08:00",
+   "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQUjNGWjQzdGlrX3FDNHBWa25DYXQwMXJ2ZjBqSEJBTTdSNUJEMXM1QTQ5c28xZDRfdDlPc0RMcGJQblYxX2FvN2p2emNjLXItNHU1TmtoQWhPOU1KLV9CeHdQYkZaWjNuTFdFcUtVdFB6UXc2dEE1VjBJdTRQRkFWZUtMLWcydmNqZnhlUlp1Q3VLTllpRldxRWQ5T3BQalN0LTZLRUllN1A1cTlSaWhGajNMN3pNZ9IBtgFBVV95cUxQUjNGWjQzdGlrX3FDNHBWa25DYXQwMXJ2ZjBqSEJBTTdSNUJEMXM1QTQ5c28xZDRfdDlPc0RMcGJQblYxX2FvN2p2emNjLXItNHU1TmtoQWhPOU1KLV9CeHdQYkZaWjNuTFdFcUtVdFB6UXc2dEE1VjBJdTRQRkFWZUtMLWcydmNqZnhlUlp1Q3VLTllpRldxRWQ5T3BQalN0LTZLRUllN1A1cTlSaWhGajNMN3pNZw?oc=5"
+  },
+  {
+   "bank_hint": "BOJ",
+   "id": "nw-f6762b56fcf25aef",
+   "kind": "news",
+   "source": "WSJ",
+   "text": "Japan’s Top Labor Union Targets Big Pay Bump, in Line With BOJ Aims",
+   "ts": "2026-10-29T08:45+08:00",
+   "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQU3FQN1A4V282dTQwd1ZWeFhTcmZ3NkJuQXJ3NElDaXAxUDIwRllyWC11RW8tYVdwb3pnQmtjYXpEZ09OVEJuczBkUHItV2xIT2JEeUxMN2RhWjdMVlk5QkRoMUE1WlFpTlVzUlltMzVJQWlEOWdYTUVXX2hzSFgwejBsOUI5ZDBVSzNHR0d1WWFmMlFhY1RSUno3clQzWmRnRVZVdG5n?oc=5"
+  },
+  {
+   "bank_hint": "RBNZ",
+   "id": "nw-f5e9cd70b6bb2d40",
+   "kind": "news",
+   "source": "investingLive",
+   "text": "RBNZ’s Breman says chances of a December rate hike are high after surprise hold at 2.75%",
+   "ts": "2026-10-29T08:56+08:00",
+   "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOa2ttTmNEaWU4d1ZxT1lmYmZkZUdBNE82U0lKR0hCR1FaMGdpa3NUTTFSQk9rUm9XNmpsVDRRclNodnRJWTZ1cEdpaThISHRLY0xNWjBCS1JpMTRlZnBJZk1LdnJuaW9ZcVJLSWlzVFVycVU3MVdvN2ptVmRGajhVMFJjQ2tVRVRUUWFRYVlTN0ttV2RmRnlaZmNsc1RCSFM1UkxzNGEyS1BPUTNFODU1Q2RQUGZPbTdMdDYxSEt2ZXBGUEpXa3Zr?oc=5"
+  },
+  {
+   "bank_hint": "BOJ",
+   "id": "nw-afecc882cd38b435",
+   "kind": "news",
+   "source": "Bloomberg.com",
+   "text": "Why Does Japan’s Underlying Inflation Guide BOJ Rate Decisions?",
+   "ts": "2026-10-29T09:02+08:00",
+   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPMjVPaFJxdlBwT1ZvWWtSekw0M1pka21ldUxKRDNiT1NUV2FjRmI2NkVKYW8xT3BuNzNyRTRWbGwyakFvMk9WdWNKN0hCeW9mNG54d01ScmgtZ1dTMk81QkpReW14bEdmV05tcHNXQ0hEdjdIWmM2MVhDYVdmcG1CNWxLQnMyZlF5c1BwNWpqMGw3XzJaSXBfUWtRU29ZQVNPejh5cUUxTVdCa3Bxa1p5cmV0NA?oc=5"
+  },
+  {
+   "bank_hint": "PBOC",
+   "id": "nw-a1f47a3add082abf",
+   "kind": "news",
+   "source": "China Daily",
+   "text": "Banks shift to noninterest income as heavy lending dwindles",
+   "ts": "2026-10-29T09:03+08:00",
+   "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE5tMkRleklhUFd0c1RkeVZPMzlkdW1RQTgza3BMMWlCLXJGRUh6cnZQcXZKaGIxNkJyMmhFN2xISXctTTJWamNYZk52T1RGdUFfa2ZsbHhsVnF2VGdHeXM5dmNFXzVvSWFZTWl4TDVCQXQ5bFE2S1FvbHpDOHdXQQ?oc=5"
+  },
+  {
+   "bank_hint": null,
+   "id": "tg-firstsquaw-188416",
+   "kind": "telegram",
+   "source": "First Squawk",
+   "text": "CHINA'S CENTRAL BANK FIXES YUAN MID-POINT AT 6.7147 PER DOLLAR",
+   "ts": "2026-10-29T09:16+08:00",
+   "url": "https://t.me/firstsquaw/188416"
+  },
+  {
+   "bank_hint": "BOK",
+   "id": "nw-b06a8f61b4190a8c",
+   "kind": "news",
+   "source": "The Korea Times",
+   "text": "Korea to closely monitor impact of upcoming US midterm elections",
+   "ts": "2026-10-29T09:51+08:00",
+   "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNNVFER1dlQWY1UmpHSzU0bkZhYUEtXzdYTzRyazI2VXY5ODlmWlNYQkpHNGNxdnlEbUFyRmtzeGFqVlh2X3pUMHl6RDBIcXlmYzVHaVB1SUFreDM1Q3ZfMGcxYTlNMUY1M0pCUVoxVlZmMXlkc19xdVoxUm1XTUtRbjE5aWRYRFdKaDZ0aE5QTTQ4ZkFsc2o2Vzl6U0M2NkE2SkVLeXZqNFFFWmZDMThia3REbUfSAbQBQVVfeXFMTTVRREdXZUFmNVJqR0s1NG5GYWFBLV83WE80cmsyNlV2OTg5ZlpTWEJKRzRjcXZ5RG1BckZrc3hhalZYdl96VDB5ekQwSHF5ZmM1R2lQdUlBa3gzNUN2XzBnMWE5TTFGNTNKQlFaMVZWZjF5ZHNfcXVaMVJtV01LUW4xOWlkWERXSmg2dGhOUE00OGZBbHNqNlc5elNDNjZBNkpFS3l2ajRRRVpmQzE4Ymt0RG1H?oc=5"
+  },
+  {
+   "bank_hint": "RBNZ",
+   "id": "nw-a52efd56855cb234",
+   "kind": "news",
+   "source": "Reuters",
+   "text": "Euro steady before ECB decision, dollar holds ground as Fed stands pat",
+   "ts": "2026-10-29T09:55+08:00",
+   "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNYmVmOE5mU3JyckhjNGlWelQ5QVdhNzkwU0h1Zkd4bjJ6UGszY2lYem1BRmxjWW95VDBrYzg5NXNIWFhFWmNjNmFlUHZleE01YnNOWjRWVV9LWU1SYS1lRlVoRm15U1FrNjdvbkhtVzA4UWNzREJFWjBmUS1vU1FmcEN5a2loa1VsaHRRN190UHZNRmtvTVR1a0RmUlZwTlBPTmtoVFpURGpudw?oc=5"
+  },
+  {
+   "bank_hint": null,
+   "id": "tg-firstsquaw-188426",
+   "kind": "telegram",
+   "source": "First Squawk",
+   "text": "JGB YIELDS MOVE HIGHER AS INVESTORS AWAIT BOJ POLICY ANNOUNCEMENT - WSJ",
+   "ts": "2026-10-29T10:00+08:00",
+   "url": "https://t.me/firstsquaw/188426"
+  },
+  {
+   "bank_hint": "RBNZ",
+   "id": "nw-0939f0fd42bdb8c8",
+   "kind": "news",
+   "source": "Bloomberg.com",
+   "text": "RBNZ Governor Sees ‘High’ Chance of December Interest-Rate Hike",
+   "ts": "2026-10-29T10:07+08:00",
+   "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQMGh5LWVzNXZjSnVjMTZMd054ZWlzTUI3YW40NDh4UndBdXoxTnQ2YjB4RzBPQnBrTWc3eEd0T1d5cVZxY0wzUUd6SEUzS0M4ckt6aWNqb1VlaE1fYUx2Sjd0Y0ItTnFCb2FsVTNMTVN5dXRDalpzcTcyS01Bb3B1V2kzQWhIQXBjNlVBcFBLTHRreTBpbE1HNG1TM2NXZDlvSU1tNHJrNjBMN0VPb3M4V2RB?oc=5"
+  },
+  {
+   "bank_hint": "FED",
+   "id": "nw-100687a40143b9f3",
+   "kind": "news",
+   "source": "The National",
+   "text": "US Fed holds interest rates steady as inflation runs hot",
+   "ts": "2026-10-29T10:37+08:00",
+   "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOT2ZqOUNVTnhtaHN0OWIxcmhYeUNvTWhXVlF4MzdIT2ZYa1U5enBYMlFoZFVuZm9RRy1vejl5T1VXOHBwUHNTV294OFBzWGxHTTRGTFVYUXNiTGFuaG9sSDNoSEFnbXc5akR0RjJKZWd6NlBwb2VoT2tzd2ZYdGlUanQ5MUFnc0FwTEVQR0J3MnFjdzVvZkZwS25rQUNCYXV5R2c?oc=5"
+  },
+  {
+   "bank_hint": "BSP",
+   "id": "nw-0e22940c80811358",
+   "kind": "news",
+   "source": "Philstar.com",
+   "text": "Palace urges Congress not to cut Marcos projects in 2027 budget",
+   "ts": "2026-10-29T10:40+08:00",
+   "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQU0Y4dWh3RGhjNWNpNkFPOGZmVjZDM2VVUTkxbFRlck5TR05xSDBIb29USExXY1owMW0xWmZDWV9lNDMzV29oUlg2ejNmLWZ4VnJ4RHByTDdnYnNpci02S25PdGQ3VXBtQ0ZUUmllRGFEUXRXSHNTVnFLQ2EydTZjS2kzeXVpemo4LXZuZDc3UlBzYTV2V2p2VXdCWVRHcUl6QU95Z1FBR3I3c2l1S2VmclEtd25SYzDSAbcBQVVfeXFMUFNGOHVod0RoYzVjaTZBTzhmZlY2QzNlVVE5MWxUZXJOU0dOcUgwSG9vVEhMV2NaMDFtMVpmQ1lfZTQzM1dvaFJYNnozZi1meFZyeERwckw3Z2JzaXItNktuT3RkN1VwbUNGVFJpZURhRFF0V0hzU1ZxS0NhMnU2Y0tpM3l1aXpqOC12bmQ3N1JQc2E1dldqdlV3QllUR3FJekFPeWdRQUdyN3NpdUtlZnJRLXduUmMw?oc=5"
+  },
+  {
+   "bank_hint": "HKMA",
+   "id": "nw-fba76a95c7a67393",
+   "kind": "news",
+   "source": "CNA",
+   "text": "Hong Kong Monetary Authority leaves interest rates unchanged, tracking Fed move",
+   "ts": "2026-10-29T11:17+08:00",
+   "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxONzBwMXZScVVWb1BjdEFPUHVDT181MWQ5ZG94Y1RNZTZlM3h3SmI0U1JsZEZGa1dqUmZKRW8wU2Z4YlB6ejI2Vm1ObnEzZGo2b3hfM1NVLW54dm1LOVllandjQ2hOWHpFVlpBWldWNm5wNHpLZlBBb1hUYi04TzBvWGFDYWRrc3oxeW1EZF96U0dUTDZQeXBnWjFMbzBnLWllVWZJUHdNLVdtQW9RZE1aOExkdlgyRG0yZjZfQXlTWnNrUWFMNkE?oc=5"
+  },
+  {
+   "bank_hint": "BOJ",
+   "id": "nw-de7c0e6c43950f42",
+   "kind": "news",
+   "source": "The Economic Times",
+   "text": "Global Market: Japan's Nikkei rises on Advantest forecast; Samsung slump caps gains",
+   "ts": "2026-10-29T12:18+08:00",
+   "url": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxQYnc5WExlbi1ISUdsTlF2bzRHUHZMampQal9NcDhPdHlKNF94em9vSFU3ajN1b1RiUEllWlVYNzVwMUNZSHFzMW44cUl5ZzJFRGd1Tzg5Z0VkdERFNXF5OVJncjNwMXphTU10akFEajd0SUdtTnR0MndRSlg3NFg3TTRDX3FxWXdnYlNuMDR6bXRiMFQyWnVIY0pQa0I2M3RBaDN1S1MxRlU1UEhnT2pldG9GLXBmNHd4YUlHY1pFa25rTEtUZGQwb3V0RmdjXzNiQUtuLU04RHF0NXNHRjVzbDBta2xnRFJuMm9pRURB0gHzAUFVX3lxTE1wWUNGS2xjaENwRlNPeWpPblVqYkJkckdQYXRHcmxGeTNGV240ZGkxdC1DTDBFTGFVNHR1UnM4dTRaeGlTZEJCRDlkeXM0Wlc4MllRdHpBN2UwQ1ZyOWw1R3FJZXF4Y1hpMUZkSjl6b0JNejJ0QlM4N21selJCT3BXN3htUHpjSlp4aGtKM2NSSkt2c2cxTFpjSmFjWm1LR3lIdnlDeG5Wd1JVT1MtOFdzaDNBckdQMVVWOFdQd3JNOEMxRGhBUlVuaGdHaTh0Ri1FbUZjNTc2U2FUY3R2bWtVQ2ZTRzVMTHZvaTJHdkJGYm5sNA?oc=5"
+  },
+  {
+   "bank_hint": "BOK",
+   "id": "nw-c823e67ec41c6a9b",
+   "kind": "news",
+   "source": "The Economic Times",
+   "text": "Global Market: South Korean shares fall 2% as Samsung Electronics slides after earnings",
+   "ts": "2026-10-29T12:22+08:00",
+   "url": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxNYUJkYTk3cUw4b1poQUZ5QW9GY002YU0yR3BocEZ4WTZsY0EwUUFJOENtdktvX1NIVGZUYUZyQ0t6dDdIbzhKUkphU25lbVFxb01xeS0zTXNLVWIwTGNaWUhYdTVnaVdXX3Y3b2RIb0h2V3ZqVXdDTHJHWXhDa1d0Y25FUFROanFMelRSZ0toLTV2ZnNVS1NqODRGNDN3TXFOcWVFTFd5bWJ5a004UXdBTXhOQWdsZzVYTVVUak1PS2hQMjMwYUVndG9IbDZOeXZESXd6Y0dzTVNwZTZ1X0VPeGRyVlBJQTJOcjE3UEc1ODlXQ2JP0gH6AUFVX3lxTE1haVZqWDYwMFpMMUZDQWxjLWRKcERWMV83dk8wSjRXd3Y1LU1YTXljWk81QTZ4czZsWC1zNy1uR3c3WVYyWTNXTFBqek1VZ3JmY1BrbUl5cUZnbGdKRkdmR1gwTVdWMUhNWmFJcXo4RFdxWkFLUDJVNTlpRmxlblZoQlg0dzNPMF9IMS0wakFoc3JYbVZsZVV2MWQtN0tNempGLWhvcnFYS19MQlNpbzVHZ29PRHI0OHNONG5tSktzRXhsaS1XeUthelRZTWlHNGlEQUF2eXBMZ2lwQTFtNVVHb1pJNjZVV2syRzdHSkpXX2VwQXh2bkgwQWc?oc=5"
+  },
+  {
+   "bank_hint": "PBOC",
+   "id": "nw-d5f89123758955a7",
+   "kind": "news",
+   "source": "The Economic Times",
+   "text": "Global Market: China’s yuan hits four-year high against dollar after Fed holds rates",
+   "ts": "2026-10-29T12:32+08:00",
+   "url": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxOT29MaVdFMTRCOFNWUFg1OG5OdWhWR1FyZzRXRlBmOVNyejhVMG1LU2E5Zkd2b0FPaXM2ckpzU1IyMVduTGdWVnMtZC1oQWRrNnVFdzhueElyMUFIWWdmSzBwV2VRd3YzUjBtUzI3WnJFOVFPRl9sZFNLejJnTmdMakh1MXlLbS1HWjVRVnRvOXJmZ3ljeDhjal9pNHFZWUdQMUJwaDVJUUNnVzlkcGNRTE80X0xyckRLZU14T2MwYVNmV3FXMXZWWnN6RlA5VVd1TU5DOTN0UU51aWxBbmNMSEFtNTdROFRqczYzTHJTR07SAfYBQVVfeXFMUHhiQ1JKcndsMkw2QklhREZIRG5NWlBKbjN6Uk5JUWUwOEJkdGI1UXNLbTd0c05rOUNNS0trSHh3ZHNCRVF6V2RCT3g1N2NVYm53RWtNeU9GOHk2SjBDUFhnZXlvdDIwel9GRnB2TEhfNjlnUERxYk5iUTZuRGttZ0R0RkNXR3NCWk1Ld1RiOFgxOVFuQVJCcS1ubFNsbmZXbUJkS2hXWjc1MWNLYnRrYlFjZ1dRZUoxLVZFSzNaQko3VlppamJYcXlzV3c0M2JCWWJxYWRmSzEySDFHVlFWQlo5RkdTNjN4b1otck43MDVYVE85Nk13?oc=5"
+  },
+  {
+   "bank_hint": "MAS",
+   "id": "nw-171f0f7d7d4546ac",
+   "kind": "news",
+   "source": "The Edge Singapore",
+   "text": "Singapore’s top envoy on mission to soothe Indonesian angst",
+   "ts": "2026-10-29T12:40+08:00",
+   "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxObUZWSVNzLVN5VWdMZENGR1RKRWhhaFE2Sy1zNUhJZ3BnLTFCcS1DNDhaUEROaVRzQVlCR3U0cjlseGNadGJlbFBWM1BvVGZhWEplV3pFYmRkeVBmOUFwQjJhUkNPNzc0OVlJeTctWlExQmRQQVVwTXoxUjF5MFhKUzlwMkhIU1VzZjZDMUxDcldxMlpOc3dLM3Z1VkI2bE1yREIw?oc=5"
+  },
+  {
+   "bank_hint": "FED",
+   "id": "nw-06460ca2705ab826",
+   "kind": "news",
+   "source": "Reuters",
+   "text": "Fed highlights economic strength but muddies outlook for Treasuries",
+   "ts": "2026-10-29T13:04+08:00",
+   "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPbF9GR2lXNExEVWlIMldlTk5QWXQyWTVIbHlzMnM1bTRhdUFzQ2NwQm9MYXdyaG92dlB1YTlJVW1ESG5iNmtkTDhnMG9IanBqeUJmOUQ2Sm45c3pHSzEtZ3lvZUxSRmNLc184eWhReTVvbEdhQ1AwTnF6akVFUlFyd2NJRFdIOWF6OHFISDAxZWMxOHFJcXJPRlp0RFVpZzB0MF9rNTh2TQ?oc=5"
+  },
+  {
+   "bank_hint": "RBA",
+   "id": "nw-bcd15413798e5c88",
+   "kind": "news",
+   "source": "WSJ",
+   "text": "RBA’s Blunt Messaging Raises Questions About Peak in Rates",
+   "ts": "2026-10-29T13:06+08:00",
+   "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxOa1lLeGRkWmc0WVA4Q25VRUJDOThYWmIzZVdxOEgySVRVV3NSMjU2MUVPdm9oZnlVSmhiZmM3cFIyMFpVQW5oQk9hYzdZLWFuYW44U0pQd3JaRzdyOUN0UUFOR3p5amdHVXRFZEswYUYtMFpMZWpYUENzeWVwTk5BOG9maE5tVGFtQ0lVMlZMeUlZMWxEXzdXVFNRSDdDTWVaM1h4TGpGVk5Tb2dKTWw3bWFody1TanZHamNxVGF4MXd5Z0FJMnFXVkJkemk?oc=5"
+  },
+  {
+   "bank_hint": "BOK",
+   "id": "nw-4124745d28c850ba",
+   "kind": "news",
+   "source": "The Korea Times",
+   "text": "Fed's hawkish hold strengthens case for BOK's hike in November",
+   "ts": "2026-10-29T13:18+08:00",
+   "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxObTJWeWdyeGI0bFMyMF9TS3RoemV3TnJHSnRZai1qeUNkWlJ0OGhDM0s2VDRFdTVJdlgteHl3VV9FMk1aNFZmanFBTnNFN2VpWFRPYWJjTk0wWG5xbF9ITFMtM1RxOUdUUXl5UklmQXBjWkd2aFZoTDhpa1ZKR2tTNnZlM3VCZkJDS3BxTDRiR1htaV9zSVplVHVJcXV2bzIxdG1Pa0EzV0xkQdIBrwFBVV95cUxNTHMxTENtcWxIa2FDNklFZ3Q5MHA2eEZzUDc2dUJTZXA3MDlweEZqMU42RDNFdkdid00xencwMFNoVnRfNlJtc2RNeEJkYlRadDNqdjl3cXZmQlQwZFliMWxSS29zVmswS3lkNzdEazRCZkpLczdYRTNBbnQ5ZE1kYzMxUDUybDVmeDNNQXQ4aHk3bGdHOVJKNXZ0ZDh0ZDVkY2hoMWpEN3ZLOEV6aGNj?oc=5"
+  },
+  {
+   "bank_hint": "BOJ",
+   "id": "nw-ddc0a922cd5956b3",
+   "kind": "news",
+   "source": "CNA",
+   "text": "Japan bonds steady ahead of BOJ decision; strong auction lends support",
+   "ts": "2026-10-29T13:40+08:00",
+   "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQenY5c0g2YUJzcUtOZG9XVWYxaEJUTTYyNVB1c2ZTVEU5VUM4LTl3ZFd0d2RpbzlqcVJycTRLNlhkMUZoWm5nSmhWd2hheHNQek5ZMENpWWZlY2MzbnZGQ1BPdm1OX0lISElLVjRNTlhyUFFzNjFJVkJIU3pkRU5mYlpuLW9neWdXOGRNNXJkdHFwWTdBZDNxSVNaQ3RJdzhLY3VRTnBZMXFXRTlQR1paS0pzNWk2Zw?oc=5"
+  },
+  {
+   "bank_hint": null,
+   "id": "tg-firstsquaw-188469",
+   "kind": "telegram",
+   "source": "First Squawk",
+   "text": "RBA’S BLUNT COMMUNICATION PROMPTS FRESH QUESTIONS OVER HOW HIGH RATES WILL GO: WSJ",
+   "ts": "2026-10-29T13:50+08:00",
+   "url": "https://t.me/firstsquaw/188469"
+  },
+  {
+   "bank_hint": "BOK",
+   "id": "nw-0fa0a6c4d05b955c",
+   "kind": "news",
+   "source": "CNA",
+   "text": "Exclusive-Bank of Korea board member says won moves faster than expected",
+   "ts": "2026-10-29T13:54+08:00",
+   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQaEQwdkF3NU42VjNpNVBfa0otRmRhQkdERUxINV9ZbzV0TXJTMmY0RTB4WVpJTXpmVmpvaXhtTmpZaUxENy1xNlpqd1ExM0Nyak9OY0o2dkhHUkNIcFZuTUZ1Q0hBY1REWkVQVE94WTRxeUFnc0RLNlJCeGNKOG5DUUtEYVhKekhwbjBwaUo4aUp5YXBucU1YeWRpYUNXOFFxUzl4TWFCajVqVzBjR0ZMNlpsZw?oc=5"
+  },
+  {
+   "bank_hint": null,
+   "id": "tg-firstsquaw-188472",
+   "kind": "telegram",
+   "source": "First Squawk",
+   "text": "YEN TRADES FLAT VERSUS THE DOLLAR WITH BOJ POLICY IN FOCUS: FXS",
+   "ts": "2026-10-29T14:14+08:00",
+   "url": "https://t.me/firstsquaw/188472"
   }
  ]
 }
