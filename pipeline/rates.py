@@ -12,7 +12,7 @@ import json
 import re
 from functools import lru_cache
 
-from .common import ROOT, fetch, html_to_text, month_num, read_json, FetchError, LOG
+from .common import ROOT, fetch, html_to_text, month_num, read_json, today_sgt, write_json, FetchError, LOG
 
 # China is left out: BIS reports the 1Y LPR, not the 7-day reverse repo policy rate.
 BIS_AREAS = {"FED": "US", "ECB": "XM", "BOE": "GB", "BOJ": "JP", "BOK": "KR",
@@ -246,6 +246,81 @@ def pboc_7d() -> tuple[list[dict], str | None]:
             last = iso
             break
     return sorted(out, key=lambda x: x["date"]), last
+
+
+CACHE = ROOT / "data" / "official_cache.json"   # decision documents already parsed (they never change)
+
+
+def _cached(kind: str, url: str, parse) -> dict | None:
+    cache = read_json(CACHE, {}) or {}
+    hit = cache.get(kind, {}).get(url)
+    if hit:
+        return hit
+    res = parse(url)
+    if res:
+        cache.setdefault(kind, {})[url] = res
+        write_json(CACHE, cache)
+    return res
+
+
+def boj() -> list[dict]:
+    """One row per meeting from the BoJ's own 'Statement on Monetary Policy'
+    (or 'Change in the Guideline for Money Market Operations'), published at
+    the decision: 'encourage the uncollateralized overnight call rate to remain
+    at around X percent'."""
+    base, out = "https://www.boj.or.jp", []
+    for year in range(2025, today_sgt().year + 1):
+        raw = fetch(f"{base}/en/mopo/mpmdeci/state_{year}/index.htm", "BOJ:statements")
+        links = re.findall(r'href="(/en/mopo/mpmdeci/(?:mpr|state)_\d{4}/k(\d{6})a\.(?:pdf|htm))"[^>]*>\s*'
+                           r'(?:Statement on Monetary Policy|Change in the Guideline for Money Market Operations)', raw)
+
+        def parse(url: str) -> dict | None:
+            data = fetch(url, "BOJ:statement", binary=True)
+            if url.endswith(".pdf"):
+                from pypdf import PdfReader
+                text = " ".join(p.extract_text() or "" for p in PdfReader(io.BytesIO(data)).pages[:2])
+            else:
+                text = html_to_text(data.decode("utf-8", "ignore"))
+            # PDF text can split words ("o vernight"), so match with all spaces removed.
+            m = re.search(r"encouragetheuncollateralizedovernightcallratetoremainataround([\d.]+)percent", re.sub(r"\s+", "", text))
+            return {"level": m[1]} if m else None
+
+        for href, ymd in dict.fromkeys(links):
+            try:
+                res = _cached("boj", base + href, parse)
+            except FetchError:
+                continue
+            if res:
+                lvl = float(res["level"])
+                out.append({"date": f"20{ymd[:2]}-{ymd[2:4]}-{ymd[4:]}", "level": _fmt(lvl), "mid": lvl, "kind": "decision", "src": base + href})
+    return sorted({x["date"]: x for x in out}.values(), key=lambda x: x["date"])
+
+
+def hkma() -> list[dict]:
+    """Base Rate changes from the HKMA's own 'Adjustment of Base Rate' press
+    releases (issued the same day as a Fed move): 'the Base Rate has been set
+    at X%'. No release means no change."""
+    raw = fetch("https://www.hkma.gov.hk/eng/other-information/rss/rss_press-release.xml", "HKMA:press-releases")
+    out = []
+    for item in re.findall(r"<item>(.*?)</item>", raw, re.S):
+        title = re.search(r"<title>(?:<!\[CDATA\[)?(.*?)(?:\]\]>)?</title>", item, re.S)
+        link = re.search(r"<link>(?:<!\[CDATA\[)?\s*(.*?)\s*(?:\]\]>)?</link>", item, re.S)
+        if not (title and link and title[1].strip() == "Adjustment of Base Rate"):
+            continue
+        day = re.search(r"/(20\d\d)(\d\d)(\d\d)-\d+/?$", link[1])
+
+        def parse(url: str) -> dict | None:
+            m = re.search(r"Base Rate has been set at ([\d.]+)%", html_to_text(fetch(url, "HKMA:base-rate")))
+            return {"level": m[1]} if m else None
+
+        try:
+            res = _cached("hkma", link[1], parse)
+        except FetchError:
+            continue
+        if res and day:
+            lvl = float(res["level"])
+            out.append({"date": f"{day[1]}-{day[2]}-{day[3]}", "level": _fmt(lvl), "mid": lvl, "kind": "decision", "src": link[1]})
+    return sorted(out, key=lambda x: x["date"])
 
 
 OFFICIAL = {"FED": fed, "ECB": ecb, "BOE": boe, "BOK": bok, "BNM": bnm, "BI": bi, "BOT": bot, "RBA": rba}

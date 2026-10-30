@@ -1,22 +1,17 @@
-name: Daily refresh
+name: Refresh
 
-# 21:23 UTC = 05:23 SGT; 22:53 UTC = 06:53 SGT. The second run is a safety net:
-# GitHub can delay or drop scheduled runs at busy times, so it only does work
-# if the first run has not already refreshed today's data.
+# Every 15 minutes, no AI. GitHub runs scheduled jobs on a best-effort basis:
+# at busy times a run can start late or be skipped, which is why the page
+# shows the time of its last update.
 on:
   schedule:
-    - cron: "23 21 * * *"
-    - cron: "53 22 * * *"
+    - cron: "*/15 * * * *"
   workflow_dispatch:
     inputs:
       backfill:
-        description: "Also queue headlines since this date (YYYY-MM-DD). Leave empty for a normal daily run."
+        description: "Also collect news headlines since this date (YYYY-MM-DD). Leave empty for a normal run."
         required: false
         default: ""
-      expect_backlog:
-        description: "How many past meetings to queue for expectation research this run"
-        required: false
-        default: "25"
 
 permissions:
   contents: write
@@ -30,7 +25,7 @@ concurrency:
 jobs:
   refresh:
     runs-on: ubuntu-latest
-    timeout-minutes: 300
+    timeout-minutes: 120
     environment:
       name: github-pages
       url: ${{ steps.deploy.outputs.page_url }}
@@ -44,44 +39,26 @@ jobs:
 
       - run: pip install -r requirements.txt
 
-      - name: Skip the safety-net run if today is already refreshed
-        id: gate
-        run: |
-          today=$(TZ=Asia/Singapore date +%F)
-          # "refreshed" is stamped only by a full source refresh (not by the language-step rebuild)
-          last=$(python -c "import json;print((json.load(open('docs/data/meta.json')).get('refreshed') or '')[:10])" 2>/dev/null || true)
-          if [ "${{ github.event.schedule }}" = "53 22 * * *" ] && [ "$last" = "$today" ]; then
-            echo "Already refreshed today ($last); nothing to do."
-            echo "skip=true" >> "$GITHUB_OUTPUT"
-          fi
-
       - name: Refresh data
-        if: steps.gate.outputs.skip != 'true'
         env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           BACKFILL: ${{ inputs.backfill }}
-          BACKLOG: ${{ inputs.expect_backlog || '25' }}
         run: |
-          if [ -n "$BACKFILL" ]; then python -m pipeline.run --backfill "$BACKFILL" --expect-backlog "$BACKLOG"; else python -m pipeline.run --expect-backlog "$BACKLOG"; fi
+          if [ -n "$BACKFILL" ]; then python -m pipeline.run --backfill "$BACKFILL"; else python -m pipeline.run; fi
 
       - name: Commit refreshed data (the git history is the rolling archive)
-        if: steps.gate.outputs.skip != 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A docs/data data
           if git diff --cached --quiet; then echo "No data changes."; else
-            git commit -m "Daily refresh $(TZ=Asia/Singapore date '+%Y-%m-%d %H:%M') SGT"
+            git commit -m "Refresh $(TZ=Asia/Singapore date '+%Y-%m-%d %H:%M') SGT"
             git pull --rebase origin main   # in case code was pushed while the job ran
             git push
           fi
 
       - uses: actions/configure-pages@v6
-        if: steps.gate.outputs.skip != 'true'
       - uses: actions/upload-pages-artifact@v5
-        if: steps.gate.outputs.skip != 'true'
         with:
           path: docs
       - id: deploy
-        if: steps.gate.outputs.skip != 'true'
         uses: actions/deploy-pages@v5

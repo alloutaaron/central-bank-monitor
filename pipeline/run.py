@@ -1,10 +1,9 @@
-"""Morning collection job. Usage:
-    python -m pipeline.run                       # daily
-    python -m pipeline.run --backfill 2026-04-01 # also queue history since that date
-Collects every source, builds the calendar and rates, and queues text for the
-language step in data/inbox/pending.json. The language step is the Claude
-routine (ROUTINE.md), or the Claude API when ANTHROPIC_API_KEY is set. Never
-aborts on one failed source: failures are recorded and shown as stale."""
+"""Collection job, run every 15 minutes. Usage:
+    python -m pipeline.run                       # one refresh
+    python -m pipeline.run --backfill 2026-04-01 # also collect news headlines since that date
+Collects every source, builds the calendar and rates, and turns headlines and
+official speeches into feed items with plain rules (pipeline/rules.py; no AI).
+Never aborts on one failed source: failures are recorded and shown as stale."""
 from __future__ import annotations
 
 import argparse
@@ -13,7 +12,7 @@ import re
 import sys
 import traceback
 
-from . import consensus, inbox, llm, meetings, news, official_docs, spectrum, store, telegram, build
+from . import consensus, inbox, meetings, news, official_docs, rules, spectrum, store, telegram, build
 from .common import LOG, ROOT, now_sgt, read_json, write_json, today_sgt
 
 CFG = read_json(ROOT / "config" / "banks.json", {})
@@ -57,60 +56,22 @@ def decision_watch(rows: list[dict], recs: list[dict], today: dt.date) -> dict:
     return out
 
 
-def expectation_tasks(recs: list[dict], today: dt.date, ex: dict, state: dict, backlog: int) -> list[dict]:
-    """Poll headlines for upcoming meetings (next 21 days) and, a few a day, for
-    past meetings that have no recorded expectation yet."""
-    tasks, none = [], set(state.get("expect_none", []))
-    for r in recs:
-        if r["type"] != "meeting" or r["bank"] == "HKMA":
-            continue
-        d = dt.date.fromisoformat(r["date"])
-        name = CFG["banks"][r["bank"]]["news_name"]
-        if today <= d <= today + dt.timedelta(days=21) and not (ex.get(r["id"]) or {}).get("frozen"):
-            # Only headlines dated before the meeting day: same-day ones may report the decision itself.
-            lines = [l for l in news.polls(name, r["bank"], days=21) if l[:10] < r["date"]]
-            if lines:
-                tasks.append({"id": r["id"], "bank": r["bank"], "date": r["date"], "rate_before": r.get("rate_before"),
-                              "as_of": today.isoformat(), "headlines": lines[:40]})
-    past = [r for r in recs if r["type"] == "meeting" and r["bank"] != "HKMA" and r["id"] not in ex and r["id"] not in none
-            and "2025-01-01" <= r["date"] < today.isoformat()]
-    for r in sorted(past, key=lambda r: r["date"], reverse=True)[:backlog]:
-        d = dt.date.fromisoformat(r["date"])
-        win = ((d - dt.timedelta(days=14)).isoformat(), d.isoformat())
-        lines = [l for l in news.polls(CFG["banks"][r["bank"]]["news_name"], r["bank"], window=win) if l[:10] < r["date"]]
-        if lines:
-            tasks.append({"id": r["id"], "bank": r["bank"], "date": r["date"], "rate_before": r.get("rate_before"),
-                          "as_of": win[1], "headlines": lines[:40]})
-        else:
-            state.setdefault("expect_none", []).append(r["id"])
-    return tasks
+HOURLY_MIN = 55   # news search and the Forex Factory calendar: at most about once an hour
 
 
-def api_language_step(pend: dict):
-    """Optional: when ANTHROPIC_API_KEY is set, do the language step here and
-    write the same outbox format the routine writes."""
-    if not llm.available() or not (pend["headlines"] or pend["documents"] or pend["expectations"]):
-        return
-    out = {"headlines": [], "documents": [], "expectations": []}
-    res = llm.classify_headlines([{"id": x["id"], "ts": x["ts"][:16].replace("T", " "), "text": x["text"]} for x in pend["headlines"]]) or []
-    out["headlines"] = res
-    for d in pend["documents"]:
-        r = llm.process_document(d["bank"], d["title"], d["date"], d["lang"], d["text"])
-        if r:
-            out["documents"].append(dict(r, id=d["id"]))
-    for t in pend["expectations"]:
-        r = llm.extract_expectation(t["bank"], t["date"], t.get("rate_before") or "unknown", t["headlines"])
-        if r:
-            out["expectations"].append(dict(r, id=t["id"]))
-    write_json(inbox.OUTBOX / f"{now_sgt().strftime('%Y%m%d-%H%M')}-api.json", out)
+def _due(state: dict, key: str, minutes: int) -> bool:
+    last = state.get(key)
+    return not last or (now_sgt() - dt.datetime.fromisoformat(last)).total_seconds() >= minutes * 60
 
 
-def daily(lookback_hours: int = 36, backlog: int = 25, since: str | None = None):
+def refresh(lookback_hours: int = 36, since: str | None = None):
     today = today_sgt()
     state = store.load_state()
-    access_probe()
-    pend = inbox.load()
-    # 1. Remarks: Telegram + reputable-news headlines.
+    if state.get("probe_day") != today.isoformat():
+        access_probe()
+        state["probe_day"] = today.isoformat()
+    hourly = bool(since) or _due(state, "hourly_last", HOURLY_MIN)
+    # 1. Remarks: Telegram every run; news headlines about hourly.
     items = []
     try:
         items += telegram.collect(state, lookback_hours=lookback_hours, max_pages=max(120, lookback_hours * 2))
@@ -123,65 +84,62 @@ def daily(lookback_hours: int = 36, backlog: int = 25, since: str | None = None)
             for code in CFG["order"]:
                 items += news.remarks(CFG["banks"][code]["news_name"], code, window=w)
             d += dt.timedelta(days=14)
-    for code in CFG["order"]:
-        items += news.remarks(CFG["banks"][code]["news_name"], code, days=2)
+    if hourly:
+        for code in CFG["order"]:
+            items += news.remarks(CFG["banks"][code]["news_name"], code, days=2)
     seen = set(state.get("seen_items", []))
     new = list({x["id"]: x for x in items if x["id"] not in seen}.values())
-    inbox.add_headlines(pend, new)
     state["seen_items"] = sorted(seen | {x["id"] for x in new})[-30000:]
-    # 2. Official speeches and statements (original language).
+    # Items queued for the former AI language step are handled once by the rules, then the queue is emptied.
+    pend = inbox.load()
+    cutoff = (today - dt.timedelta(days=3)).isoformat()
+    recent = {rules.text_key(s["bank"], s.get("text") or "") for s in store.all_statements(cutoff[:7])
+              if s.get("relevant") and s.get("bank") and s["ts"][:10] >= cutoff}
+    rows = rules.headline_rows(pend["headlines"] + new, today.isoformat(), recent)
+    # 2. Official speeches and statements.
     processed = set(state.get("processed_docs", []))
     docs = official_docs.collect(processed, since or (today - dt.timedelta(days=4)).isoformat())
-    inbox.add_documents(pend, docs)
     state["processed_docs"] = sorted(processed | {d["id"] for d in docs})[-8000:]
-    # 3. Calendar, rates, releases; deterministic consensus (Forex Factory).
+    rows += rules.document_rows(pend["documents"] + docs, today.isoformat())
+    store.append_statements(rows)
+    if pend["headlines"] or pend["documents"] or pend["expectations"]:
+        inbox.save({"headlines": [], "documents": [], "expectations": []})
+    # 3. Calendar, rates, releases; consensus from Forex Factory (about hourly).
     ex = store.load_expectations()
     recs = meetings.build(today=today, expectations=ex)
-    ff = consensus.forex_factory()
-    ex = consensus.update(ex, recs, today, ff=ff)
-    store.save_expectations(ex)
-    consensus.archive_speeches(ff)
-    inbox.set_expectation_tasks(pend, expectation_tasks(recs, today, ex, state, backlog))
-    inbox.save(pend)
+    if hourly:
+        ff = consensus.forex_factory()
+        ex = consensus.update(ex, recs, today, ff=ff)
+        store.save_expectations(ex)
+        consensus.archive_speeches(ff)
+        state["hourly_last"] = now_sgt().isoformat(timespec="minutes")
     store.save_state(state)
     write_json(SNAPSHOT, recs, compact=True)
-    # 4. Language step via the API if a key is set; otherwise the routine picks up the inbox.
-    api_language_step(pend)
-    if llm.available():
-        from .finalize import apply_outbox
-        apply_outbox()
-    watch = decision_watch(store.all_statements((today - dt.timedelta(days=4)).isoformat()[:7]), recs, today)
-    meetings.annotate(recs, store.load_expectations(), watch, today)
+    meetings.annotate(recs, ex, {}, today)
     return finish(recs, today, refreshed=True)
 
 
-def finish(recs: list[dict], today: dt.date, language_step: bool = False, refreshed: bool = False):
+def finish(recs: list[dict], today: dt.date, refreshed: bool = False):
     statements = store.all_statements()
     spec = spectrum.build(statements, today)
     health = store.update_health(LOG.as_dict())
     state = store.load_state()
-    if language_step or llm.available():
-        state["language_last_run"] = now_sgt().isoformat(timespec="minutes")
-    if refreshed:   # the full source refresh, as opposed to a page rebuild after the language step
+    if refreshed:
         state["last_refresh"] = now_sgt().isoformat(timespec="minutes")
     store.save_state(state)
-    pend = inbox.load()
-    lang = {"last_run": state.get("language_last_run"), "pending": len(pend["headlines"]) + len(pend["documents"]) + len(pend["expectations"])}
-    build.write_site(recs, statements, spec, health, today, ai=lang, refreshed=state.get("last_refresh"))
+    build.write_site(recs, statements, spec, health, today, refreshed=state.get("last_refresh"))
     print(f"done: {len(recs)} calendar items, {sum(1 for s in statements if s.get('relevant'))} feed items, "
-          f"pending for language step: {lang['pending']}, failed sources: "
-          f"{sorted(k for k, v in LOG.as_dict().items() if not v['ok'])}", flush=True)
+          f"failed sources: {sorted(k for k, v in LOG.as_dict().items() if not v['ok'])}", flush=True)
 
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("--backfill", metavar="YYYY-MM-DD")
     ap.add_argument("--lookback-hours", type=int, default=36)
-    ap.add_argument("--expect-backlog", type=int, default=25)
     a = ap.parse_args()
     try:
         # Backfill: a week of Telegram (headline volume grows fast beyond that); news since the date.
-        daily(168 if a.backfill else a.lookback_hours, a.expect_backlog, since=a.backfill)
+        refresh(168 if a.backfill else a.lookback_hours, since=a.backfill)
     except Exception:
         traceback.print_exc()
         sys.exit(1)

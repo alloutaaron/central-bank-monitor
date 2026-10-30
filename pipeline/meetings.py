@@ -4,6 +4,7 @@ current rate going in, expected decision (with its basis), actual decision
 from __future__ import annotations
 
 import datetime as dt
+import re
 from bisect import bisect_right
 
 from . import rates, schedules
@@ -84,15 +85,30 @@ def build_paths() -> dict[str, Path_]:
             merged[x["date"]] = x
         if merged:
             paths[bank] = Path_(list(merged.values()), max(last or "", max(merged)))
-    for bank in ("BOJ", "HKMA"):
+    # BoJ and HKMA: their own decision statements; BIS for the level before
+    # the first statement read, and as the fallback if the bank's site fails.
+    for bank, fn in (("BOJ", rates.boj), ("HKMA", rates.hkma)):
+        try:
+            off = fn()
+        except FetchError:
+            off = []
+        except Exception as e:
+            LOG.fail(f"{bank}:rate-parser", f"{type(e).__name__}: {e}")
+            off = []
         try:
             bis, last = rates.bis_changes(bank)
             first = rates.bis_series().get(rates.BIS_AREAS[bank], [])
             if first:
                 bis = [{"date": first[0][0], "mid": first[0][1], "level": rates._fmt(first[0][1]), "kind": "effective", "src": "BIS WS_CBPOL"}] + bis
-            paths[bank] = Path_(bis, last)
         except FetchError:
-            pass
+            bis, last = [], None
+        if off:
+            # BoJ statements are one per meeting (holds included); HKMA issues a
+            # release only when the Base Rate changes, so no release means unchanged.
+            older = [x for x in bis if x["date"] < off[0]["date"]]
+            paths[bank] = Path_(older + off, off[-1]["date"] if bank == "BOJ" else today_sgt().isoformat())
+        elif bis:
+            paths[bank] = Path_(bis, last)
     # PBoC: 7-day reverse repo rate (BIS still reports the 1Y LPR for China).
     ch, last = rates.pboc_7d()
     if ch:
@@ -305,7 +321,7 @@ def rate_change_events(bank: str, path: Path_ | None, start: str) -> list[dict]:
     for x in path.c:
         if prev and x["date"] >= start:
             mv = int(round((x["mid"] - prev["mid"]) * 100))
-            kind = "BIS" if "BIS" in str(x["src"]) else "official" if "pbc.gov.cn" in str(x["src"]) else "wire"
+            kind = "BIS" if "BIS" in str(x["src"]) else "official" if re.search(r"pbc\.gov\.cn|hkma\.gov\.hk", str(x["src"])) else "wire"
             out.append({"id": f"{bank}-{x['date']}", "bank": bank, "date": x["date"], "type": "rate-change",
                         "status": "done", "rate_before": f"{prev['level']}%", "time_sgt": None,
                         "decision": {"move_bp": mv, "label": f"{RATE_CHANGE_NAME[bank]} {mv:+d}bp to {x['level']}%",

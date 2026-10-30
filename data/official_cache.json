@@ -1,0 +1,60 @@
+{
+ "boj": {
+  "https://www.boj.or.jp/en/mopo/mpmdeci/mpr_2026/k260428a.pdf": {
+   "level": "0.75"
+  },
+  "https://www.boj.or.jp/en/mopo/mpmdeci/mpr_2026/k260616a.pdf": {
+   "level": "1.0"
+  },
+  "https://www.boj.or.jp/en/mopo/mpmdeci/mpr_2026/k260731a.pdf": {
+   "level": "1.0"
+  },
+  "https://www.boj.or.jp/en/mopo/mpmdeci/mpr_2026/k260918a.pdf": {
+   "level": "1.25"
+  },
+  "https://www.boj.or.jp/en/mopo/mpmdeci/mpr_2026/k261030a.pdf": {
+   "level": "1.25"
+  },
+  "https://www.boj.or.jp/en/mopo/mpmdeci/state_2025/k250124a.htm": {
+   "level": "0.5"
+  },
+  "https://www.boj.or.jp/en/mopo/mpmdeci/state_2025/k250319a.htm": {
+   "level": "0.5"
+  },
+  "https://www.boj.or.jp/en/mopo/mpmdeci/state_2025/k250501a.htm": {
+   "level": "0.5"
+  },
+  "https://www.boj.or.jp/en/mopo/mpmdeci/state_2025/k250617a.htm": {
+   "level": "0.5"
+  },
+  "https://www.boj.or.jp/en/mopo/mpmdeci/state_2025/k250731a.htm": {
+   "level": "0.5"
+  },
+  "https://www.boj.or.jp/en/mopo/mpmdeci/state_2025/k250919a.htm": {
+   "level": "0.5"
+  },
+  "https://www.boj.or.jp/en/mopo/mpmdeci/state_2025/k251030a.htm": {
+   "level": "0.5"
+  },
+  "https://www.boj.or.jp/en/mopo/mpmdeci/state_2025/k251219a.htm": {
+   "level": "0.75"
+  },
+  "https://www.boj.or.jp/en/mopo/mpmdeci/state_2026/k260123a.htm": {
+   "level": "0.75"
+  },
+  "https://www.boj.or.jp/en/mopo/mpmdeci/state_2026/k260319a.htm": {
+   "level": "0.75"
+  }
+ },
+ "hkma": {
+  "https://www.hkma.gov.hk/eng/news-and-media/press-releases/2025/10/20251030-3/": {
+   "level": "4.25"
+  },
+  "https://www.hkma.gov.hk/eng/news-and-media/press-releases/2025/12/20251211-3/": {
+   "level": "4.00"
+  },
+  "https://www.hkma.gov.hk/eng/news-and-media/press-releases/2026/09/20260917-3/": {
+   "level": "4.25"
+  }
+ }
+}
