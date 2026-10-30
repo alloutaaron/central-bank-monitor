@@ -96,5 +96,12 @@
   "src": "Forex Factory calendar",
   "title": "FOMC Member Musalem Speaks",
   "ts": "2026-10-31T00:30+08:00"
+ },
+ {
+  "bank": "FED",
+  "impact": "Low",
+  "src": "Forex Factory calendar",
+  "title": "FOMC Member Logan Speaks",
+  "ts": "2026-10-31T01:30+08:00"
  }
 ]
