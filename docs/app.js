@@ -27,17 +27,14 @@
   /* ---------- command bar ---------- */
   function renderHeader() {
     const m = S.meta, u = m.refreshed || m.updated, ageH = (Date.now() - Date.parse(u)) / 36e5;   // time of the last full source refresh
-    $("#updated").textContent = `Updated ${dm(u.slice(0, 10))} ${u.slice(11, 16)} SGT` + (ageH > 30 ? " · overdue" : "");
+    $("#updated").textContent = `Updated ${dm(u.slice(0, 10))} ${u.slice(11, 16)} SGT` + (ageH > 2 ? " · overdue" : "");
     const stale = m.stale || [], notes = S.order.map(c => S.banks[c]).filter(b => b.access_note);
     const btn = $("#staleBtn"), pop = $("#stalePanel");
-    const L = m.language || {}, langLate = (L.pending || 0) > 0 && (!L.last_run || (Date.now() - Date.parse(L.last_run)) / 36e5 > 30);
-    btn.hidden = false; btn.classList.toggle("bad", stale.length > 0 || langLate);
-    btn.textContent = stale.length ? `${stale.length} stale` : langLate ? "Language step late" : "Sources";
+    btn.hidden = false; btn.classList.toggle("bad", stale.length > 0);
+    btn.textContent = stale.length ? `${stale.length} stale` : "Sources";
     const label = sid => { const [b, ...rest] = sid.split(":"); return (S.banks[b] ? short(b) : b) + " · " + rest.join(":").replace(/-/g, " "); };
     pop.innerHTML = (stale.length ? `<h3>Failed on the latest run</h3><ul>${stale.map(s => `<li><b>${esc(label(s.source))}</b> · last OK ${s.last_ok ? esc(s.last_ok.slice(0, 16).replace("T", " ")) : "never"}</li>`).join("")}</ul>`
                                   : `<h3>Latest run</h3><ul><li>All sources refreshed.</li></ul>`) +
-      (() => { const L = m.language || {}; const age = L.last_run ? (Date.now() - Date.parse(L.last_run)) / 36e5 : null;
-        return `<h3>Language step (paraphrase, translation, stance, expectations)</h3><ul><li>${L.last_run ? "Last run " + esc(L.last_run.slice(0, 16).replace("T", " ")) + " SGT" + (age > 30 ? " · overdue" : "") : "Not run yet"} · ${L.pending || 0} items waiting</li></ul>`; })() +
       `<h3>Known access limits</h3><ul>${notes.map(b => `<li><b>${esc(b.short)}</b> · ${esc(b.access_note)}</li>`).join("")}</ul>`;
     btn.onclick = e => { e.stopPropagation(); pop.hidden = !pop.hidden; btn.setAttribute("aria-expanded", !pop.hidden); };
     document.addEventListener("click", e => { if (!pop.hidden && !pop.contains(e.target)) { pop.hidden = true; btn.setAttribute("aria-expanded", "false"); } });
@@ -186,10 +183,9 @@
       for (const x of items) {
         const day = x.ts.slice(0, 10);
         if (day !== last) { h += `<li class="dsep">${dmy(day)}</li>`; last = day; }
-        const g = x.stance === "hawkish" ? "▲" : x.stance === "dovish" ? "▼" : "●";
-        const who = x.speaker ? `${esc(x.speaker)}${x.role ? ` <span class="role">· ${esc(x.role)}</span>` : ""}` : (x.kind === "decision" ? "Policy decision" : esc(S.banks[x.bank]?.name || ""));
-        h += `<li class="it ${esc(x.stance)}"><span class="tm">${x.date_only ? "—" : x.ts.slice(11, 16)}</span><span class="bk bkcol">${esc(short(x.bank))}</span>
-          <div><div class="who"><i aria-label="${esc(x.stance)}">${g}</i> <span class="bk bk-inline">${esc(short(x.bank))}</span>${who}</div><p>${esc(x.text)}</p></div>
+        const who = x.speaker ? `${esc(x.speaker)}${x.role ? ` <span class="role">· ${esc(x.role)}</span>` : ""}` : esc(S.banks[x.bank]?.name || "");
+        h += `<li class="it"><span class="tm">${x.date_only ? "—" : x.ts.slice(11, 16)}</span><span class="bk bkcol">${esc(short(x.bank))}</span>
+          <div><div class="who"><span class="bk bk-inline">${esc(short(x.bank))}</span>${who}</div><p>${esc(x.text)}</p></div>
           <span class="sr">${x.url ? ext(x.url, (x.src || "Source")) : esc((x.src || ""))}</span></li>`;
       }
       list.innerHTML = h;
@@ -214,7 +210,7 @@
     if (!ms.length) { $("#memList").innerHTML = `<li class="empty">${esc(d.note || "No policy committee.")}</li>`; return; }
     $("#memList").innerHTML = ms.map((m, i) => {
       const open = S.memOpen === m.name, n = m.comments.length;
-      const said = m.comments.map(x => `<li class="${esc(x.stance)}"><span class="when">${shortTs(x)}</span><p>${esc(x.text)}</p>` +
+      const said = m.comments.map(x => `<li><span class="when">${shortTs(x)}</span><p>${esc(x.text)}</p>` +
         `<span class="sr">${x.url ? ext(x.url, x.src || "Source") : esc(x.src || "")}</span></li>`).join("");
       return `<li class="mem${open ? " open" : ""}"><button class="mrow" data-i="${i}" aria-expanded="${open}">` +
         `<span class="mn${m.chair ? " chair" : ""}">${esc(m.name)}</span><span class="mr">${esc(m.role || "")}</span>` +

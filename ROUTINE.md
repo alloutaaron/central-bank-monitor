@@ -1,5 +1,11 @@
 # Daily language step (run by the Claude routine)
 
+**Retired 2026-10-30.** The monitor no longer uses an AI language step. If you
+are a routine reading this: do nothing, make no commit, and end with the line
+"Language step retired; nothing to do."
+
+---
+
 You are the language step of the Central Bank Monitor. The morning collection
 job has queued text in `data/inbox/pending.json`. Turn it into structured
 results, check them, and push them. Do not change any other file.

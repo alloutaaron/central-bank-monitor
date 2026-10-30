@@ -1,6 +1,6 @@
 """Official speeches, press conferences and statements, read from each bank's
-own feed or listing page in the original language. Returns new documents with
-their text; llm.process_document paraphrases (and translates) them."""
+own feed or listing page, in English. Returns new documents with their text
+(used for the date when the listing has none, and to identify the speaker)."""
 from __future__ import annotations
 
 import datetime as dt
@@ -21,15 +21,15 @@ SOURCES = [
     {"bank": "BOE", "kind": "rss", "url": "https://www.bankofengland.co.uk/rss/speeches", "lang": "en"},
     {"bank": "HKMA", "kind": "rss", "url": "https://www.hkma.gov.hk/eng/other-information/rss/rss_speeches.xml", "lang": "en"},
     {"bank": "RBA", "kind": "rss", "url": "https://www.rba.gov.au/rss/rss-cb-speeches.xml", "lang": "en"},
-    {"bank": "BOJ", "kind": "list", "url": "https://www.boj.or.jp/about/press/index.htm", "lang": "ja", "base": "https://www.boj.or.jp",
-     "link": r"/about/press/(?:koen|kaiken)_\d{4}/k[ok](?P<date>\d{6})[a-z]\.(?:htm|pdf)"},
-    {"bank": "PBOC", "kind": "list", "url": "https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/index.html", "lang": "zh",
-     "base": "https://www.pbc.gov.cn", "link": r"/goutongjiaoliu/113456/113469/(?P<date>\d{8})\d+/index\.html",
-     "title_keep": r"讲话|演讲|发言|致辞|答记者问|采访|货币政策委员会|例会"},
+    # BoJ, PBoC and CBC: English pages (no translation step), which can appear later than the original.
+    {"bank": "BOJ", "kind": "list", "url": "https://www.boj.or.jp/en/about/press/index.htm", "lang": "en", "base": "https://www.boj.or.jp",
+     "link": r"/en/about/press/(?:koen|kaiken)_\d{4}/k[ok](?P<date>\d{6})[a-z]\.(?:htm|pdf)"},
+    {"bank": "PBOC", "kind": "list", "url": "https://www.pbc.gov.cn/en/3688110/3688175/index.html", "lang": "en",
+     "base": "https://www.pbc.gov.cn", "link": r"/en/3688110/3688175/(?P<date>\d{8})\d+/index\.html"},
     {"bank": "BNM", "kind": "list", "url": "https://www.bnm.gov.my/speeches-interviews", "lang": "en", "base": "",
      "link": r"https://www\.bnm\.gov\.my/-/[a-z0-9-]+", "title_keep": r"(?i)speech|address|remarks|keynote|interview|statement"},
-    {"bank": "CBC", "kind": "list", "url": "https://www.cbc.gov.tw/tw/lp-302-1.html", "lang": "zh", "base": "https://www.cbc.gov.tw",
-     "link": r"/tw/cp-302-\d+-[0-9a-f]+-1\.html", "title_keep": r"總裁|理監事|匯率|利率|貨幣政策|說明|新台幣"},
+    {"bank": "CBC", "kind": "list", "url": "https://www.cbc.gov.tw/en/lp-448-2.html", "lang": "en", "base": "https://www.cbc.gov.tw",
+     "link": r"/en/cp-448-\d+-[0-9a-fA-F]+-2\.html", "title_keep": r"(?i)governor|monetary policy|policy rate|interest rate|exchange rate|board|press conference"},
 ]
 
 

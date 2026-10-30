@@ -1,11 +1,8 @@
 name: Finalize
 
-# Runs when the language step (the Claude routine) pushes results to
-# data/outbox/. Merges them and republishes the page; fetches nothing.
+# Retired 2026-10-30: the AI language step was replaced by plain rules in the
+# 15-minute refresh (pipeline/rules.py). Kept manual-only until removed.
 on:
-  push:
-    branches: [main]
-    paths: ["data/outbox/*.json"]
   workflow_dispatch:
 
 permissions:

@@ -151,7 +151,7 @@ def stale_list(health: dict) -> list[dict]:
     return out
 
 
-def write_site(recs, statements, spec, health, today: dt.date, ai: dict, refreshed: str | None = None):
+def write_site(recs, statements, spec, health, today: dt.date, refreshed: str | None = None):
     tday = today.isoformat()
     order = CFG["order"]
     # Calendar: meetings/LPR/HKMA changes + scheduled speeches + past official speeches.
@@ -210,6 +210,6 @@ def write_site(recs, statements, spec, health, today: dt.date, ai: dict, refresh
     write_json(OUT / "meta.json", {
         "updated": now_sgt().isoformat(timespec="minutes"), "refreshed": refreshed, "today": tday,
         "months": {"calendar": months_cal, "feed": sorted(by_m)},
-        "stale": stale_list(health), "language": {"last_run": ai.get("last_run"), "pending": ai.get("pending")},
+        "stale": stale_list(health),
         "coverage_from": min((s["ts"][:10] for s in statements if s.get("ts")), default=None),   # earliest remark held
     }, compact=True)
