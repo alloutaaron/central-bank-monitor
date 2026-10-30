@@ -523,18 +523,14 @@
   ]
  },
  "BOJ-2026-10-30": {
-  "as_of": "2026-10-29",
-  "basis": "Surveys and reports: most analysts and a CNBC survey expect the BOJ to hold, with a hike seen in December.",
-  "dir": 0,
-  "frozen": false,
-  "kind": "news",
+  "as_of": "2026-10-30",
+  "basis": "Consensus forecast <1.25% (previous <1.25%)",
+  "frozen": true,
+  "kind": "consensus",
   "label": "Hold",
   "move_bp": 0,
   "outlets": [
-   "CNBC",
-   "WSJ",
-   "Nikkei Asia",
-   "Bloomberg"
+   "Forex Factory calendar"
   ]
  },
  "BOK-2025-01-16": {
