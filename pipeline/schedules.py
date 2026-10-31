@@ -215,7 +215,11 @@ def lpr_history(start: dt.date, end: dt.date) -> list[dict]:
         b = min(end, a + dt.timedelta(days=360))
         url = ("https://www.chinamoney.com.cn/ags/ms/cm-u-bk-currency/LprHis?lang=CN"
                f"&strStartDate={a.isoformat()}&strEndDate={b.isoformat()}")
-        data = json.loads(fetch(url, "PBOC:lpr-history", min_bytes=50))
+        try:
+            data = json.loads(fetch(url, "PBOC:lpr-history", min_bytes=50))
+        except ValueError:   # e.g. the site's '网站维护中' (under maintenance) page, served with HTTP 200
+            LOG.fail("PBOC:lpr-history", f"not JSON (maintenance page?) for {url}")
+            raise FetchError("not JSON")
         for r in data.get("records") or []:
             out[r["showDateCN"][:10]] = {"date": r["showDateCN"][:10], "1Y": float(r["1Y"]), "5Y": float(r["5Y"])}
         a = b + dt.timedelta(days=1)

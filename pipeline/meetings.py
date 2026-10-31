@@ -8,7 +8,7 @@ import re
 from bisect import bisect_right
 
 from . import rates, schedules
-from .common import ROOT, read_json, to_sgt, today_sgt, LOG, FetchError
+from .common import ROOT, read_json, write_json, to_sgt, today_sgt, LOG, FetchError
 
 CFG = read_json(ROOT / "config" / "banks.json", {})
 
@@ -282,10 +282,14 @@ def attach_releases(recs: list[dict], sched: dict):
 def lpr_events(start: str, end: str, today: dt.date) -> list[dict]:
     """Monthly LPR fixings: official history for the past, the PBoC rule for the future."""
     out = []
+    cache = read_json(rates.CACHE, {}) or {}
     try:
         hist = schedules.lpr_history(max(_d(start), dt.date(2024, 12, 1)), today)
-    except FetchError:
-        hist = []
+        if hist:
+            cache["lpr"] = {"history": hist, "as_of": today.isoformat()}
+            write_json(rates.CACHE, cache)
+    except FetchError:   # keep the last history fetched; the source shows as stale
+        hist = (cache.get("lpr") or {}).get("history", [])
     prev = None
     for h in hist:
         if prev and h["date"] >= start:
