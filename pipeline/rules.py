@@ -60,9 +60,16 @@ NOT_DECISION = re.compile(r"\b(?:expected|expects?|seen|sees|poll|economists?|an
                           r"forecasts?|preview|why|what|how|whether|ahead of|if|set to|chances?|odds|pressure|questions?|"
                           r"takeaways?|instant view|after|even as|sends?|swings?|markets?|stocks?|yields?|bonds?|treasury|"
                           r"dollar|yuan|yen|says?|believes?|should|would|can be|wants?|wall street|shares|equities|ends|"
-                          r"rall(?:y|ies)|slides?|gains?|to (?:hold|keep|raise|hike|cut|lower|leave))\b|\?", re.I)
+                          r"rall(?:y|ies)|slides?|gains?|to (?:hold|keep|raise|hike|cut|lower|leave|hit|pause))\b|\?", re.I)
 # "SOMEONE: ..." or "SOMEONE SAYS ..." -- the opening words say who is speaking.
 PREFIX = re.compile(r"^([^:]{2,45}):|^(.{2,40}?)\s+(?:says?|said)\b", re.I)
+# "..., SOMEONE says" -- the closing words say who is speaking.
+SUFFIX = re.compile(r",\s*([^,]{2,40}?)\s+(?:says|said)\W*$", re.I)
+# News about a member (succession, nomination, hearings) rather than something they said.
+ABOUT = re.compile(r"\b(?:successor|replacement|nominat\w*|nominee|confirmation|hearing on)\b", re.I)
+# A decision: the bank's name, at most two words, the decision verb, then the rate within a few words.
+DECIDES = (r"\W*(?:[\w'’.-]+\W+){0,2}?(?:" + DECISION.pattern + r"|\b(?:left|kept|held|raised|hiked|lowered|pauses?|paused|puts?))" +
+           r"\b.{0,40}?(?:\b(?:rates?|OCR|repo|policy|base rate|bank rate|S\$NEER)\b|steady|unchanged|on hold|fire)")
 NOT_SPEAKER = re.compile(r"^(?:\*|breaking|update|urgent|flash|exclusive)\b", re.I)
 # Features and comment pieces, not something an official said.
 COMMENTARY = re.compile(r"^(?:analysis|explainer|opinion|column|factbox|commentary|editorial|instant view|podcast|video|live)\b", re.I)
@@ -99,6 +106,16 @@ def banks_in(text: str) -> list[str]:
     """Banks named in the text, earliest mention first."""
     found = [(m.start(), b) for b, rx in ALIASES.items() if (m := re.search(rx, text))]
     return [b for _, b in sorted(found)]
+
+
+def decision_bank(text: str) -> str | None:
+    """The bank whose own decision the headline reports ('BOJ holds rates'), not
+    one that is merely mentioned ('Fed officials make case for rate hikes')."""
+    for bank in banks_in(text):
+        for m in re.finditer(ALIASES[bank], text):
+            if re.match(DECIDES, text[m.end():], re.I):
+                return bank
+    return None
 
 
 def find_member(text: str, members: dict[str, list[dict]], keys: dict, only_bank: str | None = None,
@@ -140,19 +157,20 @@ def headline_rows(items: list[dict], today: str, recent: set | None = None) -> l
         text = clean(it.get("text", ""))
         if not text or DROP.search(text) or COMMENTARY.match(text):
             continue
-        pre = PREFIX.match(text)
-        who = (pre[1] or pre[2]).strip() if pre else ""
-        if who and not NOT_SPEAKER.match(who) and not banks_in(who) and not find_member(who, members, keys):
-            continue   # someone else speaking, e.g. "BESSENT: ... CONFIDENCE IN WARSH", "EU'S COSTA SAYS ... LAGARDE"
-        hit = find_member(text, members, keys) if SPEECH.search(text) else None
+        pre, suf = PREFIX.match(text), SUFFIX.search(text)
+        who = [((pre[1] or pre[2]) if pre else "").strip(), (suf[1] if suf else "").strip()]
+        # A closing "..., Ueda says" names the speaker on its own, so short surnames count there.
+        if any(w and not NOT_SPEAKER.match(w) and not banks_in(w) and not find_member(w, members, keys, need_alias=(i == 0))
+               for i, w in enumerate(who)):
+            continue   # someone else speaking, e.g. "BESSENT: ... WARSH", "... on Fed's Cook delayed, Hassett says"
+        hit = find_member(text, members, keys) if SPEECH.search(text) and not ABOUT.search(text) else None
         bank, speaker, role, kind = None, "", "", "remark"
         if hit:
             bank, m = hit
             speaker, role = m["name"], m.get("role") or ""
-        else:
-            named = banks_in(text)
-            if named and DECISION.search(text) and RATE_WORD.search(text) and not NOT_DECISION.search(text):
-                bank, kind = named[0], "decision"
+        elif not NOT_DECISION.search(text):
+            bank = decision_bank(text)
+            kind = "decision"
         key = text_key(bank, text) if bank else None
         if not bank or key in dup:
             continue

@@ -323,6 +323,35 @@ def hkma() -> list[dict]:
     return sorted(out, key=lambda x: x["date"])
 
 
+def ecb_decisions() -> list[dict]:
+    """The ECB's own 'Monetary policy decisions' press releases (14:15 CET on
+    the meeting day), holds included: 'the deposit facility, the main
+    refinancing operations and the marginal lending facility will remain
+    unchanged at X%' / 'will be increased to X%'. The press feed lists only
+    recent releases, so releases already parsed are kept from the cache."""
+    raw = fetch("https://www.ecb.europa.eu/rss/press.html", "ECB:press-releases")
+    links = {u.replace(".eu//", ".eu/") for u in re.findall(r"<link>\s*(https://www\.ecb\.europa\.eu/+press/pr/date/\d{4}/html/ecb\.mp\d{6}~[0-9a-f]+\.en\.html)\s*</link>", raw)}
+    links |= set((read_json(CACHE, {}) or {}).get("ecb", {}))
+
+    def parse(url: str) -> dict | None:
+        t = re.sub(r"\s+", " ", html_to_text(fetch(url, "ECB:decision")))
+        m = re.search(r"deposit facility, the main refinancing operations and the marginal lending facility "
+                      r"will (?:remain unchanged at|be \w+ to) (-?[\d.]+)%", t)
+        return {"level": m[1]} if m else None
+
+    out = []
+    for url in links:
+        day = re.search(r"ecb\.mp(\d\d)(\d\d)(\d\d)~", url)
+        try:
+            res = _cached("ecb", url, parse)
+        except FetchError:
+            continue
+        if res and day:
+            lvl = float(res["level"])
+            out.append({"date": f"20{day[1]}-{day[2]}-{day[3]}", "level": f"{lvl:.2f}", "mid": lvl, "kind": "decision", "src": url})
+    return sorted(out, key=lambda x: x["date"])
+
+
 OFFICIAL = {"FED": fed, "ECB": ecb, "BOE": boe, "BOK": bok, "BNM": bnm, "BI": bi, "BOT": bot, "RBA": rba}
 
 

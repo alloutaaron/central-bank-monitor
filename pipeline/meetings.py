@@ -69,6 +69,22 @@ def build_paths() -> dict[str, Path_]:
             pass
         except Exception as e:
             LOG.fail(f"{bank}:rate-parser", f"{type(e).__name__}: {e}")
+    # ECB: its decision release gives holds and moves on the day; the rate table
+    # shows a move only once it takes effect (about a week later), so drop that
+    # effective-date row when a decision to the same level precedes it.
+    if "ECB" in paths:
+        try:
+            dec = rates.ecb_decisions()
+        except FetchError:
+            dec = []
+        except Exception as e:
+            LOG.fail("ECB:decision-parser", f"{type(e).__name__}: {e}")
+            dec = []
+        if dec:
+            p = paths["ECB"]
+            ch = [x for x in p.c if not any(0 <= (_d(x["date"]) - _d(y["date"])).days <= 7 and abs(x["mid"] - y["mid"]) < 1e-9
+                                            for y in dec)]
+            paths["ECB"] = Path_(ch + dec, max(p.last_obs or "", dec[-1]["date"]))
     for bank in ("RBA", "RBNZ", "BSP", "RBI"):
         if bank in paths:      # official table read successfully (e.g. RBA): seeds not needed
             continue

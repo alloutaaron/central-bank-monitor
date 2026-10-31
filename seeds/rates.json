@@ -184,6 +184,13 @@
    "change_bp": 25,
    "src": "https://www.rbnz.govt.nz/monetary-policy/monetary-policy-decisions",
    "verified": "2026-10-22"
+  },
+  {
+   "date": "2026-10-28",
+   "level": "2.75",
+   "change_bp": 0,
+   "src": "https://www.rbnz.govt.nz/monetary-policy/monetary-policy-decisions",
+   "verified": "2026-10-31"
   }
  ],
  "BSP": [
