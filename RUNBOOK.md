@@ -29,7 +29,7 @@
 * **Cost:** nothing. GitHub Actions and Pages are free for a public repository
   (last checked 2026-10; GitHub can change this). No Claude usage.
 * **Retired 2026-10-30:** the daily AI language step (the Claude routine
-  following `ROUTINE.md`; its code was removed 2026-10-31). Remarks are no longer
+  switched off and its files removed 2026-10-31). Remarks are no longer
   paraphrased, translated or scored hawkish/dovish, and economists' polls are
   no longer read; the *Expected* column uses Forex Factory only.
 
