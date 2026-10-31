@@ -68,6 +68,11 @@
    {
     "1Y": 3.1,
     "5Y": 3.6,
+    "date": "2025-01-20"
+   },
+   {
+    "1Y": 3.1,
+    "5Y": 3.6,
     "date": "2025-02-20"
    },
    {
@@ -170,7 +175,6 @@
     "5Y": 3.5,
     "date": "2026-10-20"
    }
-  ],
-  "note": "seeded from the page's last published LPR fixings (chinamoney.com.cn) during the site's maintenance outage"
+  ]
  }
 }
