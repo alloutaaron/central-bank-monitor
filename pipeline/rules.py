@@ -10,6 +10,7 @@ Former officials, market-move lines and other central banks are dropped.
 Remarks carry no hawkish/dovish judgement: stance is always neutral."""
 from __future__ import annotations
 
+import datetime as dt
 import re
 
 from .common import ROOT, now_sgt, read_json
@@ -19,19 +20,19 @@ ALIASES = {
     "FED": r"\b(?:Fed|FED|FOMC)\b|(?i:federal reserve)",
     "ECB": r"\bECB\b|(?i:european central bank)",
     "BOE": r"\b(?:BoE|BOE)\b|(?i:bank of england)",
-    "BOJ": r"\b(?:BoJ|BOJ)\b|(?i:bank of japan)",
-    "BOK": r"\b(?:BoK|BOK)\b|(?i:bank of korea)",
+    "BOJ": r"\b(?:BoJ|BOJ)\b|(?i:bank of japan|japan(?:.s|n|ese) central bank)",
+    "BOK": r"\b(?:BoK|BOK)\b|(?i:bank of korea|(?:south )?korea(?:.s|n|ese) central bank)",
     "PBOC": r"\b(?:PBoC|PBOC|PBC)\b|(?i:people.s bank of china|china.s central bank)",
-    "RBI": r"\bRBI\b|(?i:reserve bank of india)",
-    "BNM": r"\bBNM\b|(?i:bank negara)",
-    "BI": r"\bBI\b|(?i:bank indonesia)",
+    "RBI": r"\bRBI\b|(?i:reserve bank of india|india(?:.s|n|ese) central bank)",
+    "BNM": r"\bBNM\b|(?i:bank negara|malaysia(?:.s|n|ese) central bank)",
+    "BI": r"\bBI\b|(?i:bank indonesia|indonesia(?:.s|n|ese) central bank)",
     "BOT": r"\b(?:BoT|BOT)\b|(?i:bank of thailand|thai central bank)",
     "HKMA": r"\bHKMA\b|(?i:hong kong monetary authority|hong kong)",
     "MAS": r"\bMAS\b|(?i:monetary authority of singapore)",
-    "BSP": r"\bBSP\b|(?i:bangko sentral)",
+    "BSP": r"\bBSP\b|(?i:bangko sentral|philippines?(?:.s)? central bank)",
     "CBC": r"(?i:taiwan.s central bank|taiwan central bank|central bank of the republic of china)",
-    "RBA": r"\bRBA\b|(?i:reserve bank of australia)",
-    "RBNZ": r"\bRBNZ\b|(?i:reserve bank of new zealand)",
+    "RBA": r"\bRBA\b|(?i:reserve bank of australia|australia(?:.s|n|ese) central bank)",
+    "RBNZ": r"\bRBNZ\b|(?i:reserve bank of new zealand|new zealand.s central bank)",
 }
 # Surnames that are also ordinary words or very common names: kept only when
 # the member's bank is named in the same headline.
@@ -196,3 +197,64 @@ def document_rows(docs: list[dict], today: str) -> list[dict]:
                      "bank": d["bank"], "speaker": speaker, "role": role, "type": "remark", "text": clean(d["title"]),
                      "stance": "neutral", "score": None, "reason": "", "classified": stamp, "model": "rules"})
     return rows
+
+
+# Wire-reported decisions, used only until the bank's own data (or BIS) confirms.
+HOLD = re.compile(r"\b(?:holds?|held|keeps?|kept|leaves?|left|maintains?|unchanged|steady|pauses?|paused|on hold)\b", re.I)
+MOVE = re.compile(r"\b(raises?|raised|hikes?|hiked|lifts?|increases?|cuts?|lowers?|lowered|reduces?|reduced|trims?)\b"
+                  r".{0,40}?\bby\s+(\d{2,3})\s*(?:bp|bps|basis[- ]points?)\b|\b(quarter|half)[- ]point\s+(hike|increase|rise|cut|reduction)", re.I)
+AT_LEVEL = re.compile(r"\b(?:at|to)\s+(-?\d{1,2}(?:\.\d{1,2})?)\s*(?:%|per ?cent|percent)", re.I)
+UP = re.compile(r"raise|hike|lift|increase|rise", re.I)
+
+
+def wire_move(text: str) -> tuple[int, float | None] | None:
+    """(move in bp, level after if stated) from a decision headline, or None."""
+    lvl = AT_LEVEL.search(text)
+    lvl = float(lvl[1]) if lvl else None
+    m = MOVE.search(text)
+    if m:
+        bp = int(m[2]) if m[2] else (25 if m[3].lower() == "quarter" else 50)
+        return (bp if UP.match(m[1] or m[4]) else -bp), lvl
+    d = re.search(r"\b(raises?|raised|hikes?|hiked|lifts?|increases?|cuts?|lowers?|lowered|reduces?|reduced|trims?)\b", text, re.I)
+    if d and lvl is not None:
+        return ("up" if UP.match(d[1]) else "down"), lvl   # size worked out from the rate before
+    if HOLD.search(text) and not re.search(r"\b(?:raises?|hikes?|cuts?|lowers?)\b", text, re.I):
+        return 0, lvl
+    return None
+
+
+def wire_decisions(recs: list[dict], statements: list[dict], today: str) -> dict[str, dict]:
+    """Decisions for past meetings that have no official decision yet, from
+    decision headlines: at least two outlets must report the same move, and no
+    outlet a different one. The label says 'per wires' until official data arrives."""
+    out = {}
+    for rec in recs:
+        if rec["type"] != "meeting" or rec.get("decision_official") or rec["bank"] in ("MAS", "CBC") or rec["date"] > today:
+            continue
+        lo = (dt.date.fromisoformat(rec["date"]) - dt.timedelta(days=1)).isoformat()
+        hi = (dt.date.fromisoformat(rec["date"]) + dt.timedelta(days=3)).isoformat()
+        before = rec.get("rate_before")
+        b = float(re.sub(r"[^\d.\-–]", "", before).split("–")[-1]) if before and re.search(r"\d", before) else None
+        seen = {}
+        for s in statements:
+            if s.get("bank") == rec["bank"] and s.get("type") == "decision" and lo <= s["ts"][:10] <= hi:
+                mv = wire_move(s.get("raw") or s.get("text") or "")
+                if mv and isinstance(mv[0], str):   # "raises ... to 5.50%": the move is the level less the rate before
+                    up = mv[0] == "up"
+                    mv = (int(round((mv[1] - b) * 100)), mv[1]) if b is not None and (mv[1] > b) == up and mv[1] != b else None
+                if mv:
+                    seen.setdefault(mv[0], {}).setdefault(s["source"], (s.get("url"), mv[1]))
+        if len(seen) != 1:
+            continue
+        move, srcs = next(iter(seen.items()))
+        if len(srcs) < 2:
+            continue
+        stated = {v[1] for v in srcs.values() if v[1] is not None}
+        level = (b + move / 100) if b is not None else (stated.pop() if len(stated) == 1 else None)
+        if b is not None and stated and any(abs(x - level) > 1e-9 for x in stated):
+            continue   # an outlet's stated level disagrees with the rate before plus the move
+        lv = f"{level:.2f}%" if level is not None and "–" not in (before or "") else None
+        label = ("Hold" + (f" at {lv}" if lv else "") if move == 0 else f"{move:+d}bp" + (f" to {lv}" if lv else "")) + " (per wires)"
+        out[rec["id"]] = {"move_bp": move, "label": label, "level": lv, "source": next(iter(srcs.values()))[0],
+                          "source_kind": "wires", "sources": sorted(srcs)}
+    return out

@@ -40,6 +40,21 @@
 * The button beside it reads **Sources** when all is well, or **N stale** when
   a source failed on the latest run. Click it for details: which source failed
   and when it last worked. Old data from a failed source is never shown as fresh.
+* **Data check (automatic, added 2026-10-31):** every run ends with
+  `pipeline/check.py`. It looks for:
+  * a meeting with no decision 2+ days later;
+  * a decision still only "per wires" after 7 days;
+  * a rate that disagrees with BIS once BIS has data past the last decision;
+  * a source failing for 3+ days.
+
+  When that list changes, it opens or updates one GitHub issue, "Data check:
+  something on the page needs a look", mentioning Aaron, so GitHub emails
+  him. It closes the issue when all is clear. No email means nothing to do.
+  Its last state is kept in `data/check.json`.
+* **"(per wires)" decisions:** for a past meeting with no official decision
+  yet, two or more outlets reporting the same move in decision headlines give
+  a provisional decision. It is labelled "per wires" and replaced as soon as
+  the bank's data, BIS or `seeds/rates.json` has it (`rules.wire_decisions`).
 * On GitHub: repository → **Actions** tab → *Refresh*. A green tick is a
   successful run; click one to read its log. The log's last line reads
   `done: … feed items, failed sources: […]`.

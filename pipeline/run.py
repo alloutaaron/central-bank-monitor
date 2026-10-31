@@ -12,7 +12,7 @@ import re
 import sys
 import traceback
 
-from . import consensus, inbox, meetings, news, official_docs, rules, spectrum, store, telegram, build
+from . import build, check, consensus, inbox, meetings, news, official_docs, rules, spectrum, store, telegram
 from .common import LOG, ROOT, now_sgt, read_json, write_json, today_sgt
 
 CFG = read_json(ROOT / "config" / "banks.json", {})
@@ -115,8 +115,13 @@ def refresh(lookback_hours: int = 36, since: str | None = None):
         state["hourly_last"] = now_sgt().isoformat(timespec="minutes")
     store.save_state(state)
     write_json(SNAPSHOT, recs, compact=True)
-    meetings.annotate(recs, ex, {}, today)
-    return finish(recs, today, refreshed=True)
+    # Decisions reported by two or more outlets, shown "per wires" until official data arrives.
+    wire_from = (today - dt.timedelta(days=10)).isoformat()
+    watch = rules.wire_decisions(recs, [s for s in store.all_statements(wire_from[:7]) if s["ts"][:10] >= wire_from],
+                                 today.isoformat())
+    meetings.annotate(recs, ex, watch, today)
+    finish(recs, today, refreshed=True)
+    check.run(recs, today)
 
 
 def finish(recs: list[dict], today: dt.date, refreshed: bool = False):

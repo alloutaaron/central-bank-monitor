@@ -18,6 +18,7 @@ permissions:
   contents: write
   pages: write
   id-token: write
+  issues: write   # the data check opens/updates one issue when something needs a look
 
 concurrency:
   group: refresh
@@ -43,6 +44,7 @@ jobs:
       - name: Refresh data
         env:
           BACKFILL: ${{ inputs.backfill }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}   # GitHub's per-run token; used only for the data-check issue
         run: |
           if [ -n "$BACKFILL" ]; then python -m pipeline.run --backfill "$BACKFILL"; else python -m pipeline.run; fi
 
