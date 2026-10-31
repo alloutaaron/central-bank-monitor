@@ -1,11 +1,5 @@
-"""The hand-off between the morning collection job and the language step.
-
-data/inbox/pending.json   items waiting for the language step (cumulative: if a
-                          day's language step does not run, items wait)
-data/outbox/*.json        the language step's results (written by the Claude
-                          routine, or by the API path when a key is set)
-data/outbox/applied/      results already merged by pipeline.finalize
-"""
+"""data/inbox/pending.json: items collected for the feed. Since 2026-10-30
+the rules in pipeline/rules.py process them in the same run (no AI step)."""
 from __future__ import annotations
 
 import datetime as dt

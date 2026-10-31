@@ -3,8 +3,6 @@
 * Forex Factory's public weekly calendar export: consensus forecasts for G10 and
   China rate decisions, plus scheduled G10 central-bank speeches (current week
   only, so each run archives what it sees).
-* Poll / consensus headlines from reputable outlets (news.polls), read by Claude
-  for banks or weeks Forex Factory does not cover.
 An expectation is stored with its basis and date, and frozen once the meeting
 has passed so 'expected vs actual' stays visible."""
 from __future__ import annotations
@@ -13,7 +11,6 @@ import datetime as dt
 import json
 import re
 
-from . import llm, news
 from .common import ROOT, SGT, fetch, read_json, write_json, FetchError
 
 FF_URL = "https://nfs.faireconomy.media/ff_calendar_thisweek.json"
@@ -60,27 +57,8 @@ def ff_expectations(ff: list[dict], meetings: list[dict]) -> dict:
     return out
 
 
-def news_expectation(meeting: dict, bank_name: str, window: tuple[str, str] | None = None) -> dict | None:
-    lines = news.polls(bank_name, meeting["bank"], days=21, window=window)
-    if not lines:
-        return None
-    res = llm.extract_expectation(meeting["bank"], meeting["date"], meeting.get("rate_before") or "unknown", lines)
-    if not res or not res.get("found") or res.get("expected") == "split":
-        return None
-    mv = _pct(res.get("move_bp"))
-    if mv is None:
-        mv = 0 if res["expected"] == "hold" else None
-    if mv is None:
-        return None
-    mv = int(mv)
-    return {"move_bp": mv, "label": "Hold" if mv == 0 else f"{mv:+d}bp", "basis": res.get("basis", ""),
-            "outlets": res.get("outlets", [])[:4], "as_of": (window[1] if window else dt.datetime.now(SGT).date().isoformat()),
-            "kind": "news"}
-
-
 def update(expectations: dict, meetings: list[dict], today: dt.date, horizon_days: int = 21, ff: list[dict] | None = None) -> dict:
     """Refresh expectations for upcoming meetings; never overwrite a frozen one."""
-    cfg = read_json(ROOT / "config" / "banks.json", {})["banks"]
     ffx = ff_expectations(ff if ff is not None else forex_factory(), meetings)
     for m in meetings:
         if m["type"] != "meeting" or m["bank"] in ("SBV",):
@@ -95,28 +73,11 @@ def update(expectations: dict, meetings: list[dict], today: dt.date, horizon_day
             continue
         if (d - today).days > horizon_days:
             continue
-        new = ffx.get(m["id"]) or (news_expectation(m, cfg[m["bank"]]["news_name"]) if llm.available() else None)
+        new = ffx.get(m["id"])
         if new:
             expectations[m["id"]] = new
         if d == today and m["id"] in expectations:
             expectations[m["id"]]["frozen"] = True
-    return expectations
-
-
-def backfill(expectations: dict, meetings: list[dict], today: dt.date) -> dict:
-    """Expectations for past meetings from poll headlines dated in the two weeks before."""
-    cfg = read_json(ROOT / "config" / "banks.json", {})["banks"]
-    for m in meetings:
-        if m["type"] != "meeting" or m["id"] in expectations or m["bank"] in ("SBV", "HKMA"):
-            continue
-        d = dt.date.fromisoformat(m["date"])
-        if d >= today:
-            continue
-        win = ((d - dt.timedelta(days=14)).isoformat(), d.isoformat())
-        ex = news_expectation(m, cfg[m["bank"]]["news_name"], window=win)
-        if ex:
-            ex["frozen"] = True
-            expectations[m["id"]] = ex
     return expectations
 
 

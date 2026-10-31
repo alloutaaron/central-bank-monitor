@@ -56,14 +56,3 @@ def remarks(bank_name: str, bank: str, days: int = 2, window: tuple[str, str] | 
     for x in items:
         x["bank_hint"] = bank
     return items
-
-
-def polls(bank_name: str, bank: str, days: int = 21, window: tuple[str, str] | None = None) -> list[str]:
-    """Dated headline lines about expectations for an upcoming decision."""
-    q = f'"{bank_name}" (poll OR economists OR expected OR forecast OR "seen") (rate OR rates)'
-    q += f" after:{window[0]} before:{window[1]}" if window else f" when:{days}d"
-    try:
-        items = _feed(q, f"NEWS-POLLS:{bank}")
-    except FetchError:
-        return []
-    return [f"{x['ts'][:10]} | {x['source']} | {x['text']}" for x in sorted(items, key=lambda x: x["ts"], reverse=True)]
