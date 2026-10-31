@@ -4,9 +4,14 @@
 
 * **Where:** GitHub Actions (GitHub's free job runner), workflow
   `.github/workflows/refresh.yml`. Your Mac does not need to be on.
-* **When:** every 15 minutes, all day. GitHub runs scheduled jobs on a
-  best-effort basis: at busy times a run can start late or be skipped, which is
-  why the page shows when it last updated.
+* **When:** every 15 minutes, all day, started by an outside timer:
+  a free cron-job.org job (Aaron's account, job "Central Bank Monitor
+  refresh") calls GitHub's "run this workflow" address at :00, :15, :30 and
+  :45 SGT. It uses a GitHub fine-grained token that can only start workflows on
+  this repository (permission *Actions: write*); the token lives only in that
+  cron-job.org job, never in this repository. Added 2026-10-31 because GitHub's
+  own schedule ran only 4 times in 20 hours. GitHub's schedule is kept as an
+  hourly backup (minute 7).
 * **What it does** (`python -m pipeline.run`, about 1–2 minutes; no AI):
   reads official schedules, rate histories, decisions and release dates from
   each bank's own site where machine-readable (BoJ and HKMA decisions from
@@ -55,7 +60,8 @@ gh workflow run refresh.yml --repo alloutaaron/central-bank-monitor -f backfill=
 
 | Symptom | Likely cause | Fix |
 |---|---|---|
-| Header says *overdue*, Actions shows no recent run | GitHub delayed or skipped the schedule, or disabled it: public repos' scheduled workflows are switched off after 60 days without repository activity (the data commits should count as activity, but this is not verified) | Actions tab → *Refresh* → **Enable workflow** if shown, then run it by hand (command above) |
+| Header says *overdue*, Actions shows no recent run | The cron-job.org job stopped: its token expired (GitHub → Settings → Developer settings → Fine-grained tokens shows the date), or cron-job.org switched it off after 25 failed calls (it emails Aaron). The hourly GitHub backup can also be disabled after 60 days without repository activity | Regenerate the token and paste `Bearer <token>` into the job's *Authorization* header, then re-enable the job at console.cron-job.org; Actions tab → *Refresh* → **Enable workflow** if shown; run it by hand (command above) |
+| Actions shows a run every 15 minutes, each failing | Not the timer: a bug or a source change | See the next row |
 | Run failed (red cross) | A bug or a source changed its page layout badly enough to crash | Open the run log, copy the last 30 lines, and ask Claude Code in this folder to fix it |
 | One bank shows *stale* | That source's page changed layout, or it blocked the job | Usually transient. If it lasts more than 2–3 days, ask Claude Code to update that parser in `pipeline/` |
 | An irrelevant headline in the feed, or a remark missing | The plain rules in `pipeline/rules.py` (member names, bank names, decision words) misread it | Ask Claude Code to adjust `pipeline/rules.py`; test it on `data/statements/` before committing |

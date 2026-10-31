@@ -1,11 +1,12 @@
 name: Refresh
 
-# Every 15 minutes, no AI. GitHub runs scheduled jobs on a best-effort basis:
-# at busy times a run can start late or be skipped, which is why the page
-# shows the time of its last update.
+# No AI. Started every 15 minutes by an outside cron-job.org job calling the
+# workflow_dispatch API (see RUNBOOK.md). GitHub's own schedule is best-effort
+# (it ran 4 times in 20 hours on 2026-10-30), so it is kept only as an hourly
+# backup, at minute 7 to stay clear of the outside timer's runs.
 on:
   schedule:
-    - cron: "*/15 * * * *"
+    - cron: "7 * * * *"
   workflow_dispatch:
     inputs:
       backfill:
