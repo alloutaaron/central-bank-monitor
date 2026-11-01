@@ -386,16 +386,13 @@
   ]
  },
  "BOE-2026-11-05": {
-  "as_of": "2026-10-28",
-  "basis": "Reuters poll expects the BoE to raise rates to 4% in November; Danske Bank also added a November hike.",
-  "dir": 1,
-  "frozen": false,
-  "kind": "news",
+  "as_of": "2026-11-01",
+  "basis": "Consensus forecast 4.00% (previous 3.75%)",
+  "kind": "consensus",
   "label": "+25bp",
   "move_bp": 25,
   "outlets": [
-   "Reuters",
-   "Danske Bank"
+   "Forex Factory calendar"
   ]
  },
  "BOJ-2025-01-24": {
@@ -1305,16 +1302,13 @@
   ]
  },
  "RBA-2026-11-03": {
-  "as_of": "2026-10-29",
-  "basis": "Traders brace for more RBA hikes and the RBA has primed markets for a rise after hot inflation data.",
-  "dir": 1,
-  "frozen": false,
-  "kind": "news",
-  "label": "Hike (size not polled)",
-  "move_bp": null,
+  "as_of": "2026-11-01",
+  "basis": "Consensus forecast 4.85% (previous 4.60%)",
+  "kind": "consensus",
+  "label": "+25bp",
+  "move_bp": 25,
   "outlets": [
-   "Bloomberg",
-   "The Guardian"
+   "Forex Factory calendar"
   ]
  },
  "RBI-2025-04-09": {
