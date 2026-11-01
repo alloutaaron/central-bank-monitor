@@ -1,28 +1,5 @@
 {
- "issue": 1,
- "keys": [
-  "awaiting:BI-2025-01-15",
-  "awaiting:BI-2025-02-19",
-  "awaiting:BI-2025-03-19",
-  "awaiting:BI-2025-04-23",
-  "awaiting:BI-2025-05-21",
-  "awaiting:BI-2025-06-18",
-  "awaiting:BI-2025-07-16",
-  "awaiting:BI-2025-08-20",
-  "awaiting:BI-2025-09-17",
-  "awaiting:BI-2025-10-22",
-  "awaiting:BI-2025-11-19",
-  "awaiting:BI-2025-12-17",
-  "awaiting:BI-2026-01-21",
-  "awaiting:BI-2026-02-19",
-  "awaiting:BI-2026-03-17",
-  "awaiting:BI-2026-04-22",
-  "awaiting:BI-2026-05-20",
-  "awaiting:BI-2026-06-18",
-  "awaiting:BI-2026-07-22",
-  "awaiting:BI-2026-08-19",
-  "awaiting:BI-2026-09-23",
-  "awaiting:BI-2026-10-21"
- ],
- "updated": "2026-11-02T04:26+08:00"
+ "issue": null,
+ "keys": [],
+ "updated": "2026-11-02T04:32+08:00"
 }
