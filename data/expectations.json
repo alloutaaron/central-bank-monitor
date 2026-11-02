@@ -386,7 +386,7 @@
   ]
  },
  "BOE-2026-11-05": {
-  "as_of": "2026-11-02",
+  "as_of": "2026-11-03",
   "basis": "Consensus forecast 4.00% (previous 3.75%)",
   "kind": "consensus",
   "label": "+25bp",
@@ -1302,8 +1302,9 @@
   ]
  },
  "RBA-2026-11-03": {
-  "as_of": "2026-11-02",
+  "as_of": "2026-11-03",
   "basis": "Consensus forecast 4.85% (previous 4.60%)",
+  "frozen": true,
   "kind": "consensus",
   "label": "+25bp",
   "move_bp": 25,
