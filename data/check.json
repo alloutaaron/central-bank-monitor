@@ -1,5 +1,11 @@
 {
- "issue": null,
- "keys": [],
- "updated": "2026-11-04T00:32+08:00"
+ "issue": 7,
+ "keys": [
+  "awaiting:BNM-2026-01-22",
+  "awaiting:BNM-2026-03-05",
+  "awaiting:BNM-2026-05-07",
+  "awaiting:BNM-2026-07-09",
+  "awaiting:BNM-2026-09-03"
+ ],
+ "updated": "2026-11-04T14:17+08:00"
 }
