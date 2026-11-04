@@ -65,9 +65,9 @@
   "RBNZ-2025-10-08",
   "RBNZ-2026-04-08"
  ],
- "hourly_last": "2026-11-05T05:46+08:00",
+ "hourly_last": "2026-11-05T06:47+08:00",
  "language_last_run": "2026-10-30T06:15+08:00",
- "last_refresh": "2026-11-05T06:31+08:00",
+ "last_refresh": "2026-11-05T06:47+08:00",
  "probe_day": "2026-11-05",
  "processed_docs": [
   "doc-029fd4f246218fc0",
@@ -1652,6 +1652,7 @@
   "nw-b213f60bd5e382c4",
   "nw-b21489ed8d205b76",
   "nw-b232f8341b8cd116",
+  "nw-b254450b53e1efc8",
   "nw-b25d3082faf77dae",
   "nw-b2ff2dfc509641cb",
   "nw-b33d50cdf27ce3c1",
