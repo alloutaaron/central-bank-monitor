@@ -67,7 +67,7 @@
  ],
  "hourly_last": "2026-11-05T14:03+08:00",
  "language_last_run": "2026-10-30T06:15+08:00",
- "last_refresh": "2026-11-05T14:34+08:00",
+ "last_refresh": "2026-11-05T14:47+08:00",
  "probe_day": "2026-11-05",
  "processed_docs": [
   "doc-029fd4f246218fc0",
@@ -280,6 +280,7 @@
   "doc-8fa364ce493a6b26",
   "doc-90bd06121723a47f",
   "doc-91aabfd07946bdf3",
+  "doc-92c7994bdac32e34",
   "doc-9317fd04efa96c73",
   "doc-9452bef5142f4608",
   "doc-9559d9ea38ac9792",
