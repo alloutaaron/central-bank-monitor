@@ -65,9 +65,9 @@
   "RBNZ-2025-10-08",
   "RBNZ-2026-04-08"
  ],
- "hourly_last": "2026-11-05T17:03+08:00",
+ "hourly_last": "2026-11-05T18:02+08:00",
  "language_last_run": "2026-10-30T06:15+08:00",
- "last_refresh": "2026-11-05T17:47+08:00",
+ "last_refresh": "2026-11-05T18:02+08:00",
  "probe_day": "2026-11-05",
  "processed_docs": [
   "doc-029fd4f246218fc0",
@@ -452,6 +452,7 @@
   "nw-00f71af87e84639f",
   "nw-0159384ae3280588",
   "nw-01906eace8d1dfa6",
+  "nw-01c4a2f7a369a4bc",
   "nw-01f36fad051a4b7c",
   "nw-02054c97d48c0365",
   "nw-02095fced2342a10",
@@ -881,6 +882,7 @@
   "nw-403e6a67fc7376ab",
   "nw-4077beeb891ea579",
   "nw-40827e6467301dc0",
+  "nw-409143c582ba644e",
   "nw-409c04f44c454672",
   "nw-40d18059d849aa2e",
   "nw-4124745d28c850ba",
@@ -1339,6 +1341,7 @@
   "nw-8357826c415f52b0",
   "nw-8370e28a2bfa9f4a",
   "nw-83ac992d3ba75a90",
+  "nw-83e47980498b56a6",
   "nw-83e5e2c8deebffa9",
   "nw-84316951caf2a097",
   "nw-843f0778817d0035",
@@ -1545,6 +1548,7 @@
   "nw-9fc83d46e35188cb",
   "nw-a0409f578078e0a2",
   "nw-a04dd34e54b2561a",
+  "nw-a0559821eede4d5c",
   "nw-a06ceee7435133e5",
   "nw-a08fbddf9161c6a6",
   "nw-a093ac39b42300b4",
@@ -1562,6 +1566,7 @@
   "nw-a1df6ebcfc154b95",
   "nw-a1f47a3add082abf",
   "nw-a21044175716db42",
+  "nw-a250e2c84abd4332",
   "nw-a265d60a213a7404",
   "nw-a2729a1c15ca6a18",
   "nw-a28bb716f76ade35",
@@ -1791,6 +1796,7 @@
   "nw-bf3642c53b585422",
   "nw-bf548678be6fd659",
   "nw-bf68954a294fd1d6",
+  "nw-bfa25a70d8f77e4e",
   "nw-bfaf0f8979be30d0",
   "nw-c02aa7a70d589c5e",
   "nw-c063973bdedd0095",
@@ -1930,6 +1936,7 @@
   "nw-d11113f92d97fddb",
   "nw-d116e04c61f440ae",
   "nw-d12d3f3262a884a0",
+  "nw-d1304a331da51407",
   "nw-d13a0aef28517131",
   "nw-d14d16ec21dd60e3",
   "nw-d16ccddd1a628eac",
@@ -2039,6 +2046,7 @@
   "nw-e1ed27223803ab09",
   "nw-e201002b529eea45",
   "nw-e22f3f9ad2724816",
+  "nw-e268f01597c6774e",
   "nw-e27e907092d6d8ee",
   "nw-e298b9577d7dbfc7",
   "nw-e2a0a8ee35ed4c34",
@@ -2212,6 +2220,7 @@
   "nw-fa13d1b1cba3a288",
   "nw-fa2a1f0d1e9e308b",
   "nw-fa64415e6856eb11",
+  "nw-fa73692c652e8492",
   "nw-fafa925b603d9cda",
   "nw-fb0f79d89bcf3305",
   "nw-fb71fbef26346ad0",
@@ -2941,6 +2950,6 @@
  ],
  "telegram_last_id": {
   "WalterBloomberg": 37905,
-  "firstsquaw": 190359
+  "firstsquaw": 190361
  }
 }
