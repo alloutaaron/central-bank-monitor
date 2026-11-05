@@ -1,16 +1,16 @@
 {
- "checked": "2026-11-05T00:20+08:00",
+ "checked": "2026-11-06T00:30+08:00",
  "sites": {
   "BNM": {
    "bytes": 292895,
    "status": 200
   },
   "BSP": {
-   "bytes": 153714,
+   "bytes": 153774,
    "status": 200
   },
   "RBA": {
-   "bytes": 61592,
+   "bytes": 60399,
    "status": 200
   },
   "RBNZ": {
