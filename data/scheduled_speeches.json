@@ -208,5 +208,12 @@
   "src": "Forex Factory calendar",
   "title": "FOMC Member Bowman Speaks",
   "ts": "2026-11-07T01:15+08:00"
+ },
+ {
+  "bank": "FED",
+  "impact": "Low",
+  "src": "Forex Factory calendar",
+  "title": "FOMC Member Daly Speaks",
+  "ts": "2026-11-07T02:00+08:00"
  }
 ]
