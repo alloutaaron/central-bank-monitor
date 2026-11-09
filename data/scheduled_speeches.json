@@ -420,6 +420,13 @@
   "ts": "2026-11-13T23:50+08:00"
  },
  {
+  "bank": "ECB",
+  "impact": "Low",
+  "src": "Forex Factory calendar",
+  "title": "German Buba President Nagel Speaks",
+  "ts": "2026-11-14T00:00+08:00"
+ },
+ {
   "bank": "FED",
   "impact": "Low",
   "src": "Forex Factory calendar",
