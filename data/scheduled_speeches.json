@@ -322,6 +322,13 @@
   "ts": "2026-11-11T16:20+08:00"
  },
  {
+  "bank": "ECB",
+  "impact": "Medium",
+  "src": "Forex Factory calendar",
+  "title": "ECB President Lagarde Speaks",
+  "ts": "2026-11-11T17:45+08:00"
+ },
+ {
   "bank": "FED",
   "impact": "Low",
   "src": "Forex Factory calendar",
