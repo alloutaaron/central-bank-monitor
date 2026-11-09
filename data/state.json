@@ -67,8 +67,8 @@
  ],
  "hourly_last": "2026-11-09T23:18+08:00",
  "language_last_run": "2026-10-30T06:15+08:00",
- "last_refresh": "2026-11-09T23:47+08:00",
- "probe_day": "2026-11-09",
+ "last_refresh": "2026-11-10T00:02+08:00",
+ "probe_day": "2026-11-10",
  "processed_docs": [
   "doc-029fd4f246218fc0",
   "doc-02e51bcdb43d0f99",
@@ -3337,7 +3337,7 @@
   "tg-firstsquaw-191268"
  ],
  "telegram_last_id": {
-  "WalterBloomberg": 38093,
-  "firstsquaw": 191269
+  "WalterBloomberg": 38094,
+  "firstsquaw": 191272
  }
 }
