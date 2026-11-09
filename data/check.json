@@ -1,22 +1,7 @@
 {
  "issue": 16,
  "keys": [
-  "awaiting:ECB-2025-01-30",
-  "awaiting:ECB-2025-03-06",
-  "awaiting:ECB-2025-04-17",
-  "awaiting:ECB-2025-06-05",
-  "awaiting:ECB-2025-07-24",
-  "awaiting:ECB-2025-09-11",
-  "awaiting:ECB-2025-10-30",
-  "awaiting:ECB-2025-12-18",
-  "awaiting:ECB-2026-02-05",
-  "awaiting:ECB-2026-03-19",
-  "awaiting:ECB-2026-04-30",
-  "awaiting:ECB-2026-06-11",
-  "awaiting:ECB-2026-07-23",
-  "awaiting:ECB-2026-09-10",
-  "awaiting:ECB-2026-10-29",
   "stale:RBA:official-doc"
  ],
- "updated": "2026-11-10T06:49+08:00"
+ "updated": "2026-11-10T07:02+08:00"
 }
