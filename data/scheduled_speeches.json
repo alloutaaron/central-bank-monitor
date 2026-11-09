@@ -319,6 +319,13 @@
   "impact": "Low",
   "src": "Forex Factory calendar",
   "title": "German Buba President Nagel Speaks",
+  "ts": "2026-11-11T16:15+08:00"
+ },
+ {
+  "bank": "ECB",
+  "impact": "Low",
+  "src": "Forex Factory calendar",
+  "title": "German Buba President Nagel Speaks",
   "ts": "2026-11-11T16:20+08:00"
  },
  {
@@ -327,6 +334,13 @@
   "src": "Forex Factory calendar",
   "title": "ECB President Lagarde Speaks",
   "ts": "2026-11-11T17:45+08:00"
+ },
+ {
+  "bank": "FED",
+  "impact": "Low",
+  "src": "Forex Factory calendar",
+  "title": "FOMC Member Hammack Speaks",
+  "ts": "2026-11-12T21:30+08:00"
  },
  {
   "bank": "FED",
@@ -347,7 +361,21 @@
   "impact": "Low",
   "src": "Forex Factory calendar",
   "title": "FOMC Member Goolsbee Speaks",
+  "ts": "2026-11-13T00:15+08:00"
+ },
+ {
+  "bank": "FED",
+  "impact": "Low",
+  "src": "Forex Factory calendar",
+  "title": "FOMC Member Goolsbee Speaks",
   "ts": "2026-11-13T00:30+08:00"
+ },
+ {
+  "bank": "ECB",
+  "impact": "Low",
+  "src": "Forex Factory calendar",
+  "title": "German Buba President Nagel Speaks",
+  "ts": "2026-11-13T01:30+08:00"
  },
  {
   "bank": "FED",
