@@ -65,9 +65,9 @@
   "RBNZ-2025-10-08",
   "RBNZ-2026-04-08"
  ],
- "hourly_last": "2026-11-11T22:47+08:00",
+ "hourly_last": "2026-11-11T23:47+08:00",
  "language_last_run": "2026-10-30T06:15+08:00",
- "last_refresh": "2026-11-11T23:32+08:00",
+ "last_refresh": "2026-11-11T23:47+08:00",
  "probe_day": "2026-11-11",
  "processed_docs": [
   "doc-0040329e474488dc",
@@ -3626,7 +3626,7 @@
   "tg-firstsquaw-191872"
  ],
  "telegram_last_id": {
-  "WalterBloomberg": 38240,
-  "firstsquaw": 191922
+  "WalterBloomberg": 38242,
+  "firstsquaw": 191924
  }
 }
