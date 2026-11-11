@@ -1,7 +1,8 @@
 {
  "issue": 16,
  "keys": [
-  "stale:RBA:official-doc"
+  "stale:RBA:official-doc",
+  "wires:BNM-2026-11-05"
  ],
- "updated": "2026-11-11T06:46+08:00"
+ "updated": "2026-11-12T00:02+08:00"
 }
