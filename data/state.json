@@ -65,9 +65,9 @@
   "RBNZ-2025-10-08",
   "RBNZ-2026-04-08"
  ],
- "hourly_last": "2026-11-12T07:17+08:00",
+ "hourly_last": "2026-11-12T08:17+08:00",
  "language_last_run": "2026-10-30T06:15+08:00",
- "last_refresh": "2026-11-12T08:02+08:00",
+ "last_refresh": "2026-11-12T08:17+08:00",
  "probe_day": "2026-11-12",
  "processed_docs": [
   "doc-0040329e474488dc",
@@ -1720,6 +1720,7 @@
   "nw-937aa9cd63c7c57e",
   "nw-938c45f48b65ea70",
   "nw-93937b07983068c4",
+  "nw-93a15092b2f34431",
   "nw-93f5b0e11f41b4f8",
   "nw-941c1b3f31766bc2",
   "nw-94a3c96fc82297f3",
@@ -2009,6 +2010,7 @@
   "nw-b139adfc5e5e4690",
   "nw-b148ce50d2adf4c4",
   "nw-b15faf60ee4d69c7",
+  "nw-b18866668550035e",
   "nw-b18bbbea0b214ffe",
   "nw-b19232f73bf3a8fa",
   "nw-b1a58d610de32a48",
@@ -2021,6 +2023,7 @@
   "nw-b213f60bd5e382c4",
   "nw-b21489ed8d205b76",
   "nw-b21803c178586333",
+  "nw-b23002eeace03b85",
   "nw-b232f8341b8cd116",
   "nw-b254450b53e1efc8",
   "nw-b25d3082faf77dae",
@@ -2122,6 +2125,7 @@
   "nw-bd72af06d353fcb8",
   "nw-bd7816e13f5cf529",
   "nw-bd7c9e8c23d31410",
+  "nw-bdac01e7f717908f",
   "nw-bdc3205392923e26",
   "nw-bde144ced9c5a98c",
   "nw-bdf50aae2bfa7614",
@@ -2146,6 +2150,7 @@
   "nw-bf68954a294fd1d6",
   "nw-bfa25a70d8f77e4e",
   "nw-bfaf0f8979be30d0",
+  "nw-c00d242fd8e1a116",
   "nw-c02aa7a70d589c5e",
   "nw-c063973bdedd0095",
   "nw-c0cdad55abb880a4",
@@ -2312,6 +2317,7 @@
   "nw-d0c8493e2a3e0fb5",
   "nw-d0c977952fe374e9",
   "nw-d0f7a1e3924153e0",
+  "nw-d10e4782622b517f",
   "nw-d11113f92d97fddb",
   "nw-d116e04c61f440ae",
   "nw-d12d3f3262a884a0",
@@ -2348,6 +2354,7 @@
   "nw-d4c6e9b57c703c20",
   "nw-d4d439a42fe6a07e",
   "nw-d4fe14afc1cc592c",
+  "nw-d567bfd30bbb5d74",
   "nw-d56f0f9280445351",
   "nw-d5a7d5b12748e900",
   "nw-d5f89123758955a7",
@@ -2519,6 +2526,7 @@
   "nw-e91ac83e407e69e9",
   "nw-e91d03971c8ae1e1",
   "nw-e929ccd0858e9906",
+  "nw-e92a9eff5eb8104b",
   "nw-e936f80aea06de73",
   "nw-e940bea215c612a4",
   "nw-e94e27d8dd994e78",
@@ -3655,10 +3663,12 @@
   "tg-firstsquaw-191936",
   "tg-firstsquaw-191937",
   "tg-firstsquaw-191938",
-  "tg-firstsquaw-191970"
+  "tg-firstsquaw-191970",
+  "tg-firstsquaw-191990",
+  "tg-firstsquaw-191991"
  ],
  "telegram_last_id": {
-  "WalterBloomberg": 38280,
-  "firstsquaw": 191989
+  "WalterBloomberg": 38281,
+  "firstsquaw": 191991
  }
 }
