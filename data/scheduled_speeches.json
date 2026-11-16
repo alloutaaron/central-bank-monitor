@@ -493,6 +493,20 @@
   "bank": "FED",
   "impact": "Low",
   "src": "Forex Factory calendar",
+  "title": "FOMC Member Barkin Speaks",
+  "ts": "2026-11-17T07:10+08:00"
+ },
+ {
+  "bank": "FED",
+  "impact": "Low",
+  "src": "Forex Factory calendar",
+  "title": "FOMC Member Goolsbee Speaks",
+  "ts": "2026-11-17T07:30+08:00"
+ },
+ {
+  "bank": "FED",
+  "impact": "Low",
+  "src": "Forex Factory calendar",
   "title": "FOMC Member Musalem Speaks",
   "ts": "2026-11-17T20:30+08:00"
  },
@@ -593,6 +607,13 @@
   "src": "Forex Factory calendar",
   "title": "FOMC Member Hammack Speaks",
   "ts": "2026-11-19T21:50+08:00"
+ },
+ {
+  "bank": "FED",
+  "impact": "Low",
+  "src": "Forex Factory calendar",
+  "title": "FOMC Member Jefferson Speaks",
+  "ts": "2026-11-19T22:25+08:00"
  },
  {
   "bank": "FED",
