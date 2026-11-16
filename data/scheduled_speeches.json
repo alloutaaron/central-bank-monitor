@@ -476,6 +476,13 @@
   "ts": "2026-11-17T01:00+08:00"
  },
  {
+  "bank": "FED",
+  "impact": "Low",
+  "src": "Forex Factory calendar",
+  "title": "FOMC Member Hammack Speaks",
+  "ts": "2026-11-17T03:15+08:00"
+ },
+ {
   "bank": "RBA",
   "impact": "High",
   "src": "Forex Factory calendar",
