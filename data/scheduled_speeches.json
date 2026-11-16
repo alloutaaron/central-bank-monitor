@@ -560,6 +560,13 @@
   "ts": "2026-11-18T23:00+08:00"
  },
  {
+  "bank": "FED",
+  "impact": "Low",
+  "src": "Forex Factory calendar",
+  "title": "FOMC Member Daly Speaks",
+  "ts": "2026-11-19T01:15+08:00"
+ },
+ {
   "bank": "RBNZ",
   "impact": "Medium",
   "src": "Forex Factory calendar",
