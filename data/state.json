@@ -65,9 +65,9 @@
   "RBNZ-2025-10-08",
   "RBNZ-2026-04-08"
  ],
- "hourly_last": "2026-11-16T17:47+08:00",
+ "hourly_last": "2026-11-16T18:47+08:00",
  "language_last_run": "2026-10-30T06:15+08:00",
- "last_refresh": "2026-11-16T18:31+08:00",
+ "last_refresh": "2026-11-16T18:47+08:00",
  "probe_day": "2026-11-16",
  "processed_docs": [
   "doc-0040329e474488dc",
@@ -553,6 +553,7 @@
   "nw-09501e6a1ad1c9e0",
   "nw-0955141d31b4987c",
   "nw-0964bac359efa695",
+  "nw-0974a9b50b975c09",
   "nw-09779f7881f769e6",
   "nw-098e609ac3ead17c",
   "nw-09a06a9ba543db87",
@@ -658,6 +659,7 @@
   "nw-13dbc5373b90d165",
   "nw-14072c962682d9c3",
   "nw-140eb2767054c460",
+  "nw-140f98e728fe8c96",
   "nw-14210c37aab0e232",
   "nw-14321289dd7b12c2",
   "nw-14451d4138c01b00",
@@ -846,6 +848,7 @@
   "nw-285745dc079520e0",
   "nw-287d7c93cbc9b70a",
   "nw-287d99844af27558",
+  "nw-288135299c689784",
   "nw-288ac798298d2bb3",
   "nw-2894cab2e7f37381",
   "nw-28ac240ff85ea810",
@@ -989,6 +992,7 @@
   "nw-37aa4073bc67f1ba",
   "nw-37bab21229a0e2bd",
   "nw-37da631491301619",
+  "nw-3805fbba68cb1705",
   "nw-3807cbe1a20278de",
   "nw-38129a898f897e4d",
   "nw-3817408ec1303847",
@@ -1016,6 +1020,7 @@
   "nw-3aaa57a744614455",
   "nw-3ac097110a96759d",
   "nw-3ac795fa0638c41b",
+  "nw-3ac8aa7d3f8f5f41",
   "nw-3af40e4f2a2f58d0",
   "nw-3b0e4729bddb465d",
   "nw-3b229751864fda1e",
@@ -1657,6 +1662,7 @@
   "nw-7d581ff0b03ab88d",
   "nw-7d65d7bd6c4df6a7",
   "nw-7d87155db40deb9b",
+  "nw-7dd00f264e277d5a",
   "nw-7de1eed4aa572f91",
   "nw-7deef6b4b399d4c7",
   "nw-7e450377acd82472",
@@ -1857,6 +1863,7 @@
   "nw-93a15092b2f34431",
   "nw-93f5b0e11f41b4f8",
   "nw-941c1b3f31766bc2",
+  "nw-94718b7a410ad6ca",
   "nw-94a3c96fc82297f3",
   "nw-94ab18cd7d4b4ddc",
   "nw-94abdad3fb8fe60e",
@@ -2347,6 +2354,7 @@
   "nw-becdbd06922c0cec",
   "nw-bee5e83b31baefdd",
   "nw-bef3dca49a6ee3fd",
+  "nw-bf0afca0d08f1274",
   "nw-bf15932c9f535eca",
   "nw-bf1e32e2b6194a6b",
   "nw-bf3642c53b585422",
@@ -4132,6 +4140,6 @@
  ],
  "telegram_last_id": {
   "WalterBloomberg": 38411,
-  "firstsquaw": 193170
+  "firstsquaw": 193172
  }
 }
