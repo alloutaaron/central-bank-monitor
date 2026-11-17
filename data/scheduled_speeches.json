@@ -504,6 +504,13 @@
   "ts": "2026-11-17T07:30+08:00"
  },
  {
+  "bank": "RBNZ",
+  "impact": "Medium",
+  "src": "Forex Factory calendar",
+  "title": "RBNZ Gov Breman Speaks",
+  "ts": "2026-11-17T08:00+08:00"
+ },
+ {
   "bank": "FED",
   "impact": "Low",
   "src": "Forex Factory calendar",
