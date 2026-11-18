@@ -65,9 +65,9 @@
   "RBNZ-2025-10-08",
   "RBNZ-2026-04-08"
  ],
- "hourly_last": "2026-11-18T10:28+08:00",
+ "hourly_last": "2026-11-18T11:32+08:00",
  "language_last_run": "2026-10-30T06:15+08:00",
- "last_refresh": "2026-11-18T11:17+08:00",
+ "last_refresh": "2026-11-18T11:32+08:00",
  "probe_day": "2026-11-18",
  "processed_docs": [
   "doc-0040329e474488dc",
@@ -1007,6 +1007,7 @@
   "nw-34f73bd5a8d6db04",
   "nw-3502bed6f4b62e8f",
   "nw-3525ab3945677571",
+  "nw-35b2d3acb5432a99",
   "nw-35b99515b6cf9b62",
   "nw-361965de9657fb85",
   "nw-362475ef8cfd824b",
@@ -1113,6 +1114,7 @@
   "nw-40ee86031cf2d1ad",
   "nw-411bf44cba7418e7",
   "nw-4124745d28c850ba",
+  "nw-4139943ed8a59ed3",
   "nw-41a86ac7e606dfdf",
   "nw-41bf2f2542a1ce69",
   "nw-41ce7065048ad8b0",
@@ -1140,6 +1142,7 @@
   "nw-43ac8067eed92e0b",
   "nw-43c4a7f6f82e3422",
   "nw-43f13f8c1f1cda15",
+  "nw-4435b5b5c8a23210",
   "nw-443f2f956b7c9257",
   "nw-447b74ee0528b7f4",
   "nw-447ff1810dbbe475",
@@ -1148,6 +1151,7 @@
   "nw-44a49848bd83e6d1",
   "nw-44c2cf7838f2113b",
   "nw-45061aa1523f3f08",
+  "nw-450ea5072395097e",
   "nw-450f2961c8d1b2d6",
   "nw-451e4ec0417bb6a0",
   "nw-454030c1084b090c",
@@ -1211,6 +1215,7 @@
   "nw-4b7e2e5041fe0e0a",
   "nw-4b87781f5a2ad92a",
   "nw-4b9a36c2604c3f7b",
+  "nw-4b9aa494ee8c3009",
   "nw-4ba16d59281d3308",
   "nw-4baf4ece40005c73",
   "nw-4bafe525ebb8ce57",
@@ -1255,6 +1260,7 @@
   "nw-4f18911746f3938a",
   "nw-4f339e5c6422c9d7",
   "nw-4f3484fb8a225870",
+  "nw-4f54ea4aa1ad290c",
   "nw-4f5a14b11b824790",
   "nw-4f5a4ddc12182b6b",
   "nw-4f79789a325f6a06",
@@ -1725,6 +1731,7 @@
   "nw-7d0a37940bbc8efb",
   "nw-7d1bef7561fb7d92",
   "nw-7d2e91550690e640",
+  "nw-7d5448d4b0107878",
   "nw-7d581ff0b03ab88d",
   "nw-7d65d7bd6c4df6a7",
   "nw-7d87155db40deb9b",
@@ -2818,6 +2825,7 @@
   "nw-dfddfc69afb1daee",
   "nw-dfe08bfc316f719c",
   "nw-e0164932ecc4a0f0",
+  "nw-e0179e148f74e1c5",
   "nw-e0183b5d4349bce2",
   "nw-e0314175f18c033d",
   "nw-e046ebe48b4a17ca",
@@ -4340,6 +4348,6 @@
  ],
  "telegram_last_id": {
   "WalterBloomberg": 38588,
-  "firstsquaw": 193721
+  "firstsquaw": 193730
  }
 }
