@@ -67,7 +67,7 @@
  ],
  "hourly_last": "2026-11-20T04:32+08:00",
  "language_last_run": "2026-10-30T06:15+08:00",
- "last_refresh": "2026-11-20T04:46+08:00",
+ "last_refresh": "2026-11-20T05:01+08:00",
  "probe_day": "2026-11-20",
  "processed_docs": [
   "doc-0040329e474488dc",
@@ -4668,10 +4668,18 @@
   "tg-firstsquaw-194307",
   "tg-firstsquaw-194308",
   "tg-firstsquaw-194309",
-  "tg-firstsquaw-194319"
+  "tg-firstsquaw-194319",
+  "tg-firstsquaw-194333",
+  "tg-firstsquaw-194334",
+  "tg-firstsquaw-194336",
+  "tg-firstsquaw-194337",
+  "tg-firstsquaw-194338",
+  "tg-firstsquaw-194339",
+  "tg-firstsquaw-194340",
+  "tg-firstsquaw-194341"
  ],
  "telegram_last_id": {
   "WalterBloomberg": 38730,
-  "firstsquaw": 194332
+  "firstsquaw": 194344
  }
 }
