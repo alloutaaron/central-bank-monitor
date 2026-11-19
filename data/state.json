@@ -65,9 +65,9 @@
   "RBNZ-2025-10-08",
   "RBNZ-2026-04-08"
  ],
- "hourly_last": "2026-11-20T02:32+08:00",
+ "hourly_last": "2026-11-20T03:32+08:00",
  "language_last_run": "2026-10-30T06:15+08:00",
- "last_refresh": "2026-11-20T03:16+08:00",
+ "last_refresh": "2026-11-20T03:32+08:00",
  "probe_day": "2026-11-20",
  "processed_docs": [
   "doc-0040329e474488dc",
@@ -662,6 +662,7 @@
   "nw-109446443d30700d",
   "nw-10bb89ba94183cc9",
   "nw-10d4b19f6ca7cd1e",
+  "nw-10e10fb169c23d56",
   "nw-10e1c9c6e0d0390d",
   "nw-10e40ffa9f9dbaba",
   "nw-110349e9c85c23d4",
@@ -809,6 +810,7 @@
   "nw-1fa9a51e39d5ec3c",
   "nw-1fad1553a4a5afa4",
   "nw-1fae9136b739b88c",
+  "nw-1fdb90442c382229",
   "nw-1fddaaf2e404c48c",
   "nw-1ffca11a57e77946",
   "nw-20022bfc1a43ab96",
@@ -946,6 +948,7 @@
   "nw-2b210136abe28577",
   "nw-2b2acd039c705d09",
   "nw-2b8c9524304bc90d",
+  "nw-2b9b9552cdb95edf",
   "nw-2bb5e616eb2c24ca",
   "nw-2bc3428515b1d7e1",
   "nw-2bd3d4df9b0b5661",
@@ -1012,6 +1015,7 @@
   "nw-3111a167df654e5e",
   "nw-312cd51490db480b",
   "nw-312cdc03c6c5c2d5",
+  "nw-31358b76391c11c5",
   "nw-317543d50a995f22",
   "nw-3178bf7570a58682",
   "nw-3197f3aae662e7c3",
@@ -1367,6 +1371,7 @@
   "nw-5387eea480da2c4a",
   "nw-53db4140ef7248bc",
   "nw-54067ee71e84f576",
+  "nw-540fbcee28f5eb98",
   "nw-543699f9d6e819f3",
   "nw-547877284942582f",
   "nw-549b3087c18ded93",
@@ -2161,6 +2166,7 @@
   "nw-9b077d2b01c883b9",
   "nw-9b1b021e3be210cb",
   "nw-9b273dd01b735ba1",
+  "nw-9b296528433191eb",
   "nw-9b31e16f7fd43aa0",
   "nw-9b33180124652a75",
   "nw-9b39fe5df7e8b208",
@@ -2985,6 +2991,7 @@
   "nw-ddc0a922cd5956b3",
   "nw-dddcd18b7ffbb9e3",
   "nw-de10ceb36424092b",
+  "nw-de23ce83b056da9d",
   "nw-de7c0e6c43950f42",
   "nw-deae3d48b5f6e071",
   "nw-debb13b89ccd98b2",
@@ -4651,10 +4658,11 @@
   "tg-firstsquaw-194284",
   "tg-firstsquaw-194285",
   "tg-firstsquaw-194289",
-  "tg-firstsquaw-194290"
+  "tg-firstsquaw-194290",
+  "tg-firstsquaw-194295"
  ],
  "telegram_last_id": {
   "WalterBloomberg": 38723,
-  "firstsquaw": 194294
+  "firstsquaw": 194302
  }
 }
