@@ -680,6 +680,13 @@
  },
  {
   "bank": "FED",
+  "impact": "Medium",
+  "src": "Forex Factory calendar",
+  "title": "President Trump Speaks",
+  "ts": "2026-11-21T01:00+08:00"
+ },
+ {
+  "bank": "FED",
   "impact": "Low",
   "src": "Forex Factory calendar",
   "title": "FOMC Member Cook Speaks",
