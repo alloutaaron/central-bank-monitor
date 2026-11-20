@@ -65,9 +65,9 @@
   "RBNZ-2025-10-08",
   "RBNZ-2026-04-08"
  ],
- "hourly_last": "2026-11-21T00:47+08:00",
+ "hourly_last": "2026-11-21T01:47+08:00",
  "language_last_run": "2026-10-30T06:15+08:00",
- "last_refresh": "2026-11-21T01:32+08:00",
+ "last_refresh": "2026-11-21T01:47+08:00",
  "probe_day": "2026-11-21",
  "processed_docs": [
   "doc-0040329e474488dc",
@@ -564,6 +564,7 @@
   "nw-0848178dda168772",
   "nw-084b089a9bf2ee4d",
   "nw-084ca72abadb7e05",
+  "nw-087e5b9387944a6e",
   "nw-0889f51a2dbdea13",
   "nw-088a73fbae168a14",
   "nw-089c6f1f84edfba7",
@@ -792,6 +793,7 @@
   "nw-1c640673e18d1146",
   "nw-1c754fe78b9147d3",
   "nw-1cd7f9d85b5469e0",
+  "nw-1cdb5488776888c9",
   "nw-1ce027cba1ba9e9f",
   "nw-1d65ffeea545b016",
   "nw-1d9031607056b7d3",
@@ -1755,6 +1757,7 @@
   "nw-734d06cd3df3f8b9",
   "nw-735c64cfa97cdd18",
   "nw-736a5c06336e8662",
+  "nw-7374f29c8229ec1b",
   "nw-737ce6be4fa5dcb2",
   "nw-73979891ca6d9092",
   "nw-739892ca01b3ff26",
@@ -3046,6 +3049,7 @@
   "nw-dddcd18b7ffbb9e3",
   "nw-de10ceb36424092b",
   "nw-de23ce83b056da9d",
+  "nw-de6405805f63e4f5",
   "nw-de7c0e6c43950f42",
   "nw-deae3d48b5f6e071",
   "nw-debb13b89ccd98b2",
@@ -3615,6 +3619,7 @@
   "tg-WalterBloomberg-38764",
   "tg-WalterBloomberg-38775",
   "tg-WalterBloomberg-38797",
+  "tg-WalterBloomberg-38806",
   "tg-firstsquaw-185109",
   "tg-firstsquaw-185151",
   "tg-firstsquaw-185165",
@@ -4780,10 +4785,11 @@
   "tg-firstsquaw-194653",
   "tg-firstsquaw-194654",
   "tg-firstsquaw-194655",
-  "tg-firstsquaw-194656"
+  "tg-firstsquaw-194656",
+  "tg-firstsquaw-194662"
  ],
  "telegram_last_id": {
-  "WalterBloomberg": 38805,
-  "firstsquaw": 194660
+  "WalterBloomberg": 38813,
+  "firstsquaw": 194668
  }
 }
