@@ -30,11 +30,13 @@
     $("#updated").textContent = `Updated ${dm(u.slice(0, 10))} ${u.slice(11, 16)} SGT` + (ageH > 2 ? " · overdue" : "");
     const stale = m.stale || [], notes = S.order.map(c => S.banks[c]).filter(b => b.access_note);
     const btn = $("#staleBtn"), pop = $("#stalePanel");
-    btn.hidden = false; btn.classList.toggle("bad", stale.length > 0);
-    btn.textContent = stale.length ? `${stale.length} stale` : "Sources";
+    const chk = (m.check && m.check.items) || [];
+    btn.hidden = false; btn.classList.toggle("bad", stale.length > 0 || chk.length > 0);
+    btn.textContent = stale.length ? `${stale.length} stale` : chk.length ? `${chk.length} to check` : "Sources";
     const label = sid => { const [b, ...rest] = sid.split(":"); return (S.banks[b] ? short(b) : b) + " · " + rest.join(":").replace(/-/g, " "); };
     pop.innerHTML = (stale.length ? `<h3>Failed on the latest run</h3><ul>${stale.map(s => `<li><b>${esc(label(s.source))}</b> · last OK ${s.last_ok ? esc(s.last_ok.slice(0, 16).replace("T", " ")) : "never"}</li>`).join("")}</ul>`
                                   : `<h3>Latest run</h3><ul><li>All sources refreshed.</li></ul>`) +
+      (chk.length ? `<h3>Data check: needs a look</h3><ul>${chk.map(t => `<li>${esc(t)}</li>`).join("")}</ul>` : "") +
       `<h3>Known access limits</h3><ul>${notes.map(b => `<li><b>${esc(b.short)}</b> · ${esc(b.access_note)}</li>`).join("")}</ul>`;
     btn.onclick = e => { e.stopPropagation(); pop.hidden = !pop.hidden; btn.setAttribute("aria-expanded", !pop.hidden); };
     document.addEventListener("click", e => { if (!pop.hidden && !pop.contains(e.target)) { pop.hidden = true; btn.setAttribute("aria-expanded", "false"); } });

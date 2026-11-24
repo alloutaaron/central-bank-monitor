@@ -1,21 +1,16 @@
 """Data check, run at the end of every refresh: lists what a person should look
-at, and keeps one GitHub issue in step with that list, so Aaron is emailed
-only when the list changes (new problem, or all clear).
+at and puts that list in the page's Sources panel (docs/data/meta.json "check").
+It sends nothing: no GitHub issue, no email.
 
 * a past meeting with no decision 2+ days later (official data and wires silent)
 * a decision still only "per wires" 7+ days later
 * a policy rate that disagrees with BIS once BIS has data after the last decision
 * a source that has been failing for 3+ days
-
-Without GITHUB_TOKEN (a run on a laptop) the list is printed, nothing is sent.
 """
 from __future__ import annotations
 
 import datetime as dt
-import os
 import re
-
-import requests
 
 from . import rates
 from .common import ROOT, now_sgt, read_json, write_json, FetchError
@@ -69,44 +64,13 @@ def problems(recs: list[dict], today: dt.date) -> list[dict]:
     return sorted(out, key=lambda p: p["key"])
 
 
-def _gh(method: str, path: str, **kw):
-    r = requests.request(method, f"https://api.github.com/repos/{os.environ['GITHUB_REPOSITORY']}{path}", timeout=20,
-                         headers={"Authorization": f"Bearer {os.environ['GITHUB_TOKEN']}", "Accept": "application/vnd.github+json"}, **kw)
-    r.raise_for_status()
-    return r.json() if r.content else None
-
-
 def run(recs: list[dict], today: dt.date):
     found = problems(recs, today)
-    state = read_json(STATE, {}) or {}
-    keys = [p["key"] for p in found]
     for p in found:
         print("check:", p["text"], flush=True)
-    if keys == state.get("keys"):
-        return
-    new = [p for p in found if p["key"] not in set(state.get("keys") or [])]
-    if not os.environ.get("GITHUB_TOKEN"):
-        print(f"check: {len(found)} problem(s); not sent (no GITHUB_TOKEN)", flush=True)
-        return
-    owner = os.environ.get("GITHUB_REPOSITORY_OWNER", "")
-    body = (f"@{owner} the automatic data check found {len(found)} thing(s) to look at "
-            f"(checked {now_sgt():%d %b %H:%M} SGT):\n\n" + "\n".join(f"- {p['text']}" for p in found) +
-            "\n\nThis issue updates itself and closes when everything is clear.")
-    try:
-        issue = state.get("issue")
-        if issue and _gh("GET", f"/issues/{issue}")["state"] != "open":
-            issue = None
-        if found and not issue:
-            issue = _gh("POST", "/issues", json={"title": TITLE, "body": body})["number"]
-        elif found:
-            _gh("PATCH", f"/issues/{issue}", json={"body": body})
-            if new:
-                _gh("POST", f"/issues/{issue}/comments", json={"body": f"@{owner} new:\n" + "\n".join(f"- {p['text']}" for p in new)})
-        elif issue:
-            _gh("POST", f"/issues/{issue}/comments", json={"body": "All clear: nothing needs a look any more."})
-            _gh("PATCH", f"/issues/{issue}", json={"state": "closed"})
-            issue = None
-    except (requests.RequestException, KeyError) as e:
-        print(f"check: could not update the GitHub issue: {e}", flush=True)
-        return
-    write_json(STATE, {"keys": keys, "issue": issue, "updated": now_sgt().isoformat(timespec="minutes")})
+    # Shown in the page's Sources panel; no GitHub issue, so no email (Aaron's request, 2026-11-24).
+    meta_path = ROOT / "docs" / "data" / "meta.json"
+    meta = read_json(meta_path, {}) or {}
+    meta["check"] = {"checked": now_sgt().isoformat(timespec="minutes"), "items": [p["text"] for p in found]}
+    write_json(meta_path, meta, compact=True)
+    write_json(STATE, {"keys": [p["key"] for p in found], "updated": now_sgt().isoformat(timespec="minutes")})

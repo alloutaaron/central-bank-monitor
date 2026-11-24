@@ -47,10 +47,10 @@
   * a rate that disagrees with BIS once BIS has data past the last decision;
   * a source failing for 3+ days.
 
-  When that list changes, it opens or updates one GitHub issue, "Data check:
-  something on the page needs a look", mentioning Aaron, so GitHub emails
-  him. It closes the issue when all is clear. No email means nothing to do.
-  Its last state is kept in `data/check.json`.
+  The list appears in the page's Sources panel (the button then reads
+  **N to check**). It sends no email and opens no GitHub issue (email alerts
+  were switched off at Aaron's request on 2026-11-24). Its last state is kept
+  in `data/check.json`.
 * **"(per wires)" decisions:** for a past meeting with no official decision
   yet, two or more outlets reporting the same move in decision headlines give
   a provisional decision. It is labelled "per wires" and replaced as soon as
