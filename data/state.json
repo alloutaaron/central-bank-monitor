@@ -65,9 +65,9 @@
   "RBNZ-2025-10-08",
   "RBNZ-2026-04-08"
  ],
- "hourly_last": "2026-11-25T07:17+08:00",
+ "hourly_last": "2026-11-25T08:17+08:00",
  "language_last_run": "2026-10-30T06:15+08:00",
- "last_refresh": "2026-11-25T08:03+08:00",
+ "last_refresh": "2026-11-25T08:17+08:00",
  "probe_day": "2026-11-25",
  "processed_docs": [
   "doc-0040329e474488dc",
@@ -485,6 +485,7 @@
   "doc-ffe2cd2862788cce"
  ],
  "seen_items": [
+  "nw-001ab204fc7a4054",
   "nw-004369613d693163",
   "nw-005530d815cad854",
   "nw-0059e95f4975cbf6",
@@ -666,6 +667,7 @@
   "nw-0f224c912e9c2364",
   "nw-0f256a65d1fa8a0d",
   "nw-0f4ca50d3f999927",
+  "nw-0f87dfc062789c58",
   "nw-0f954de6b63a45ba",
   "nw-0fa0a6c4d05b955c",
   "nw-0fa5cbf1374226d0",
@@ -2100,6 +2102,7 @@
   "nw-862527bba11f2690",
   "nw-867ba7311fe6a0c1",
   "nw-8694a087180101f3",
+  "nw-86a10f43518530a4",
   "nw-86bef69d8d3db19e",
   "nw-86e0941378db7b57",
   "nw-86ea0700f66409b6",
@@ -2283,6 +2286,7 @@
   "nw-95784a861aba79fd",
   "nw-957c6ad5f7bfde5f",
   "nw-958a80d4e3d313ce",
+  "nw-9598093367aaa127",
   "nw-95a0d8d523e077da",
   "nw-95ac6f1443ff6d48",
   "nw-95b529db6c9606aa",

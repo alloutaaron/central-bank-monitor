@@ -714,6 +714,13 @@
   "ts": "2026-11-24T20:30+08:00"
  },
  {
+  "bank": "FED",
+  "impact": "Low",
+  "src": "Forex Factory calendar",
+  "title": "FOMC Member Bowman Speaks",
+  "ts": "2026-11-25T20:25+08:00"
+ },
+ {
   "bank": "ECB",
   "impact": "Low",
   "src": "Forex Factory calendar",
